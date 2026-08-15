@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>متابعة الأوبشن</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #00000015;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.add-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 13px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-button:active {
+    transform: scale(0.98);
+}
+
+.table-box {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+th {
+    background: #eeeeee;
+    padding: 13px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.profit {
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.delete-button {
+    background: #e53935;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+.empty {
+    text-align: center;
+    color: #888;
+    padding: 25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📊 متابعة الأوبشن</h1>
+
+
+<div class="form-box">
+
+<div class="form">
+
+<input
+id="stock"
+type="text"
+placeholder="السهم">
+
+<select id="option">
+
+<option value="">اختاري الأوبشن</option>
+
+<option value="Call">
+Call 📈
+</option>
+
+<option value="Put">
+Put 📉
+</option>
+
+</select>
+
+<input
+id="strike"
+type="number"
+step="0.01"
+placeholder="السترايك">
+
+<input
+id="buy"
+type="number"
+step="0.01"
+placeholder="سعر الشراء">
+
+<input
+id="sell"
+type="number"
+step="0.01"
+placeholder="سعر البيع">
+
+</div>
+
+
+<button
+class="add-button"
+onclick="addTrade()">
+
+➕ إضافة الصفقة
+
+</button>
+
+</div>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>السهم</th>
+
+<th>الأوبشن</th>
+
+<th>السترايك</th>
+
+<th>سعر الشراء</th>
+
+<th>سعر البيع</th>
+
+<th>الربح</th>
+
+<th>الأرباح %</th>
+
+<th>حذف</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="tableBody">
+
+<tr>
+
+<td colspan="8" class="empty">
+لا توجد صفقات حتى الآن
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<script>
+
+let trades = [];
+
+
+function addTrade() {
+
+    const stock =
+        document.getElementById("stock").value.trim();
+
+    const option =
+        document.getElementById("option").value;
+
+    const strike =
+        parseFloat(
+            document.getElementById("strike").value
+        );
+
+    const buy =
+        parseFloat(
+            document.getElementById("buy").value
+        );
+
+    const sell =
+        parseFloat(
+            document.getElementById("sell").value
+        );
+
+
+    if (
+        stock === "" ||
+        option === "" ||
+        isNaN(strike) ||
+        isNaN(buy) ||
+        isNaN(sell)
+    ) {
+
+        alert("⚠️ فضلاً أدخلي جميع البيانات");
+
+        return;
+    }
+
+
+    if (buy <= 0) {
+
+        alert("⚠️ سعر الشراء يجب أن يكون أكبر من صفر");
+
+        return;
+    }
+
+
+    const profit = sell - buy;
+
+    const percentage =
+        (profit / buy) * 100;
+
+
+    trades.push({
+
+        stock: stock,
+
+        option: option,
+
+        strike: strike,
+
+        buy: buy,
+
+        sell: sell,
+
+        profit: profit,
+
+        percentage: percentage
+
+    });
+
+
+    displayTrades();
+
+
+    document.getElementById("stock").value = "";
+
+    document.getElementById("option").value = "";
+
+    document.getElementById("strike").value = "";
+
+    document.getElementById("buy").value = "";
+
+    document.getElementById("sell").value = "";
+
+}
+
+
+
+function displayTrades() {
+
+    const tableBody =
+        document.getElementById("tableBody");
+
+
+    tableBody.innerHTML = "";
+
+
+    if (trades.length === 0) {
+
+        tableBody.innerHTML = `
+        
+        <tr>
+        
+        <td colspan="8" class="empty">
+        لا توجد صفقات حتى الآن
+        </td>
+        
+        </tr>
+        
+        `;
+
+        return;
+    }
+
+
+    trades.forEach(function(trade, index) {
+
+
+        const profitClass =
+            trade.profit >= 0
+            ? "green"
+            : "red";
+
+
+        const sign =
+            trade.profit >= 0
+            ? "+"
+            : "";
+
+
+        const percentSign =
+            trade.percentage >= 0
+            ? "+"
+            : "";
+
+
+        const row = `
+
+        <tr>
+
+        <td>
+        ${trade.stock}
+        </td>
+
+        <td>
+        ${trade.option}
+        </td>
+
+        <td>
+        ${trade.strike.toFixed(2)}
+        </td>
+
+        <td>
+        ${trade.buy.toFixed(2)}
+        </td>
+
+        <td>
+        ${trade.sell.toFixed(2)}
+        </td>
+
+        <td class="profit ${profitClass}">
+        ${sign}${trade.profit.toFixed(2)}
+        </td>
+
+        <td class="profit ${profitClass}">
+        ${percentSign}${trade.percentage.toFixed(2)}%
+        </td>
+
+        <td>
+
+        <button
+        class="delete-button"
+        onclick="deleteTrade(${index})">
+
+        حذف
+
+        </button>
+
+        </td>
+
+        </tr>
+
+        `;
+
+
+        tableBody.innerHTML += row;
+
+    });
+
+}
+
+
+
+function deleteTrade(index) {
+
+    trades.splice(index, 1);
+
+    displayTrades();
+
+}
+
+</script>
+
+</body>
+
+</html>
