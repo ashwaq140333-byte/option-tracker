@@ -929,24 +929,30 @@ td{
 }
 
 /* =====================================================
-   الطباعة / PDF
-   التعديل هنا فقط:
-   إخفاء كل عناصر الصفحة والاكتفاء بالتقرير
+   PDF ONLY
 ===================================================== */
+
+@page{
+    size:A4 portrait;
+    margin:7mm;
+}
 
 @media print{
 
+    html,
     body{
-        background:#fff;
-        padding:0;
-        margin:0;
+        width:100%;
+        background:#fff!important;
+        padding:0!important;
+        margin:0!important;
     }
 
-    /*
-       إخفاء كل عناصر الصفحة الأصلية
-       حتى لا يظهر جدول "صفقات هذا الأسبوع"
-       في ملف PDF
-    */
+    body{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    /* إخفاء كل شيء خارج التقرير */
 
     .main-banner,
     .logo-buttons,
@@ -959,106 +965,338 @@ td{
         display:none!important;
     }
 
-    /*
-       التقرير فقط هو الذي يظهر
-    */
-
     .container{
-        width:100%;
-        max-width:none;
-        margin:0;
-        padding:0;
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
     }
+
+    /* =========================
+       التقرير في PDF
+    ========================= */
 
     .report{
         display:block!important;
 
         width:100%!important;
 
+        max-width:none!important;
+
         margin:0!important;
+
+        padding:0!important;
 
         border:0!important;
 
-        padding:10px!important;
+        border-radius:0!important;
 
         box-shadow:none!important;
 
+        overflow:visible!important;
+
         background:#fff!important;
+
+        color:#000!important;
     }
+
+    /* =========================
+       الشعار أعلى PDF
+       مستطيل أسود
+    ========================= */
 
     .report::before{
-        opacity:.065!important;
+        content:"";
 
-        top:250px;
+        display:block;
 
-        width:600px;
-        height:600px;
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        transform:none;
+
+        width:100%;
+
+        height:105px;
+
+        margin:0 0 8px 0;
+
+        background-color:#000!important;
+
+        background-image:url("IMG_1.jpg")!important;
+
+        background-repeat:no-repeat!important;
+
+        background-position:center!important;
+
+        background-size:cover!important;
+
+        opacity:1!important;
+
+        border-radius:0!important;
+
+        z-index:5;
+
+        pointer-events:none;
     }
 
-    .report-banner{
-        display:none!important;
+    .report > *{
+        position:relative;
+        z-index:1;
     }
 
     .report h2{
-        font-size:36px!important;
-        font-weight:900!important;
+        font-size:25px!important;
+
+        line-height:1.1!important;
+
+        margin:8px 0 4px!important;
+
+        color:#111!important;
     }
 
     .report-period{
-        font-size:20px!important;
-        font-weight:900!important;
+        font-size:13px!important;
+
+        line-height:1.2!important;
+
+        margin-bottom:5px!important;
+
+        color:#333!important;
     }
 
+    /* =========================
+       الإحصائيات PDF
+    ========================= */
+
     .stats{
-        gap:14px!important;
+        display:grid!important;
+
+        grid-template-columns:repeat(3,1fr)!important;
+
+        gap:6px!important;
+
+        margin:8px 0!important;
     }
 
     .stat{
-        padding:18px!important;
+        min-height:58px!important;
 
-        min-height:115px!important;
+        height:auto!important;
+
+        padding:6px 3px!important;
+
+        border-radius:6px!important;
+
+        font-size:10px!important;
 
         box-shadow:
-            0 4px 0 rgba(0,0,0,.2),
-            0 8px 15px rgba(0,0,0,.13)!important;
+            0 2px 0 rgba(0,0,0,.15)!important;
+
+        border:1px solid #c5ced0!important;
     }
 
     .stat strong,
     .profit-main,
     .profit-times{
-        font-size:34px!important;
-        font-weight:900!important;
+        font-size:17px!important;
+
+        margin-top:4px!important;
+
+        line-height:1!important;
     }
 
+    .profit-times{
+        margin-top:3px!important;
+    }
+
+    /* =========================
+       جدول PDF
+    ========================= */
+
     .report-table{
+        width:100%!important;
+
         overflow:visible!important;
-        padding:8px 0 14px!important;
+
+        padding:4px 0 6px!important;
+
+        margin:0!important;
     }
 
     .report-table table{
         width:100%!important;
+
         min-width:0!important;
 
-        box-shadow:
-            0 4px 0 rgba(0,0,0,.16),
-            0 10px 20px rgba(0,0,0,.12)!important;
+        max-width:100%!important;
+
+        table-layout:fixed!important;
+
+        border-collapse:collapse!important;
+
+        border-spacing:0!important;
+
+        border-radius:4px!important;
+
+        overflow:visible!important;
+
+        box-shadow:none!important;
+
+        border:1px solid #8f9da0!important;
+
+        page-break-inside:auto!important;
+    }
+
+    .report-table thead{
+        display:table-header-group;
+    }
+
+    .report-table tr{
+        page-break-inside:avoid!important;
+
+        page-break-after:auto!important;
     }
 
     .report-table th{
-        font-size:20px!important;
+        font-size:8.5px!important;
+
+        line-height:1.05!important;
+
         font-weight:900!important;
-        padding:15px!important;
+
+        padding:5px 2px!important;
+
+        height:27px!important;
+
+        white-space:normal!important;
+
+        word-break:break-word!important;
+
+        overflow-wrap:anywhere!important;
+
+        border:1px solid #9daaad!important;
+
+        background:#dbe5e7!important;
+
+        color:#111!important;
     }
 
     .report-table td{
-        font-size:20px!important;
+        font-size:8.5px!important;
+
+        line-height:1.05!important;
+
         font-weight:900!important;
-        padding:15px!important;
+
+        padding:5px 2px!important;
+
+        height:27px!important;
+
+        white-space:normal!important;
+
+        word-break:break-word!important;
+
+        overflow-wrap:anywhere!important;
+
+        border:1px solid #aebabc!important;
+
         color:#000!important;
+
+        background:#fff!important;
     }
 
+    .report-table .win-row td{
+        background:#e1f3e7!important;
+    }
+
+    .report-table .stopped-row td{
+        background:#def5f8!important;
+    }
+
+    .report-table .loss-row td{
+        background:#f8dfdf!important;
+    }
+
+    /* توزيع أعمدة الجدول حتى لا يخرج */
+
+    .report-table th:nth-child(1),
+    .report-table td:nth-child(1){
+        width:13%;
+    }
+
+    .report-table th:nth-child(2),
+    .report-table td:nth-child(2){
+        width:9%;
+    }
+
+    .report-table th:nth-child(3),
+    .report-table td:nth-child(3){
+        width:10%;
+    }
+
+    .report-table th:nth-child(4),
+    .report-table td:nth-child(4){
+        width:10%;
+    }
+
+    .report-table th:nth-child(5),
+    .report-table td:nth-child(5){
+        width:10%;
+    }
+
+    .report-table th:nth-child(6),
+    .report-table td:nth-child(6){
+        width:11%;
+    }
+
+    .report-table th:nth-child(7),
+    .report-table td:nth-child(7){
+        width:9%;
+    }
+
+    .report-table th:nth-child(8),
+    .report-table td:nth-child(8){
+        width:12%;
+    }
+
+    .report-table th:nth-child(9),
+    .report-table td:nth-child(9){
+        width:16%;
+    }
+
+    /* =========================
+       التنويه PDF
+    ========================= */
+
     .report-note{
-        font-size:16px!important;
+        margin-top:6px!important;
+
+        padding:7px 8px!important;
+
+        font-size:9px!important;
+
+        line-height:1.45!important;
+
+        font-weight:900!important;
+
+        border:1px solid #c7d1d3!important;
+
+        border-radius:5px!important;
+
+        box-shadow:none!important;
+
+        background:#f1f5f5!important;
+
+        color:#222!important;
+    }
+
+    /* إخفاء أزرار التقرير */
+
+    .report-actions{
+        display:none!important;
     }
 
 }
@@ -1191,10 +1429,6 @@ td{
 
 <div class="container">
 
-<!-- =========================
-     البنر الرئيسي
-========================= -->
-
 <div class="main-banner">
 
 <img
@@ -1255,10 +1489,6 @@ class="theme-menu no-print">
 </button>
 
 </div>
-
-<!-- =========================
-     النموذج
-========================= -->
 
 <div class="form-box no-print">
 
@@ -1370,10 +1600,6 @@ onclick="addTrade()">
 
 </div>
 
-<!-- =========================
-     الجدول الرئيسي
-========================= -->
-
 <div class="table-box">
 
 <h3 style="text-align:center">
@@ -1404,10 +1630,6 @@ onclick="addTrade()">
 </table>
 
 </div>
-
-<!-- =========================
-     فلترة التقرير
-========================= -->
 
 <div class="report-filter no-print">
 
@@ -1483,10 +1705,6 @@ onclick="showReport()">
 
 </div>
 
-<!-- =====================================================
-     التقرير
-===================================================== -->
-
 <div id="report" class="report">
 
 <h2>
@@ -1531,10 +1749,6 @@ onclick="setReportTheme('theme-report-beige')">
 </button>
 
 </div>
-
-<!-- =========================
-     الإحصائيات
-========================= -->
 
 <div class="stats">
 
@@ -1598,28 +1812,16 @@ $0
 
 </div>
 
-<!-- =========================
-     جدول التقرير
-========================= -->
-
 <div
 id="reportTable"
 class="report-table">
 </div>
-
-<!-- =========================
-     التنويه
-========================= -->
 
 <div class="report-note">
 
 تنويه: الأسعار الموضحة في هذا التقرير تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
 
 </div>
-
-<!-- =========================
-     أزرار التقرير
-========================= -->
 
 <div class="report-actions no-print">
 
