@@ -2,317 +2,999 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>متابعة الأوبشن</title>
 
 <style>
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f6fa;
-    margin: 0;
-    padding: 20px;
+/* =========================
+   الثيم الأساسي
+========================= */
+
+:root {
+
+    --bg: #f5f6fa;
+
+    --card: #ffffff;
+
+    --text: #222222;
+
+    --secondary: #777777;
+
+    --border: #dddddd;
+
+    --button: #222222;
+
+    --buttonText: #ffffff;
+
+    --header: #eeeeee;
+
+    --accent: #333333;
+
 }
+
+
+/* =========================
+   Midnight
+========================= */
+
+body.midnight {
+
+    --bg: #0b0d12;
+    --card: #151922;
+    --text: #f4f4f4;
+    --secondary: #9da3af;
+    --border: #292e38;
+    --button: #d4af37;
+    --buttonText: #111111;
+    --header: #202631;
+    --accent: #d4af37;
+
+}
+
+
+/* =========================
+   Cyber Blue
+========================= */
+
+body.cyber {
+
+    --bg: #06111f;
+    --card: #0d1b2d;
+    --text: #e8f4ff;
+    --secondary: #8fa8c0;
+    --border: #193653;
+    --button: #168cff;
+    --buttonText: white;
+    --header: #132b45;
+    --accent: #168cff;
+
+}
+
+
+/* =========================
+   Titanium
+========================= */
+
+body.titanium {
+
+    --bg: #25272b;
+    --card: #34373c;
+    --text: #f1f1f1;
+    --secondary: #b9bdc3;
+    --border: #50545b;
+    --button: #aeb4bd;
+    --buttonText: #111111;
+    --header: #41454b;
+    --accent: #cbd0d6;
+
+}
+
+
+/* =========================
+   Trading Green
+========================= */
+
+body.trading {
+
+    --bg: #06140e;
+    --card: #0d2118;
+    --text: #e7fff1;
+    --secondary: #91b5a0;
+    --border: #1b4931;
+    --button: #18a558;
+    --buttonText: white;
+    --header: #153523;
+    --accent: #18a558;
+
+}
+
+
+/* =========================
+   Neon Purple
+========================= */
+
+body.purple {
+
+    --bg: #100819;
+    --card: #1c1029;
+    --text: #f8ecff;
+    --secondary: #bda8c8;
+    --border: #3d2450;
+    --button: #9b4dff;
+    --buttonText: white;
+    --header: #29163a;
+    --accent: #b56cff;
+
+}
+
+
+/* =========================
+   Black Gold
+========================= */
+
+body.gold {
+
+    --bg: #080808;
+    --card: #151515;
+    --text: #f5f1df;
+    --secondary: #aaa38b;
+    --border: #3b3521;
+    --button: #c9a227;
+    --buttonText: #111111;
+    --header: #242017;
+    --accent: #c9a227;
+
+}
+
+
+/* =========================
+   Deep Ocean
+========================= */
+
+body.ocean {
+
+    --bg: #04151d;
+    --card: #09242e;
+    --text: #e7fbff;
+    --secondary: #8cb4be;
+    --border: #164552;
+    --button: #19a9c5;
+    --buttonText: white;
+    --header: #10343e;
+    --accent: #19a9c5;
+
+}
+
+
+/* =========================
+   Market Red
+========================= */
+
+body.market {
+
+    --bg: #100808;
+    --card: #1d1010;
+    --text: #fff0f0;
+    --secondary: #bd9999;
+    --border: #482020;
+    --button: #c83232;
+    --buttonText: white;
+    --header: #321717;
+    --accent: #e04a4a;
+
+}
+
+
+/* =========================
+   الصفحة
+========================= */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    margin: 0;
+
+    padding: 20px;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+
+}
+
 
 .container {
+
     max-width: 1100px;
+
     margin: auto;
+
 }
+
+
+/* الشعار */
 
 .logo {
-    width: 80px;
-    height: 80px;
+
+    width: 70px;
+
+    height: 70px;
+
     object-fit: contain;
+
     display: block;
+
     margin: 0 auto 8px;
+
 }
+
 
 h1 {
+
     text-align: center;
+
     margin-bottom: 20px;
+
 }
+
+
+/* =========================
+   زر الثيمات
+========================= */
+
+.theme-button {
+
+    display: block;
+
+    margin: 0 auto 20px;
+
+    padding: 10px 18px;
+
+    background: var(--button);
+
+    color: var(--buttonText);
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================
+   قائمة الثيمات
+========================= */
+
+.theme-menu {
+
+    display: none;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.theme-menu.show {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+
+    gap: 10px;
+
+}
+
+
+.theme-menu button {
+
+    padding: 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   نموذج إدخال الصفقات
+========================= */
 
 .form-box {
-    background: white;
+
+    background: var(--card);
+
     padding: 20px;
+
     border-radius: 15px;
-    box-shadow: 0 3px 10px #00000015;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 3px 15px #00000020;
+
 }
 
+
 .form {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
     gap: 10px;
+
 }
+
 
 input,
 select {
+
     width: 100%;
+
     padding: 12px;
-    border: 1px solid #ddd;
+
+    border: 1px solid var(--border);
+
     border-radius: 8px;
+
     font-size: 15px;
+
     box-sizing: border-box;
-    background: white;
+
+    background: var(--card);
+
+    color: var(--text);
+
 }
+
 
 .add-button {
+
     margin-top: 15px;
+
     width: 100%;
+
     padding: 13px;
-    background: #222;
-    color: white;
+
+    background: var(--button);
+
+    color: var(--buttonText);
+
     border: none;
+
     border-radius: 9px;
+
     font-size: 16px;
+
     cursor: pointer;
+
 }
+
+
+/* =========================
+   الجدول
+========================= */
 
 .table-box {
+
     margin-top: 20px;
-    background: white;
+
+    background: var(--card);
+
     padding: 15px;
+
     border-radius: 15px;
+
+    border: 1px solid var(--border);
+
     overflow-x: auto;
+
 }
+
 
 table {
+
     width: 100%;
+
     min-width: 850px;
+
     border-collapse: collapse;
+
 }
+
 
 th {
-    background: #eeeeee;
+
+    background: var(--header);
+
+    color: var(--text);
+
     padding: 13px;
+
 }
+
 
 td {
+
     padding: 12px;
+
     text-align: center;
-    border-bottom: 1px solid #eeeeee;
+
+    border-bottom:
+        1px solid var(--border);
+
 }
+
 
 .profit {
+
     font-weight: bold;
+
 }
+
 
 .green {
-    color: green;
+
+    color: #20c979;
+
 }
+
 
 .red {
-    color: red;
+
+    color: #ff5555;
+
 }
+
 
 .delete-button {
-    background: #e53935;
+
+    background: #d93636;
+
     color: white;
+
     border: none;
+
     border-radius: 7px;
+
     padding: 7px 12px;
+
     cursor: pointer;
+
 }
 
+
 .empty {
+
     text-align: center;
-    color: #888;
+
+    color: var(--secondary);
+
     padding: 25px;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <div class="container">
 
-<img src="./IMG_6426.jpeg" class="logo">
+
+<img
+src="./IMG_6426.jpeg"
+class="logo"
+>
+
 
 <h1>متابعة الأوبشن</h1>
 
+
+<button
+class="theme-button"
+onclick="toggleThemes()">
+
+🎨 الثيمات
+
+</button>
+
+
+<div
+id="themeMenu"
+class="theme-menu">
+
+
+<button onclick="setTheme('midnight')">
+🖤 Midnight
+</button>
+
+
+<button onclick="setTheme('cyber')">
+💙 Cyber Blue
+</button>
+
+
+<button onclick="setTheme('titanium')">
+🩶 Titanium
+</button>
+
+
+<button onclick="setTheme('trading')">
+🟢 Trading Green
+</button>
+
+
+<button onclick="setTheme('purple')">
+🟣 Neon Purple
+</button>
+
+
+<button onclick="setTheme('gold')">
+🟡 Black Gold
+</button>
+
+
+<button onclick="setTheme('ocean')">
+🌊 Deep Ocean
+</button>
+
+
+<button onclick="setTheme('market')">
+🔴 Market Red
+</button>
+
+
+</div>
+
+
 <div class="form-box">
+
 
 <div class="form">
 
-<input id="stock" type="text" placeholder="السهم">
+
+<input
+id="stock"
+type="text"
+placeholder="السهم"
+>
+
 
 <select id="option">
 
-<option value="">اختر الأوبشن</option>
+<option value="">
+اختر الأوبشن
+</option>
 
-<option value="Call">Call 📈</option>
+<option value="Call">
+Call 📈
+</option>
 
-<option value="Put">Put 📉</option>
+<option value="Put">
+Put 📉
+</option>
 
 </select>
 
-<input id="strike" type="number" step="0.01" placeholder="السترايك">
 
-<input id="buy" type="number" step="0.01" placeholder="سعر الشراء">
+<input
+id="strike"
+type="number"
+step="0.01"
+placeholder="السترايك"
+>
 
-<input id="sell" type="number" step="0.01" placeholder="سعر البيع">
+
+<input
+id="buy"
+type="number"
+step="0.01"
+placeholder="سعر الشراء"
+>
+
+
+<input
+id="sell"
+type="number"
+step="0.01"
+placeholder="سعر البيع"
+>
+
 
 </div>
 
-<button class="add-button" onclick="addTrade()">
+
+<button
+class="add-button"
+onclick="addTrade()">
+
 ➕ إضافة الصفقة
+
 </button>
 
+
 </div>
+
 
 <div class="table-box">
 
+
 <table>
+
 
 <thead>
 
 <tr>
 
 <th>السهم</th>
+
 <th>الأوبشن</th>
+
 <th>السترايك</th>
+
 <th>سعر الشراء</th>
+
 <th>سعر البيع</th>
+
 <th>الربح</th>
+
 <th>الأرباح %</th>
+
 <th>حذف</th>
 
 </tr>
 
 </thead>
 
+
 <tbody id="tableBody">
 
+
 <tr>
-<td colspan="8" class="empty">
+
+<td
+colspan="8"
+class="empty">
+
 لا توجد صفقات حتى الآن
+
 </td>
+
 </tr>
+
 
 </tbody>
 
+
 </table>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 <script>
 
+
+/* =========================
+   الثيمات
+========================= */
+
+function toggleThemes() {
+
+    const menu =
+        document.getElementById("themeMenu");
+
+    menu.classList.toggle("show");
+
+}
+
+
+function setTheme(theme) {
+
+    document.body.className = theme;
+
+    localStorage.setItem(
+        "optionTheme",
+        theme
+    );
+
+    document
+        .getElementById("themeMenu")
+        .classList.remove("show");
+
+}
+
+
+const savedTheme =
+    localStorage.getItem("optionTheme");
+
+
+if (savedTheme) {
+
+    document.body.className =
+        savedTheme;
+
+}
+
+
+/* =========================
+   الصفقات
+========================= */
+
 let trades = [];
+
 
 function addTrade() {
 
+
     const stock =
-        document.getElementById("stock").value.trim();
+        document
+        .getElementById("stock")
+        .value
+        .trim();
+
 
     const option =
-        document.getElementById("option").value;
+        document
+        .getElementById("option")
+        .value;
+
 
     const strike =
-        parseFloat(document.getElementById("strike").value);
+        parseFloat(
+            document
+            .getElementById("strike")
+            .value
+        );
+
 
     const buy =
-        parseFloat(document.getElementById("buy").value);
+        parseFloat(
+            document
+            .getElementById("buy")
+            .value
+        );
+
 
     const sell =
-        parseFloat(document.getElementById("sell").value);
+        parseFloat(
+            document
+            .getElementById("sell")
+            .value
+        );
+
 
     if (
+
         stock === "" ||
+
         option === "" ||
+
         isNaN(strike) ||
+
         isNaN(buy) ||
+
         isNaN(sell)
+
     ) {
 
-        alert("⚠️ فضلاً أدخلي جميع البيانات");
+        alert(
+            "⚠️ فضلاً أدخل جميع البيانات"
+        );
+
         return;
+
     }
+
 
     if (buy <= 0) {
 
-        alert("⚠️ سعر الشراء يجب أن يكون أكبر من صفر");
+        alert(
+            "⚠️ سعر الشراء يجب أن يكون أكبر من صفر"
+        );
+
         return;
+
     }
 
-    const profit = sell - buy;
 
-    const percentage = (profit / buy) * 100;
+    const profit =
+        sell - buy;
+
+
+    const percentage =
+        (profit / buy) * 100;
+
 
     trades.push({
+
         stock,
+
         option,
+
         strike,
+
         buy,
+
         sell,
+
         profit,
+
         percentage
+
     });
+
 
     displayTrades();
 
-    document.getElementById("stock").value = "";
-    document.getElementById("option").value = "";
-    document.getElementById("strike").value = "";
-    document.getElementById("buy").value = "";
-    document.getElementById("sell").value = "";
+
+    document
+        .getElementById("stock")
+        .value = "";
+
+
+    document
+        .getElementById("option")
+        .value = "";
+
+
+    document
+        .getElementById("strike")
+        .value = "";
+
+
+    document
+        .getElementById("buy")
+        .value = "";
+
+
+    document
+        .getElementById("sell")
+        .value = "";
+
 }
+
 
 function displayTrades() {
 
+
     const tableBody =
-        document.getElementById("tableBody");
+        document
+        .getElementById("tableBody");
+
 
     tableBody.innerHTML = "";
 
+
     if (trades.length === 0) {
 
+
         tableBody.innerHTML = `
+
         <tr>
-        <td colspan="8" class="empty">
+
+        <td
+        colspan="8"
+        class="empty">
+
         لا توجد صفقات حتى الآن
+
         </td>
+
         </tr>
+
         `;
 
+
         return;
+
     }
 
-    trades.forEach(function(trade, index) {
+
+    trades.forEach(
+        function(trade, index) {
+
 
         const profitClass =
-            trade.profit >= 0 ? "green" : "red";
+
+            trade.profit >= 0
+
+            ? "green"
+
+            : "red";
+
 
         const sign =
-            trade.profit >= 0 ? "+" : "";
+
+            trade.profit >= 0
+
+            ? "+"
+
+            : "";
+
 
         const percentSign =
-            trade.percentage >= 0 ? "+" : "";
+
+            trade.percentage >= 0
+
+            ? "+"
+
+            : "";
+
 
         const row = `
+
         <tr>
 
-        <td>${trade.stock}</td>
-
-        <td>${trade.option}</td>
-
-        <td>${trade.strike.toFixed(2)}</td>
-
-        <td>${trade.buy.toFixed(2)}</td>
-
-        <td>${trade.sell.toFixed(2)}</td>
-
-        <td class="profit ${profitClass}">
-        ${sign}${trade.profit.toFixed(2)}
+        <td>
+        ${trade.stock}
         </td>
 
-        <td class="profit ${profitClass}">
+        <td>
+        ${trade.option}
+        </td>
+
+        <td>
+        ${trade.strike.toFixed(2)}
+        </td>
+
+        <td>
+        ${trade.buy.toFixed(2)}
+        </td>
+
+        <td>
+        ${trade.sell.toFixed(2)}
+        </td>
+
+        <td
+        class="profit ${profitClass}">
+
+        ${sign}${trade.profit.toFixed(2)}
+
+        </td>
+
+        <td
+        class="profit ${profitClass}">
+
         ${percentSign}${trade.percentage.toFixed(2)}%
+
         </td>
 
         <td>
@@ -328,12 +1010,17 @@ function displayTrades() {
         </td>
 
         </tr>
+
         `;
+
 
         tableBody.innerHTML += row;
 
+
     });
+
 }
+
 
 function deleteTrade(index) {
 
@@ -342,6 +1029,7 @@ function deleteTrade(index) {
     displayTrades();
 
 }
+
 
 </script>
 
