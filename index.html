@@ -499,8 +499,7 @@ td{
 <img
 src="./IMG_6426.jpeg"
 class="logo"
-alt="Q Option"
->
+alt="Q Option">
 
 <h1>Q Option</h1>
 
@@ -512,9 +511,7 @@ onclick="toggleThemes()">
 🎨 الثيمات
 </button>
 
-<div
-id="themeMenu"
-class="theme-menu">
+<div id="themeMenu" class="theme-menu">
 
 <button onclick="setTheme('')">🤍 Pure White</button>
 <button onclick="setTheme('turquoise')">🩵 Ice Turquoise</button>
@@ -586,6 +583,7 @@ class="theme-menu">
 <table>
 
 <thead>
+
 <tr>
 <th>السهم</th>
 <th>الأوبشن</th>
@@ -598,6 +596,7 @@ class="theme-menu">
 <th>%</th>
 <th class="no-print">حذف</th>
 </tr>
+
 </thead>
 
 <tbody id="tableBody">
@@ -642,8 +641,7 @@ class="theme-menu">
 
 </div>
 
-<div
-style="
+<div style="
 margin-top:15px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -721,11 +719,15 @@ alt="Q Option">
 
 <div class="report-actions no-print">
 
-<button class="report-action" onclick="printReport()">
+<button
+class="report-action"
+onclick="printReport()">
 📄 PDF
 </button>
 
-<button class="report-action" onclick="saveReportImage()">
+<button
+class="report-action"
+onclick="saveReportImage()">
 🖼️ صورة التقرير
 </button>
 
@@ -755,7 +757,7 @@ function toggleThemes(){
 
 function setTheme(theme){
 
-    document.body.className = theme;
+    document.body.className=theme;
 
     localStorage.setItem(
         "optionTheme",
@@ -773,10 +775,7 @@ const savedTheme =
 localStorage.getItem("optionTheme");
 
 if(savedTheme !== null){
-
-    document.body.className =
-    savedTheme;
-
+    document.body.className=savedTheme;
 }
 
 function formatDate(date){
@@ -785,78 +784,67 @@ function formatDate(date){
         return "-";
     }
 
-    const parts =
-    date.split("-");
+    const parts=date.split("-");
 
-    if(parts.length !== 3){
+    if(parts.length!==3){
         return date;
     }
 
-    return (
-        parts[2] +
-        "/" +
-        parts[1] +
-        "/" +
-        parts[0]
-    );
+    return parts[2]+"/"+parts[1]+"/"+parts[0];
 }
 
 function toInputDate(date){
 
-    const y =
-    date.getFullYear();
+    const y=date.getFullYear();
 
-    const m =
-    String(
+    const m=String(
         date.getMonth()+1
     ).padStart(2,"0");
 
-    const d =
-    String(
+    const d=String(
         date.getDate()
     ).padStart(2,"0");
 
     return y+"-"+m+"-"+d;
-
 }
 
 function addTrade(){
 
-    const stock =
+    const stock=
     document.getElementById("stock").value.trim();
 
-    const option =
+    const option=
     document.getElementById("option").value;
 
-    const strike =
+    const strike=
     parseFloat(
         document.getElementById("strike").value
     );
 
-    const buy =
+    const buy=
     parseFloat(
         document.getElementById("buy").value
     );
 
-    const sell =
+    const sell=
     parseFloat(
         document.getElementById("sell").value
     );
 
-    const startDate =
+    const startDate=
     document.getElementById("startDate").value;
 
-    const endDate =
+    const endDate=
     document.getElementById("endDate").value;
 
     if(
-        stock === "" ||
-        option === "" ||
+        stock==="" ||
+        option==="" ||
         isNaN(strike) ||
         isNaN(buy) ||
         isNaN(sell) ||
-        startDate === "" ||
-        endDate === ""
+        startDate==="" ||
+        endDate===""
     ){
 
         alert(
@@ -866,7 +854,7 @@ function addTrade(){
         return;
     }
 
-    if(endDate < startDate){
+    if(endDate<startDate){
 
         alert(
             "⚠️ تاريخ النهاية يجب أن يكون بعد تاريخ البداية"
@@ -875,7 +863,7 @@ function addTrade(){
         return;
     }
 
-    if(buy <= 0){
+    if(buy<=0){
 
         alert(
             "⚠️ سعر الشراء يجب أن يكون أكبر من صفر"
@@ -884,29 +872,26 @@ function addTrade(){
         return;
     }
 
-    const profit =
-    sell - buy;
+    const profit=sell-buy;
 
-    const percentage =
-    (profit / buy) * 100;
+    const percentage=(profit/buy)*100;
 
     trades.push({
 
         id:Date.now(),
-        stock:stock,
-        option:option,
-        strike:strike,
-        buy:buy,
-        sell:sell,
-        startDate:startDate,
-        endDate:endDate,
-        profit:profit,
-        percentage:percentage
+        stock,
+        option,
+        strike,
+        buy,
+        sell,
+        startDate,
+        endDate,
+        profit,
+        percentage
 
     });
 
     saveTrades();
-
     displayTrades();
 
     document.getElementById("stock").value="";
@@ -930,7 +915,7 @@ function saveTrades(){
 
 function getStatus(trade){
 
-    if(Number(trade.sell) === 0){
+    if(Number(trade.sell)===0){
 
         return {
             name:"خاسرة",
@@ -941,9 +926,8 @@ function getStatus(trade){
     }
 
     if(
-        Number(trade.sell) <
-        Number(trade.buy) &&
-        Number(trade.sell) > 0
+        Number(trade.sell)<Number(trade.buy) &&
+        Number(trade.sell)>0
     ){
 
         return {
@@ -975,7 +959,7 @@ function escapeHTML(value){
 
 function displayTrades(){
 
-    const body =
+    const body=
     document.getElementById("tableBody");
 
     body.innerHTML="";
@@ -985,11 +969,9 @@ function displayTrades(){
         body.innerHTML=`
 
         <tr>
-
         <td colspan="10" class="empty">
         لا توجد صفقات حتى الآن
         </td>
-
         </tr>
 
         `;
@@ -997,38 +979,28 @@ function displayTrades(){
         return;
     }
 
-    trades.forEach(
-    function(t,index){
+    trades.forEach(function(t,index){
 
-        const status =
-        getStatus(t);
+        const status=getStatus(t);
 
-        body.innerHTML += `
+        body.innerHTML+=`
 
         <tr>
 
         <td>${escapeHTML(t.stock)}</td>
-
         <td>${escapeHTML(t.option)}</td>
-
         <td>${Number(t.strike).toFixed(2)}</td>
-
         <td>${Number(t.buy).toFixed(2)}</td>
-
         <td>${Number(t.sell).toFixed(2)}</td>
-
         <td>${formatDate(t.startDate)}</td>
-
         <td>${formatDate(t.endDate)}</td>
 
         <td class="${status.textClass}">
-        ${t.profit >= 0 ? "+" : ""}
-        ${Number(t.profit).toFixed(2)}
+        ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
         </td>
 
         <td class="${status.textClass}">
-        ${t.percentage >= 0 ? "+" : ""}
-        ${Number(t.percentage).toFixed(2)}%
+        ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
         </td>
 
         <td class="no-print">
@@ -1036,9 +1008,7 @@ function displayTrades(){
         <button
         class="delete-button"
         onclick="deleteTrade(${index})">
-
         حذف
-
         </button>
 
         </td>
@@ -1053,84 +1023,65 @@ function displayTrades(){
 
 function deleteTrade(index){
 
-    if(
-        !confirm("هل تريد حذف هذه الصفقة؟")
-    ){
-
+    if(!confirm("هل تريد حذف هذه الصفقة؟")){
         return;
-
     }
 
     trades.splice(index,1);
 
     saveTrades();
-
     displayTrades();
 
 }
 
 function getWeekRange(offset){
 
-    const now =
-    new Date();
+    const now=new Date();
 
     now.setHours(0,0,0,0);
 
-    const day =
-    now.getDay();
+    const day=now.getDay();
 
-    const diff =
-    day === 0 ? 6 : day - 1;
+    const diff=day===0?6:day-1;
 
-    const monday =
-    new Date(now);
+    const monday=new Date(now);
 
     monday.setDate(
-        now.getDate() -
-        diff +
-        (offset * 7)
+        now.getDate()-diff+(offset*7)
     );
 
-    const sunday =
-    new Date(monday);
+    const sunday=new Date(monday);
 
     sunday.setDate(
         monday.getDate()+6
     );
 
     return {
-
         start:toInputDate(monday),
         end:toInputDate(sunday)
-
     };
 
 }
 
 function getMonthRange(offset){
 
-    const now =
-    new Date();
+    const now=new Date();
 
-    const first =
-    new Date(
+    const first=new Date(
         now.getFullYear(),
         now.getMonth()+offset,
         1
     );
 
-    const last =
-    new Date(
+    const last=new Date(
         now.getFullYear(),
         now.getMonth()+offset+1,
         0
     );
 
     return {
-
         start:toInputDate(first),
         end:toInputDate(last)
-
     };
 
 }
@@ -1140,40 +1091,29 @@ function setReportPeriod(type,button){
     document
     .querySelectorAll(".filter-button")
     .forEach(
-        b =>
-        b.classList.remove("active")
+        b=>b.classList.remove("active")
     );
 
     if(button){
-
         button.classList.add("active");
-
     }
 
     let range;
 
-    if(type === "thisWeek"){
-
+    if(type==="thisWeek"){
         range=getWeekRange(0);
-
     }
 
-    else if(type === "lastWeek"){
-
+    else if(type==="lastWeek"){
         range=getWeekRange(-1);
-
     }
 
-    else if(type === "thisMonth"){
-
+    else if(type==="thisMonth"){
         range=getMonthRange(0);
-
     }
 
-    else if(type === "lastMonth"){
-
+    else if(type==="lastMonth"){
         range=getMonthRange(-1);
-
     }
 
     else{
@@ -1182,7 +1122,6 @@ function setReportPeriod(type,button){
         document.getElementById("reportEnd").value="";
 
         return;
-
     }
 
     document.getElementById("reportStart").value=range.start;
@@ -1192,112 +1131,95 @@ function setReportPeriod(type,button){
 
 function getFilteredTrades(){
 
-    const start =
+    const start=
     document.getElementById("reportStart").value;
 
-    const end =
+    const end=
     document.getElementById("reportEnd").value;
 
-    if(!start && !end){
-
+    if(!start&&!end){
         return trades;
-
     }
 
-    return trades.filter(
-        function(t){
+    return trades.filter(function(t){
 
-            const tradeStart =
-            t.startDate || "";
+        const tradeStart=t.startDate||"";
+        const tradeEnd=t.endDate||"";
 
-            const tradeEnd =
-            t.endDate || "";
+        return(
+            tradeStart<=end &&
+            tradeEnd>=start
+        );
 
-            return(
-                tradeStart <= end &&
-                tradeEnd >= start
-            );
-
-        }
-    );
+    });
 
 }
 
 function showReport(){
 
-    const start =
+    const start=
     document.getElementById("reportStart").value;
 
-    const end =
+    const end=
     document.getElementById("reportEnd").value;
 
-    if(!start || !end){
+    if(!start||!end){
 
         alert(
             "⚠️ اختاري فترة التقرير أولاً"
         );
 
         return;
-
     }
 
-    if(end < start){
+    if(end<start){
 
         alert(
             "⚠️ تاريخ نهاية التقرير غير صحيح"
         );
 
         return;
-
     }
 
-    const filtered =
-    getFilteredTrades();
+    const filtered=getFilteredTrades();
 
     document
     .getElementById("report")
     .classList
     .add("show");
 
-    const total =
-    filtered.length;
+    const total=filtered.length;
 
-    const winners =
+    const winners=
     filtered.filter(
-        t =>
-        Number(t.sell) >
-        Number(t.buy)
+        t=>Number(t.sell)>Number(t.buy)
     ).length;
 
-    const stopped =
+    const stopped=
     filtered.filter(
-        t =>
-        Number(t.sell) <
-        Number(t.buy) &&
-        Number(t.sell) > 0
+        t=>
+        Number(t.sell)<Number(t.buy) &&
+        Number(t.sell)>0
     ).length;
 
-    const losers =
+    const losers=
     filtered.filter(
-        t =>
-        Number(t.sell) === 0
+        t=>Number(t.sell)===0
     ).length;
 
-    const net =
+    const net=
     filtered.reduce(
-        (sum,t)=>
-        sum+Number(t.profit),
+        (sum,t)=>sum+Number(t.profit),
         0
     );
 
-    const average =
+    const average=
     total
     ?
     filtered.reduce(
-        (sum,t)=>
-        sum+Number(t.percentage),
+        (sum,t)=>sum+Number(t.percentage),
         0
-    ) / total
+    )/total
     :
     0;
 
@@ -1306,26 +1228,20 @@ function showReport(){
     document.getElementById("stoppedTrades").textContent=stopped;
     document.getElementById("losingTrades").textContent=losers;
 
-    const netElement =
+    const netElement=
     document.getElementById("netProfit");
 
     netElement.textContent=
-    (net>=0 ? "+" : "")+
-    net.toFixed(2);
+    (net>=0?"+":"")+net.toFixed(2);
 
     netElement.className=
-    net>=0 ? "green" : "red";
+    net>=0?"green":"red";
 
-    document
-    .getElementById("averagePercent")
-    .textContent=
-    (average>=0 ? "+" : "")+
-    average.toFixed(2)+
-    "%";
+    document.getElementById("averagePercent").textContent=
+    (average>=0?"+":"")+
+    average.toFixed(2)+"%";
 
-    document
-    .getElementById("reportPeriod")
-    .textContent=
+    document.getElementById("reportPeriod").textContent=
     "من "+
     formatDate(start)+
     " إلى "+
@@ -1338,7 +1254,6 @@ function showReport(){
     <thead>
 
     <tr>
-
     <th>السهم</th>
     <th>الأوبشن</th>
     <th>السترايك</th>
@@ -1349,7 +1264,6 @@ function showReport(){
     <th>الربح</th>
     <th>%</th>
     <th>الحالة</th>
-
     </tr>
 
     </thead>
@@ -1363,25 +1277,19 @@ function showReport(){
         html+=`
 
         <tr>
-
         <td colspan="10"
-        style="padding:30px;text-align:center;">
-
+        style="padding:30px;text-align:center">
         لا توجد صفقات في هذه الفترة
-
         </td>
-
         </tr>
 
         `;
 
     }
 
-    filtered.forEach(
-    function(t){
+    filtered.forEach(function(t){
 
-        const status=
-        getStatus(t);
+        const status=getStatus(t);
 
         html+=`
 
@@ -1396,13 +1304,11 @@ function showReport(){
         <td>${formatDate(t.endDate)}</td>
 
         <td>
-        ${t.profit>=0 ? "+" : ""}
-        ${Number(t.profit).toFixed(2)}
+        ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
         </td>
 
         <td>
-        ${t.percentage>=0 ? "+" : ""}
-        ${Number(t.percentage).toFixed(2)}%
+        ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
         </td>
 
         <td>${status.name}</td>
@@ -1414,16 +1320,11 @@ function showReport(){
     });
 
     html+=`
-
     </tbody>
-
     </table>
-
     `;
 
-    document
-    .getElementById("reportTable")
-    .innerHTML=html;
+    document.getElementById("reportTable").innerHTML=html;
 
     document
     .getElementById("report")
@@ -1436,65 +1337,56 @@ function showReport(){
 
 function printReport(){
 
-    const report =
+    const report=
     document.getElementById("report");
 
     if(!report.classList.contains("show")){
-
         showReport();
-
     }
 
-    setTimeout(
-        function(){
-
-            window.print();
-
-        },
-        500
-    );
+    setTimeout(function(){
+        window.print();
+    },500);
 
 }
 
-/* =====================================================
+
+/* =========================================================
    صورة التقرير
-===================================================== */
+   يعمل بدون Blob
+   ومناسب لـ Safari / iPhone / iPad / Mac / Chrome
+========================================================= */
 
 function saveReportImage(){
 
-    const start =
+    const start=
     document.getElementById("reportStart").value;
 
-    const end =
+    const end=
     document.getElementById("reportEnd").value;
 
-    if(!start || !end){
+    if(!start||!end){
 
         alert(
             "⚠️ اختاري فترة التقرير أولاً"
         );
 
         return;
-
     }
 
-    const filtered =
-    getFilteredTrades();
+    const filtered=getFilteredTrades();
 
-    const canvas =
-    document.createElement("canvas");
+    const canvas=document.createElement("canvas");
 
-    const ctx =
-    canvas.getContext("2d");
+    const ctx=canvas.getContext("2d");
 
     if(!ctx){
 
         alert(
-            "❌ المتصفح لا يدعم إنشاء صورة التقرير"
+            "❌ المتصفح لا يدعم إنشاء الصورة."
         );
 
         return;
-
     }
 
     const width=1600;
@@ -1505,18 +1397,17 @@ function saveReportImage(){
     const rowHeight=70;
     const bottomHeight=70;
 
-    const totalRows=
-    Math.max(filtered.length,1);
+    const totalRows=Math.max(filtered.length,1);
 
     canvas.width=width;
 
     canvas.height=
-    bannerHeight+
-    titleHeight+
-    statsHeight+
-    headerHeight+
-    (totalRows*rowHeight)+
-    bottomHeight;
+        bannerHeight+
+        titleHeight+
+        statsHeight+
+        headerHeight+
+        (totalRows*rowHeight)+
+        bottomHeight;
 
     ctx.fillStyle="#ffffff";
 
@@ -1527,6 +1418,8 @@ function saveReportImage(){
         canvas.height
     );
 
+    /* البنر */
+
     ctx.fillStyle="#000000";
 
     ctx.fillRect(
@@ -1536,7 +1429,52 @@ function saveReportImage(){
         bannerHeight
     );
 
-    function drawReport(){
+    const logo=new Image();
+
+    logo.onload=function(){
+
+        try{
+
+            const logoSize=150;
+
+            ctx.drawImage(
+                logo,
+                (width-logoSize)/2,
+                (bannerHeight-logoSize)/2,
+                logoSize,
+                logoSize
+            );
+
+        }
+        catch(e){
+
+            console.log(
+                "Logo drawing skipped",
+                e
+            );
+
+        }
+
+        drawReportCanvas();
+
+    };
+
+    logo.onerror=function(){
+
+        drawReportCanvas();
+
+    };
+
+    /*
+     * مهم:
+     * استخدام المسار النسبي نفسه
+     * الموجود في الصفحة.
+     */
+
+    logo.src="./IMG_6426.jpeg";
+
+
+    function drawReportCanvas(){
 
         let y=bannerHeight;
 
@@ -1575,40 +1513,39 @@ function saveReportImage(){
 
         y+=titleHeight;
 
-        const winningCount =
+
+        /* الإحصائيات */
+
+        const winningCount=
         filtered.filter(
-            t =>
-            Number(t.sell)>Number(t.buy)
+            t=>Number(t.sell)>Number(t.buy)
         ).length;
 
-        const stoppedCount =
+        const stoppedCount=
         filtered.filter(
-            t =>
-            Number(t.sell)<Number(t.buy) &&
+            t=>
+            Number(t.sell)<Number(t.buy)&&
             Number(t.sell)>0
         ).length;
 
-        const losingCount =
+        const losingCount=
         filtered.filter(
-            t =>
-            Number(t.sell)===0
+            t=>Number(t.sell)===0
         ).length;
 
-        const net =
+        const net=
         filtered.reduce(
-            (sum,t)=>
-            sum+Number(t.profit),
+            (sum,t)=>sum+Number(t.profit),
             0
         );
 
-        const average =
+        const average=
         filtered.length
         ?
         filtered.reduce(
-            (sum,t)=>
-            sum+Number(t.percentage),
+            (sum,t)=>sum+Number(t.percentage),
             0
-        ) / filtered.length
+        )/filtered.length
         :
         0;
 
@@ -1621,19 +1558,19 @@ function saveReportImage(){
             ],
 
             [
-                "الرابحة",
+                "🟢 الرابحة",
                 winningCount,
                 "#dff5e7"
             ],
 
             [
-                "الموقوفة",
+                "🩵 الموقوفة",
                 stoppedCount,
                 "#dff7fb"
             ],
 
             [
-                "الخاسرة",
+                "🔴 الخاسرة",
                 losingCount,
                 "#ffe1e1"
             ],
@@ -1641,23 +1578,25 @@ function saveReportImage(){
             [
                 "صافي الربح",
                 (net>=0?"+":"")+net.toFixed(2),
-                net>=0 ? "#dff5e7" : "#ffe1e1"
+                net>=0?"#dff5e7":"#ffe1e1"
             ],
 
             [
                 "متوسط %",
                 (average>=0?"+":"")+average.toFixed(2)+"%",
-                average>=0 ? "#dff5e7" : "#ffe1e1"
+                average>=0?"#dff5e7":"#ffe1e1"
             ]
 
         ];
 
         const statColumns=3;
-        const statWidth=width/statColumns;
+
+        const statWidth=
+        width/statColumns;
+
         const statHeight=125;
 
-        statsData.forEach(
-        function(stat,index){
+        statsData.forEach(function(stat,index){
 
             const row=
             Math.floor(index/statColumns);
@@ -1669,8 +1608,7 @@ function saveReportImage(){
             column*statWidth;
 
             const boxY=
-            y+
-            row*statHeight;
+            y+row*statHeight;
 
             ctx.fillStyle=stat[2];
 
@@ -1703,6 +1641,9 @@ function saveReportImage(){
 
         y+=statsHeight;
 
+
+        /* رأس الجدول */
+
         const columns=[
 
             "السهم",
@@ -1734,8 +1675,7 @@ function saveReportImage(){
 
         ctx.font="bold 20px Arial";
 
-        columns.forEach(
-        function(column,index){
+        columns.forEach(function(column,index){
 
             ctx.fillText(
                 column,
@@ -1748,6 +1688,9 @@ function saveReportImage(){
         });
 
         y+=headerHeight;
+
+
+        /* لا توجد صفقات */
 
         if(filtered.length===0){
 
@@ -1763,26 +1706,21 @@ function saveReportImage(){
 
         }
 
-        filtered.forEach(
-        function(t){
 
-            const status=
-            getStatus(t);
+        /* الصفوف */
+
+        filtered.forEach(function(t){
+
+            const status=getStatus(t);
 
             if(status.name==="رابحة"){
-
                 ctx.fillStyle="#dff5e7";
-
             }
             else if(status.name==="موقوفة"){
-
                 ctx.fillStyle="#dff7fb";
-
             }
             else{
-
                 ctx.fillStyle="#ffe1e1";
-
             }
 
             ctx.fillRect(
@@ -1813,18 +1751,17 @@ function saveReportImage(){
 
                 (
                     Number(t.profit)>=0
-                    ? "+"
-                    : ""
+                    ?"+"
+                    :""
                 )+
                 Number(t.profit).toFixed(2),
 
                 (
                     Number(t.percentage)>=0
-                    ? "+"
-                    : ""
+                    ?"+"
+                    :""
                 )+
-                Number(t.percentage).toFixed(2)+
-                "%",
+                Number(t.percentage).toFixed(2)+"%",
 
                 status.name
 
@@ -1834,8 +1771,7 @@ function saveReportImage(){
 
             ctx.font="18px Arial";
 
-            values.forEach(
-            function(value,index){
+            values.forEach(function(value,index){
 
                 ctx.fillText(
                     String(value),
@@ -1851,6 +1787,9 @@ function saveReportImage(){
 
         });
 
+
+        /* أسفل التقرير */
+
         ctx.textAlign="center";
 
         ctx.fillStyle="#777777";
@@ -1863,275 +1802,32 @@ function saveReportImage(){
             canvas.height-30
         );
 
-        exportCanvasImage();
+
+        /*
+         * هنا الإصلاح الأساسي:
+         *
+         * لا نستخدم Blob
+         * ولا WebkitBlobResource
+         *
+         * نحول Canvas إلى Data URL
+         * ثم نفتح صفحة مستقلة للصورة.
+         */
+
+        openImagePage();
 
     }
 
-    const logo=
-    new Image();
 
-    let logoFinished=false;
+    function openImagePage(){
 
-    function continueOnce(){
-
-        if(logoFinished){
-
-            return;
-
-        }
-
-        logoFinished=true;
-
-        drawReport();
-
-    }
-
-    logo.onload=function(){
+        let dataURL;
 
         try{
 
-            const logoSize=150;
-
-            const x=
-            (width-logoSize)/2;
-
-            const y=
-            (bannerHeight-logoSize)/2;
-
-            ctx.drawImage(
-                logo,
-                x,
-                y,
-                logoSize,
-                logoSize
-            );
-
-        }
-        catch(error){
-
-            console.error(error);
-
-        }
-
-        continueOnce();
-
-    };
-
-    logo.onerror=function(){
-
-        console.warn(
-            "تعذر تحميل الشعار، سيتم إنشاء التقرير بدونه."
-        );
-
-        continueOnce();
-
-    };
-
-    logo.src="./IMG_6426.jpeg";
-
-    function exportCanvasImage(){
-
-        try{
-
-            const dataURL =
+            dataURL=
             canvas.toDataURL(
                 "image/png"
             );
-
-            if(
-                !dataURL ||
-                dataURL.indexOf("data:image/png") !== 0
-            ){
-
-                throw new Error(
-                    "تعذر تحويل التقرير إلى PNG"
-                );
-
-            }
-
-            const link =
-            document.createElement("a");
-
-            link.href=dataURL;
-
-            link.download=
-            "Q-Option-Report-" +
-            start +
-            "-to-" +
-            end +
-            ".png";
-
-            link.style.display="none";
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            document.body.removeChild(link);
-
-            setTimeout(
-            function(){
-
-                alert(
-                    "🖼️ تم تجهيز صورة التقرير. إذا لم يبدأ الحفظ تلقائياً، يمكنك فتح الصورة وحفظها يدوياً."
-                );
-
-                if(
-                    /iPhone|iPad|iPod/i.test(
-                        navigator.userAgent
-                    )
-                ){
-
-                    const opened =
-                    window.open(
-                        dataURL,
-                        "_blank"
-                    );
-
-                    if(!opened){
-
-                        showImageFallback(
-                            dataURL
-                        );
-
-                    }
-
-                }
-
-            },
-            500
-            );
-
-        }
-        catch(error){
-
-            console.error(
-                "Image export error:",
-                error
-            );
-
-            try{
-
-                const fallbackURL =
-                canvas.toDataURL(
-                    "image/png"
-                );
-
-                showImageFallback(
-                    fallbackURL
-                );
-
-            }
-            catch(secondError){
-
-                console.error(
-                    secondError
-                );
-
-                alert(
-                    "❌ تعذر إنشاء صورة التقرير. جربي تحديث الصفحة ثم المحاولة مرة أخرى."
-                );
-
-            }
-
-        }
-
-    }
-
-    function showImageFallback(dataURL){
-
-        try{
-
-            const win =
-            window.open(
-                "",
-                "_blank"
-            );
-
-            if(!win){
-
-                alert(
-                    "⚠️ المتصفح منع فتح الصورة. اسمحي بالنوافذ المنبثقة ثم جربي مرة أخرى."
-                );
-
-                return;
-
-            }
-
-            win.document.open();
-
-            win.document.write(`
-
-            <!DOCTYPE html>
-
-            <html lang="ar" dir="rtl">
-
-            <head>
-
-            <meta charset="UTF-8">
-
-            <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1.0">
-
-            <title>Q Option - التقرير</title>
-
-            <style>
-
-            body{
-                margin:0;
-                padding:15px;
-                background:#eeeeee;
-                text-align:center;
-                font-family:Arial,sans-serif;
-            }
-
-            img{
-                max-width:100%;
-                height:auto;
-                display:block;
-                margin:0 auto 20px;
-                background:#ffffff;
-            }
-
-            .save{
-                display:inline-block;
-                padding:13px 22px;
-                background:#111111;
-                color:#ffffff;
-                border-radius:10px;
-                text-decoration:none;
-                font-size:16px;
-            }
-
-            </style>
-
-            </head>
-
-            <body>
-
-            <img
-            src="${dataURL}"
-            alt="Q Option Report">
-
-            <br>
-
-            <a
-            class="save"
-            href="${dataURL}"
-            download="Q-Option-Report.png">
-
-            🖼️ حفظ الصورة
-
-            </a>
-
-            </body>
-
-            </html>
-
-            `);
-
-            win.document.close();
 
         }
         catch(error){
@@ -2139,10 +1835,278 @@ function saveReportImage(){
             console.error(error);
 
             alert(
-                "❌ تعذر عرض صورة التقرير."
+                "❌ تعذر إنشاء صورة التقرير."
             );
 
+            return;
         }
+
+        if(
+            !dataURL ||
+            dataURL.indexOf("data:image/png")!==0
+        ){
+
+            alert(
+                "❌ تعذر تحويل التقرير إلى صورة."
+            );
+
+            return;
+        }
+
+
+        /*
+         * نفتح نافذة جديدة.
+         * هذا هو الأكثر توافقاً مع Safari.
+         */
+
+        const newWindow=
+        window.open(
+            "",
+            "_blank"
+        );
+
+        if(!newWindow){
+
+            /*
+             * إذا منع Safari النافذة،
+             * نعرض الصورة داخل نفس الصفحة.
+             */
+
+            showImageInCurrentPage(dataURL);
+
+            return;
+        }
+
+
+        newWindow.document.open();
+
+        newWindow.document.write(`
+
+<!DOCTYPE html>
+
+<html
+lang="ar"
+dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Q Option - صورة التقرير</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    padding:20px;
+
+    background:#eeeeee;
+
+    font-family:
+    Arial,
+    sans-serif;
+
+    text-align:center;
+
+}
+
+h2{
+
+    margin:5px 0 15px;
+
+    color:#222;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    height:auto;
+
+    margin:0 auto 20px;
+
+    background:white;
+
+    box-shadow:
+    0 4px 20px #0002;
+
+}
+
+.actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+button,
+a{
+
+    display:inline-block;
+
+    padding:13px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#222;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.info{
+
+    margin-top:15px;
+
+    color:#555;
+
+    font-size:14px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🖼️ Q Option — صورة التقرير</h2>
+
+<img
+id="reportImage"
+src="${dataURL}"
+alt="Q Option Report">
+
+<div class="actions">
+
+<a
+href="${dataURL}"
+download="Q-Option-Report-${start}-to-${end}.png">
+
+🖼️ حفظ الصورة
+
+</a>
+
+<button
+onclick="window.print()">
+
+📄 طباعة / PDF
+
+</button>
+
+</div>
+
+<div class="info">
+
+في Safari على الآيفون:
+اضغطي مطولاً على الصورة ثم اختاري
+«حفظ في الصور».
+
+</div>
+
+</body>
+
+</html>
+
+        `);
+
+        newWindow.document.close();
+
+    }
+
+
+    /*
+     * احتياط إذا منع المتصفح window.open
+     */
+
+    function showImageInCurrentPage(dataURL){
+
+        const oldHTML=
+        document.body.innerHTML;
+
+        document.body.innerHTML=`
+
+        <div
+        style="
+        min-height:100vh;
+        background:#eeeeee;
+        padding:20px;
+        text-align:center;
+        font-family:Arial,sans-serif;
+        ">
+
+        <h2>
+        🖼️ Q Option — صورة التقرير
+        </h2>
+
+        <img
+        src="${dataURL}"
+        style="
+        max-width:100%;
+        height:auto;
+        background:white;
+        display:block;
+        margin:20px auto;
+        ">
+
+        <button
+        onclick="location.reload()"
+        style="
+        padding:13px 20px;
+        background:#222;
+        color:white;
+        border:none;
+        border-radius:10px;
+        font-size:16px;
+        ">
+
+        ↩️ الرجوع للتقرير
+
+        </button>
+
+        <p
+        style="
+        color:#555;
+        font-size:14px;
+        ">
+
+        في Safari:
+        اضغطي مطولاً على الصورة ثم اختاري
+        «حفظ في الصور».
+
+        </p>
+
+        </div>
+
+        `;
 
     }
 
