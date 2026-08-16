@@ -2,326 +2,427 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Q Option</title>
 
 <style>
 :root{
-    --bg:#f5f7f8;
-    --card:#fff;
-    --text:#202427;
-    --secondary:#707b80;
-    --border:#dfe5e8;
-    --button:#202a2e;
-    --buttonText:#fff;
-    --header:#dceff0;
+ --bg:#f5f7f8;
+ --card:#fff;
+ --text:#202427;
+ --secondary:#707b80;
+ --border:#dfe5e8;
+ --button:#202a2e;
+ --buttonText:#fff;
+ --header:#dceff0
 }
 
-body.turquoise{--bg:#f0fbfc;--card:#fff;--text:#183034;--secondary:#6d858a;--border:#d4eeee;--button:#159da6;--buttonText:#fff;--header:#cfeef1}
-body.mint{--bg:#f2faf6;--card:#fff;--text:#20332a;--secondary:#71847a;--border:#d9ebe1;--button:#39976c;--buttonText:#fff;--header:#d9eee3}
-body.pink{--bg:#fff5f8;--card:#fff;--text:#39252c;--secondary:#8d7680;--border:#efdce4;--button:#d66f94;--buttonText:#fff;--header:#f6dce6}
-body.lavender{--bg:#f8f5fc;--card:#fff;--text:#30283a;--secondary:#80758d;--border:#e6deef;--button:#8964b5;--buttonText:#fff;--header:#e9def3}
-body.silver{--bg:#f3f5f6;--card:#fff;--text:#292d31;--secondary:#737b81;--border:#dde1e4;--button:#69737b;--buttonText:#fff;--header:#e2e6e8}
+body.turquoise{--bg:#f0fbfc;--text:#183034;--secondary:#6d858a;--border:#d4eeee;--button:#159da6;--header:#cfeef1}
+body.mint{--bg:#f2faf6;--text:#20332a;--secondary:#71847a;--border:#d9ebe1;--button:#39976c;--header:#d9eee3}
+body.pink{--bg:#fff5f8;--text:#39252c;--secondary:#8d7680;--border:#efdce4;--button:#d66f94;--header:#f6dce6}
+body.lavender{--bg:#f8f5fc;--text:#30283a;--secondary:#80758d;--border:#e6deef;--button:#8964b5;--header:#e9def3}
+body.silver{--bg:#f3f5f6;--text:#292d31;--secondary:#737b81;--border:#dde1e4;--button:#69737b;--header:#e2e6e8}
 body.midnight{--bg:#090c11;--card:#151a22;--text:#f3f5f7;--secondary:#9da5ae;--border:#292f39;--button:#d5b044;--buttonText:#111;--header:#202631}
-body.navy{--bg:#07111f;--card:#0e1b2d;--text:#edf6ff;--secondary:#8da3b8;--border:#1b3450;--button:#398bd5;--buttonText:#fff;--header:#142a42}
-body.emerald{--bg:#06150f;--card:#0d2118;--text:#e9fff2;--secondary:#8fac9b;--border:#1b4932;--button:#24a866;--buttonText:#fff;--header:#153725}
-body.darkpurple{--bg:#10091a;--card:#1c1029;--text:#f8efff;--secondary:#b5a4c1;--border:#3b2450;--button:#9656d8;--buttonText:#fff;--header:#2b173d}
+body.navy{--bg:#07111f;--card:#0e1b2d;--text:#edf6ff;--secondary:#8da3b8;--border:#1b3450;--button:#398bd5;--header:#142a42}
+body.emerald{--bg:#06150f;--card:#0d2118;--text:#e9fff2;--secondary:#8fac9b;--border:#1b4932;--button:#24a866;--header:#153725}
+body.darkpurple{--bg:#10091a;--card:#1c1029;--text:#f8efff;--secondary:#b5a4c1;--border:#3b2450;--button:#9656d8;--header:#2b173d}
 
 *{box-sizing:border-box}
 
 body{
-    margin:0;
-    padding:20px;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,Tahoma,sans-serif;
+ margin:0;
+ padding:20px;
+ background:var(--bg);
+ color:var(--text);
+ font-family:Arial,Tahoma,sans-serif
 }
 
 .container{
-    max-width:1150px;
-    margin:auto;
+ max-width:1150px;
+ margin:auto
 }
 
 .logo{
-    width:130px;
-    height:130px;
-    object-fit:contain;
-    display:block;
-    margin:0 auto 5px;
+ width:130px;
+ height:130px;
+ object-fit:contain;
+ display:block;
+ margin:0 auto 5px
+}
+
+.logo-fallback{
+ width:130px;
+ height:130px;
+ margin:0 auto 5px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:80px;
+ font-weight:bold
 }
 
 h1{
-    text-align:center;
-    margin:0 0 20px;
-    font-size:32px;
+ text-align:center;
+ margin:0 0 20px;
+ font-size:32px
 }
 
 button,input,select{
-    font-family:inherit;
+ font-family:inherit
 }
 
 .theme-button,
-.report-button{
-    display:block;
-    margin:0 auto 12px;
-    padding:12px 22px;
-    background:var(--button);
-    color:var(--buttonText);
-    border:0;
-    border-radius:11px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:bold;
+.report-button,
+.history-button{
+ display:block;
+ margin:0 auto 12px;
+ padding:12px 22px;
+ background:var(--button);
+ color:var(--buttonText);
+ border:0;
+ border-radius:11px;
+ cursor:pointer;
+ font-size:15px;
+ font-weight:bold
 }
 
 .theme-menu{
-    display:none;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:15px;
-    margin-bottom:20px;
-    gap:10px;
+ display:none;
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:15px;
+ margin-bottom:20px;
+ gap:10px
 }
 
 .theme-menu.show{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(130px,1fr))
 }
 
 .theme-menu button{
-    padding:12px;
-    border:1px solid var(--border);
-    border-radius:10px;
-    background:var(--card);
-    color:var(--text);
-    cursor:pointer;
+ padding:12px;
+ border:1px solid var(--border);
+ border-radius:10px;
+ background:var(--card);
+ color:var(--text);
+ cursor:pointer
 }
 
 .form-box,
 .table-box,
 .report-filter,
-.report{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:20px;
+.report,
+.history-box{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:20px
 }
 
 .form{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:12px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:12px
 }
 
 .field{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
+ display:flex;
+ flex-direction:column;
+ gap:6px
 }
 
 .field label{
-    font-size:13px;
-    font-weight:bold;
-    color:var(--secondary);
+ font-size:13px;
+ font-weight:bold;
+ color:var(--secondary)
 }
 
 input,select{
-    width:100%;
-    padding:12px;
-    border:1px solid var(--border);
-    border-radius:9px;
-    background:var(--card);
-    color:var(--text);
-    font-size:15px;
+ width:100%;
+ padding:12px;
+ border:1px solid var(--border);
+ border-radius:9px;
+ background:var(--card);
+ color:var(--text);
+ font-size:15px
 }
 
 .add-button{
-    width:100%;
-    margin-top:16px;
-    padding:14px;
-    background:var(--button);
-    color:var(--buttonText);
-    border:0;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+ width:100%;
+ margin-top:16px;
+ padding:14px;
+ background:var(--button);
+ color:var(--buttonText);
+ border:0;
+ border-radius:10px;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer
 }
 
 .table-box{
-    margin-top:20px;
-    overflow-x:auto;
+ margin-top:20px;
+ overflow-x:auto
 }
 
 table{
-    width:100%;
-    min-width:1050px;
-    border-collapse:collapse;
+ width:100%;
+ min-width:1050px;
+ border-collapse:collapse
 }
 
 th{
-    background:var(--header);
-    padding:13px;
+ background:var(--header);
+ padding:13px
 }
 
 td{
-    padding:12px;
-    text-align:center;
-    border-bottom:1px solid var(--border);
+ padding:12px;
+ text-align:center;
+ border-bottom:1px solid var(--border)
 }
 
-.green{color:#13894e;font-weight:bold}
-.orange{color:#00879c;font-weight:bold}
-.red{color:#d62f2f;font-weight:bold}
+.green{
+ color:#13894e;
+ font-weight:bold
+}
+
+.orange{
+ color:#00879c;
+ font-weight:bold
+}
+
+.red{
+ color:#d62f2f;
+ font-weight:bold
+}
 
 .delete-button{
-    background:#d93636;
-    color:#fff;
-    border:0;
-    border-radius:7px;
-    padding:7px 12px;
-    cursor:pointer;
+ background:#d93636;
+ color:#fff;
+ border:0;
+ border-radius:7px;
+ padding:7px 12px;
+ cursor:pointer
 }
 
 .empty{
-    text-align:center;
-    color:var(--secondary);
-    padding:25px;
+ text-align:center;
+ color:var(--secondary);
+ padding:25px
 }
 
-.report-filter{
-    margin-top:20px;
+.report-filter,
+.history-box{
+ margin-top:20px
 }
 
-.report-filter h3{
-    text-align:center;
+.report-filter h3,
+.history-box h3{
+ text-align:center
 }
 
 .filter-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:10px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+ gap:10px
 }
 
 .filter-button{
-    padding:11px;
-    border:0;
-    border-radius:9px;
-    background:var(--header);
-    color:var(--text);
-    cursor:pointer;
-    font-weight:bold;
+ padding:11px;
+ border:0;
+ border-radius:9px;
+ background:var(--header);
+ color:var(--text);
+ cursor:pointer;
+ font-weight:bold
 }
 
 .filter-button.active{
-    background:var(--button);
-    color:var(--buttonText);
+ background:var(--button);
+ color:var(--buttonText)
 }
 
 .report{
-    display:none;
-    margin-top:20px;
-    background:#fff !important;
-    color:#222 !important;
+ display:none;
+ margin-top:20px;
+ background:#fff!important;
+ color:#222!important
 }
 
 .report.show{
-    display:block;
+ display:block
 }
 
 .report-banner{
-    height:150px;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:12px;
-    overflow:hidden;
+ height:150px;
+ background:#000;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ border-radius:12px;
+ overflow:hidden
 }
 
 .report-banner img{
-    width:140px;
-    height:140px;
-    object-fit:contain;
+ width:140px;
+ height:140px;
+ object-fit:contain
+}
+
+.report-banner .fallback{
+ color:#fff;
+ font-size:80px;
+ font-weight:bold
 }
 
 .report h2{
-    text-align:center;
-    color:#222;
+ text-align:center;
+ color:#222
 }
 
 .report-period{
-    text-align:center;
-    color:#666;
+ text-align:center;
+ color:#666
 }
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:10px;
-    margin:20px 0;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ gap:10px;
+ margin:20px 0
 }
 
 .stat{
-    background:#f4f4f4;
-    color:#222;
-    padding:15px;
-    border-radius:11px;
-    text-align:center;
+ background:#f4f4f4;
+ color:#222;
+ padding:15px;
+ border-radius:11px;
+ text-align:center
 }
 
 .stat strong{
-    display:block;
-    font-size:21px;
-    margin-top:7px;
+ display:block;
+ font-size:21px;
+ margin-top:7px
 }
 
 .report-table{
-    overflow-x:auto;
+ overflow-x:auto
 }
 
 .report-table table{
-    background:#fff;
+ background:#fff
 }
 
 .report-table th{
-    background:#d9eef0;
-    color:#17363a;
-    border:1px solid #b9d9dc;
+ background:#d9eef0;
+ color:#17363a;
+ border:1px solid #b9d9dc
 }
 
 .report-table td{
-    border:1px solid #d5d5d5;
-    color:#222;
+ border:1px solid #d5d5d5;
+ color:#222
 }
 
-.win-row td{background:#dff5e7;color:#126b3d}
-.stopped-row td{background:#dff7fb;color:#00788c}
-.loss-row td{background:#ffe1e1;color:#b52222}
+.win-row td{
+ background:#dff5e7;
+ color:#126b3d
+}
+
+.stopped-row td{
+ background:#dff7fb;
+ color:#00788c
+}
+
+.loss-row td{
+ background:#ffe1e1;
+ color:#b52222
+}
 
 .report-actions{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:20px 0;
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ flex-wrap:wrap;
+ margin:20px 0
 }
 
 .report-action{
-    background:#222;
-    color:#fff;
-    border:0;
-    border-radius:9px;
-    padding:12px 18px;
-    cursor:pointer;
-    font-weight:bold;
+ background:#222;
+ color:#fff;
+ border:0;
+ border-radius:9px;
+ padding:12px 18px;
+ cursor:pointer;
+ font-weight:bold
+}
+
+.history-list{
+ display:grid;
+ gap:10px
+}
+
+.history-item{
+ border:1px solid var(--border);
+ border-radius:12px;
+ padding:12px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ flex-wrap:wrap
+}
+
+.history-info{
+ color:var(--text)
+}
+
+.history-actions{
+ display:flex;
+ gap:7px;
+ flex-wrap:wrap
+}
+
+.small-btn{
+ border:0;
+ border-radius:8px;
+ padding:8px 12px;
+ cursor:pointer;
+ font-weight:bold;
+ background:var(--button);
+ color:var(--buttonText)
+}
+
+.small-btn.danger{
+ background:#d93636;
+ color:#fff
+}
+
+.notice{
+ text-align:center;
+ color:var(--secondary);
+ font-size:13px;
+ margin:8px 0 0
 }
 
 @media print{
-    body{background:#fff;padding:0}
-    .no-print{display:none!important}
-    .report{display:block!important;border:0!important}
+ body{
+  background:#fff;
+  padding:0
+ }
+
+ .no-print{
+  display:none!important
+ }
+
+ .report{
+  display:block!important;
+  border:0!important
+ }
 }
 </style>
 </head>
@@ -330,95 +431,235 @@ td{
 
 <div class="container">
 
-<!--
-    إذا عندك صورة شعار:
-    ضعي IMG_6426.jpeg بجانب index.html
--->
-<div style="text-align:center;font-size:55px;margin-bottom:5px">Ⓠ</div>
+<!-- الشعار الأساسي -->
+<div id="logoArea">
+
+<img
+ class="logo"
+ src="IMG_6426.jpeg"
+ alt="Q Option"
+ onerror="
+ this.style.display='none';
+ document.getElementById('logoFallback').style.display='flex'
+ "
+>
+
+<div
+ id="logoFallback"
+ class="logo-fallback"
+ style="display:none"
+>
+Ⓠ
+</div>
+
+</div>
 
 <h1>Q Option</h1>
 
+
 <div class="no-print">
 
-<button class="theme-button" onclick="toggleThemes()">
+<button
+ class="theme-button"
+ onclick="toggleThemes()"
+>
 🎨 الثيمات
 </button>
 
-<div id="themeMenu" class="theme-menu">
+<div
+ id="themeMenu"
+ class="theme-menu"
+>
 
-<button onclick="setTheme('')">🤍 Pure White</button>
-<button onclick="setTheme('turquoise')">🩵 Ice Turquoise</button>
-<button onclick="setTheme('mint')">🌿 Mint</button>
-<button onclick="setTheme('pink')">🩷 Soft Pink</button>
-<button onclick="setTheme('lavender')">💜 Lavender</button>
-<button onclick="setTheme('silver')">🩶 Silver</button>
-<button onclick="setTheme('midnight')">🖤 Midnight</button>
-<button onclick="setTheme('navy')">🌌 Deep Navy</button>
-<button onclick="setTheme('emerald')">🟢 Dark Emerald</button>
-<button onclick="setTheme('darkpurple')">🟣 Dark Purple</button>
+<button onclick="setTheme('')">
+🤍 Pure White
+</button>
+
+<button onclick="setTheme('turquoise')">
+🩵 Ice Turquoise
+</button>
+
+<button onclick="setTheme('mint')">
+🌿 Mint
+</button>
+
+<button onclick="setTheme('pink')">
+🩷 Soft Pink
+</button>
+
+<button onclick="setTheme('lavender')">
+💜 Lavender
+</button>
+
+<button onclick="setTheme('silver')">
+🩶 Silver
+</button>
+
+<button onclick="setTheme('midnight')">
+🖤 Midnight
+</button>
+
+<button onclick="setTheme('navy')">
+🌌 Deep Navy
+</button>
+
+<button onclick="setTheme('emerald')">
+🟢 Dark Emerald
+</button>
+
+<button onclick="setTheme('darkpurple')">
+🟣 Dark Purple
+</button>
 
 </div>
+
 </div>
+
+
+<!-- إدخال صفقة جديدة -->
 
 <div class="form-box no-print">
 
 <div class="form">
 
 <div class="field">
-<label>السهم</label>
-<input id="stock" type="text" placeholder="مثال: TSLA">
+
+<label>
+السهم
+</label>
+
+<input
+ id="stock"
+ type="text"
+ placeholder="مثال: TSLA"
+>
+
 </div>
 
+
 <div class="field">
-<label>الأوبشن</label>
+
+<label>
+الأوبشن
+</label>
 
 <select id="option">
-<option value="">اختر الأوبشن</option>
-<option value="Call">Call 📈</option>
-<option value="Put">Put 📉</option>
+
+<option value="">
+اختر الأوبشن
+</option>
+
+<option value="Call">
+Call 📈
+</option>
+
+<option value="Put">
+Put 📉
+</option>
+
 </select>
 
 </div>
 
-<div class="field">
-<label>السترايك</label>
-<input id="strike" type="number" step="0.01" placeholder="مثال: 300">
-</div>
 
 <div class="field">
-<label>سعر الشراء</label>
-<input id="buy" type="number" step="0.01" placeholder="سعر الشراء">
+
+<label>
+السترايك
+</label>
+
+<input
+ id="strike"
+ type="number"
+ step="0.01"
+ placeholder="مثال: 300"
+>
+
 </div>
+
 
 <div class="field">
-<label>سعر البيع</label>
-<input id="sell" type="number" step="0.01" placeholder="سعر البيع">
+
+<label>
+سعر الشراء
+</label>
+
+<input
+ id="buy"
+ type="number"
+ step="0.01"
+ placeholder="سعر الشراء"
+>
+
 </div>
+
 
 <div class="field">
-<label>تاريخ بداية الصفقة</label>
-<input id="startDate" type="date">
+
+<label>
+سعر البيع
+</label>
+
+<input
+ id="sell"
+ type="number"
+ step="0.01"
+ placeholder="سعر البيع"
+>
+
 </div>
+
 
 <div class="field">
-<label>تاريخ نهاية الصفقة</label>
-<input id="endDate" type="date">
-</div>
+
+<label>
+تاريخ بداية الصفقة
+</label>
+
+<input
+ id="startDate"
+ type="date"
+>
 
 </div>
 
-<button class="add-button" onclick="addTrade()">
+
+<div class="field">
+
+<label>
+تاريخ نهاية الصفقة
+</label>
+
+<input
+ id="endDate"
+ type="date"
+>
+
+</div>
+
+</div>
+
+
+<button
+ class="add-button"
+ onclick="addTrade()"
+>
 ➕ إضافة الصفقة
 </button>
 
 </div>
+
+
+<!-- جدول الصفقات -->
 
 <div class="table-box">
 
 <table>
 
 <thead>
+
 <tr>
+
 <th>السهم</th>
 <th>الأوبشن</th>
 <th>السترايك</th>
@@ -429,7 +670,9 @@ td{
 <th>الربح</th>
 <th>%</th>
 <th class="no-print">حذف</th>
+
 </tr>
+
 </thead>
 
 <tbody id="tableBody"></tbody>
@@ -438,63 +681,166 @@ td{
 
 </div>
 
+
+<!-- التقرير -->
+
 <div class="report-filter no-print">
 
-<h3>📅 اختر فترة التقرير</h3>
+<h3>
+📅 اختر فترة التقرير
+</h3>
+
 
 <div class="filter-grid">
 
-<button class="filter-button" onclick="setReportPeriod('thisWeek',this)">
+<button
+ class="filter-button"
+ onclick="setReportPeriod('thisWeek',this)"
+>
 هذا الأسبوع
 </button>
 
-<button class="filter-button" onclick="setReportPeriod('lastWeek',this)">
+<button
+ class="filter-button"
+ onclick="setReportPeriod('lastWeek',this)"
+>
 الأسبوع السابق
 </button>
 
-<button class="filter-button" onclick="setReportPeriod('thisMonth',this)">
+<button
+ class="filter-button"
+ onclick="setReportPeriod('thisMonth',this)"
+>
 هذا الشهر
 </button>
 
-<button class="filter-button" onclick="setReportPeriod('lastMonth',this)">
+<button
+ class="filter-button"
+ onclick="setReportPeriod('lastMonth',this)"
+>
 الشهر السابق
 </button>
 
-<button class="filter-button" onclick="setReportPeriod('all',this)">
+<button
+ class="filter-button"
+ onclick="setReportPeriod('all',this)"
+>
 كل الصفقات
 </button>
 
 </div>
 
-<div style="margin-top:15px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+
+<div
+ style="
+ margin-top:15px;
+ display:grid;
+ grid-template-columns:
+ repeat(auto-fit,minmax(160px,1fr));
+ gap:10px
+ "
+>
 
 <div class="field">
-<label>من تاريخ</label>
-<input id="reportStart" type="date">
+
+<label>
+من تاريخ
+</label>
+
+<input
+ id="reportStart"
+ type="date"
+>
+
 </div>
+
 
 <div class="field">
-<label>إلى تاريخ</label>
-<input id="reportEnd" type="date">
-</div>
+
+<label>
+إلى تاريخ
+</label>
+
+<input
+ id="reportEnd"
+ type="date"
+>
 
 </div>
 
-<button class="report-button" style="margin-top:15px" onclick="showReport()">
+</div>
+
+
+<button
+ class="report-button"
+ style="margin-top:15px"
+ onclick="showReport()"
+>
 📄 إصدار التقرير
 </button>
 
 </div>
 
-<div id="report" class="report">
 
-<div class="report-banner">
-<div style="color:white;font-size:80px">Ⓠ</div>
+<!-- سجل التقارير -->
+
+<div class="history-box no-print">
+
+<h3>
+🔎 التقارير السابقة
+</h3>
+
+<div
+ id="historyList"
+ class="history-list"
+></div>
+
+<div class="notice">
+يتم حفظ التقارير داخل هذا المتصفح تلقائيًا.
 </div>
 
-<h2>Q Option</h2>
+</div>
 
-<div id="reportPeriod" class="report-period"></div>
+
+<!-- التقرير المعروض -->
+
+<div
+ id="report"
+ class="report"
+>
+
+<div class="report-banner">
+
+<img
+ src="IMG_6426.jpeg"
+ alt="Q Option"
+ onerror="
+ this.style.display='none';
+ document.getElementById('reportFallback').style.display='block'
+ "
+>
+
+<div
+ id="reportFallback"
+ class="fallback"
+ style="display:none"
+>
+Ⓠ
+</div>
+
+</div>
+
+
+<h2>
+Q Option
+</h2>
+
+
+<div
+ id="reportPeriod"
+ class="report-period"
+></div>
+
 
 <div class="stats">
 
@@ -505,58 +851,122 @@ td{
 
 <div class="stat">
 🟢 الرابحة
-<strong id="winningTrades" class="green">0</strong>
+<strong
+ id="winningTrades"
+ class="green"
+>
+0
+</strong>
 </div>
 
 <div class="stat">
 🩵 الموقوفة
-<strong id="stoppedTrades" class="orange">0</strong>
+<strong
+ id="stoppedTrades"
+ class="orange"
+>
+0
+</strong>
 </div>
 
 <div class="stat">
 🔴 الخاسرة
-<strong id="losingTrades" class="red">0</strong>
+<strong
+ id="losingTrades"
+ class="red"
+>
+0
+</strong>
 </div>
 
 <div class="stat">
 صافي الربح / الخسارة
-<strong id="netProfit">0.00</strong>
+<strong id="netProfit">
+0.00
+</strong>
 </div>
 
 <div class="stat">
 متوسط الربح %
-<strong id="averagePercent">0.00%</strong>
+<strong id="averagePercent">
+0.00%
+</strong>
 </div>
 
 </div>
+
 
 <div class="report-actions no-print">
 
-<button class="report-action" onclick="printReport()">
+<button
+ class="report-action"
+ onclick="printReport()"
+>
 📄 PDF
 </button>
 
-<button class="report-action" onclick="saveReportImage()">
+<button
+ class="report-action"
+ onclick="saveReportImage()"
+>
 🖼️ حفظ صورة التقرير
 </button>
 
 </div>
 
-<div id="reportTable" class="report-table"></div>
+
+<div
+ id="reportTable"
+ class="report-table"
+></div>
 
 </div>
 
 </div>
+
 
 <script>
 
+/* =========================
+   البيانات
+========================= */
+
 let trades=[];
 
+let reportHistory=[];
+
+
 try{
-    trades=JSON.parse(localStorage.getItem("optionTrades")||"[]");
-    if(!Array.isArray(trades)) trades=[];
+
+ trades=JSON.parse(
+  localStorage.getItem("optionTrades")||"[]"
+ );
+
+ if(!Array.isArray(trades))
+  trades=[];
+
 }catch(e){
-    trades=[];
+
+ trades=[];
+
+}
+
+
+try{
+
+ reportHistory=JSON.parse(
+  localStorage.getItem(
+   "optionReportHistory"
+  )||"[]"
+ );
+
+ if(!Array.isArray(reportHistory))
+  reportHistory=[];
+
+}catch(e){
+
+ reportHistory=[];
+
 }
 
 
@@ -565,23 +975,39 @@ try{
 ========================= */
 
 function toggleThemes(){
-    document.getElementById("themeMenu").classList.toggle("show");
+
+ document
+ .getElementById("themeMenu")
+ .classList
+ .toggle("show");
+
 }
+
 
 function setTheme(theme){
 
-    document.body.className=theme;
+ document.body.className=theme;
 
-    localStorage.setItem("optionTheme",theme);
+ localStorage.setItem(
+  "optionTheme",
+  theme
+ );
 
-    document.getElementById("themeMenu")
-    .classList.remove("show");
+ document
+ .getElementById("themeMenu")
+ .classList
+ .remove("show");
+
 }
 
-const savedTheme=localStorage.getItem("optionTheme");
+
+const savedTheme=
+localStorage.getItem("optionTheme");
 
 if(savedTheme!==null){
-    document.body.className=savedTheme;
+
+ document.body.className=savedTheme;
+
 }
 
 
@@ -591,188 +1017,30 @@ if(savedTheme!==null){
 
 function formatDate(date){
 
-    if(!date)return "-";
+ if(!date)
+  return "-";
 
-    const parts=date.split("-");
+ const p=date.split("-");
 
-    if(parts.length!==3)return date;
+ if(p.length===3){
 
-    return parts[2]+"/"+parts[1]+"/"+parts[0];
+  return p[2]+"/"+p[1]+"/"+p[0];
+
+ }
+
+ return date;
+
 }
+
 
 function toInputDate(date){
 
-    const y=date.getFullYear();
+ return date.getFullYear()+
+ "-"+
+ String(date.getMonth()+1).padStart(2,"0")+
+ "-"+
+ String(date.getDate()).padStart(2,"0");
 
-    const m=String(date.getMonth()+1).padStart(2,"0");
-
-    const d=String(date.getDate()).padStart(2,"0");
-
-    return y+"-"+m+"-"+d;
-}
-
-
-/* =========================
-   إضافة الصفقة
-========================= */
-
-function addTrade(){
-
-    const stock=
-    document.getElementById("stock").value.trim();
-
-    const option=
-    document.getElementById("option").value;
-
-    const strike=
-    parseFloat(document.getElementById("strike").value);
-
-    const buy=
-    parseFloat(document.getElementById("buy").value);
-
-    const sell=
-    parseFloat(document.getElementById("sell").value);
-
-    const startDate=
-    document.getElementById("startDate").value;
-
-    const endDate=
-    document.getElementById("endDate").value;
-
-
-    if(
-        !stock||
-        !option||
-        isNaN(strike)||
-        isNaN(buy)||
-        isNaN(sell)||
-        !startDate||
-        !endDate
-    ){
-
-        alert("⚠️ فضلاً أدخل جميع بيانات الصفقة والتواريخ");
-
-        return;
-    }
-
-
-    if(endDate<startDate){
-
-        alert("⚠️ تاريخ النهاية يجب أن يكون بعد تاريخ البداية");
-
-        return;
-    }
-
-
-    if(buy<=0){
-
-        alert("⚠️ سعر الشراء يجب أن يكون أكبر من صفر");
-
-        return;
-    }
-
-
-    const profit=sell-buy;
-
-    const percentage=(profit/buy)*100;
-
-
-    trades.push({
-
-        id:Date.now(),
-
-        stock:stock.toUpperCase(),
-
-        option,
-
-        strike,
-
-        buy,
-
-        sell,
-
-        startDate,
-
-        endDate,
-
-        profit,
-
-        percentage
-
-    });
-
-
-    saveTrades();
-
-    displayTrades();
-
-    clearForm();
-}
-
-
-/* =========================
-   تنظيف الحقول
-========================= */
-
-function clearForm(){
-
-    document.getElementById("stock").value="";
-    document.getElementById("option").value="";
-    document.getElementById("strike").value="";
-    document.getElementById("buy").value="";
-    document.getElementById("sell").value="";
-    document.getElementById("startDate").value="";
-    document.getElementById("endDate").value="";
-}
-
-
-/* =========================
-   حفظ
-========================= */
-
-function saveTrades(){
-
-    localStorage.setItem(
-        "optionTrades",
-        JSON.stringify(trades)
-    );
-}
-
-
-/* =========================
-   حالة الصفقة
-========================= */
-
-function getStatus(trade){
-
-    if(Number(trade.sell)===0){
-
-        return{
-            name:"خاسرة",
-            rowClass:"loss-row",
-            textClass:"red"
-        };
-    }
-
-
-    if(
-        Number(trade.sell)<Number(trade.buy)&&
-        Number(trade.sell)>0
-    ){
-
-        return{
-            name:"موقوفة",
-            rowClass:"stopped-row",
-            textClass:"orange"
-        };
-    }
-
-
-    return{
-        name:"رابحة",
-        rowClass:"win-row",
-        textClass:"green"
-    };
 }
 
 
@@ -782,12 +1050,212 @@ function getStatus(trade){
 
 function escapeHTML(value){
 
-    return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+ return String(value)
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   إضافة الصفقة
+========================= */
+
+function addTrade(){
+
+ const stock=
+ document.getElementById("stock")
+ .value.trim();
+
+ const option=
+ document.getElementById("option")
+ .value;
+
+ const strike=
+ parseFloat(
+  document.getElementById("strike")
+  .value
+ );
+
+ const buy=
+ parseFloat(
+  document.getElementById("buy")
+  .value
+ );
+
+ const sell=
+ parseFloat(
+  document.getElementById("sell")
+  .value
+ );
+
+ const startDate=
+ document.getElementById("startDate")
+ .value;
+
+ const endDate=
+ document.getElementById("endDate")
+ .value;
+
+
+ if(
+  !stock||
+  !option||
+  isNaN(strike)||
+  isNaN(buy)||
+  isNaN(sell)||
+  !startDate||
+  !endDate
+ ){
+
+  alert(
+   "⚠️ فضلاً أدخل جميع بيانات الصفقة والتواريخ"
+  );
+
+  return;
+
+ }
+
+
+ if(endDate<startDate){
+
+  alert(
+   "⚠️ تاريخ النهاية يجب أن يكون بعد تاريخ البداية"
+  );
+
+  return;
+
+ }
+
+
+ if(buy<=0){
+
+  alert(
+   "⚠️ سعر الشراء يجب أن يكون أكبر من صفر"
+  );
+
+  return;
+
+ }
+
+
+ const profit=sell-buy;
+
+ const percentage=
+ (profit/buy)*100;
+
+
+ trades.push({
+
+  id:Date.now(),
+
+  stock:stock.toUpperCase(),
+
+  option,
+
+  strike,
+
+  buy,
+
+  sell,
+
+  startDate,
+
+  endDate,
+
+  profit,
+
+  percentage
+
+ });
+
+
+ saveTrades();
+
+ displayTrades();
+
+ clearForm();
+
+}
+
+
+/* =========================
+   تنظيف النموذج
+========================= */
+
+function clearForm(){
+
+ document.getElementById("stock").value="";
+
+ document.getElementById("option").value="";
+
+ document.getElementById("strike").value="";
+
+ document.getElementById("buy").value="";
+
+ document.getElementById("sell").value="";
+
+ document.getElementById("startDate").value="";
+
+ document.getElementById("endDate").value="";
+
+}
+
+
+/* =========================
+   حفظ الصفقات
+========================= */
+
+function saveTrades(){
+
+ localStorage.setItem(
+  "optionTrades",
+  JSON.stringify(trades)
+ );
+
+}
+
+
+/* =========================
+   حالة الصفقة
+========================= */
+
+function getStatus(t){
+
+ if(Number(t.sell)===0){
+
+  return{
+   name:"خاسرة",
+   rowClass:"loss-row",
+   textClass:"red"
+  };
+
+ }
+
+
+ if(
+  Number(t.sell)<Number(t.buy)&&
+  Number(t.sell)>0
+ ){
+
+  return{
+   name:"موقوفة",
+   rowClass:"stopped-row",
+   textClass:"orange"
+  };
+
+ }
+
+
+ return{
+  name:"رابحة",
+  rowClass:"win-row",
+  textClass:"green"
+ };
+
 }
 
 
@@ -797,218 +1265,443 @@ function escapeHTML(value){
 
 function displayTrades(){
 
-    const body=document.getElementById("tableBody");
+ const body=
+ document.getElementById("tableBody");
 
-    body.innerHTML="";
-
-
-    if(trades.length===0){
-
-        body.innerHTML=`
-
-        <tr>
-        <td colspan="10" class="empty">
-        لا توجد صفقات حتى الآن
-        </td>
-        </tr>
-
-        `;
-
-        return;
-    }
+ body.innerHTML="";
 
 
-    trades.forEach(function(t,index){
+ if(!trades.length){
 
-        const status=getStatus(t);
+  body.innerHTML=`
+
+  <tr>
+
+  <td
+   colspan="10"
+   class="empty"
+  >
+  لا توجد صفقات حتى الآن
+  </td>
+
+  </tr>
+
+  `;
+
+  return;
+
+ }
 
 
-        body.innerHTML+=`
+ trades.forEach(
+ function(t,index){
 
-        <tr>
+  const status=
+  getStatus(t);
 
-        <td>${escapeHTML(t.stock)}</td>
 
-        <td>${escapeHTML(t.option)}</td>
+  body.innerHTML+=`
 
-        <td>${Number(t.strike).toFixed(2)}</td>
+  <tr>
 
-        <td>${Number(t.buy).toFixed(2)}</td>
+  <td>
+  ${escapeHTML(t.stock)}
+  </td>
 
-        <td>${Number(t.sell).toFixed(2)}</td>
+  <td>
+  ${escapeHTML(t.option)}
+  </td>
 
-        <td>${formatDate(t.startDate)}</td>
+  <td>
+  ${Number(t.strike).toFixed(2)}
+  </td>
 
-        <td>${formatDate(t.endDate)}</td>
+  <td>
+  ${Number(t.buy).toFixed(2)}
+  </td>
 
-        <td class="${status.textClass}">
-        ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
-        </td>
+  <td>
+  ${Number(t.sell).toFixed(2)}
+  </td>
 
-        <td class="${status.textClass}">
-        ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
-        </td>
+  <td>
+  ${formatDate(t.startDate)}
+  </td>
 
-        <td class="no-print">
+  <td>
+  ${formatDate(t.endDate)}
+  </td>
 
-        <button
-        class="delete-button"
-        onclick="deleteTrade(${index})">
-        حذف
-        </button>
+  <td class="${status.textClass}">
+  ${t.profit>=0?"+":""}
+  ${Number(t.profit).toFixed(2)}
+  </td>
 
-        </td>
+  <td class="${status.textClass}">
+  ${t.percentage>=0?"+":""}
+  ${Number(t.percentage).toFixed(2)}%
+  </td>
 
-        </tr>
+  <td class="no-print">
 
-        `;
-    });
+  <button
+   class="delete-button"
+   onclick="deleteTrade(${index})"
+  >
+  حذف
+  </button>
+
+  </td>
+
+  </tr>
+
+  `;
+
+ });
+
 }
 
 
 /* =========================
-   حذف
+   حذف صفقة
 ========================= */
 
 function deleteTrade(index){
 
-    if(!confirm("هل تريد حذف هذه الصفقة؟"))return;
+ if(!confirm(
+  "هل تريد حذف هذه الصفقة؟"
+ ))return;
 
-    trades.splice(index,1);
 
-    saveTrades();
+ trades.splice(index,1);
 
-    displayTrades();
+ saveTrades();
+
+ displayTrades();
+
 }
 
 
 /* =========================
-   فترات التقرير
+   الأسبوع
 ========================= */
 
 function getWeekRange(offset){
 
-    const now=new Date();
+ const now=new Date();
 
-    now.setHours(0,0,0,0);
+ now.setHours(0,0,0,0);
 
-    const day=now.getDay();
+ const day=now.getDay();
 
-    const diff=day===0?6:day-1;
+ const diff=
+ day===0?6:day-1;
 
-    const monday=new Date(now);
+ const monday=new Date(now);
 
-    monday.setDate(
-        now.getDate()-diff+(offset*7)
-    );
+ monday.setDate(
+  now.getDate()-diff+(offset*7)
+ );
 
-    const sunday=new Date(monday);
+ const sunday=new Date(monday);
 
-    sunday.setDate(
-        monday.getDate()+6
-    );
+ sunday.setDate(
+  monday.getDate()+6
+ );
 
-    return{
-        start:toInputDate(monday),
-        end:toInputDate(sunday)
-    };
-}
+ return{
 
+  start:toInputDate(monday),
 
-function getMonthRange(offset){
+  end:toInputDate(sunday)
 
-    const now=new Date();
+ };
 
-    const first=new Date(
-        now.getFullYear(),
-        now.getMonth()+offset,
-        1
-    );
-
-    const last=new Date(
-        now.getFullYear(),
-        now.getMonth()+offset+1,
-        0
-    );
-
-    return{
-        start:toInputDate(first),
-        end:toInputDate(last)
-    };
-}
-
-
-function setReportPeriod(type,button){
-
-    document
-    .querySelectorAll(".filter-button")
-    .forEach(function(b){
-        b.classList.remove("active");
-    });
-
-
-    if(button){
-        button.classList.add("active");
-    }
-
-
-    let range;
-
-
-    if(type==="thisWeek"){
-        range=getWeekRange(0);
-    }
-
-    else if(type==="lastWeek"){
-        range=getWeekRange(-1);
-    }
-
-    else if(type==="thisMonth"){
-        range=getMonthRange(0);
-    }
-
-    else if(type==="lastMonth"){
-        range=getMonthRange(-1);
-    }
-
-    else{
-
-        document.getElementById("reportStart").value="";
-        document.getElementById("reportEnd").value="";
-
-        return;
-    }
-
-
-    document.getElementById("reportStart").value=range.start;
-
-    document.getElementById("reportEnd").value=range.end;
 }
 
 
 /* =========================
-   فلترة
+   الشهر
+========================= */
+
+function getMonthRange(offset){
+
+ const now=new Date();
+
+ const first=new Date(
+  now.getFullYear(),
+  now.getMonth()+offset,
+  1
+ );
+
+ const last=new Date(
+  now.getFullYear(),
+  now.getMonth()+offset+1,
+  0
+ );
+
+ return{
+
+  start:toInputDate(first),
+
+  end:toInputDate(last)
+
+ };
+
+}
+
+
+/* =========================
+   اختيار الفترة
+========================= */
+
+function setReportPeriod(type,button){
+
+ document
+ .querySelectorAll(".filter-button")
+ .forEach(
+  b=>b.classList.remove("active")
+ );
+
+
+ if(button){
+
+  button.classList.add("active");
+
+ }
+
+
+ let range;
+
+
+ if(type==="thisWeek"){
+
+  range=getWeekRange(0);
+
+ }
+
+ else if(type==="lastWeek"){
+
+  range=getWeekRange(-1);
+
+ }
+
+ else if(type==="thisMonth"){
+
+  range=getMonthRange(0);
+
+ }
+
+ else if(type==="lastMonth"){
+
+  range=getMonthRange(-1);
+
+ }
+
+ else{
+
+  document.getElementById(
+   "reportStart"
+  ).value="";
+
+  document.getElementById(
+   "reportEnd"
+  ).value="";
+
+  return;
+
+ }
+
+
+ document.getElementById(
+  "reportStart"
+ ).value=range.start;
+
+
+ document.getElementById(
+  "reportEnd"
+ ).value=range.end;
+
+}
+
+
+/* =========================
+   فلترة الصفقات
 ========================= */
 
 function getFilteredTrades(){
 
-    const start=
-    document.getElementById("reportStart").value;
+ const start=
+ document.getElementById(
+  "reportStart"
+ ).value;
 
-    const end=
-    document.getElementById("reportEnd").value;
+ const end=
+ document.getElementById(
+  "reportEnd"
+ ).value;
 
 
-    if(!start&&!end)return trades;
+ if(!start&&!end)
+  return trades;
 
 
-    return trades.filter(function(t){
+ return trades.filter(
+  function(t){
 
-        return(
-            (t.startDate||"")<=end &&
-            (t.endDate||"")>=start
-        );
-    });
+   return(
+    (t.startDate||"")<=end&&
+    (t.endDate||"")>=start
+   );
+
+  }
+ );
+
+}
+
+
+/* =========================
+   بناء بيانات التقرير
+========================= */
+
+function buildReportData(){
+
+ const start=
+ document.getElementById(
+  "reportStart"
+ ).value;
+
+ const end=
+ document.getElementById(
+  "reportEnd"
+ ).value;
+
+
+ if(!start||!end)
+  return null;
+
+
+ const filtered=
+ getFilteredTrades();
+
+
+ const total=
+ filtered.length;
+
+
+ const winners=
+ filtered.filter(
+  t=>Number(t.sell)>Number(t.buy)
+ ).length;
+
+
+ const stopped=
+ filtered.filter(
+  t=>
+  Number(t.sell)<Number(t.buy)&&
+  Number(t.sell)>0
+ ).length;
+
+
+ const losers=
+ filtered.filter(
+  t=>Number(t.sell)===0
+ ).length;
+
+
+ const net=
+ filtered.reduce(
+  (sum,t)=>
+  sum+Number(t.profit||0),
+  0
+ );
+
+
+ const average=
+ total?
+ filtered.reduce(
+  (sum,t)=>
+  sum+Number(t.percentage||0),
+  0
+ )/total:
+ 0;
+
+
+ return{
+
+  start,
+  end,
+  filtered,
+  total,
+  winners,
+  stopped,
+  losers,
+  net,
+  average,
+
+  createdAt:
+  new Date().toISOString()
+
+ };
+
+}
+
+
+/* =========================
+   حفظ التقرير
+========================= */
+
+function saveReportToHistory(data){
+
+ const snapshot={
+
+  start:data.start,
+
+  end:data.end,
+
+  filtered:data.filtered.map(
+   t=>({...t})
+  ),
+
+  total:data.total,
+
+  winners:data.winners,
+
+  stopped:data.stopped,
+
+  losers:data.losers,
+
+  net:data.net,
+
+  average:data.average,
+
+  createdAt:data.createdAt
+
+ };
+
+
+ reportHistory.unshift(snapshot);
+
+
+ /*
+  نخلي آخر 30 تقرير فقط
+ */
+ if(reportHistory.length>30){
+
+  reportHistory=
+  reportHistory.slice(0,30);
+
+ }
+
+
+ localStorage.setItem(
+  "optionReportHistory",
+  JSON.stringify(reportHistory)
+ );
+
+
+ displayHistory();
+
 }
 
 
@@ -1018,200 +1711,458 @@ function getFilteredTrades(){
 
 function showReport(){
 
-    const start=
-    document.getElementById("reportStart").value;
+ const data=
+ buildReportData();
 
-    const end=
-    document.getElementById("reportEnd").value;
 
+ if(!data){
 
-    if(!start||!end){
+  alert(
+   "⚠️ اختاري فترة التقرير أولاً"
+  );
 
-        alert("⚠️ اختاري فترة التقرير أولاً");
+  return;
 
-        return;
-    }
+ }
 
 
-    if(end<start){
+ if(data.end<data.start){
 
-        alert("⚠️ تاريخ نهاية التقرير غير صحيح");
+  alert(
+   "⚠️ تاريخ نهاية التقرير غير صحيح"
+  );
 
-        return;
-    }
+  return;
 
+ }
 
-    const filtered=getFilteredTrades();
 
+ document
+ .getElementById("report")
+ .classList
+ .add("show");
 
-    document
-    .getElementById("report")
-    .classList
-    .add("show");
 
+ document.getElementById(
+  "totalTrades"
+ ).textContent=data.total;
 
-    const total=filtered.length;
 
+ document.getElementById(
+  "winningTrades"
+ ).textContent=data.winners;
 
-    const winners=
-    filtered.filter(
-        t=>Number(t.sell)>Number(t.buy)
-    ).length;
 
+ document.getElementById(
+  "stoppedTrades"
+ ).textContent=data.stopped;
 
-    const stopped=
-    filtered.filter(
-        t=>
-        Number(t.sell)<Number(t.buy)&&
-        Number(t.sell)>0
-    ).length;
 
+ document.getElementById(
+  "losingTrades"
+ ).textContent=data.losers;
 
-    const losers=
-    filtered.filter(
-        t=>Number(t.sell)===0
-    ).length;
 
+ const netElement=
+ document.getElementById(
+  "netProfit"
+ );
 
-    const net=
-    filtered.reduce(
-        (sum,t)=>sum+Number(t.profit||0),
-        0
-    );
 
+ netElement.textContent=
+ (data.net>=0?"+":"")+
+ data.net.toFixed(2);
 
-    const average=
-    total
-    ?
-    filtered.reduce(
-        (sum,t)=>sum+Number(t.percentage||0),
-        0
-    )/total
-    :
-    0;
 
+ netElement.className=
+ data.net>=0?
+ "green":
+ "red";
 
-    document.getElementById("totalTrades").textContent=total;
 
-    document.getElementById("winningTrades").textContent=winners;
+ document.getElementById(
+  "averagePercent"
+ ).textContent=
+ (data.average>=0?"+":"")+
+ data.average.toFixed(2)+"%";
 
-    document.getElementById("stoppedTrades").textContent=stopped;
 
-    document.getElementById("losingTrades").textContent=losers;
+ document.getElementById(
+  "reportPeriod"
+ ).textContent=
+ "من "+
+ formatDate(data.start)+
+ " إلى "+
+ formatDate(data.end);
 
 
-    const netElement=
-    document.getElementById("netProfit");
+ renderReportTable(
+  data.filtered
+ );
 
-    netElement.textContent=
-    (net>=0?"+":"")+net.toFixed(2);
 
-    netElement.className=
-    net>=0?"green":"red";
+ /*
+  حفظ التقرير تلقائياً
+ */
+ saveReportToHistory(data);
 
 
-    document.getElementById("averagePercent").textContent=
-    (average>=0?"+":"")+
-    average.toFixed(2)+"%";
+ document
+ .getElementById("report")
+ .scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+ });
 
+}
 
-    document.getElementById("reportPeriod").textContent=
-    "من "+formatDate(start)+" إلى "+formatDate(end);
 
+/* =========================
+   جدول التقرير
+========================= */
 
-    let html=`
+function renderReportTable(filtered){
 
-    <table>
+ let html=`
 
-    <thead>
+ <table>
 
-    <tr>
-    <th>السهم</th>
-    <th>الأوبشن</th>
-    <th>السترايك</th>
-    <th>الشراء</th>
-    <th>البيع</th>
-    <th>البداية</th>
-    <th>النهاية</th>
-    <th>الربح</th>
-    <th>%</th>
-    <th>الحالة</th>
-    </tr>
+ <thead>
 
-    </thead>
+ <tr>
 
-    <tbody>
-    `;
+ <th>السهم</th>
+ <th>الأوبشن</th>
+ <th>السترايك</th>
+ <th>الشراء</th>
+ <th>البيع</th>
+ <th>البداية</th>
+ <th>النهاية</th>
+ <th>الربح</th>
+ <th>%</th>
+ <th>الحالة</th>
 
+ </tr>
 
-    if(filtered.length===0){
+ </thead>
 
-        html+=`
+ <tbody>
 
-        <tr>
-        <td colspan="10" style="padding:30px;text-align:center">
-        لا توجد صفقات في هذه الفترة
-        </td>
-        </tr>
+ `;
 
-        `;
-    }
 
+ if(!filtered.length){
 
-    filtered.forEach(function(t){
+  html+=`
 
-        const status=getStatus(t);
+  <tr>
 
+  <td
+   colspan="10"
+   style="
+   padding:30px;
+   text-align:center
+   "
+  >
+  لا توجد صفقات في هذه الفترة
+  </td>
 
-        html+=`
+  </tr>
 
-        <tr class="${status.rowClass}">
+  `;
 
-        <td>${escapeHTML(t.stock)}</td>
+ }
 
-        <td>${escapeHTML(t.option)}</td>
 
-        <td>${Number(t.strike).toFixed(2)}</td>
+ filtered.forEach(
+ function(t){
 
-        <td>${Number(t.buy).toFixed(2)}</td>
+  const status=
+  getStatus(t);
 
-        <td>${Number(t.sell).toFixed(2)}</td>
 
-        <td>${formatDate(t.startDate)}</td>
+  html+=`
 
-        <td>${formatDate(t.endDate)}</td>
+  <tr class="${status.rowClass}">
 
-        <td>
-        ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
-        </td>
+  <td>
+  ${escapeHTML(t.stock)}
+  </td>
 
-        <td>
-        ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
-        </td>
+  <td>
+  ${escapeHTML(t.option)}
+  </td>
 
-        <td>${status.name}</td>
+  <td>
+  ${Number(t.strike).toFixed(2)}
+  </td>
 
-        </tr>
+  <td>
+  ${Number(t.buy).toFixed(2)}
+  </td>
 
-        `;
-    });
+  <td>
+  ${Number(t.sell).toFixed(2)}
+  </td>
 
+  <td>
+  ${formatDate(t.startDate)}
+  </td>
 
-    html+=`
-    </tbody>
-    </table>
-    `;
+  <td>
+  ${formatDate(t.endDate)}
+  </td>
 
+  <td>
+  ${t.profit>=0?"+":""}
+  ${Number(t.profit).toFixed(2)}
+  </td>
 
-    document.getElementById("reportTable").innerHTML=html;
+  <td>
+  ${t.percentage>=0?"+":""}
+  ${Number(t.percentage).toFixed(2)}%
+  </td>
 
+  <td>
+  ${status.name}
+  </td>
 
-    document
-    .getElementById("report")
-    .scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+  </tr>
+
+  `;
+
+ });
+
+
+ html+=`
+
+ </tbody>
+
+ </table>
+
+ `;
+
+
+ document.getElementById(
+  "reportTable"
+ ).innerHTML=html;
+
+}
+
+
+/* =========================
+   سجل التقارير السابقة
+========================= */
+
+function displayHistory(){
+
+ const box=
+ document.getElementById(
+  "historyList"
+ );
+
+
+ box.innerHTML="";
+
+
+ if(!reportHistory.length){
+
+  box.innerHTML=`
+
+  <div class="empty">
+  لا توجد تقارير محفوظة حتى الآن
+  </div>
+
+  `;
+
+  return;
+
+ }
+
+
+ reportHistory.forEach(
+ function(r,index){
+
+  const created=
+  new Date(
+   r.createdAt
+  ).toLocaleString("ar-SA");
+
+
+  box.innerHTML+=`
+
+  <div class="history-item">
+
+  <div class="history-info">
+
+  <strong>
+  📄 تقرير
+  ${formatDate(r.start)}
+  →
+  ${formatDate(r.end)}
+  </strong>
+
+  <br>
+
+  <small>
+  ${r.total} صفقة — ${created}
+  </small>
+
+  </div>
+
+
+  <div class="history-actions">
+
+  <button
+   class="small-btn"
+   onclick="openHistory(${index})"
+  >
+  فتح
+  </button>
+
+
+  <button
+   class="small-btn danger"
+   onclick="deleteHistory(${index})"
+  >
+  حذف
+  </button>
+
+  </div>
+
+  </div>
+
+  `;
+
+ });
+
+}
+
+
+/* =========================
+   فتح تقرير سابق
+========================= */
+
+function openHistory(index){
+
+ const r=
+ reportHistory[index];
+
+
+ if(!r)
+  return;
+
+
+ document.getElementById(
+  "reportStart"
+ ).value=r.start;
+
+
+ document.getElementById(
+  "reportEnd"
+ ).value=r.end;
+
+
+ document
+ .getElementById("report")
+ .classList
+ .add("show");
+
+
+ document.getElementById(
+  "totalTrades"
+ ).textContent=r.total;
+
+
+ document.getElementById(
+  "winningTrades"
+ ).textContent=r.winners;
+
+
+ document.getElementById(
+  "stoppedTrades"
+ ).textContent=r.stopped;
+
+
+ document.getElementById(
+  "losingTrades"
+ ).textContent=r.losers;
+
+
+ const netElement=
+ document.getElementById(
+  "netProfit"
+ );
+
+
+ netElement.textContent=
+ (r.net>=0?"+":"")+
+ Number(r.net).toFixed(2);
+
+
+ netElement.className=
+ Number(r.net)>=0?
+ "green":
+ "red";
+
+
+ document.getElementById(
+  "averagePercent"
+ ).textContent=
+ (r.average>=0?"+":"")+
+ Number(r.average).toFixed(2)+
+ "%";
+
+
+ document.getElementById(
+  "reportPeriod"
+ ).textContent=
+ "من "+
+ formatDate(r.start)+
+ " إلى "+
+ formatDate(r.end);
+
+
+ renderReportTable(
+  r.filtered||[]
+ );
+
+
+ document
+ .getElementById("report")
+ .scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+ });
+
+}
+
+
+/* =========================
+   حذف تقرير سابق
+========================= */
+
+function deleteHistory(index){
+
+ if(!confirm(
+  "هل تريد حذف هذا التقرير من السجل؟"
+ ))return;
+
+
+ reportHistory.splice(
+  index,
+  1
+ );
+
+
+ localStorage.setItem(
+  "optionReportHistory",
+  JSON.stringify(reportHistory)
+ );
+
+
+ displayHistory();
+
 }
 
 
@@ -1221,454 +2172,519 @@ function showReport(){
 
 function printReport(){
 
-    const report=
-    document.getElementById("report");
+ const report=
+ document.getElementById("report");
 
 
-    if(!report.classList.contains("show")){
+ if(!report.classList.contains("show")){
 
-        showReport();
-    }
+  showReport();
+
+ }
 
 
-    setTimeout(function(){
+ setTimeout(
+  function(){
 
-        window.print();
+   window.print();
 
-    },300);
+  },
+  300
+ );
+
 }
 
 
 /* =========================
-   صورة التقرير
+   حفظ صورة التقرير
 ========================= */
 
 function saveReportImage(){
 
-    const start=
-    document.getElementById("reportStart").value;
-
-    const end=
-    document.getElementById("reportEnd").value;
+ const data=
+ buildReportData();
 
 
-    if(!start||!end){
+ if(!data){
 
-        alert("⚠️ اختاري فترة التقرير أولاً");
+  alert(
+   "⚠️ اختاري فترة التقرير أولاً"
+  );
 
-        return;
-    }
+  return;
 
-
-    const filtered=getFilteredTrades();
-
-
-    const width=1400;
-
-    const rowHeight=65;
-
-    const height=
-        180+
-        150+
-        250+
-        70+
-        Math.max(filtered.length,1)*rowHeight+
-        80;
+ }
 
 
-    const canvas=document.createElement("canvas");
+ const filtered=data.filtered;
 
-    canvas.width=width;
+ const width=1400;
 
-    canvas.height=height;
+ const rowHeight=65;
 
-
-    const ctx=canvas.getContext("2d");
-
-
-    if(!ctx){
-
-        alert("❌ المتصفح لا يدعم إنشاء الصورة");
-
-        return;
-    }
-
-
-    ctx.fillStyle="#fff";
-
-    ctx.fillRect(0,0,width,height);
+ const height=
+ 180+
+ 150+
+ 250+
+ 70+
+ Math.max(
+  filtered.length,
+  1
+ )*rowHeight+
+ 80;
 
 
-    /* البنر */
-
-    ctx.fillStyle="#000";
-
-    ctx.fillRect(0,0,width,180);
+ const canvas=
+ document.createElement("canvas");
 
 
-    ctx.fillStyle="#fff";
+ canvas.width=width;
 
-    ctx.font="bold 80px Arial";
-
-    ctx.textAlign="center";
-
-    ctx.fillText("Ⓠ",width/2,115);
+ canvas.height=height;
 
 
-    /* العنوان */
-
-    ctx.fillStyle="#222";
-
-    ctx.font="bold 38px Arial";
-
-    ctx.fillText("Q Option",width/2,225);
+ const ctx=
+ canvas.getContext("2d");
 
 
-    ctx.font="22px Arial";
+ if(!ctx){
 
-    ctx.fillStyle="#666";
+  alert(
+   "❌ المتصفح لا يدعم إنشاء الصورة"
+  );
+
+  return;
+
+ }
+
+
+ ctx.fillStyle="#fff";
+
+ ctx.fillRect(
+  0,
+  0,
+  width,
+  height
+ );
+
+
+ ctx.fillStyle="#000";
+
+ ctx.fillRect(
+  0,
+  0,
+  width,
+  180
+ );
+
+
+ ctx.fillStyle="#fff";
+
+ ctx.font=
+ "bold 80px Arial";
+
+ ctx.textAlign="center";
+
+ ctx.fillText(
+  "Ⓠ",
+  width/2,
+  115
+ );
+
+
+ ctx.fillStyle="#222";
+
+ ctx.font=
+ "bold 38px Arial";
+
+ ctx.fillText(
+  "Q Option",
+  width/2,
+  225
+ );
+
+
+ ctx.font="22px Arial";
+
+ ctx.fillStyle="#666";
+
+ ctx.fillText(
+  "تقرير الصفقات — من "+
+  formatDate(data.start)+
+  " إلى "+
+  formatDate(data.end),
+  width/2,
+  265
+ );
+
+
+ const stats=[
+
+  [
+   "إجمالي الصفقات",
+   data.total
+  ],
+
+  [
+   "🟢 الرابحة",
+   data.winners
+  ],
+
+  [
+   "🩵 الموقوفة",
+   data.stopped
+  ],
+
+  [
+   "🔴 الخاسرة",
+   data.losers
+  ],
+
+  [
+   "صافي الربح",
+   (data.net>=0?"+":"")+
+   data.net.toFixed(2)
+  ],
+
+  [
+   "متوسط %",
+   (data.average>=0?"+":"")+
+   data.average.toFixed(2)+
+   "%"
+  ]
+
+ ];
+
+
+ const boxW=
+ width/3;
+
+
+ stats.forEach(
+ function(s,i){
+
+  const col=i%3;
+
+  const row=
+  Math.floor(i/3);
+
+  const x=
+  col*boxW;
+
+  const y=
+  305+row*110;
+
+
+  ctx.fillStyle="#f1f3f4";
+
+  ctx.fillRect(
+   x+10,
+   y,
+   boxW-20,
+   95
+  );
+
+
+  ctx.fillStyle="#222";
+
+  ctx.font=
+  "bold 20px Arial";
+
+  ctx.fillText(
+   s[0],
+   x+boxW/2,
+   y+38
+  );
+
+
+  ctx.font=
+  "bold 27px Arial";
+
+  ctx.fillText(
+   String(s[1]),
+   x+boxW/2,
+   y+75
+  );
+
+ });
+
+
+ let y=545;
+
+
+ ctx.fillStyle="#d9eef0";
+
+ ctx.fillRect(
+  0,
+  y,
+  width,
+  70
+ );
+
+
+ const columns=[
+
+  "السهم",
+  "الأوبشن",
+  "السترايك",
+  "الشراء",
+  "البيع",
+  "البداية",
+  "النهاية",
+  "الربح",
+  "%",
+  "الحالة"
+
+ ];
+
+
+ const cw=
+ width/columns.length;
+
+
+ ctx.fillStyle="#17363a";
+
+ ctx.font=
+ "bold 17px Arial";
+
+
+ columns.forEach(
+ function(c,i){
+
+  ctx.fillText(
+   c,
+   width-
+   (i*cw)-
+   (cw/2),
+   y+43
+  );
+
+ });
+
+
+ y+=70;
+
+
+ filtered.forEach(
+ function(t){
+
+  const status=
+  getStatus(t);
+
+
+  if(status.name==="رابحة"){
+
+   ctx.fillStyle="#dff5e7";
+
+  }
+
+  else if(status.name==="موقوفة"){
+
+   ctx.fillStyle="#dff7fb";
+
+  }
+
+  else{
+
+   ctx.fillStyle="#ffe1e1";
+
+  }
+
+
+  ctx.fillRect(
+   0,
+   y,
+   width,
+   rowHeight
+  );
+
+
+  const values=[
+
+   t.stock,
+   t.option,
+   Number(t.strike).toFixed(2),
+   Number(t.buy).toFixed(2),
+   Number(t.sell).toFixed(2),
+   formatDate(t.startDate),
+   formatDate(t.endDate),
+
+   (t.profit>=0?"+":"")+
+   Number(t.profit).toFixed(2),
+
+   (t.percentage>=0?"+":"")+
+   Number(t.percentage).toFixed(2)+
+   "%",
+
+   status.name
+
+  ];
+
+
+  ctx.fillStyle="#222";
+
+  ctx.font=
+  "16px Arial";
+
+
+  values.forEach(
+   function(v,i){
 
     ctx.fillText(
-        "تقرير الصفقات — من "+
-        formatDate(start)+
-        " إلى "+
-        formatDate(end),
-        width/2,
-        265
+     String(v),
+     width-
+     (i*cw)-
+     (cw/2),
+     y+40
     );
 
+   });
 
-    /* الإحصائيات */
 
-    const winners=
-    filtered.filter(
-        t=>Number(t.sell)>Number(t.buy)
-    ).length;
+  y+=rowHeight;
 
+ });
 
-    const stopped=
-    filtered.filter(
-        t=>
-        Number(t.sell)<Number(t.buy)&&
-        Number(t.sell)>0
-    ).length;
 
+ let dataURL;
 
-    const losers=
-    filtered.filter(
-        t=>Number(t.sell)===0
-    ).length;
+ try{
 
+  dataURL=
+  canvas.toDataURL(
+   "image/png"
+  );
 
-    const net=
-    filtered.reduce(
-        (s,t)=>s+Number(t.profit||0),
-        0
-    );
+ }
 
+ catch(e){
 
-    const average=
-    filtered.length
-    ?
-    filtered.reduce(
-        (s,t)=>s+Number(t.percentage||0),
-        0
-    )/filtered.length
-    :
-    0;
+  alert(
+   "❌ تعذر إنشاء صورة التقرير"
+  );
 
+  return;
 
-    const stats=[
-        ["إجمالي الصفقات",filtered.length],
-        ["🟢 الرابحة",winners],
-        ["🩵 الموقوفة",stopped],
-        ["🔴 الخاسرة",losers],
-        ["صافي الربح",(net>=0?"+":"")+net.toFixed(2)],
-        ["متوسط %",(average>=0?"+":"")+average.toFixed(2)+"%"]
-    ];
+ }
 
 
-    const boxW=width/3;
+ const win=
+ window.open(
+  "",
+  "_blank"
+ );
 
-    stats.forEach(function(s,i){
 
-        const col=i%3;
+ if(!win){
 
-        const row=Math.floor(i/3);
+  alert(
+   "⚠️ المتصفح منع فتح صفحة الصورة. اضغطي مرة ثانية."
+  );
 
-        const x=col*boxW;
+  return;
 
-        const y=305+row*110;
+ }
 
 
-        ctx.fillStyle="#f1f3f4";
+ win.document.write(`
 
-        ctx.fillRect(
-            x+10,
-            y,
-            boxW-20,
-            95
-        );
+ <!DOCTYPE html>
 
+ <html
+ lang="ar"
+ dir="rtl"
+ >
 
-        ctx.fillStyle="#222";
+ <head>
 
-        ctx.font="bold 20px Arial";
+ <meta charset="UTF-8">
 
-        ctx.fillText(
-            s[0],
-            x+boxW/2,
-            y+38
-        );
+ <meta
+ name="viewport"
+ content="width=device-width,initial-scale=1"
+ >
 
+ <title>
+ Q Option Report
+ </title>
 
-        ctx.font="bold 27px Arial";
+ <style>
 
-        ctx.fillText(
-            String(s[1]),
-            x+boxW/2,
-            y+75
-        );
-    });
+ body{
+  margin:0;
+  padding:20px;
+  background:#eee;
+  text-align:center;
+  font-family:Arial
+ }
 
+ img{
+  max-width:100%;
+  height:auto;
+  background:#fff;
+  display:block;
+  margin:20px auto;
+  box-shadow:0 4px 20px #0003
+ }
 
-    let y=545;
+ button{
+  background:#222;
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  padding:14px 22px;
+  font-size:16px;
+  font-weight:bold
+ }
 
+ </style>
 
-    /* رأس الجدول */
+ </head>
 
-    ctx.fillStyle="#d9eef0";
+ <body>
 
-    ctx.fillRect(0,y,width,70);
+ <h2>
+ 🖼️ Q Option — صورة التقرير
+ </h2>
 
+ <img
+  src="${dataURL}"
+  alt="Q Option Report"
+ >
 
-    const columns=[
-        "السهم",
-        "الأوبشن",
-        "السترايك",
-        "الشراء",
-        "البيع",
-        "البداية",
-        "النهاية",
-        "الربح",
-        "%",
-        "الحالة"
-    ];
+ <p>
+ اضغطي مطولاً على الصورة في الآيفون
+ ثم اختاري
+ <strong>
+ حفظ في الصور
+ </strong>
+ </p>
 
+ <button
+ onclick="window.print()"
+ >
+ 📄 طباعة / PDF
+ </button>
 
-    const cw=width/columns.length;
+ </body>
 
+ </html>
 
-    ctx.fillStyle="#17363a";
+ `);
 
-    ctx.font="bold 17px Arial";
 
+ win.document.close();
 
-    columns.forEach(function(c,i){
-
-        ctx.fillText(
-            c,
-            width-(i*cw)-(cw/2),
-            y+43
-        );
-    });
-
-
-    y+=70;
-
-
-    if(filtered.length===0){
-
-        ctx.fillStyle="#777";
-
-        ctx.font="22px Arial";
-
-        ctx.fillText(
-            "لا توجد صفقات في هذه الفترة",
-            width/2,
-            y+45
-        );
-
-    }
-
-
-    filtered.forEach(function(t){
-
-        const status=getStatus(t);
-
-
-        if(status.name==="رابحة"){
-            ctx.fillStyle="#dff5e7";
-        }
-        else if(status.name==="موقوفة"){
-            ctx.fillStyle="#dff7fb";
-        }
-        else{
-            ctx.fillStyle="#ffe1e1";
-        }
-
-
-        ctx.fillRect(
-            0,
-            y,
-            width,
-            rowHeight
-        );
-
-
-        const values=[
-            t.stock,
-            t.option,
-            Number(t.strike).toFixed(2),
-            Number(t.buy).toFixed(2),
-            Number(t.sell).toFixed(2),
-            formatDate(t.startDate),
-            formatDate(t.endDate),
-            (t.profit>=0?"+":"")+Number(t.profit).toFixed(2),
-            (t.percentage>=0?"+":"")+Number(t.percentage).toFixed(2)+"%",
-            status.name
-        ];
-
-
-        ctx.fillStyle="#222";
-
-        ctx.font="16px Arial";
-
-
-        values.forEach(function(v,i){
-
-            ctx.fillText(
-                String(v),
-                width-(i*cw)-(cw/2),
-                y+40
-            );
-        });
-
-
-        y+=rowHeight;
-    });
-
-
-    ctx.fillStyle="#777";
-
-    ctx.font="16px Arial";
-
-    ctx.fillText(
-        "Q Option",
-        width/2,
-        height-30
-    );
-
-
-    let dataURL;
-
-
-    try{
-
-        dataURL=canvas.toDataURL("image/png");
-
-    }catch(e){
-
-        alert("❌ تعذر إنشاء صورة التقرير");
-
-        return;
-    }
-
-
-    /*
-      بدل window.open:
-      نضع الصورة مباشرة في صفحة جديدة
-      ونوفر زر حفظ.
-    */
-
-    const win=window.open("","_blank");
-
-
-    if(!win){
-
-        alert(
-            "⚠️ المتصفح منع فتح صفحة الصورة. اضغطي على زر الصورة مرة ثانية."
-        );
-
-        return;
-    }
-
-
-    win.document.write(`
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<title>Q Option Report</title>
-
-<style>
-
-body{
-    margin:0;
-    padding:20px;
-    background:#eee;
-    text-align:center;
-    font-family:Arial,sans-serif;
-}
-
-img{
-    max-width:100%;
-    height:auto;
-    background:#fff;
-    display:block;
-    margin:20px auto;
-    box-shadow:0 4px 20px #0003;
-}
-
-button{
-    background:#222;
-    color:#fff;
-    border:0;
-    border-radius:10px;
-    padding:14px 22px;
-    font-size:16px;
-    font-weight:bold;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<h2>🖼️ Q Option — صورة التقرير</h2>
-
-<img src="${dataURL}" alt="Q Option Report">
-
-<p>
-اضغطي مطولاً على الصورة في الآيفون ثم اختاري
-<strong>حفظ في الصور</strong>.
-</p>
-
-<button onclick="window.print()">
-📄 طباعة / PDF
-</button>
-
-</body>
-</html>
-    `);
-
-
-    win.document.close();
 }
 
 
 /* =========================
-   تشغيل الصفحة
+   التشغيل
 ========================= */
 
 displayTrades();
+
+displayHistory();
 
 </script>
 
