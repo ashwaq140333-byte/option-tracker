@@ -665,6 +665,38 @@ td{
 
 
 /* =========================
+   أرقام الحالات في الملخص
+========================= */
+
+#winningTrades{
+
+    color:#13894e;
+
+    font-size:28px;
+
+    font-weight:800;
+}
+
+#stoppedTrades{
+
+    color:#087d91;
+
+    font-size:28px;
+
+    font-weight:800;
+}
+
+#losingTrades{
+
+    color:#c72e2e;
+
+    font-size:28px;
+
+    font-weight:800;
+}
+
+
+/* =========================
    ثيمات التقرير
 ========================= */
 
@@ -747,6 +779,12 @@ td{
     color:#243b40;
 
     border:1px solid #c8d7da;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    padding:13px;
 }
 
 .report-table td{
@@ -754,6 +792,12 @@ td{
     border:1px solid #d5d5d5;
 
     color:#222;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    padding:13px;
 }
 
 .win-row td{
@@ -823,23 +867,23 @@ td{
 
     margin-top:15px;
 
-    padding:12px 8px;
+    padding:15px 12px;
 
     text-align:center;
 
-    font-size:13px;
+    font-size:16px;
 
-    line-height:1.9;
+    line-height:2;
 
-    font-weight:bold;
+    font-weight:800;
 
-    color:#555;
+    color:#30383c;
 
-    border-top:2px solid #ccc;
+    border:1px solid #d8e0e2;
 
-    background:#fafafa;
+    background:#f3f6f7;
 
-    border-radius:6px;
+    border-radius:7px;
 }
 
 
@@ -927,6 +971,27 @@ td{
         grid-template-columns:1fr;
     }
 
+    .report-table th{
+
+        font-size:15px;
+
+        padding:12px;
+    }
+
+    .report-table td{
+
+        font-size:15px;
+
+        padding:12px;
+    }
+
+    .report-note{
+
+        font-size:15px;
+
+        line-height:1.9;
+    }
+
 }
 
 </style>
@@ -939,9 +1004,7 @@ td{
 <div class="container">
 
 
-<!-- =========================
-     البنر
-========================= -->
+<!-- البنر -->
 
 <div class="main-banner">
 
@@ -952,9 +1015,7 @@ alt="الشعار">
 </div>
 
 
-<!-- =========================
-     أزرار
-========================= -->
+<!-- أزرار -->
 
 <div class="top-buttons no-print">
 
@@ -962,16 +1023,14 @@ alt="الشعار">
 class="small-button"
 onclick="toggleThemes()">
 
-🎨 ثيم الصفحة
+ثيم الصفحة
 
 </button>
 
 </div>
 
 
-<!-- =========================
-     ثيمات الصفحة
-========================= -->
+<!-- ثيمات الصفحة -->
 
 <div
 id="themeMenu"
@@ -1004,9 +1063,7 @@ class="theme-menu no-print">
 </div>
 
 
-<!-- =========================
-     الإدخال
-========================= -->
+<!-- الإدخال -->
 
 <div class="form-box no-print">
 
@@ -1018,8 +1075,6 @@ class="week-info">
 
 <div class="form">
 
-
-<!-- الشركة + الأوبشن -->
 
 <div class="field company-row">
 
@@ -1048,19 +1103,17 @@ placeholder="مثال: TSLA">
 </option>
 
 <option value="Call">
-Call 📈
+Call
 </option>
 
 <option value="Put">
-Put 📉
+Put
 </option>
 
 </select>
 
 </div>
 
-
-<!-- السترايك -->
 
 <div class="field strike-row">
 
@@ -1077,10 +1130,7 @@ placeholder="مثال: 300">
 </div>
 
 
-<!-- الأسعار -->
-
 <div class="price-row">
-
 
 <div class="field">
 
@@ -1111,14 +1161,10 @@ placeholder="سعر الخروج">
 
 </div>
 
-
 </div>
 
 
-<!-- الملاحظات -->
-
 <div class="notes-row">
-
 
 <div class="field">
 
@@ -1139,10 +1185,9 @@ placeholder="كلمة أو ملاحظة قصيرة">
 class="notes-button"
 onclick="focusNotes()">
 
-📝 ملاحظات
+ملاحظات
 
 </button>
-
 
 </div>
 
@@ -1154,22 +1199,20 @@ onclick="focusNotes()">
 class="add-button"
 onclick="addTrade()">
 
-➕ إضافة الصفقة
+إضافة الصفقة
 
 </button>
 
 </div>
 
 
-<!-- =========================
-     جدول الأسبوع الحالي
-========================= -->
+<!-- جدول الأسبوع الحالي -->
 
 <div class="table-box">
 
 <h3 style="text-align:center">
 
-📋 صفقات هذا الأسبوع
+صفقات هذا الأسبوع
 
 </h3>
 
@@ -1204,14 +1247,12 @@ onclick="addTrade()">
 </div>
 
 
-<!-- =========================
-     التقارير
-========================= -->
+<!-- التقارير -->
 
 <div class="report-filter no-print">
 
 <h3>
-📅 التقارير الأسبوعية
+التقارير الأسبوعية
 </h3>
 
 
@@ -1266,7 +1307,6 @@ onclick="setReportPeriod('all',this)">
 
 <div class="date-grid">
 
-
 <div class="field">
 
 <label>
@@ -1292,7 +1332,6 @@ type="date">
 
 </div>
 
-
 </div>
 
 
@@ -1300,16 +1339,14 @@ type="date">
 class="report-button"
 onclick="showReport()">
 
-📄 إصدار التقرير
+إصدار التقرير
 
 </button>
 
 </div>
 
 
-<!-- =========================
-     التقرير
-========================= -->
+<!-- التقرير -->
 
 <div
 id="report"
@@ -1336,9 +1373,7 @@ class="report-period">
 </div>
 
 
-<!-- =========================
-     ثيمات التقرير
-========================= -->
+<!-- ثيمات التقرير -->
 
 <div class="report-themes no-print">
 
@@ -1393,12 +1428,9 @@ onclick="setReportTheme('theme-report-beige')">
 </div>
 
 
-<!-- =========================
-     الإحصائيات
-========================= -->
+<!-- الإحصائيات -->
 
 <div class="stats">
-
 
 <div class="stat">
 
@@ -1413,11 +1445,10 @@ onclick="setReportTheme('theme-report-beige')">
 
 <div class="stat">
 
-🟢 الرابحة
+الرابحة
 
 <strong
-id="winningTrades"
-class="green">
+id="winningTrades">
 
 0
 
@@ -1428,11 +1459,10 @@ class="green">
 
 <div class="stat">
 
-🩵 الموقوفة
+الموقوفة
 
 <strong
-id="stoppedTrades"
-class="orange">
+id="stoppedTrades">
 
 0
 
@@ -1443,11 +1473,10 @@ class="orange">
 
 <div class="stat">
 
-🔴 الخاسرة
+الخاسرة
 
 <strong
-id="losingTrades"
-class="red">
+id="losingTrades">
 
 0
 
@@ -1461,9 +1490,7 @@ class="red">
 صافي الربح / الخسارة
 
 <strong id="netProfit">
-
 0.00
-
 </strong>
 
 </div>
@@ -1474,29 +1501,23 @@ class="red">
 متوسط الربح %
 
 <strong id="averagePercent">
-
 0.00%
-
 </strong>
 
 </div>
 
-
 </div>
 
 
-<!-- =========================
-     أزرار التقرير
-========================= -->
+<!-- أزرار التقرير -->
 
 <div class="report-actions no-print">
-
 
 <button
 class="report-action"
 onclick="printReport()">
 
-📄 PDF
+PDF
 
 </button>
 
@@ -1505,10 +1526,9 @@ onclick="printReport()">
 class="report-action"
 onclick="saveReportImage()">
 
-🖼️ حفظ صورة التقرير
+حفظ صورة التقرير
 
 </button>
-
 
 </div>
 
@@ -1519,9 +1539,7 @@ class="report-table">
 </div>
 
 
-<!-- =========================
-     التنويه
-========================= -->
+<!-- التنويه -->
 
 <div class="report-note">
 
@@ -1694,7 +1712,6 @@ function formatDate(date){
 
 /* =====================================================
    أسبوع التداول
-   الاثنين إلى الجمعة
 ===================================================== */
 
 function getTradingWeek(offset=0){
@@ -1761,7 +1778,7 @@ function updateCurrentWeek(){
     document
     .getElementById("currentWeekInfo")
     .textContent=
-    "📅 الأسبوع الحالي: "+
+    "الأسبوع الحالي: "+
     formatDate(week.start)+
     " إلى "+
     formatDate(week.end);
@@ -1850,7 +1867,7 @@ function addTrade(){
     ){
 
         alert(
-            "⚠️ فضلاً أدخل جميع بيانات الصفقة"
+            "فضلاً أدخل جميع بيانات الصفقة"
         );
 
         return;
@@ -1861,7 +1878,7 @@ function addTrade(){
     if(buy<=0){
 
         alert(
-            "⚠️ سعر الدخول يجب أن يكون أكبر من صفر"
+            "سعر الدخول يجب أن يكون أكبر من صفر"
         );
 
         return;
@@ -1939,7 +1956,7 @@ function addTrade(){
 
 
 /* =====================================================
-   تنظيف
+   تنظيف النموذج عند إضافة الصفقة
 ===================================================== */
 
 function clearForm(){
@@ -2359,7 +2376,7 @@ function showReport(){
     if(!start||!end){
 
         alert(
-            "⚠️ اختاري فترة التقرير أولاً"
+            "اختاري فترة التقرير أولاً"
         );
 
         return;
@@ -2370,7 +2387,7 @@ function showReport(){
     if(end<start){
 
         alert(
-            "⚠️ تاريخ نهاية التقرير غير صحيح"
+            "تاريخ نهاية التقرير غير صحيح"
         );
 
         return;
@@ -2690,7 +2707,6 @@ function printReport(){
 
 /* =====================================================
    حفظ صورة التقرير
-   يعمل بدون window.open
 ===================================================== */
 
 function saveReportImage(){
@@ -2750,7 +2766,7 @@ function saveReportImage(){
     if(!ctx){
 
         alert(
-            "❌ المتصفح لا يدعم إنشاء الصورة"
+            "المتصفح لا يدعم إنشاء الصورة"
         );
 
         return;
@@ -2913,34 +2929,40 @@ function saveReportImage(){
 
             [
                 "إجمالي الصفقات",
-                filtered.length
+                filtered.length,
+                "#222"
             ],
 
             [
                 "الرابحة",
-                winners
+                winners,
+                "#13894e"
             ],
 
             [
                 "الموقوفة",
-                stopped
+                stopped,
+                "#087d91"
             ],
 
             [
                 "الخاسرة",
-                losers
+                losers,
+                "#c72e2e"
             ],
 
             [
                 "صافي الربح",
                 (net>=0?"+":"")+
-                net.toFixed(2)
+                net.toFixed(2),
+                net>=0?"#13894e":"#c72e2e"
             ],
 
             [
                 "متوسط %",
                 (average>=0?"+":"")+
-                average.toFixed(2)+"%"
+                average.toFixed(2)+"%",
+                average>=0?"#13894e":"#c72e2e"
             ]
 
         ];
@@ -2989,14 +3011,16 @@ function saveReportImage(){
             );
 
 
+            ctx.fillStyle=s[2];
+
             ctx.font=
-            "bold 25px Arial";
+            "bold 30px Arial";
 
 
             ctx.fillText(
                 String(s[1]),
                 x+boxW/2,
-                y+68
+                y+70
             );
 
         });
@@ -3039,7 +3063,7 @@ function saveReportImage(){
         ctx.fillStyle="#243b40";
 
         ctx.font=
-        "bold 16px Arial";
+        "bold 18px Arial";
 
 
         columns.forEach(function(c,i){
@@ -3119,7 +3143,7 @@ function saveReportImage(){
             ctx.fillStyle="#222";
 
             ctx.font=
-            "15px Arial";
+            "bold 17px Arial";
 
 
             values.forEach(function(v,i){
@@ -3142,7 +3166,7 @@ function saveReportImage(){
 
         /* التنويه */
 
-        ctx.fillStyle="#555";
+        ctx.fillStyle="#f3f6f7";
 
         ctx.fillRect(
             30,
@@ -3152,10 +3176,10 @@ function saveReportImage(){
         );
 
 
-        ctx.fillStyle="#333";
+        ctx.fillStyle="#30383c";
 
         ctx.font=
-        "bold 16px Arial";
+        "bold 17px Arial";
 
 
         ctx.fillText(
@@ -3179,7 +3203,7 @@ function saveReportImage(){
             if(!blob){
 
                 alert(
-                    "❌ تعذر إنشاء صورة التقرير"
+                    "تعذر إنشاء صورة التقرير"
                 );
 
                 return;
@@ -3196,12 +3220,6 @@ function saveReportImage(){
                 }
             );
 
-
-            /*
-              في الآيفون:
-              يفتح نظام المشاركة مباشرة
-              ويمكن اختيار حفظ الصورة.
-            */
 
             if(
                 navigator.share &&
