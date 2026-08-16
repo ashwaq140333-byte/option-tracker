@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>تقرير الصفقات</title>
 
 <style>
 
+/* =========================================================
+   المتغيرات
+========================================================= */
+
 :root{
     --bg:#f5f7f8;
-    --card:#fff;
+    --card:#ffffff;
     --text:#202427;
     --secondary:#687278;
     --border:#dfe4e7;
     --header:#e5edef;
+
     --button:#48545d;
-    --button2:#20272c;
+    --button-dark:#20272c;
+
+    --gold:#d4af37;
+    --gold-light:#ffe79a;
+
     --report-logo:url("AQ.PNG");
 }
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -29,37 +44,63 @@ html{
 
 body{
     margin:0;
-    padding:18px;
+    padding:16px;
+
     background:var(--bg);
     color:var(--text);
-    font-family:Arial,Tahoma,sans-serif;
-    transition:.25s;
+
+    font-family:
+        Arial,
+        Tahoma,
+        sans-serif;
+
+    transition:
+        background .25s,
+        color .25s;
 }
 
-/* =====================================================
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* =========================================================
    ثيمات الصفحة
-===================================================== */
+========================================================= */
 
 body.white{
     --bg:#f5f7f8;
-    --card:#fff;
+    --card:#ffffff;
     --text:#202427;
     --secondary:#687278;
     --border:#dfe4e7;
     --header:#e5edef;
+
     --button:#48545d;
-    --button2:#20272c;
+    --button-dark:#20272c;
 }
 
 body.black{
-    --bg:#000;
-    --card:#090909;
-    --text:#fff;
-    --secondary:#d5d5d5;
-    --border:#4f3d12;
-    --header:#171717;
-    --button:#282828;
-    --button2:#050505;
+    --bg:#000000;
+    --card:#0b0b0b;
+    --text:#ffffff;
+    --secondary:#cccccc;
+    --border:#4d432a;
+    --header:#181818;
+
+    --button:#292929;
+    --button-dark:#070707;
 }
 
 body.silver{
@@ -69,30 +110,33 @@ body.silver{
     --secondary:#646c71;
     --border:#bcc3c7;
     --header:#d4d9dc;
+
     --button:#727d84;
-    --button2:#3d464c;
+    --button-dark:#3d464c;
 }
 
 body.blue{
     --bg:#eaf4fb;
-    --card:#fff;
+    --card:#ffffff;
     --text:#183244;
     --secondary:#607e91;
     --border:#bfd9e8;
     --header:#d5eaf5;
+
     --button:#34789c;
-    --button2:#17465f;
+    --button-dark:#17465f;
 }
 
 body.turquoise{
     --bg:#e9f9f8;
-    --card:#fff;
+    --card:#ffffff;
     --text:#183b3b;
     --secondary:#608383;
     --border:#bce0df;
     --header:#d1efed;
+
     --button:#25938f;
-    --button2:#105754;
+    --button-dark:#105754;
 }
 
 body.beige{
@@ -102,30 +146,33 @@ body.beige{
     --secondary:#817566;
     --border:#ddd0bd;
     --header:#eee3d3;
+
     --button:#8a7559;
-    --button2:#504331;
+    --button-dark:#504331;
 }
 
 body.purple{
     --bg:#f4effa;
-    --card:#fff;
+    --card:#ffffff;
     --text:#362846;
     --secondary:#78688a;
     --border:#d9cae7;
     --header:#e9dff3;
+
     --button:#7d55a7;
-    --button2:#472b64;
+    --button-dark:#472b64;
 }
 
 body.emerald{
     --bg:#eaf6f0;
-    --card:#fff;
+    --card:#ffffff;
     --text:#173b2e;
     --secondary:#587d6d;
     --border:#bddbcf;
     --header:#d5ebdf;
+
     --button:#328461;
-    --button2:#174b35;
+    --button-dark:#174b35;
 }
 
 body.burgundy{
@@ -135,8 +182,9 @@ body.burgundy{
     --secondary:#8b636c;
     --border:#e2c4ca;
     --header:#efd7dc;
+
     --button:#96364a;
-    --button2:#571926;
+    --button-dark:#571926;
 }
 
 body.copper{
@@ -146,8 +194,9 @@ body.copper{
     --secondary:#8e705f;
     --border:#dec6b6;
     --header:#edd8c8;
+
     --button:#b36b3e;
-    --button2:#6c3820;
+    --button-dark:#6c3820;
 }
 
 body.midnight{
@@ -157,54 +206,55 @@ body.midnight{
     --secondary:#a7b9cc;
     --border:#29425c;
     --header:#14283c;
+
     --button:#286d9d;
-    --button2:#0d3857;
+    --button-dark:#0d3857;
 }
 
 body.rose{
     --bg:#fff0f4;
-    --card:#fff;
+    --card:#ffffff;
     --text:#522c38;
     --secondary:#946b77;
     --border:#edccd5;
     --header:#f7dce4;
+
     --button:#b45c78;
-    --button2:#6c2e42;
+    --button-dark:#6c2e42;
 }
 
 body.ice{
     --bg:#edf9ff;
-    --card:#fff;
+    --card:#ffffff;
     --text:#213e4e;
     --secondary:#66899b;
     --border:#c8e5f1;
     --header:#d9f0f8;
+
     --button:#5aa2be;
-    --button2:#2c6176;
+    --button-dark:#2c6176;
 }
 
-.container{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
-}
-
-/* =====================================================
-   الشعار الشفاف
-===================================================== */
+/* =========================================================
+   الشعار الرئيسي
+========================================================= */
 
 .main-banner{
     width:100%;
-    min-height:205px;
+    min-height:265px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    margin-bottom:4px;
+    padding-top:12px;
+    margin-top:0;
+    margin-bottom:-5px;
 
     background:transparent!important;
+
     border:0!important;
+
     box-shadow:none!important;
 
     overflow:visible;
@@ -214,67 +264,205 @@ body.ice{
     display:block;
 
     width:100%;
-    height:220px;
+    max-width:850px;
+
+    height:290px;
 
     object-fit:contain;
     object-position:center;
 
+    transform:
+        translateY(14px);
+
     background:transparent!important;
+}
 
+/* الأحمر أخف وأهدأ */
+
+body[data-logo-style="red"] .main-banner img{
     filter:
+        saturate(.72)
+        brightness(.94)
+        contrast(.94)
         drop-shadow(
-            0 10px 14px
-            rgba(0,0,0,.22)
+            0 8px 14px
+            rgba(212,175,55,.26)
         );
 }
 
-body.black .main-banner img,
-body.midnight .main-banner img{
+/* الذهبي */
+
+body[data-logo-style="gold"] .main-banner img{
     filter:
+        saturate(.90)
+        brightness(.98)
         drop-shadow(
-            0 0 10px
-            rgba(212,175,55,.22)
-        )
-        drop-shadow(
-            0 10px 14px
-            rgba(135,0,0,.24)
+            0 8px 15px
+            rgba(212,175,55,.32)
         );
 }
 
-/* =====================================================
-   Flex
-===================================================== */
+/* =========================================================
+   دوائر اختيار الشعار
+========================================================= */
 
-.logo-buttons,
-.top-buttons,
-.filter-grid,
-.report-actions,
-.report-themes{
+.logo-style-picker{
+    position:fixed;
+
+    right:10px;
+    top:57%;
+
+    transform:
+        translateY(-50%);
+
+    z-index:9999;
+
     display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
+    flex-direction:column;
+
+    gap:14px;
+
+    padding:
+        10px 7px;
+
+    border-radius:30px;
+
+    background:
+        rgba(20,20,20,.07);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
 }
 
-.logo-buttons{
-    margin:0 0 15px;
+/* الدوائر */
+
+.logo-style-circle{
+    width:38px;
+    height:38px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    border:
+        2px solid var(--gold);
+
+    transition:
+        transform .17s ease,
+        filter .17s ease,
+        box-shadow .17s ease;
+
+    box-shadow:
+        0 5px 12px
+        rgba(212,175,55,.36),
+        0 0 12px
+        rgba(212,175,55,.34),
+        inset 0 1px 3px
+        rgba(255,255,255,.40);
 }
+
+/* دائرة الأحمر - متعمد تكون أهدأ */
+
+.logo-style-circle.red-style{
+    background:
+        radial-gradient(
+            circle at 32% 27%,
+            #db7c7c,
+            #a93636 38%,
+            #721d1d 69%,
+            #341010
+        );
+}
+
+/* دائرة الذهبي */
+
+.logo-style-circle.gold-style{
+    background:
+        radial-gradient(
+            circle at 31% 26%,
+            #fff0ac,
+            #d8ba4b 36%,
+            #a67b16 68%,
+            #4a3207
+        );
+}
+
+.logo-style-circle:hover{
+    transform:
+        scale(1.10);
+
+    filter:
+        brightness(1.06);
+
+    box-shadow:
+        0 7px 16px
+        rgba(212,175,55,.48),
+        0 0 20px
+        rgba(212,175,55,.60);
+}
+
+.logo-style-circle.active{
+    transform:
+        scale(1.13);
+
+    border:
+        3px solid #ffe792;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212,175,55,.15),
+        0 0 20px
+        rgba(212,175,55,.80),
+        0 8px 17px
+        rgba(212,175,55,.42);
+}
+
+/* =========================================================
+   زر الألوان
+========================================================= */
 
 .top-buttons{
-    margin-bottom:13px;
+    display:flex;
+
+    justify-content:center;
+
+    margin:
+        2px 0 14px;
 }
 
-button{
-    font-family:inherit;
+.color-theme-button{
+    width:54px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    font-size:27px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--button),
+            var(--button-dark)
+        );
 }
 
-/* =====================================================
-   ظل الأزرار الموحد
-   ذهبي + أحمر
-===================================================== */
+/* =========================================================
+   جميع الظلال ذهبية فقط
+========================================================= */
 
-.logo-button,
 .color-theme-button,
 .theme-choice,
 .notes-button,
@@ -286,24 +474,26 @@ button{
 .report-theme-button{
 
     cursor:pointer;
+
     font-weight:900;
 
-    transition:
-        transform .15s,
-        filter .15s,
-        box-shadow .15s;
-
-    border:1px solid #d4af37;
+    border:
+        1px solid var(--gold)!important;
 
     box-shadow:
-        0 5px 0 #7b1010,
-        0 0 0 1px rgba(212,175,55,.36),
-        0 0 13px rgba(212,175,55,.45),
-        0 10px 20px rgba(135,0,0,.28),
-        inset 0 1px 0 rgba(255,230,145,.22);
+        0 6px 13px
+        rgba(212,175,55,.28),
+        0 0 13px
+        rgba(212,175,55,.36),
+        inset 0 1px 0
+        rgba(255,240,180,.24)!important;
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        filter .15s ease;
 }
 
-.logo-button:hover,
 .color-theme-button:hover,
 .theme-choice:hover,
 .notes-button:hover,
@@ -314,16 +504,21 @@ button{
 .delete-button:hover,
 .report-theme-button:hover{
 
-    filter:brightness(1.12);
+    transform:
+        translateY(-1px);
+
+    filter:
+        brightness(1.08);
 
     box-shadow:
-        0 5px 0 #a31515,
-        0 0 17px rgba(239,198,66,.68),
-        0 12px 24px rgba(150,0,0,.36),
-        inset 0 1px 0 rgba(255,235,160,.28);
+        0 8px 17px
+        rgba(212,175,55,.38),
+        0 0 19px
+        rgba(212,175,55,.54),
+        inset 0 1px 0
+        rgba(255,245,190,.34)!important;
 }
 
-.logo-button:active,
 .color-theme-button:active,
 .theme-choice:active,
 .notes-button:active,
@@ -334,83 +529,24 @@ button{
 .delete-button:active,
 .report-theme-button:active{
 
-    transform:translateY(4px);
+    transform:
+        translateY(3px);
 
     box-shadow:
-        0 1px 0 #7b1010,
-        0 0 8px rgba(212,175,55,.42),
-        0 5px 10px rgba(125,0,0,.24);
+        0 2px 7px
+        rgba(212,175,55,.26),
+        0 0 9px
+        rgba(212,175,55,.38)!important;
 }
 
-/* =====================================================
-   أزرار الستايل
-===================================================== */
-
-.logo-button{
-    min-width:155px;
-
-    padding:12px 22px;
-
-    border-radius:11px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--button),
-            var(--button2)
-        );
-
-    color:#fff;
-
-    font-size:17px;
-
-    text-shadow:
-        0 2px 3px #000;
-}
-
-.logo-button.active{
-    outline:
-        2px solid
-        rgba(255,218,88,.85);
-
-    outline-offset:2px;
-}
-
-/* =====================================================
-   زر الألوان
-===================================================== */
-
-.color-theme-button{
-    width:54px;
-    height:48px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--button),
-            var(--button2)
-        );
-
-    color:#fff;
-
-    font-size:27px;
-
-    padding:0;
-}
-
-/* =====================================================
-   قائمة الثيمات
-===================================================== */
+/* =========================================================
+   قائمة الألوان
+========================================================= */
 
 .theme-menu{
     display:none;
 
+    width:100%;
     max-width:920px;
 
     margin:
@@ -426,8 +562,10 @@ button{
     border-radius:15px;
 
     box-shadow:
-        0 12px 25px
-        rgba(0,0,0,.12);
+        0 10px 25px
+        rgba(0,0,0,.08),
+        0 0 12px
+        rgba(212,175,55,.16);
 }
 
 .theme-menu.show{
@@ -436,7 +574,7 @@ button{
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(115px,1fr)
+            minmax(110px,1fr)
         );
 
     gap:10px;
@@ -445,9 +583,10 @@ button{
 .theme-choice{
     min-height:42px;
 
-    padding:8px 11px;
-
     border-radius:10px;
+
+    padding:
+        8px 10px;
 
     background:
         linear-gradient(
@@ -458,107 +597,116 @@ button{
 
     color:var(--text);
 
-    font-size:14px;
+    font-size:13px;
 }
 
 .theme-dot{
+    display:inline-block;
+
     width:16px;
     height:16px;
 
-    border-radius:50%;
-
-    display:inline-block;
-
     margin-left:6px;
+
+    vertical-align:middle;
+
+    border-radius:50%;
 
     border:
         1px solid
-        rgba(0,0,0,.2);
-
-    vertical-align:middle;
+        rgba(0,0,0,.18);
 }
 
-/* =====================================================
-   الصناديق
-===================================================== */
+/* =========================================================
+   البطاقات العامة
+========================================================= */
 
 .form-box,
 .table-box,
 .report-filter,
 .report{
+
     background:var(--card);
 
     border:
         1px solid var(--border);
 
     border-radius:15px;
-
-    padding:15px;
 }
 
 .form-box,
 .table-box,
 .report-filter{
+
+    padding:15px;
+
     box-shadow:
         0 8px 20px
-        rgba(0,0,0,.08);
+        rgba(0,0,0,.07),
+        0 0 10px
+        rgba(212,175,55,.10);
 }
 
-/* =====================================================
+/* =========================================================
    الأسبوع
-===================================================== */
+========================================================= */
 
 .week-info{
-    text-align:center;
-
     margin-bottom:11px;
 
     padding:11px;
+
+    text-align:center;
 
     border-radius:9px;
 
     background:var(--header);
 
-    font-weight:900;
-
     font-size:16px;
+
+    font-weight:900;
 }
 
-/* =====================================================
-   الفورم
-===================================================== */
+/* =========================================================
+   نموذج إضافة الصفقة
+========================================================= */
 
-.form{
+.trade-form{
+    margin:0;
+}
+
+.form-grid{
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:9px;
+    gap:10px;
 }
 
 .field{
     display:flex;
-
     flex-direction:column;
 
     gap:6px;
 }
 
 .field label{
-    font-size:14px;
+    color:var(--secondary);
 
     font-weight:900;
 
-    color:var(--secondary);
+    font-size:14px;
 }
 
 input,
-select,
-textarea{
+select{
     width:100%;
 
-    padding:11px;
+    min-height:44px;
+
+    padding:
+        10px 11px;
 
     border:
         1px solid var(--border);
@@ -577,123 +725,111 @@ textarea{
 }
 
 input:focus,
-select:focus,
-textarea:focus{
-    border-color:#d4af37;
+select:focus{
+    border-color:var(--gold);
 
     box-shadow:
-        0 0 0 1px #7b1010,
-        0 0 10px rgba(212,175,55,.30);
+        0 0 0 1px
+        rgba(212,175,55,.35),
+        0 0 10px
+        rgba(212,175,55,.22);
 }
 
 .company-row{
-    grid-column:span 2;
+    grid-column:
+        span 2;
 }
 
 .strike-row{
-    grid-column:span 1;
+    grid-column:
+        span 1;
 }
 
 .price-row{
-    grid-column:span 3;
+    grid-column:
+        span 3;
 
     display:grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:9px;
+    gap:10px;
 }
 
 .notes-row{
+    grid-column:
+        span 3;
+
     display:flex;
 
-    align-items:end;
+    align-items:flex-end;
 
     gap:8px;
-
-    grid-column:span 3;
 }
 
 .notes-row .field{
     flex:1;
 }
 
-/* =====================================================
-   أزرار الصفحة
-===================================================== */
-
 .notes-button,
 .add-button,
 .report-button,
 .report-action{
+
+    color:#ffffff;
+
     background:
         linear-gradient(
             180deg,
             var(--button),
-            var(--button2)
+            var(--button-dark)
         );
-
-    color:#fff;
 
     text-shadow:
         0 1px 2px
-        rgba(0,0,0,.7);
+        rgba(0,0,0,.55);
 }
 
 .notes-button{
-    width:auto;
+    min-height:44px;
 
     padding:
-        11px 19px;
+        10px 18px;
+
+    border-radius:10px;
 
     white-space:nowrap;
 
-    border-radius:10px;
-
-    font-size:15px;
+    font-size:14px;
 }
+
+/* زر إضافة الصفقة */
 
 .add-button{
-    width:100%;
-
-    margin-top:12px;
-
-    padding:14px;
-
-    border-radius:11px;
-
-    font-size:18px;
-}
-
-.report-button{
     display:block;
 
-    margin:
-        13px auto 0;
+    width:100%;
+
+    min-height:52px;
+
+    margin-top:13px;
 
     padding:
-        12px 24px;
-
-    border-radius:10px;
-
-    font-size:17px;
-}
-
-.report-action{
-    min-width:185px;
-
-    padding:
-        14px 27px;
+        13px 15px;
 
     border-radius:11px;
 
     font-size:18px;
+
+    position:relative;
+
+    z-index:2;
 }
 
-/* =====================================================
+/* =========================================================
    جدول الصفحة
-===================================================== */
+========================================================= */
 
 .table-box{
     margin-top:14px;
@@ -703,20 +839,15 @@ textarea:focus{
 
 .table-box h3,
 .report-filter h3{
+
     text-align:center;
+
+    margin:
+        3px 0 13px;
 
     font-size:19px;
 
     font-weight:900;
-}
-
-.report-filter{
-    margin-top:14px;
-}
-
-.report-filter h3{
-    margin:
-        0 0 11px;
 }
 
 table{
@@ -728,11 +859,11 @@ table{
 }
 
 th{
+    padding:10px;
+
     background:var(--header);
 
     color:var(--text);
-
-    padding:10px;
 
     font-size:14px;
 
@@ -752,60 +883,80 @@ td{
 
 .table-box table{
     border:
-        1px solid #c9a536;
+        1px solid var(--gold);
 
     box-shadow:
-        0 4px 0 #7b1010,
-        0 0 12px rgba(212,175,55,.25);
+        0 6px 16px
+        rgba(0,0,0,.07),
+        0 0 12px
+        rgba(212,175,55,.20);
 }
 
 .green{
-    color:#16a864;
+    color:#139353!important;
 
     font-weight:900;
 }
 
 .orange{
-    color:#00a7c8;
+    color:#009fbd!important;
 
     font-weight:900;
 }
 
 .red{
-    color:#d83c3c;
+    color:#c93b3b!important;
 
     font-weight:900;
 }
 
 .delete-button{
-    background:
-        linear-gradient(
-            180deg,
-            #e84f4f,
-            #8d0f0f
-        );
-
-    color:#fff;
+    padding:
+        7px 11px;
 
     border-radius:8px;
 
-    padding:
-        7px 11px;
+    background:
+        linear-gradient(
+            180deg,
+            #c75c5c,
+            #772525
+        );
+
+    color:#fff;
 
     font-size:12px;
 }
 
 .empty{
+    padding:22px;
+
     text-align:center;
 
     color:var(--secondary);
-
-    padding:22px;
 }
 
-/* =====================================================
-   فلترة التقرير
-===================================================== */
+/* =========================================================
+   فلتر التقارير
+========================================================= */
+
+.report-filter{
+    margin-top:14px;
+}
+
+.filter-grid,
+.report-actions,
+.report-themes{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+}
 
 .filter-button{
     padding:
@@ -826,53 +977,68 @@ td{
 }
 
 .filter-button.active{
+    color:#fff;
+
     background:
         linear-gradient(
             180deg,
             var(--button),
-            var(--button2)
+            var(--button-dark)
         );
-
-    color:#fff;
 }
 
 .date-grid{
-    margin-top:11px;
-
     display:grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap:9px;
+
+    margin-top:12px;
 }
 
-/* =====================================================
-   التقرير الأسبوعي الملموم
-===================================================== */
+.report-button{
+    display:block;
+
+    margin:
+        13px auto 0;
+
+    padding:
+        12px 25px;
+
+    border-radius:10px;
+
+    font-size:17px;
+}
+
+/* =========================================================
+   التقرير
+========================================================= */
 
 .report{
     display:none;
-
-    margin-top:14px;
 
     position:relative;
 
     overflow:hidden;
 
+    margin-top:14px;
+
+    padding:13px;
+
     --r-bg1:#f7fafb;
-    --r-bg2:#fff;
+    --r-bg2:#ffffff;
     --r-text:#182326;
     --r-muted:#4d5c60;
     --r-head:#dce6e8;
-    --r-card:#fff;
-    --r-border:#c9a536;
+    --r-card:#ffffff;
 
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(212,175,55,.12),
-            transparent 36%
+            rgba(212,175,55,.10),
+            transparent 37%
         ),
         linear-gradient(
             180deg,
@@ -880,24 +1046,146 @@ td{
             var(--r-bg2)
         )!important;
 
-    color:
-        var(--r-text)!important;
+    color:var(--r-text)!important;
 
     border:
-        2px solid
-        var(--r-border)!important;
+        2px solid var(--gold)!important;
 
     box-shadow:
-        0 6px 0 #7b1010,
-        0 0 20px rgba(212,175,55,.36),
-        0 18px 38px rgba(120,0,0,.24)!important;
+        0 14px 30px
+        rgba(0,0,0,.10),
+        0 0 20px
+        rgba(212,175,55,.25)!important;
 }
 
 .report.show{
     display:block;
 }
 
-/* العلامة المائية */
+/* =========================================================
+   ثيمات التقرير
+========================================================= */
+
+.report.theme-report-white{
+    --r-bg1:#f7fafb;
+    --r-bg2:#ffffff;
+    --r-text:#182326;
+    --r-muted:#4d5c60;
+    --r-head:#dce6e8;
+    --r-card:#ffffff;
+}
+
+.report.theme-report-black{
+    --r-bg1:#111111;
+    --r-bg2:#020202;
+    --r-text:#ffffff;
+    --r-muted:#c9c9c9;
+    --r-head:#241f10;
+    --r-card:#111111;
+}
+
+.report.theme-report-silver{
+    --r-bg1:#e6eaec;
+    --r-bg2:#fbfcfd;
+    --r-text:#283036;
+    --r-muted:#667078;
+    --r-head:#d5dade;
+    --r-card:#f7f9fa;
+}
+
+.report.theme-report-blue{
+    --r-bg1:#e4f2fa;
+    --r-bg2:#ffffff;
+    --r-text:#19374a;
+    --r-muted:#5c7889;
+    --r-head:#d2e8f4;
+    --r-card:#f8fcff;
+}
+
+.report.theme-report-turquoise{
+    --r-bg1:#e2f7f6;
+    --r-bg2:#ffffff;
+    --r-text:#183b3b;
+    --r-muted:#5e8080;
+    --r-head:#d1efed;
+    --r-card:#f9ffff;
+}
+
+.report.theme-report-beige{
+    --r-bg1:#f3eadc;
+    --r-bg2:#ffffff;
+    --r-text:#40372d;
+    --r-muted:#7e7264;
+    --r-head:#eadfce;
+    --r-card:#fffdf9;
+}
+
+.report.theme-report-purple{
+    --r-bg1:#eee4f8;
+    --r-bg2:#ffffff;
+    --r-text:#3b2c4b;
+    --r-muted:#78688a;
+    --r-head:#e4d7f0;
+    --r-card:#fdfaff;
+}
+
+.report.theme-report-emerald{
+    --r-bg1:#e1f1e8;
+    --r-bg2:#ffffff;
+    --r-text:#173b2e;
+    --r-muted:#587d6d;
+    --r-head:#d1e8dc;
+    --r-card:#fafffc;
+}
+
+.report.theme-report-burgundy{
+    --r-bg1:#f1dfe3;
+    --r-bg2:#ffffff;
+    --r-text:#4a232b;
+    --r-muted:#8b636c;
+    --r-head:#ead2d8;
+    --r-card:#fffafb;
+}
+
+.report.theme-report-copper{
+    --r-bg1:#f0dfd0;
+    --r-bg2:#ffffff;
+    --r-text:#4c3022;
+    --r-muted:#8e705f;
+    --r-head:#ead3c0;
+    --r-card:#fffaf6;
+}
+
+.report.theme-report-midnight{
+    --r-bg1:#122235;
+    --r-bg2:#08111d;
+    --r-text:#f1f7ff;
+    --r-muted:#a7b9cc;
+    --r-head:#162b40;
+    --r-card:#101c2a;
+}
+
+.report.theme-report-rose{
+    --r-bg1:#f8e4eb;
+    --r-bg2:#ffffff;
+    --r-text:#522c38;
+    --r-muted:#946b77;
+    --r-head:#f1d8e1;
+    --r-card:#fffafd;
+}
+
+.report.theme-report-ice{
+    --r-bg1:#e1f4fb;
+    --r-bg2:#ffffff;
+    --r-text:#213e4e;
+    --r-muted:#66899b;
+    --r-head:#d4edf7;
+    --r-card:#fbfeff;
+}
+
+/* =========================================================
+   Watermark
+========================================================= */
 
 .report-watermark{
     position:absolute!important;
@@ -905,10 +1193,10 @@ td{
     z-index:0!important;
 
     left:50%;
-    top:240px;
+    top:215px;
 
-    width:620px;
-    height:620px;
+    width:600px;
+    height:600px;
 
     transform:
         translateX(-50%);
@@ -916,13 +1204,11 @@ td{
     background-image:
         var(--report-logo);
 
+    background-repeat:no-repeat;
+    background-position:center;
     background-size:contain;
 
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    opacity:.035;
+    opacity:.025;
 
     pointer-events:none;
 }
@@ -933,79 +1219,93 @@ td{
     z-index:1;
 }
 
-/* شعار التقرير */
+/* =========================================================
+   شعار التقرير
+========================================================= */
 
 .report-logo{
     display:block;
 
-    width:min(
-        420px,
-        68%
-    );
+    width:min(470px,72%);
 
-    height:92px;
+    height:100px;
+
+    margin:
+        -4px auto -2px;
 
     object-fit:contain;
 
-    margin:
-        0 auto 2px;
-
     background:transparent!important;
+}
 
+body[data-logo-style="red"] .report-logo{
     filter:
+        saturate(.72)
+        brightness(.94)
+        contrast(.94)
         drop-shadow(
-            0 5px 8px
-            rgba(0,0,0,.15)
+            0 4px 8px
+            rgba(212,175,55,.20)
         );
 }
 
-/* =====================================================
-   عنوان التقرير
-===================================================== */
+body[data-logo-style="gold"] .report-logo{
+    filter:
+        saturate(.90)
+        drop-shadow(
+            0 4px 9px
+            rgba(212,175,55,.28)
+        );
+}
+
+/* =========================================================
+   رأس التقرير
+========================================================= */
 
 .report-heading{
     display:grid;
 
     grid-template-columns:
-        120px 1fr 120px;
+        118px 1fr 118px;
+
+    gap:6px;
 
     align-items:center;
 
-    gap:8px;
-
-    margin:
-        0 0 9px;
+    margin-bottom:7px;
 }
 
 .weekly-badge{
     justify-self:start;
 
     padding:
-        7px 12px;
+        6px 10px;
 
     border-radius:999px;
+
+    border:
+        1px solid var(--gold);
 
     background:
         linear-gradient(
             180deg,
-            #40270b,
-            #140b02
+            #4b3c16,
+            #171103
         );
 
-    color:#f5d26c;
+    color:#f6d66e;
 
-    border:
-        1px solid #d4af37;
-
-    font-size:12px;
+    font-size:10px;
 
     font-weight:900;
 
-    letter-spacing:.7px;
+    letter-spacing:.6px;
 
     box-shadow:
-        0 3px 0 #7b1010,
-        0 0 10px rgba(212,175,55,.30);
+        0 4px 10px
+        rgba(212,175,55,.28),
+        0 0 9px
+        rgba(212,175,55,.22);
 }
 
 .report-title{
@@ -1017,58 +1317,55 @@ td{
 
     color:var(--r-text);
 
-    font-size:29px;
+    font-size:28px;
 
     font-weight:900;
 }
 
 .report-period{
+    margin-top:3px;
+
     text-align:center;
 
     color:var(--r-muted);
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:900;
-
-    margin-top:3px;
 }
 
 .report-heading-spacer{
-    width:120px;
+    width:118px;
 }
 
-/* =====================================================
+/* =========================================================
    ألوان التقرير
-===================================================== */
+========================================================= */
 
 .report-themes{
     margin:
-        5px 0 10px;
+        5px 0 9px;
 }
 
 .report-theme-button{
-    width:31px;
-    height:31px;
+    width:30px;
+    height:30px;
 
     padding:0;
 
     border-radius:50%;
-
-    position:relative;
 }
 
 .report-theme-button.active{
     outline:
-        2px solid
-        rgba(255,218,88,.88);
+        2px solid #ffe586;
 
     outline-offset:2px;
 }
 
-/* =====================================================
+/* =========================================================
    KPI
-===================================================== */
+========================================================= */
 
 .kpi-grid{
     display:grid;
@@ -1076,21 +1373,26 @@ td{
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:9px;
+    gap:8px;
 
     margin:
-        9px 0;
+        8px 0;
 }
 
 .kpi-card{
-    min-height:86px;
+    min-height:82px;
 
     padding:
-        11px 9px;
-
-    border-radius:12px;
+        10px 8px;
 
     text-align:center;
+
+    border:
+        1px solid var(--gold);
+
+    border-radius:11px;
+
+    color:var(--r-text);
 
     background:
         linear-gradient(
@@ -1099,69 +1401,63 @@ td{
             var(--r-head)
         );
 
-    color:var(--r-text);
-
-    border:
-        1px solid #c9a536;
-
     box-shadow:
-        0 4px 0 #7b1010,
-        0 0 11px rgba(212,175,55,.27),
-        0 9px 18px rgba(120,0,0,.15);
+        0 7px 14px
+        rgba(0,0,0,.08),
+        0 0 11px
+        rgba(212,175,55,.23);
 }
 
 .kpi-label{
-    font-size:13px;
+    font-size:12px;
 
     font-weight:900;
-
-    opacity:.88;
 }
 
 .kpi-value{
     display:block;
 
+    margin-top:6px;
+
     font-size:27px;
 
-    line-height:1.05;
+    line-height:1;
 
     font-weight:900;
-
-    margin-top:7px;
 }
 
 .kpi-sub{
     display:block;
 
-    font-size:11px;
-
     margin-top:4px;
 
     color:var(--r-muted);
+
+    font-size:10px;
 
     font-weight:800;
 }
 
 .positive{
-    color:#0b9b57!important;
+    color:#129657!important;
 }
 
 .negative{
-    color:#cf3434!important;
+    color:#c83d3d!important;
 }
 
 .gold{
-    color:#b88716!important;
+    color:#a97f15!important;
 }
 
 .theme-report-black .gold,
 .theme-report-midnight .gold{
-    color:#f1cf63!important;
+    color:#edcc61!important;
 }
 
-/* =====================================================
-   أفضل صفقة ومتوسط العائد
-===================================================== */
+/* =========================================================
+   أفضل صفقة
+========================================================= */
 
 .insights{
     display:grid;
@@ -1172,14 +1468,17 @@ td{
     gap:8px;
 
     margin:
-        9px 0;
+        8px 0;
 }
 
 .insight{
     padding:
-        9px 11px;
+        8px 10px;
 
-    border-radius:10px;
+    border:
+        1px solid var(--gold);
+
+    border-radius:9px;
 
     background:
         linear-gradient(
@@ -1188,46 +1487,44 @@ td{
             var(--r-head)
         );
 
-    border:
-        1px solid #c9a536;
-
     color:var(--r-text);
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:900;
 
     box-shadow:
-        0 3px 0 #7b1010,
-        0 0 8px rgba(212,175,55,.22);
+        0 5px 12px
+        rgba(0,0,0,.07),
+        0 0 8px
+        rgba(212,175,55,.20);
 }
 
-.insight strong{
-    font-size:14px;
-}
-
-/* =====================================================
-   الرسوم المصغرة
-===================================================== */
+/* =========================================================
+   الرسوم البيانية
+========================================================= */
 
 .mini-charts{
     display:grid;
 
     grid-template-columns:
-        260px 1fr;
+        280px 1fr;
 
-    gap:9px;
+    gap:8px;
 
     margin:
-        9px 0;
+        8px 0;
 }
 
 .chart-card{
-    min-height:140px;
+    min-height:135px;
 
-    padding:10px;
+    padding:9px;
 
-    border-radius:12px;
+    border:
+        1px solid var(--gold);
+
+    border-radius:11px;
 
     background:
         linear-gradient(
@@ -1236,55 +1533,53 @@ td{
             var(--r-head)
         );
 
-    border:
-        1px solid #c9a536;
-
     box-shadow:
-        0 4px 0 #7b1010,
-        0 0 11px rgba(212,175,55,.25);
+        0 6px 13px
+        rgba(0,0,0,.07),
+        0 0 10px
+        rgba(212,175,55,.22);
 }
 
 .chart-title{
+    margin-bottom:6px;
+
     text-align:center;
-
-    font-size:13px;
-
-    font-weight:900;
 
     color:var(--r-text);
 
-    margin-bottom:7px;
+    font-size:12px;
+
+    font-weight:900;
 }
 
-/* =====================================================
+/* =========================================================
    Donut
-===================================================== */
+========================================================= */
 
 .donut-layout{
+    min-height:100px;
+
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    gap:15px;
-
-    min-height:100px;
+    gap:16px;
 }
 
 .donut{
-    width:92px;
-    height:92px;
-
-    border-radius:50%;
-
     position:relative;
+
+    width:105px;
+    height:105px;
 
     flex:0 0 auto;
 
+    border-radius:50%;
+
     box-shadow:
         0 0 10px
-        rgba(212,175,55,.22);
+        rgba(212,175,55,.18);
 }
 
 .donut::after{
@@ -1292,7 +1587,7 @@ td{
 
     position:absolute;
 
-    inset:16px;
+    inset:18px;
 
     border-radius:50%;
 
@@ -1300,7 +1595,7 @@ td{
 
     border:
         1px solid
-        rgba(212,175,55,.45);
+        rgba(212,175,55,.40);
 }
 
 .donut-center{
@@ -1312,50 +1607,53 @@ td{
 
     display:flex;
 
-    align-items:center;
-
-    justify-content:center;
-
     flex-direction:column;
 
-    font-weight:900;
+    align-items:center;
+    justify-content:center;
 
     color:var(--r-text);
+
+    font-weight:900;
 
     font-size:20px;
 }
 
 .donut-center small{
-    font-size:9px;
+    margin-top:1px;
 
     color:var(--r-muted);
 
-    margin-top:1px;
+    font-size:9px;
 }
 
 .legend{
+    min-width:100px;
+
     display:grid;
 
-    gap:5px;
-
-    font-size:11px;
-
-    font-weight:900;
+    gap:6px;
 
     color:var(--r-text);
+
+    font-size:10px;
+
+    font-weight:900;
 }
 
 .legend-row{
     display:flex;
 
-    align-items:center;
-
     gap:6px;
+
+    align-items:center;
 }
 
 .legend-dot{
     width:9px;
     height:9px;
+
+    flex:0 0 auto;
 
     border-radius:3px;
 }
@@ -1366,12 +1664,14 @@ td{
     color:var(--r-muted);
 }
 
-/* =====================================================
+/* =========================================================
    Bar chart
-===================================================== */
+========================================================= */
 
 .performance-plot{
-    height:94px;
+    position:relative;
+
+    height:100px;
 
     display:flex;
 
@@ -1381,10 +1681,8 @@ td{
 
     gap:6px;
 
-    position:relative;
-
     padding:
-        6px 3px 16px;
+        7px 4px 17px;
 }
 
 .performance-plot::before{
@@ -1400,32 +1698,27 @@ td{
     height:1px;
 
     background:
-        rgba(130,110,70,.45);
+        rgba(140,120,70,.40);
 }
 
 .bar-item{
-    flex:1;
-
     position:relative;
 
-    min-width:20px;
+    flex:1;
+
+    min-width:18px;
 }
 
 .bar-pos,
 .bar-neg{
     position:absolute;
 
-    left:20%;
-    right:20%;
-
-    border-radius:
-        4px 4px 2px 2px;
+    left:18%;
+    right:18%;
 
     min-height:3px;
 
-    box-shadow:
-        0 0 6px
-        rgba(0,0,0,.15);
+    border-radius:4px;
 }
 
 .bar-pos{
@@ -1434,8 +1727,8 @@ td{
     background:
         linear-gradient(
             180deg,
-            #55c86f,
-            #168d48
+            #55c877,
+            #168e4d
         );
 }
 
@@ -1445,8 +1738,8 @@ td{
     background:
         linear-gradient(
             180deg,
-            #e04b4b,
-            #9f1616
+            #d65a5a,
+            #9f2828
         );
 }
 
@@ -1458,11 +1751,11 @@ td{
 
     text-align:center;
 
-    font-size:9px;
+    color:var(--r-text);
+
+    font-size:8px;
 
     font-weight:900;
-
-    color:var(--r-text);
 }
 
 .bar-value.pos{
@@ -1491,49 +1784,56 @@ td{
 
     bottom:-13px;
 
+    color:var(--r-muted);
+
     text-align:center;
 
-    font-size:9px;
-
-    color:var(--r-muted);
+    font-size:8px;
 
     font-weight:800;
 }
 
-/* =====================================================
+/* =========================================================
    جدول التقرير
-===================================================== */
+========================================================= */
 
 .report-table{
     overflow-x:auto;
 
     padding:
-        4px 2px 8px;
+        3px 1px 7px;
 }
 
 .report-table table{
-    background:var(--r-card);
+    min-width:850px;
 
-    min-width:860px;
+    border:
+        1px solid var(--gold);
 
     border-collapse:separate;
 
     border-spacing:0;
 
-    border-radius:11px;
-
     overflow:hidden;
 
-    border:
-        2px solid #c9a536;
+    border-radius:10px;
+
+    background:var(--r-card);
 
     box-shadow:
-        0 4px 0 #7b1010,
-        0 0 13px rgba(212,175,55,.29),
-        0 10px 20px rgba(120,0,0,.16);
+        0 7px 16px
+        rgba(0,0,0,.08),
+        0 0 12px
+        rgba(212,175,55,.21);
 }
 
 .report-table th{
+    padding:7px;
+
+    border:
+        1px solid
+        rgba(181,145,43,.45);
+
     background:
         linear-gradient(
             180deg,
@@ -1543,29 +1843,23 @@ td{
 
     color:var(--r-text);
 
-    border:
-        1px solid
-        rgba(160,125,32,.55);
-
-    font-size:12px;
-
-    padding:8px;
+    font-size:11px;
 }
 
 .report-table td{
+    padding:7px;
+
     border:
         1px solid
-        rgba(125,80,80,.30);
+        rgba(110,100,80,.20);
+
+    background:var(--r-card);
 
     color:var(--r-text)!important;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:900;
-
-    padding:8px;
-
-    background:var(--r-card);
 }
 
 .report-table .win-row td{
@@ -1581,69 +1875,50 @@ td{
 }
 
 .report-table .loss-row td{
-    background:#f9e1e1;
+    background:#f7e3e3;
 
     color:#4b1c1c!important;
 }
 
-.theme-report-black
-.report-table
-.win-row td,
-
-.theme-report-midnight
-.report-table
-.win-row td{
+.theme-report-black .report-table .win-row td,
+.theme-report-midnight .report-table .win-row td{
     background:#102318;
 
     color:#eafff0!important;
 }
 
-.theme-report-black
-.report-table
-.stopped-row td,
-
-.theme-report-midnight
-.report-table
-.stopped-row td{
+.theme-report-black .report-table .stopped-row td,
+.theme-report-midnight .report-table .stopped-row td{
     background:#10242a;
 
     color:#eaffff!important;
 }
 
-.theme-report-black
-.report-table
-.loss-row td,
-
-.theme-report-midnight
-.report-table
-.loss-row td{
-    background:#301010;
+.theme-report-black .report-table .loss-row td,
+.theme-report-midnight .report-table .loss-row td{
+    background:#301313;
 
     color:#fff0f0!important;
 }
 
-/* =====================================================
+/* =========================================================
    التنويه
-===================================================== */
+========================================================= */
 
 .report-note{
-    margin-top:8px;
+    margin-top:7px;
 
     padding:
-        10px 12px;
+        9px 11px;
 
     text-align:center;
-
-    font-size:12px;
-
-    line-height:1.55;
-
-    font-weight:900;
 
     color:var(--r-text);
 
     border:
-        1px solid #c9a536;
+        1px solid var(--gold);
+
+    border-radius:9px;
 
     background:
         linear-gradient(
@@ -1652,171 +1927,58 @@ td{
             var(--r-head)
         );
 
-    border-radius:9px;
+    font-size:11px;
+
+    line-height:1.5;
+
+    font-weight:900;
 
     box-shadow:
-        0 3px 0 #7b1010,
-        0 0 8px rgba(212,175,55,.22);
+        0 5px 11px
+        rgba(0,0,0,.06),
+        0 0 8px
+        rgba(212,175,55,.18);
 }
 
-.report-note .mini-disclaimer{
+.mini-disclaimer{
     display:block;
 
     margin-top:2px;
 
     color:var(--r-muted);
 
-    font-size:11px;
+    font-size:10px;
 }
+
+/* =========================================================
+   أزرار التقرير
+========================================================= */
 
 .report-actions{
     margin:
-        13px 0 2px;
+        12px 0 1px;
 
-    padding-top:12px;
+    padding-top:11px;
 
     border-top:
         1px solid
-        rgba(212,175,55,.40);
+        rgba(212,175,55,.35);
 }
 
-/* =====================================================
-   ثيمات التقرير
-===================================================== */
+.report-action{
+    min-width:180px;
 
-.report.theme-report-white{
-    --r-bg1:#f7fafb;
-    --r-bg2:#fff;
-    --r-text:#182326;
-    --r-muted:#4d5c60;
-    --r-head:#dce6e8;
-    --r-card:#fff;
-    --r-border:#c9a536;
+    padding:
+        13px 25px;
+
+    border-radius:11px;
+
+    font-size:17px;
 }
 
-.report.theme-report-black{
-    --r-bg1:#111;
-    --r-bg2:#020202;
-    --r-text:#fff;
-    --r-muted:#ddd;
-    --r-head:#241c08;
-    --r-card:#111;
-    --r-border:#d4af37;
-}
-
-.report.theme-report-silver{
-    --r-bg1:#e6eaec;
-    --r-bg2:#fbfcfd;
-    --r-text:#283036;
-    --r-muted:#667078;
-    --r-head:#d5dade;
-    --r-card:#f7f9fa;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-blue{
-    --r-bg1:#e4f2fa;
-    --r-bg2:#fff;
-    --r-text:#19374a;
-    --r-muted:#5c7889;
-    --r-head:#d2e8f4;
-    --r-card:#f8fcff;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-turquoise{
-    --r-bg1:#e2f7f6;
-    --r-bg2:#fff;
-    --r-text:#183b3b;
-    --r-muted:#5e8080;
-    --r-head:#d1efed;
-    --r-card:#f9ffff;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-beige{
-    --r-bg1:#f3eadc;
-    --r-bg2:#fff;
-    --r-text:#40372d;
-    --r-muted:#7e7264;
-    --r-head:#eadfce;
-    --r-card:#fffdf9;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-purple{
-    --r-bg1:#eee4f8;
-    --r-bg2:#fff;
-    --r-text:#3b2c4b;
-    --r-muted:#78688a;
-    --r-head:#e4d7f0;
-    --r-card:#fdfaff;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-emerald{
-    --r-bg1:#e1f1e8;
-    --r-bg2:#fff;
-    --r-text:#173b2e;
-    --r-muted:#587d6d;
-    --r-head:#d1e8dc;
-    --r-card:#fafffc;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-burgundy{
-    --r-bg1:#f1dfe3;
-    --r-bg2:#fff;
-    --r-text:#4a232b;
-    --r-muted:#8b636c;
-    --r-head:#ead2d8;
-    --r-card:#fffafb;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-copper{
-    --r-bg1:#f0dfd0;
-    --r-bg2:#fff;
-    --r-text:#4c3022;
-    --r-muted:#8e705f;
-    --r-head:#ead3c0;
-    --r-card:#fffaf6;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-midnight{
-    --r-bg1:#122235;
-    --r-bg2:#08111d;
-    --r-text:#f1f7ff;
-    --r-muted:#a7b9cc;
-    --r-head:#162b40;
-    --r-card:#101c2a;
-    --r-border:#d4af37;
-}
-
-.report.theme-report-rose{
-    --r-bg1:#f8e4eb;
-    --r-bg2:#fff;
-    --r-text:#522c38;
-    --r-muted:#946b77;
-    --r-head:#f1d8e1;
-    --r-card:#fffafd;
-    --r-border:#c9a536;
-}
-
-.report.theme-report-ice{
-    --r-bg1:#e1f4fb;
-    --r-bg2:#fff;
-    --r-text:#213e4e;
-    --r-muted:#66899b;
-    --r-head:#d4edf7;
-    --r-card:#fbfeff;
-    --r-border:#c9a536;
-}
-
-/* =====================================================
-   الطباعة
-===================================================== */
+/* =========================================================
+   PRINT
+========================================================= */
 
 @page{
     size:A4 portrait;
@@ -1826,7 +1988,7 @@ td{
 @media print{
 
     .main-banner,
-    .logo-buttons,
+    .logo-style-picker,
     .top-buttons,
     .theme-menu,
     .form-box,
@@ -1836,26 +1998,24 @@ td{
         display:none!important;
     }
 
-    .container{
-        width:100%!important;
-
-        max-width:none!important;
-
-        margin:0!important;
-
-        padding:0!important;
-    }
-
+    html,
     body{
-        padding:0!important;
-
         margin:0!important;
+        padding:0!important;
 
         -webkit-print-color-adjust:
             exact!important;
 
         print-color-adjust:
             exact!important;
+    }
+
+    .container{
+        width:100%!important;
+
+        max-width:none!important;
+
+        margin:0!important;
     }
 
     .report{
@@ -1865,34 +2025,56 @@ td{
     }
 }
 
-/* =====================================================
+/* =========================================================
    الجوال
-===================================================== */
+========================================================= */
 
 @media(max-width:700px){
 
     body{
-        padding:8px;
+        padding:7px;
     }
 
     .main-banner{
-        min-height:165px;
+        min-height:205px;
+
+        padding-top:0;
+
+        margin-bottom:-4px;
     }
 
     .main-banner img{
-        height:175px;
+        height:230px;
+
+        max-width:100%;
+
+        transform:
+            translateY(10px)
+            scale(1.05);
     }
 
-    .logo-button{
-        font-size:14px;
+    .logo-style-picker{
+        right:5px;
 
-        min-width:135px;
+        top:60%;
+
+        gap:11px;
 
         padding:
-            10px 14px;
+            8px 5px;
     }
 
-    .form{
+    .logo-style-circle{
+        width:33px;
+        height:33px;
+    }
+
+    .theme-menu.show{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .form-grid{
         grid-template-columns:1fr;
     }
 
@@ -1912,58 +2094,53 @@ td{
         grid-template-columns:1fr;
     }
 
-    .theme-menu.show{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
     .report{
-        padding:9px;
+        padding:8px;
     }
 
     .report-logo{
-        height:72px;
+        width:84%;
 
-        width:78%;
+        height:82px;
     }
 
     .report-heading{
         grid-template-columns:
-            84px 1fr 84px;
-    }
-
-    .weekly-badge{
-        font-size:9px;
-
-        padding:
-            6px 8px;
+            77px 1fr 77px;
     }
 
     .report-heading-spacer{
-        width:84px;
+        width:77px;
+    }
+
+    .weekly-badge{
+        padding:
+            5px 6px;
+
+        font-size:7px;
     }
 
     .report-title h2{
-        font-size:23px;
+        font-size:21px;
     }
 
     .report-period{
-        font-size:12px;
+        font-size:11px;
     }
 
     .kpi-grid{
         grid-template-columns:
             repeat(2,1fr);
 
-        gap:7px;
+        gap:6px;
     }
 
     .kpi-card{
-        min-height:75px;
+        min-height:72px;
     }
 
     .kpi-value{
-        font-size:23px;
+        font-size:22px;
     }
 
     .insights{
@@ -1974,25 +2151,10 @@ td{
         grid-template-columns:1fr;
     }
 
-    .chart-card{
-        min-height:130px;
-    }
-
-    .report-table th,
-    .report-table td{
-        font-size:11px;
-
-        padding:7px;
-    }
-
     .report-action{
         width:100%;
 
         min-width:0;
-    }
-
-    .report-note{
-        font-size:11px;
     }
 }
 
@@ -2000,980 +2162,1018 @@ td{
 
 </head>
 
-<body class="white">
+<body class="white" data-logo-style="red">
+
+<!-- ======================================================
+     اختيار الشعار - دوائر جانبية
+====================================================== -->
+
+<div class="logo-style-picker no-print">
+
+    <button
+        type="button"
+        id="logo1Button"
+        class="logo-style-circle red-style active"
+        onclick="setLogo(1)"
+        aria-label="الشعار الأحمر"
+        title="الشعار الأحمر">
+    </button>
+
+    <button
+        type="button"
+        id="logo2Button"
+        class="logo-style-circle gold-style"
+        onclick="setLogo(2)"
+        aria-label="الشعار الذهبي"
+        title="الشعار الذهبي">
+    </button>
+
+</div>
 
 <div class="container">
 
-<!-- =====================================================
+<!-- ======================================================
      الشعار
-===================================================== -->
+====================================================== -->
 
-<div
-    id="mainBanner"
-    class="main-banner">
+<div class="main-banner">
 
-<img
-    id="mainLogo"
-    src="AQ.PNG"
-    alt="الشعار">
+    <img
+        id="mainLogo"
+        src="AQ.PNG"
+        alt="Q OPTIONS">
 
 </div>
 
-<!-- =====================================================
-     اختيار الستايل
-===================================================== -->
-
-<div class="logo-buttons no-print">
-
-<button
-    type="button"
-    id="logo1Button"
-    class="logo-button active"
-    onclick="setLogo(1)">
-
-ستايل أحمر
-
-</button>
-
-<button
-    type="button"
-    id="logo2Button"
-    class="logo-button"
-    onclick="setLogo(2)">
-
-ستايل ذهبي
-
-</button>
-
-</div>
-
-<!-- =====================================================
+<!-- ======================================================
      زر الألوان
-===================================================== -->
+====================================================== -->
 
 <div class="top-buttons no-print">
 
-<button
-    type="button"
-    class="color-theme-button"
-    onclick="toggleThemes()"
-    aria-label="الألوان"
-    title="الألوان">
+    <button
+        type="button"
+        class="color-theme-button"
+        onclick="toggleThemes()"
+        title="ألوان الصفحة"
+        aria-label="ألوان الصفحة">
 
-🎨
+        🎨
 
-</button>
+    </button>
 
 </div>
 
-<!-- =====================================================
+<!-- ======================================================
      قائمة الثيمات
-===================================================== -->
+====================================================== -->
 
 <div
     id="themeMenu"
     class="theme-menu no-print">
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('white')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('white')">
 
-<span
-    class="theme-dot"
-    style="background:#f5f7f8">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#f5f7f8">
+        </span>
 
-أبيض
+        أبيض
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('black')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('black')">
 
-<span
-    class="theme-dot"
-    style="background:#050505">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#050505">
+        </span>
 
-أسود
+        أسود
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('silver')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('silver')">
 
-<span
-    class="theme-dot"
-    style="background:#bfc5c9">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#bfc5c9">
+        </span>
 
-فضي
+        فضي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('blue')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('blue')">
 
-<span
-    class="theme-dot"
-    style="background:#4c9aca">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#4c9aca">
+        </span>
 
-أزرق
+        أزرق
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('turquoise')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('turquoise')">
 
-<span
-    class="theme-dot"
-    style="background:#38aaa5">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#38aaa5">
+        </span>
 
-تركوازي
+        تركوازي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('beige')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('beige')">
 
-<span
-    class="theme-dot"
-    style="background:#c6ab82">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#c6ab82">
+        </span>
 
-بيج
+        بيج
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('purple')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('purple')">
 
-<span
-    class="theme-dot"
-    style="background:#8b5db5">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#8b5db5">
+        </span>
 
-بنفسجي
+        بنفسجي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('emerald')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('emerald')">
 
-<span
-    class="theme-dot"
-    style="background:#2f8e67">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#2f8e67">
+        </span>
 
-زمردي
+        زمردي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('burgundy')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('burgundy')">
 
-<span
-    class="theme-dot"
-    style="background:#8e3044">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#8e3044">
+        </span>
 
-عنابي
+        عنابي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('copper')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('copper')">
 
-<span
-    class="theme-dot"
-    style="background:#b96f42">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#b96f42">
+        </span>
 
-نحاسي
+        نحاسي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('midnight')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('midnight')">
 
-<span
-    class="theme-dot"
-    style="background:#11253a">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#11253a">
+        </span>
 
-ليلي
+        ليلي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('rose')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('rose')">
 
-<span
-    class="theme-dot"
-    style="background:#cf7892">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#cf7892">
+        </span>
 
-وردي
+        وردي
 
-</button>
+    </button>
 
-<button
-    type="button"
-    class="theme-choice"
-    onclick="setTheme('ice')">
+    <button
+        type="button"
+        class="theme-choice"
+        onclick="setTheme('ice')">
 
-<span
-    class="theme-dot"
-    style="background:#82c7df">
-</span>
+        <span
+            class="theme-dot"
+            style="background:#82c7df">
+        </span>
 
-ثلجي
+        ثلجي
 
-</button>
+    </button>
 
 </div>
 
-<!-- =====================================================
-     إضافة صفقة
-===================================================== -->
+<!-- ======================================================
+     إضافة الصفقة
+====================================================== -->
 
 <div class="form-box no-print">
 
-<div
-    id="currentWeekInfo"
-    class="week-info">
+    <div
+        id="currentWeekInfo"
+        class="week-info">
+    </div>
+
+    <!--
+        مهم:
+        زر إضافة الصفقة أصبح Submit حقيقي.
+        هذا أصلح المشكلة السابقة.
+    -->
+
+    <form
+        id="tradeForm"
+        class="trade-form"
+        autocomplete="off">
+
+        <div class="form-grid">
+
+            <div class="field company-row">
+
+                <label for="stock">
+                    اسم الشركة
+                </label>
+
+                <input
+                    id="stock"
+                    name="stock"
+                    type="text"
+                    placeholder="مثال: TSLA"
+                    required>
+
+            </div>
+
+            <div class="field">
+
+                <label for="option">
+                    الأوبشن
+                </label>
+
+                <select
+                    id="option"
+                    name="option"
+                    required>
+
+                    <option value="">
+                        اختر
+                    </option>
+
+                    <option value="Call">
+                        Call
+                    </option>
+
+                    <option value="Put">
+                        Put
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="field strike-row">
+
+                <label for="strike">
+                    السترايك
+                </label>
+
+                <input
+                    id="strike"
+                    name="strike"
+                    type="number"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="مثال: 300"
+                    required>
+
+            </div>
+
+            <div class="price-row">
+
+                <div class="field">
+
+                    <label for="buy">
+                        سعر الدخول
+                    </label>
+
+                    <input
+                        id="buy"
+                        name="buy"
+                        type="number"
+                        step="0.01"
+                        min="0.01"
+                        inputmode="decimal"
+                        placeholder="سعر الدخول"
+                        required>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="sell">
+                        سعر الخروج
+                    </label>
+
+                    <input
+                        id="sell"
+                        name="sell"
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        inputmode="decimal"
+                        placeholder="سعر الخروج"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="notes-row">
+
+                <div class="field">
+
+                    <label for="notes">
+                        ملاحظات
+                    </label>
+
+                    <input
+                        id="notes"
+                        name="notes"
+                        type="text"
+                        maxlength="80"
+                        placeholder="كلمة أو ملاحظة قصيرة">
+
+                </div>
+
+                <button
+                    type="button"
+                    class="notes-button"
+                    onclick="focusNotes()">
+
+                    ملاحظات
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <button
+            id="addTradeButton"
+            type="submit"
+            class="add-button">
+
+            إضافة الصفقة
+
+        </button>
+
+    </form>
+
 </div>
 
-<div class="form">
-
-<div class="field company-row">
-
-<label>
-اسم الشركة
-</label>
-
-<input
-    id="stock"
-    type="text"
-    placeholder="مثال: TSLA">
-
-</div>
-
-<div class="field">
-
-<label>
-الأوبشن
-</label>
-
-<select id="option">
-
-<option value="">
-اختر
-</option>
-
-<option value="Call">
-Call
-</option>
-
-<option value="Put">
-Put
-</option>
-
-</select>
-
-</div>
-
-<div class="field strike-row">
-
-<label>
-السترايك
-</label>
-
-<input
-    id="strike"
-    type="number"
-    step="0.01"
-    placeholder="مثال: 300">
-
-</div>
-
-<div class="price-row">
-
-<div class="field">
-
-<label>
-سعر الدخول
-</label>
-
-<input
-    id="buy"
-    type="number"
-    step="0.01"
-    placeholder="سعر الدخول">
-
-</div>
-
-<div class="field">
-
-<label>
-سعر الخروج
-</label>
-
-<input
-    id="sell"
-    type="number"
-    step="0.01"
-    placeholder="سعر الخروج">
-
-</div>
-
-</div>
-
-<div class="notes-row">
-
-<div class="field">
-
-<label>
-ملاحظات
-</label>
-
-<input
-    id="notes"
-    type="text"
-    maxlength="80"
-    placeholder="كلمة أو ملاحظة قصيرة">
-
-</div>
-
-<button
-    type="button"
-    class="notes-button"
-    onclick="focusNotes()">
-
-ملاحظات
-
-</button>
-
-</div>
-
-</div>
-
-<button
-    type="button"
-    class="add-button"
-    onclick="addTrade()">
-
-إضافة الصفقة
-
-</button>
-
-</div>
-
-<!-- =====================================================
-     جدول الأسبوع
-===================================================== -->
+<!-- ======================================================
+     صفقات الأسبوع
+====================================================== -->
 
 <div class="table-box">
 
-<h3>
-صفقات هذا الأسبوع
-</h3>
+    <h3>
+        صفقات هذا الأسبوع
+    </h3>
 
-<table>
+    <table>
 
-<thead>
+        <thead>
 
-<tr>
+            <tr>
 
-<th>الشركة</th>
-<th>الأوبشن</th>
-<th>السترايك</th>
-<th>الدخول</th>
-<th>الخروج</th>
-<th>الربح</th>
-<th>%</th>
-<th>الحالة</th>
-<th>ملاحظات</th>
+                <th>الشركة</th>
+                <th>الأوبشن</th>
+                <th>السترايك</th>
+                <th>الدخول</th>
+                <th>الخروج</th>
+                <th>الربح</th>
+                <th>%</th>
+                <th>الحالة</th>
+                <th>ملاحظات</th>
 
-<th class="no-print">
-حذف
-</th>
+                <th class="no-print">
+                    حذف
+                </th>
 
-</tr>
+            </tr>
 
-</thead>
+        </thead>
 
-<tbody id="tableBody">
-</tbody>
+        <tbody id="tableBody">
+        </tbody>
 
-</table>
+    </table>
 
 </div>
 
-<!-- =====================================================
-     فلترة التقرير
-===================================================== -->
+<!-- ======================================================
+     التقارير
+====================================================== -->
 
 <div class="report-filter no-print">
 
-<h3>
-التقارير الأسبوعية
-</h3>
+    <h3>
+        التقارير الأسبوعية
+    </h3>
 
-<div class="filter-grid">
+    <div class="filter-grid">
 
-<button
-    type="button"
-    class="filter-button"
-    onclick="setReportPeriod('thisWeek',this)">
+        <button
+            type="button"
+            class="filter-button"
+            onclick="setReportPeriod('thisWeek',this)">
 
-هذا الأسبوع
+            هذا الأسبوع
 
-</button>
+        </button>
 
-<button
-    type="button"
-    class="filter-button"
-    onclick="setReportPeriod('lastWeek',this)">
+        <button
+            type="button"
+            class="filter-button"
+            onclick="setReportPeriod('lastWeek',this)">
 
-الأسبوع السابق
+            الأسبوع السابق
 
-</button>
+        </button>
 
-<button
-    type="button"
-    class="filter-button"
-    onclick="setReportPeriod('twoWeeksAgo',this)">
+        <button
+            type="button"
+            class="filter-button"
+            onclick="setReportPeriod('twoWeeksAgo',this)">
 
-قبل أسبوعين
+            قبل أسبوعين
 
-</button>
+        </button>
 
-<button
-    type="button"
-    class="filter-button"
-    onclick="setReportPeriod('threeWeeksAgo',this)">
+        <button
+            type="button"
+            class="filter-button"
+            onclick="setReportPeriod('threeWeeksAgo',this)">
 
-قبل 3 أسابيع
+            قبل 3 أسابيع
 
-</button>
+        </button>
 
-<button
-    type="button"
-    class="filter-button"
-    onclick="setReportPeriod('all',this)">
+        <button
+            type="button"
+            class="filter-button"
+            onclick="setReportPeriod('all',this)">
 
-كل الصفقات
+            كل الصفقات
 
-</button>
+        </button>
+
+    </div>
+
+    <div class="date-grid">
+
+        <div class="field">
+
+            <label for="reportStart">
+                من تاريخ
+            </label>
+
+            <input
+                id="reportStart"
+                type="date">
+
+        </div>
+
+        <div class="field">
+
+            <label for="reportEnd">
+                إلى تاريخ
+            </label>
+
+            <input
+                id="reportEnd"
+                type="date">
+
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="report-button"
+        onclick="showReport()">
+
+        إصدار التقرير
+
+    </button>
 
 </div>
 
-<div class="date-grid">
-
-<div class="field">
-
-<label>
-من تاريخ
-</label>
-
-<input
-    id="reportStart"
-    type="date">
-
-</div>
-
-<div class="field">
-
-<label>
-إلى تاريخ
-</label>
-
-<input
-    id="reportEnd"
-    type="date">
-
-</div>
-
-</div>
-
-<button
-    type="button"
-    class="report-button"
-    onclick="showReport()">
-
-إصدار التقرير
-
-</button>
-
-</div>
-
-<!-- =====================================================
-     التقرير
-===================================================== -->
+<!-- ======================================================
+     التقرير الأسبوعي
+====================================================== -->
 
 <div
     id="report"
     class="report theme-report-white">
 
-<div class="report-watermark"></div>
-
-<img
-    id="reportLogo"
-    class="report-logo"
-    src="AQ.PNG"
-    alt="Q OPTIONS">
-
-<div class="report-heading">
-
-<div class="weekly-badge">
-WEEKLY RECAP
-</div>
-
-<div class="report-title">
-
-<h2>
-ملخص الأداء الأسبوعي
-</h2>
-
-<div
-    id="reportPeriod"
-    class="report-period">
-</div>
-
-</div>
-
-<div class="report-heading-spacer">
-</div>
-
-</div>
-
-<!-- =====================================================
-     ثيم التقرير
-===================================================== -->
-
-<div class="report-themes no-print">
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="white"
-    title="أبيض"
-    style="background:#f5f7f8"
-    onclick="setReportTheme('white',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="black"
-    title="أسود"
-    style="background:#050505"
-    onclick="setReportTheme('black',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="silver"
-    title="فضي"
-    style="background:#bfc5c9"
-    onclick="setReportTheme('silver',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="blue"
-    title="أزرق"
-    style="background:#4c9aca"
-    onclick="setReportTheme('blue',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="turquoise"
-    title="تركوازي"
-    style="background:#38aaa5"
-    onclick="setReportTheme('turquoise',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="beige"
-    title="بيج"
-    style="background:#c6ab82"
-    onclick="setReportTheme('beige',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="purple"
-    title="بنفسجي"
-    style="background:#8b5db5"
-    onclick="setReportTheme('purple',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="emerald"
-    title="زمردي"
-    style="background:#2f8e67"
-    onclick="setReportTheme('emerald',this)">
-</button>
-
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="burgundy"
-    title="عنابي"
-    style="background:#8e3044"
-    onclick="setReportTheme('burgundy',this)">
-</button>
+    <div class="report-watermark">
+    </div>
+
+    <img
+        id="reportLogo"
+        class="report-logo"
+        src="AQ.PNG"
+        alt="Q OPTIONS">
+
+    <div class="report-heading">
+
+        <div class="weekly-badge">
+            WEEKLY RECAP
+        </div>
+
+        <div class="report-title">
+
+            <h2>
+                ملخص الأداء الأسبوعي
+            </h2>
+
+            <div
+                id="reportPeriod"
+                class="report-period">
+            </div>
+
+        </div>
+
+        <div class="report-heading-spacer">
+        </div>
+
+    </div>
+
+    <!-- ==================================================
+         ألوان التقرير
+    =================================================== -->
+
+    <div class="report-themes no-print">
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="white"
+            style="background:#f5f7f8"
+            onclick="setReportTheme('white',this)"
+            title="أبيض">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="black"
+            style="background:#050505"
+            onclick="setReportTheme('black',this)"
+            title="أسود">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="silver"
+            style="background:#bfc5c9"
+            onclick="setReportTheme('silver',this)"
+            title="فضي">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="blue"
+            style="background:#4c9aca"
+            onclick="setReportTheme('blue',this)"
+            title="أزرق">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="turquoise"
+            style="background:#38aaa5"
+            onclick="setReportTheme('turquoise',this)"
+            title="تركوازي">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="beige"
+            style="background:#c6ab82"
+            onclick="setReportTheme('beige',this)"
+            title="بيج">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="purple"
+            style="background:#8b5db5"
+            onclick="setReportTheme('purple',this)"
+            title="بنفسجي">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="emerald"
+            style="background:#2f8e67"
+            onclick="setReportTheme('emerald',this)"
+            title="زمردي">
+        </button>
+
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="burgundy"
+            style="background:#8e3044"
+            onclick="setReportTheme('burgundy',this)"
+            title="عنابي">
+        </button>
 
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="copper"
-    title="نحاسي"
-    style="background:#b96f42"
-    onclick="setReportTheme('copper',this)">
-</button>
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="copper"
+            style="background:#b96f42"
+            onclick="setReportTheme('copper',this)"
+            title="نحاسي">
+        </button>
 
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="midnight"
-    title="ليلي"
-    style="background:#11253a"
-    onclick="setReportTheme('midnight',this)">
-</button>
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="midnight"
+            style="background:#11253a"
+            onclick="setReportTheme('midnight',this)"
+            title="ليلي">
+        </button>
 
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="rose"
-    title="وردي"
-    style="background:#cf7892"
-    onclick="setReportTheme('rose',this)">
-</button>
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="rose"
+            style="background:#cf7892"
+            onclick="setReportTheme('rose',this)"
+            title="وردي">
+        </button>
 
-<button
-    type="button"
-    class="report-theme-button"
-    data-report-theme="ice"
-    title="ثلجي"
-    style="background:#82c7df"
-    onclick="setReportTheme('ice',this)">
-</button>
+        <button
+            type="button"
+            class="report-theme-button"
+            data-report-theme="ice"
+            style="background:#82c7df"
+            onclick="setReportTheme('ice',this)"
+            title="ثلجي">
+        </button>
 
-</div>
+    </div>
 
-<!-- =====================================================
-     البطاقات الرئيسية
-===================================================== -->
+    <!-- ==================================================
+         ملخص الأرقام
+    =================================================== -->
 
-<div class="kpi-grid">
+    <div class="kpi-grid">
 
-<div class="kpi-card">
+        <div class="kpi-card">
 
-<span class="kpi-label">
-إجمالي الصفقات
-</span>
+            <span class="kpi-label">
+                إجمالي الصفقات
+            </span>
 
-<strong
-    id="totalTrades"
-    class="kpi-value gold">
+            <strong
+                id="totalTrades"
+                class="kpi-value gold">
 
-0
+                0
 
-</strong>
+            </strong>
 
-</div>
+        </div>
 
-<div class="kpi-card">
+        <div class="kpi-card">
 
-<span class="kpi-label">
-نسبة النجاح
-</span>
+            <span class="kpi-label">
+                نسبة النجاح
+            </span>
 
-<strong
-    id="winRate"
-    class="kpi-value">
+            <strong
+                id="winRate"
+                class="kpi-value">
 
-0%
+                0%
 
-</strong>
+            </strong>
 
-<small
-    id="winRateSub"
-    class="kpi-sub">
+            <small
+                id="winRateSub"
+                class="kpi-sub">
 
-0 رابحة
+                0 رابحة
 
-</small>
+            </small>
 
-</div>
+        </div>
 
-<div class="kpi-card">
+        <div class="kpi-card">
 
-<span class="kpi-label">
-صافي الربح
-</span>
+            <span class="kpi-label">
+                صافي الربح
+            </span>
 
-<strong
-    id="totalProfit"
-    class="kpi-value">
+            <strong
+                id="totalProfit"
+                class="kpi-value">
 
-$0.00
+                $0.00
 
-</strong>
+            </strong>
 
-<small
-    id="totalProfitTimes"
-    class="kpi-sub">
+            <small
+                id="totalProfitTimes"
+                class="kpi-sub">
 
-$0 لعقد ×100
+                $0 لعقد ×100
 
-</small>
+            </small>
 
-</div>
+        </div>
 
-<div class="kpi-card">
+        <div class="kpi-card">
 
-<span class="kpi-label">
-العائد الأسبوعي
-</span>
+            <span class="kpi-label">
+                العائد الأسبوعي
+            </span>
 
-<strong
-    id="weeklyReturn"
-    class="kpi-value">
+            <strong
+                id="weeklyReturn"
+                class="kpi-value">
 
-0%
+                0%
 
-</strong>
+            </strong>
 
-<small class="kpi-sub">
-مجموع عوائد الصفقات
-</small>
+            <small class="kpi-sub">
+                مجموع عوائد الصفقات
+            </small>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<!-- =====================================================
-     أفضل صفقة ومتوسط العائد
-===================================================== -->
+    <!-- ==================================================
+         Insights
+    =================================================== -->
 
-<div class="insights">
+    <div class="insights">
 
-<div class="insight">
+        <div class="insight">
 
-🏆 أفضل صفقة:
+            🏆 أفضل صفقة:
 
-<strong id="bestTrade">
-—
-</strong>
+            <strong id="bestTrade">
+                —
+            </strong>
 
-</div>
+        </div>
 
-<div class="insight">
+        <div class="insight">
 
-⭐ متوسط العائد لكل صفقة:
+            ⭐ متوسط العائد لكل صفقة:
 
-<strong id="averageReturn">
-0%
-</strong>
+            <strong id="averageReturn">
+                0%
+            </strong>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<!-- =====================================================
-     الرسوم
-===================================================== -->
+    <!-- ==================================================
+         الرسوم البيانية
+    =================================================== -->
 
-<div class="mini-charts">
+    <div class="mini-charts">
 
-<div class="chart-card">
+        <!-- Donut -->
 
-<div class="chart-title">
-توزيع نتائج الصفقات
-</div>
+        <div class="chart-card">
 
-<div class="donut-layout">
+            <div class="chart-title">
+                توزيع نتائج الصفقات
+            </div>
 
-<div
-    id="resultDonut"
-    class="donut">
+            <div class="donut-layout">
 
-<div class="donut-center">
+                <div
+                    id="resultDonut"
+                    class="donut">
 
-<span id="donutTotal">
-0
-</span>
+                    <div class="donut-center">
 
-<small>
-إجمالي
-</small>
+                        <span id="donutRate">
+                            0%
+                        </span>
 
-</div>
+                        <small>
+                            نجاح
+                        </small>
 
-</div>
+                    </div>
 
-<div class="legend">
+                </div>
 
-<div class="legend-row">
+                <div class="legend">
 
-<span
-    class="legend-dot"
-    style="background:#22a85a">
-</span>
+                    <div class="legend-row">
 
-رابحة
+                        <span
+                            class="legend-dot"
+                            style="background:#22a85a">
+                        </span>
 
-<span
-    id="legendWins"
-    class="legend-count">
+                        رابحة
 
-0
+                        <span
+                            id="legendWins"
+                            class="legend-count">
 
-</span>
+                            0
 
-</div>
+                        </span>
 
-<div class="legend-row">
+                    </div>
 
-<span
-    class="legend-dot"
-    style="background:#00a7c8">
-</span>
+                    <div class="legend-row">
 
-موقوفة
+                        <span
+                            class="legend-dot"
+                            style="background:#00a7c8">
+                        </span>
 
-<span
-    id="legendStopped"
-    class="legend-count">
+                        موقوفة
 
-0
+                        <span
+                            id="legendStopped"
+                            class="legend-count">
 
-</span>
+                            0
 
-</div>
+                        </span>
 
-<div class="legend-row">
+                    </div>
 
-<span
-    class="legend-dot"
-    style="background:#d83c3c">
-</span>
+                    <div class="legend-row">
 
-خاسرة
+                        <span
+                            class="legend-dot"
+                            style="background:#c94b4b">
+                        </span>
 
-<span
-    id="legendLosses"
-    class="legend-count">
+                        خاسرة
 
-0
+                        <span
+                            id="legendLosses"
+                            class="legend-count">
 
-</span>
+                            0
 
-</div>
+                        </span>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<div class="chart-card">
+        </div>
 
-<div class="chart-title">
-أداء الصفقات (%)
-</div>
+        <!-- Bar -->
 
-<div
-    id="performanceBars"
-    class="performance-plot">
-</div>
+        <div class="chart-card">
 
-</div>
+            <div class="chart-title">
+                أداء الصفقات (%)
+            </div>
 
-</div>
+            <div
+                id="performanceBars"
+                class="performance-plot">
+            </div>
 
-<!-- جدول التقرير -->
+        </div>
 
-<div
-    id="reportTable"
-    class="report-table">
-</div>
+    </div>
 
-<!-- التنويه -->
+    <!-- ==================================================
+         جدول التقرير
+    =================================================== -->
 
-<div class="report-note">
+    <div
+        id="reportTable"
+        class="report-table">
+    </div>
 
-الأسعار الموضحة تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
+    <!-- ==================================================
+         التنويه
+    =================================================== -->
 
-<span class="mini-disclaimer">
+    <div class="report-note">
 
-لأغراض التوثيق والمشاركة وليس توصية استثمارية.
+        الأسعار الموضحة في هذا التقرير تمثل سعر الدخول والتوجيه بالخروج للصفقة،
+        ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
 
-</span>
+        <span class="mini-disclaimer">
 
-</div>
+            لأغراض التوثيق والمشاركة وليس توصية استثمارية.
 
-<!-- أزرار التقرير -->
+        </span>
 
-<div class="report-actions no-print">
+    </div>
 
-<button
-    type="button"
-    class="report-action"
-    onclick="printReport()">
+    <!-- ==================================================
+         أزرار التقرير
+    =================================================== -->
 
-PDF
+    <div class="report-actions no-print">
 
-</button>
+        <button
+            type="button"
+            class="report-action"
+            onclick="printReport()">
 
-<button
-    type="button"
-    class="report-action"
-    onclick="saveReportImage()">
+            PDF
 
-حفظ صورة التقرير
+        </button>
 
-</button>
+        <button
+            type="button"
+            class="report-action"
+            onclick="saveReportImage()">
 
-</div>
+            حفظ صورة التقرير
+
+        </button>
+
+    </div>
 
 </div>
 
@@ -2981,64 +3181,40 @@ PDF
 
 <script>
 
-/* =====================================================
-   الشعارات
-===================================================== */
+/* =========================================================
+   البيانات الأساسية
+========================================================= */
 
 const LOGOS={
-
     1:"AQ.PNG",
-
     2:"QA.PNG"
-
 };
 
-
-/* =====================================================
-   الثيمات
-===================================================== */
-
 const THEMES=[
-
     "white",
-
     "black",
-
     "silver",
-
     "blue",
-
     "turquoise",
-
     "beige",
-
     "purple",
-
     "emerald",
-
     "burgundy",
-
     "copper",
-
     "midnight",
-
     "rose",
-
     "ice"
-
 ];
-
 
 const REPORT_CLASSES=
     THEMES.map(
-        t=>
-        "theme-report-"+t
+        theme =>
+        "theme-report-"+theme
     );
 
-
-/* =====================================================
-   ألوان التصدير
-===================================================== */
+/* =========================================================
+   ألوان صورة/PDF التقرير
+========================================================= */
 
 const EXPORT_PALETTES={
 
@@ -3055,8 +3231,8 @@ const EXPORT_PALETTES={
         bg1:"#111111",
         bg2:"#020202",
         text:"#ffffff",
-        muted:"#dddddd",
-        head:"#241c08",
+        muted:"#d0d0d0",
+        head:"#241f10",
         card:"#111111"
     },
 
@@ -3161,10 +3337,9 @@ const EXPORT_PALETTES={
 
 };
 
-
-/* =====================================================
-   الشعار المختار
-===================================================== */
+/* =========================================================
+   تحميل الشعار
+========================================================= */
 
 let selectedLogo=
     Number(
@@ -3175,147 +3350,143 @@ let selectedLogo=
     ||
     1;
 
-
 if(!LOGOS[selectedLogo]){
-
     selectedLogo=1;
-
 }
 
-
-/* =====================================================
+/* =========================================================
    تحميل الصفقات
-===================================================== */
+========================================================= */
 
 let trades=[];
-
 
 try{
 
     trades=
         JSON.parse(
-
             localStorage.getItem(
                 "qOptionTrades"
             )
-
             ||
-
             "[]"
-
         );
 
-
     if(!Array.isArray(trades)){
-
         trades=[];
-
     }
 
 }
 catch(error){
 
+    console.error(
+        "تعذر قراءة الصفقات:",
+        error
+    );
+
     trades=[];
 
 }
 
+/* =========================================================
+   حماية HTML
+========================================================= */
 
-/* =====================================================
-   تغيير الشعار
-===================================================== */
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+/* =========================================================
+   اختيار الشعار
+========================================================= */
 
 function setLogo(number){
 
-    if(!LOGOS[number]){
-
-        number=1;
-
-    }
-
-
-    selectedLogo=
+    number=
         Number(number);
 
+    if(!LOGOS[number]){
+        number=1;
+    }
 
-    document
-        .getElementById(
+    selectedLogo=
+        number;
+
+    const file=
+        LOGOS[selectedLogo];
+
+    const mainLogo=
+        document.getElementById(
             "mainLogo"
-        )
-        .src=
-        LOGOS[selectedLogo];
+        );
 
-
-    document
-        .getElementById(
+    const reportLogo=
+        document.getElementById(
             "reportLogo"
-        )
-        .src=
-        LOGOS[selectedLogo];
+        );
 
+    if(mainLogo){
+        mainLogo.src=file;
+    }
+
+    if(reportLogo){
+        reportLogo.src=file;
+    }
+
+    document.documentElement.style.setProperty(
+        "--report-logo",
+        `url("${file}")`
+    );
+
+    document.body.dataset.logoStyle=
+        selectedLogo===1
+        ?
+        "red"
+        :
+        "gold";
 
     document
         .querySelectorAll(
-            ".logo-button"
+            ".logo-style-circle"
         )
         .forEach(
-
-            button=>
-            button.classList.remove(
-                "active"
-            )
-
+            button =>{
+                button.classList.remove(
+                    "active"
+                );
+            }
         );
-
 
     const active=
         document.getElementById(
-
             "logo"+
             selectedLogo+
             "Button"
-
         );
 
-
     if(active){
-
         active.classList.add(
             "active"
         );
-
     }
 
-
-    document
-        .documentElement
-        .style
-        .setProperty(
-
-            "--report-logo",
-
-            'url("' +
-            LOGOS[selectedLogo] +
-            '")'
-
-        );
-
-
     localStorage.setItem(
-
         "selectedLogo",
-
-        String(
-            selectedLogo
-        )
-
+        String(selectedLogo)
     );
 
 }
 
-
-/* =====================================================
+/* =========================================================
    ثيم الصفحة
-===================================================== */
+========================================================= */
 
 function toggleThemes(){
 
@@ -3330,32 +3501,24 @@ function toggleThemes(){
 
 }
 
-
 function setTheme(theme){
 
-    if(
-        !THEMES.includes(
-            theme
-        )
-    ){
-
+    if(!THEMES.includes(theme)){
         theme="white";
-
     }
 
-
-    document.body.className=
-        theme;
-
-
-    localStorage.setItem(
-
-        "optionTheme",
-
-        theme
-
+    document.body.classList.remove(
+        ...THEMES
     );
 
+    document.body.classList.add(
+        theme
+    );
+
+    localStorage.setItem(
+        "optionTheme",
+        theme
+    );
 
     document
         .getElementById(
@@ -3368,96 +3531,63 @@ function setTheme(theme){
 
 }
 
-
-/* =====================================================
+/* =========================================================
    ثيم التقرير
-===================================================== */
+========================================================= */
 
 function setReportTheme(
     theme,
-    button
+    button=null
 ){
 
-    if(
-        !THEMES.includes(
-            theme
-        )
-    ){
-
+    if(!THEMES.includes(theme)){
         theme="white";
-
     }
-
 
     const report=
         document.getElementById(
             "report"
         );
 
-
     report.classList.remove(
         ...REPORT_CLASSES
     );
 
-
     report.classList.add(
-        "theme-report-"+
-        theme
+        "theme-report-"+theme
     );
-
-
-    localStorage.setItem(
-
-        "reportTheme",
-
-        theme
-
-    );
-
 
     document
         .querySelectorAll(
             ".report-theme-button"
         )
         .forEach(
-
-            button=>
-            button.classList.remove(
-                "active"
-            )
-
+            item =>{
+                item.classList.remove(
+                    "active"
+                );
+            }
         );
-
 
     const target=
-
         button
-
         ||
-
         document.querySelector(
-
-            '[data-report-theme="' +
-            theme +
-            '"]'
-
+            `[data-report-theme="${theme}"]`
         );
 
-
     if(target){
-
         target.classList.add(
             "active"
         );
-
     }
 
+    localStorage.setItem(
+        "reportTheme",
+        theme
+    );
+
 }
-
-
-/* =====================================================
-   ثيم التصدير
-===================================================== */
 
 function getExportThemeName(){
 
@@ -3466,74 +3596,3883 @@ function getExportThemeName(){
             "report"
         );
 
-
-    for(
-        const theme
-        of THEMES
-    ){
+    for(const theme of THEMES){
 
         if(
-
-            report
-                .classList
-                .contains(
-                    "theme-report-"+
-                    theme
-                )
-
+            report.classList.contains(
+                "theme-report-"+theme
+            )
         ){
-
             return theme;
-
         }
 
     }
 
-
-    return(
-
-        THEMES.find(
-
-            theme=>
-
-            document.body
-                .classList
-                .contains(
-                    theme
-                )
-
-        )
-
-        ||
-
-        "white"
-
-    );
+    return "white";
 
 }
-
 
 function getExportPalette(){
 
     return(
-
         EXPORT_PALETTES[
             getExportThemeName()
         ]
-
         ||
-
         EXPORT_PALETTES.white
-
     );
 
 }
 
-
-/* =====================================================
+/* =========================================================
    التاريخ
-===================================================== */
+========================================================= */
 
 function toInputDate(date){
 
-    const year
+    const year=
+        date.getFullYear();
+
+    const month=
+        String(
+            date.getMonth()+1
+        )
+        .padStart(
+            2,
+            "0"
+        );
+
+    const day=
+        String(
+            date.getDate()
+        )
+        .padStart(
+            2,
+            "0"
+        );
+
+    return(
+        year+
+        "-"+
+        month+
+        "-"+
+        day
+    );
+
+}
+
+function formatDate(date){
+
+    if(!date){
+        return "-";
+    }
+
+    const parts=
+        String(date)
+        .split("-");
+
+    if(parts.length!==3){
+        return date;
+    }
+
+    return(
+        parts[2]+
+        "/"+
+        parts[1]+
+        "/"+
+        parts[0]
+    );
+
+}
+
+/* =========================================================
+   الأسبوع
+========================================================= */
+
+function getTradingWeek(offset=0){
+
+    const now=
+        new Date();
+
+    now.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+    const day=
+        now.getDay();
+
+    const daysFromMonday=
+        day===0
+        ?
+        6
+        :
+        day-1;
+
+    const monday=
+        new Date(now);
+
+    monday.setDate(
+        now.getDate()
+        -
+        daysFromMonday
+        +
+        offset*7
+    );
+
+    const friday=
+        new Date(monday);
+
+    friday.setDate(
+        monday.getDate()+4
+    );
+
+    return{
+        start:toInputDate(monday),
+        end:toInputDate(friday),
+        key:toInputDate(monday)
+    };
+
+}
+
+function updateCurrentWeek(){
+
+    const week=
+        getTradingWeek(0);
+
+    document
+        .getElementById(
+            "currentWeekInfo"
+        )
+        .textContent=
+        "الأسبوع الحالي: "
+        +
+        formatDate(
+            week.start
+        )
+        +
+        " إلى "
+        +
+        formatDate(
+            week.end
+        );
+
+}
+
+/* =========================================================
+   التخزين
+========================================================= */
+
+function saveTrades(){
+
+    localStorage.setItem(
+        "qOptionTrades",
+        JSON.stringify(
+            trades
+        )
+    );
+
+}
+
+/* =========================================================
+   زر الملاحظات
+========================================================= */
+
+function focusNotes(){
+
+    document
+        .getElementById(
+            "notes"
+        )
+        .focus();
+
+}
+
+/* =========================================================
+   مسح الحقول
+========================================================= */
+
+function clearTradeForm(){
+
+    const form=
+        document.getElementById(
+            "tradeForm"
+        );
+
+    form.reset();
+
+    document
+        .getElementById(
+            "stock"
+        )
+        .focus();
+
+}
+
+/* =========================================================
+   إضافة الصفقة
+========================================================= */
+
+function addTrade(){
+
+    const stock=
+        document
+            .getElementById(
+                "stock"
+            )
+            .value
+            .trim()
+            .toUpperCase();
+
+    const option=
+        document
+            .getElementById(
+                "option"
+            )
+            .value;
+
+    const strike=
+        Number(
+            document
+                .getElementById(
+                    "strike"
+                )
+                .value
+        );
+
+    const buy=
+        Number(
+            document
+                .getElementById(
+                    "buy"
+                )
+                .value
+        );
+
+    const sellValue=
+        document
+            .getElementById(
+                "sell"
+            )
+            .value;
+
+    const sell=
+        Number(
+            sellValue
+        );
+
+    const notes=
+        document
+            .getElementById(
+                "notes"
+            )
+            .value
+            .trim();
+
+    if(
+        !stock
+        ||
+        !option
+        ||
+        !Number.isFinite(strike)
+        ||
+        !Number.isFinite(buy)
+        ||
+        sellValue===""
+        ||
+        !Number.isFinite(sell)
+    ){
+
+        alert(
+            "فضلاً أدخل جميع بيانات الصفقة"
+        );
+
+        return false;
+    }
+
+    if(buy<=0){
+
+        alert(
+            "سعر الدخول يجب أن يكون أكبر من صفر"
+        );
+
+        return false;
+    }
+
+    if(sell<0){
+
+        alert(
+            "سعر الخروج لا يمكن أن يكون أقل من صفر"
+        );
+
+        return false;
+    }
+
+    const week=
+        getTradingWeek(0);
+
+    const profit=
+        sell-buy;
+
+    const percentage=
+        (
+            profit/
+            buy
+        )
+        *
+        100;
+
+    const trade={
+
+        id:
+            Date.now(),
+
+        tradeDate:
+            toInputDate(
+                new Date()
+            ),
+
+        stock,
+        option,
+        strike,
+        buy,
+        sell,
+        profit,
+        percentage,
+        notes,
+
+        weekStart:
+            week.start,
+
+        weekEnd:
+            week.end,
+
+        weekKey:
+            week.key
+
+    };
+
+    trades.push(
+        trade
+    );
+
+    saveTrades();
+
+    displayCurrentWeekTrades();
+
+    clearTradeForm();
+
+    return true;
+
+}
+
+/* =========================================================
+   هذا هو إصلاح زر إضافة الصفقة
+========================================================= */
+
+document
+    .getElementById(
+        "tradeForm"
+    )
+    .addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            addTrade();
+
+        }
+    );
+
+/* =========================================================
+   الحالة
+========================================================= */
+
+function getStatus(trade){
+
+    const sell=
+        Number(
+            trade.sell
+        );
+
+    const buy=
+        Number(
+            trade.buy
+        );
+
+    if(sell===0){
+
+        return{
+            name:"خاسرة",
+            rowClass:"loss-row",
+            textClass:"red"
+        };
+
+    }
+
+    if(
+        sell<buy
+        &&
+        sell>0
+    ){
+
+        return{
+            name:"موقوفة",
+            rowClass:"stopped-row",
+            textClass:"orange"
+        };
+
+    }
+
+    return{
+        name:"رابحة",
+        rowClass:"win-row",
+        textClass:"green"
+    };
+
+}
+
+/* =========================================================
+   جدول هذا الأسبوع
+========================================================= */
+
+function getCurrentWeekTrades(){
+
+    const week=
+        getTradingWeek(0);
+
+    return trades.filter(
+        trade =>
+        trade.weekKey===
+        week.key
+    );
+
+}
+
+function displayCurrentWeekTrades(){
+
+    const tbody=
+        document.getElementById(
+            "tableBody"
+        );
+
+    const list=
+        getCurrentWeekTrades();
+
+    tbody.innerHTML="";
+
+    if(!list.length){
+
+        tbody.innerHTML=`
+            <tr>
+                <td
+                    colspan="10"
+                    class="empty">
+
+                    لا توجد صفقات هذا الأسبوع حتى الآن
+
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    list.forEach(
+        trade =>{
+
+            const status=
+                getStatus(
+                    trade
+                );
+
+            tbody.insertAdjacentHTML(
+                "beforeend",
+                `
+                <tr>
+
+                    <td>
+                        ${escapeHTML(trade.stock)}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(trade.option)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.strike).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.buy).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.sell).toFixed(2)}
+                    </td>
+
+                    <td class="${status.textClass}">
+                        ${Number(trade.profit)>=0?"+":""}
+                        ${Number(trade.profit).toFixed(2)}
+                    </td>
+
+                    <td class="${status.textClass}">
+                        ${Number(trade.percentage)>=0?"+":""}
+                        ${Number(trade.percentage).toFixed(2)}%
+                    </td>
+
+                    <td class="${status.textClass}">
+                        ${status.name}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(trade.notes||"")}
+                    </td>
+
+                    <td class="no-print">
+
+                        <button
+                            type="button"
+                            class="delete-button"
+                            onclick="deleteTrade('${trade.id}')">
+
+                            حذف
+
+                        </button>
+
+                    </td>
+
+                </tr>
+                `
+            );
+
+        }
+    );
+
+}
+
+function deleteTrade(id){
+
+    if(
+        !confirm(
+            "هل تريد حذف هذه الصفقة؟"
+        )
+    ){
+        return;
+    }
+
+    trades=
+        trades.filter(
+            trade =>
+            String(trade.id)!==
+            String(id)
+        );
+
+    saveTrades();
+
+    displayCurrentWeekTrades();
+
+}
+
+/* =========================================================
+   اختيار التقرير
+========================================================= */
+
+function setReportPeriod(
+    type,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".filter-button"
+        )
+        .forEach(
+            item =>{
+                item.classList.remove(
+                    "active"
+                );
+            }
+        );
+
+    if(button){
+        button.classList.add(
+            "active"
+        );
+    }
+
+    if(type==="all"){
+
+        document
+            .getElementById(
+                "reportStart"
+            )
+            .value="";
+
+        document
+            .getElementById(
+                "reportEnd"
+            )
+            .value="";
+
+        return;
+    }
+
+    const offsets={
+        thisWeek:0,
+        lastWeek:-1,
+        twoWeeksAgo:-2,
+        threeWeeksAgo:-3
+    };
+
+    const offset=
+        offsets[type];
+
+    if(
+        typeof offset!=="number"
+    ){
+        return;
+    }
+
+    const range=
+        getTradingWeek(
+            offset
+        );
+
+    document
+        .getElementById(
+            "reportStart"
+        )
+        .value=
+        range.start;
+
+    document
+        .getElementById(
+            "reportEnd"
+        )
+        .value=
+        range.end;
+
+}
+
+/* =========================================================
+   فلترة التقرير
+========================================================= */
+
+function getFilteredTrades(){
+
+    const start=
+        document
+            .getElementById(
+                "reportStart"
+            )
+            .value;
+
+    const end=
+        document
+            .getElementById(
+                "reportEnd"
+            )
+            .value;
+
+    if(!start&&!end){
+        return [...trades];
+    }
+
+    return trades.filter(
+        trade =>{
+
+            const date=
+                trade.tradeDate
+                ||
+                trade.weekStart;
+
+            return(
+                date>=start
+                &&
+                date<=end
+            );
+
+        }
+    );
+
+}
+
+/* =========================================================
+   ترتيب
+========================================================= */
+
+function sortTradesForReport(list){
+
+    const order={
+        "رابحة":1,
+        "موقوفة":2,
+        "خاسرة":3
+    };
+
+    return[
+        ...list
+    ]
+    .sort(
+        (a,b) =>
+        order[
+            getStatus(a).name
+        ]
+        -
+        order[
+            getStatus(b).name
+        ]
+    );
+
+}
+
+/* =========================================================
+   Signed
+========================================================= */
+
+function signed(
+    value,
+    digits=1,
+    suffix=""
+){
+
+    const number=
+        Number(value)
+        ||
+        0;
+
+    return(
+        (
+            number>0
+            ?
+            "+"
+            :
+            ""
+        )
+        +
+        number.toFixed(
+            digits
+        )
+        +
+        suffix
+    );
+
+}
+
+/* =========================================================
+   Metrics
+========================================================= */
+
+function reportMetrics(list){
+
+    let winners=0;
+    let stopped=0;
+    let losers=0;
+
+    list.forEach(
+        trade =>{
+
+            const status=
+                getStatus(
+                    trade
+                )
+                .name;
+
+            if(status==="رابحة"){
+                winners++;
+            }
+
+            else if(
+                status==="موقوفة"
+            ){
+                stopped++;
+            }
+
+            else{
+                losers++;
+            }
+
+        }
+    );
+
+    const total=
+        list.length;
+
+    const totalProfit=
+        list.reduce(
+            (sum,trade) =>
+            sum+
+            Number(
+                trade.profit||0
+            ),
+            0
+        );
+
+    const weeklyReturn=
+        list.reduce(
+            (sum,trade) =>
+            sum+
+            Number(
+                trade.percentage||0
+            ),
+            0
+        );
+
+    const avgReturn=
+        total
+        ?
+        weeklyReturn/total
+        :
+        0;
+
+    const winRate=
+        total
+        ?
+        (
+            winners/
+            total
+        )
+        *
+        100
+        :
+        0;
+
+    const best=
+        total
+        ?
+        [...list]
+        .sort(
+            (a,b) =>
+            Number(
+                b.percentage||0
+            )
+            -
+            Number(
+                a.percentage||0
+            )
+        )[0]
+        :
+        null;
+
+    return{
+        total,
+        winners,
+        stopped,
+        losers,
+        totalProfit,
+        weeklyReturn,
+        avgReturn,
+        winRate,
+        best
+    };
+
+}
+
+/* =========================================================
+   الرسوم
+========================================================= */
+
+function buildMiniCharts(
+    list,
+    metrics
+){
+
+    const total=
+        Math.max(
+            metrics.total,
+            1
+        );
+
+    const winDeg=
+        metrics.winners/
+        total*
+        360;
+
+    const stoppedDeg=
+        metrics.stopped/
+        total*
+        360;
+
+    const donut=
+        document.getElementById(
+            "resultDonut"
+        );
+
+    donut.style.background=`
+        conic-gradient(
+            #22a85a 0deg ${winDeg}deg,
+            #00a7c8 ${winDeg}deg ${winDeg+stoppedDeg}deg,
+            #c94b4b ${winDeg+stoppedDeg}deg 360deg
+        )
+    `;
+
+    document
+        .getElementById(
+            "donutRate"
+        )
+        .textContent=
+        metrics.winRate
+        .toFixed(0)
+        +
+        "%";
+
+    document
+        .getElementById(
+            "legendWins"
+        )
+        .textContent=
+        metrics.winners;
+
+    document
+        .getElementById(
+            "legendStopped"
+        )
+        .textContent=
+        metrics.stopped;
+
+    document
+        .getElementById(
+            "legendLosses"
+        )
+        .textContent=
+        metrics.losers;
+
+    const bars=
+        document.getElementById(
+            "performanceBars"
+        );
+
+    bars.innerHTML="";
+
+    if(!list.length){
+
+        bars.innerHTML=`
+            <div
+                style="
+                    margin:auto;
+                    color:var(--r-muted);
+                    font-size:11px;
+                    font-weight:900
+                ">
+
+                لا توجد بيانات
+
+            </div>
+        `;
+
+        return;
+    }
+
+    const shown=
+        list.slice(
+            0,
+            10
+        );
+
+    const maxAbs=
+        Math.max(
+            ...shown.map(
+                trade =>
+                Math.abs(
+                    Number(
+                        trade.percentage||0
+                    )
+                )
+            ),
+            1
+        );
+
+    shown.forEach(
+        (trade,index) =>{
+
+            const value=
+                Number(
+                    trade.percentage||0
+                );
+
+            const height=
+                Math.max(
+                    4,
+                    Math.round(
+                        Math.abs(value)/
+                        maxAbs*
+                        40
+                    )
+                );
+
+            const positive=
+                value>=0;
+
+            bars.insertAdjacentHTML(
+                "beforeend",
+                `
+                <div
+                    class="bar-item"
+                    title="${escapeHTML(trade.stock)} ${signed(value,1,"%")}">
+
+                    <div
+                        class="${positive?"bar-pos":"bar-neg"}"
+                        style="height:${height}px">
+                    </div>
+
+                    <div
+                        class="bar-value ${positive?"pos":"neg"}"
+                        style="--h:${height}px">
+
+                        ${signed(value,0,"%")}
+
+                    </div>
+
+                    <div class="bar-label">
+                        ${index+1}
+                    </div>
+
+                </div>
+                `
+            );
+
+        }
+    );
+
+}
+
+/* =========================================================
+   إصدار التقرير
+========================================================= */
+
+function showReport(){
+
+    const start=
+        document
+            .getElementById(
+                "reportStart"
+            )
+            .value;
+
+    const end=
+        document
+            .getElementById(
+                "reportEnd"
+            )
+            .value;
+
+    if(
+        (start&&!end)
+        ||
+        (!start&&end)
+    ){
+
+        alert(
+            "اختر تاريخ البداية والنهاية"
+        );
+
+        return;
+    }
+
+    if(
+        start
+        &&
+        end
+        &&
+        end<start
+    ){
+
+        alert(
+            "تاريخ نهاية التقرير غير صحيح"
+        );
+
+        return;
+    }
+
+    buildReport(
+        getFilteredTrades(),
+        start,
+        end
+    );
+
+}
+
+/* =========================================================
+   بناء التقرير
+========================================================= */
+
+function buildReport(
+    filtered,
+    start,
+    end
+){
+
+    const report=
+        document.getElementById(
+            "report"
+        );
+
+    const metrics=
+        reportMetrics(
+            filtered
+        );
+
+    report.classList.add(
+        "show"
+    );
+
+    /* إجمالي */
+
+    document
+        .getElementById(
+            "totalTrades"
+        )
+        .textContent=
+        metrics.total;
+
+    /* نسبة النجاح */
+
+    const winRate=
+        document.getElementById(
+            "winRate"
+        );
+
+    winRate.textContent=
+        metrics.winRate.toFixed(0)
+        +
+        "%";
+
+    winRate.className=
+        "kpi-value "
+        +
+        (
+            metrics.winRate>=50
+            ?
+            "positive"
+            :
+            "negative"
+        );
+
+    document
+        .getElementById(
+            "winRateSub"
+        )
+        .textContent=
+        metrics.winners+
+        " رابحة";
+
+    /* الربح */
+
+    const totalProfit=
+        document.getElementById(
+            "totalProfit"
+        );
+
+    totalProfit.textContent=
+        (
+            metrics.totalProfit>=0
+            ?
+            "+"
+            :
+            "-"
+        )
+        +
+        "$"
+        +
+        Math.abs(
+            metrics.totalProfit
+        )
+        .toFixed(2);
+
+    totalProfit.className=
+        "kpi-value "
+        +
+        (
+            metrics.totalProfit>=0
+            ?
+            "positive"
+            :
+            "negative"
+        );
+
+    const contractProfit=
+        Math.round(
+            metrics.totalProfit*
+            100
+        );
+
+    const contract=
+        document.getElementById(
+            "totalProfitTimes"
+        );
+
+    contract.textContent=
+        (
+            contractProfit>=0
+            ?
+            "+"
+            :
+            "-"
+        )
+        +
+        "$"
+        +
+        Math.abs(
+            contractProfit
+        )
+        .toLocaleString(
+            "en-US"
+        )
+        +
+        " لعقد ×100";
+
+    contract.className=
+        "kpi-sub "
+        +
+        (
+            contractProfit>=0
+            ?
+            "positive"
+            :
+            "negative"
+        );
+
+    /* العائد */
+
+    const weeklyReturn=
+        document.getElementById(
+            "weeklyReturn"
+        );
+
+    weeklyReturn.textContent=
+        signed(
+            metrics.weeklyReturn,
+            1,
+            "%"
+        );
+
+    weeklyReturn.className=
+        "kpi-value "
+        +
+        (
+            metrics.weeklyReturn>=0
+            ?
+            "positive"
+            :
+            "negative"
+        );
+
+    /* المتوسط */
+
+    const average=
+        document.getElementById(
+            "averageReturn"
+        );
+
+    average.textContent=
+        signed(
+            metrics.avgReturn,
+            1,
+            "%"
+        );
+
+    average.className=
+        metrics.avgReturn>=0
+        ?
+        "positive"
+        :
+        "negative";
+
+    /* أفضل صفقة */
+
+    const bestTrade=
+        document.getElementById(
+            "bestTrade"
+        );
+
+    if(metrics.best){
+
+        bestTrade.textContent=
+            metrics.best.stock
+            +
+            " "
+            +
+            metrics.best.option
+            +
+            " "
+            +
+            signed(
+                metrics.best.percentage,
+                1,
+                "%"
+            );
+
+        bestTrade.className=
+            Number(
+                metrics.best.percentage
+            )
+            >=0
+            ?
+            "positive"
+            :
+            "negative";
+
+    }
+
+    else{
+
+        bestTrade.textContent=
+            "—";
+
+        bestTrade.className=
+            "";
+
+    }
+
+    /* الفترة */
+
+    document
+        .getElementById(
+            "reportPeriod"
+        )
+        .textContent=
+        start&&end
+        ?
+        "من "
+        +
+        formatDate(start)
+        +
+        " إلى "
+        +
+        formatDate(end)
+        :
+        "جميع الصفقات المحفوظة";
+
+    /* الرسوم */
+
+    buildMiniCharts(
+        filtered,
+        metrics
+    );
+
+    /* الجدول */
+
+    const sorted=
+        sortTradesForReport(
+            filtered
+        );
+
+    let html=`
+        <table>
+
+        <thead>
+
+            <tr>
+
+                <th>الشركة</th>
+                <th>الأوبشن</th>
+                <th>السترايك</th>
+                <th>الدخول</th>
+                <th>الخروج</th>
+                <th>الربح</th>
+                <th>%</th>
+                <th>الحالة</th>
+                <th>ملاحظات</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+    `;
+
+    if(!sorted.length){
+
+        html+=`
+            <tr>
+
+                <td
+                    colspan="9"
+                    style="
+                        padding:25px;
+                        text-align:center
+                    ">
+
+                    لا توجد صفقات في هذه الفترة
+
+                </td>
+
+            </tr>
+        `;
+
+    }
+
+    sorted.forEach(
+        trade =>{
+
+            const status=
+                getStatus(
+                    trade
+                );
+
+            html+=`
+                <tr class="${status.rowClass}">
+
+                    <td>
+                        ${escapeHTML(trade.stock)}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(trade.option)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.strike).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.buy).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.sell).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.profit)>=0?"+":""}
+                        ${Number(trade.profit).toFixed(2)}
+                    </td>
+
+                    <td>
+                        ${Number(trade.percentage)>=0?"+":""}
+                        ${Number(trade.percentage).toFixed(2)}%
+                    </td>
+
+                    <td>
+                        ${status.name}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(trade.notes||"")}
+                    </td>
+
+                </tr>
+            `;
+
+        }
+    );
+
+    html+=`
+        </tbody>
+        </table>
+    `;
+
+    document
+        .getElementById(
+            "reportTable"
+        )
+        .innerHTML=
+        html;
+
+    report.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+/* =========================================================
+   PDF
+========================================================= */
+
+function printReport(){
+
+    const report=
+        document.getElementById(
+            "report"
+        );
+
+    if(
+        !report.classList.contains(
+            "show"
+        )
+    ){
+
+        showReport();
+
+        if(
+            !report.classList.contains(
+                "show"
+            )
+        ){
+            return;
+        }
+
+    }
+
+    const palette=
+        getExportPalette();
+
+    const dark=
+        [
+            "black",
+            "midnight"
+        ]
+        .includes(
+            getExportThemeName()
+        );
+
+    const logoFile=
+        LOGOS[selectedLogo]
+        ||
+        LOGOS[1];
+
+    const logoURL=
+        new URL(
+            logoFile,
+            window.location.href
+        )
+        .href;
+
+    const logoFilter=
+        selectedLogo===1
+        ?
+        "saturate(.72) brightness(.94) contrast(.94)"
+        :
+        "saturate(.90) brightness(.98)";
+
+    const clone=
+        report.cloneNode(
+            true
+        );
+
+    const cloneLogo=
+        clone.querySelector(
+            "#reportLogo"
+        );
+
+    if(cloneLogo){
+        cloneLogo.src=
+            logoURL;
+    }
+
+    clone
+        .querySelectorAll(
+            ".no-print"
+        )
+        .forEach(
+            item =>{
+                item.remove();
+            }
+        );
+
+    const reportHTML=
+        clone.outerHTML;
+
+    const win=
+        window.open(
+            "",
+            "_blank",
+            "width=900,height=1100"
+        );
+
+    if(!win){
+
+        alert(
+            "المتصفح منع نافذة PDF. اسمح بالنوافذ المنبثقة ثم حاول مرة أخرى."
+        );
+
+        return;
+    }
+
+    win.document.open();
+
+    win.document.write(`
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>ملخص الأداء الأسبوعي</title>
+
+<style>
+
+@page{
+    size:A4 portrait;
+    margin:4.5mm;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+
+    background:${palette.bg2};
+
+    font-family:
+        Arial,
+        Tahoma,
+        sans-serif;
+
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+}
+
+.report{
+    display:block!important;
+
+    width:100%!important;
+
+    margin:0!important;
+
+    padding:6px!important;
+
+    position:relative!important;
+
+    overflow:hidden!important;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,.09),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            ${palette.bg1},
+            ${palette.bg2}
+        )!important;
+
+    color:${palette.text}!important;
+
+    border:
+        1.5px solid #d4af37!important;
+
+    border-radius:7px!important;
+
+    box-shadow:
+        0 4px 12px rgba(212,175,55,.23)!important;
+
+    --r-card:${palette.card};
+    --r-head:${palette.head};
+    --r-text:${palette.text};
+    --r-muted:${palette.muted};
+}
+
+.report-watermark{
+    position:absolute!important;
+
+    z-index:0!important;
+
+    left:50%!important;
+    top:170px!important;
+
+    width:390px!important;
+    height:390px!important;
+
+    transform:translateX(-50%)!important;
+
+    background-image:url("${logoURL}")!important;
+
+    background-size:contain!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+
+    opacity:.018!important;
+}
+
+.report > *:not(.report-watermark){
+    position:relative!important;
+
+    z-index:1!important;
+}
+
+.report-logo{
+    display:block!important;
+
+    width:49%!important;
+    height:65px!important;
+
+    margin:
+        -3px auto -1px!important;
+
+    object-fit:contain!important;
+
+    background:transparent!important;
+
+    filter:${logoFilter}!important;
+}
+
+.report-heading{
+    display:grid!important;
+
+    grid-template-columns:
+        86px 1fr 86px!important;
+
+    align-items:center!important;
+
+    gap:4px!important;
+
+    margin-bottom:4px!important;
+}
+
+.report-heading-spacer{
+    width:86px!important;
+}
+
+.weekly-badge{
+    justify-self:start!important;
+
+    padding:
+        4px 6px!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    border-radius:999px!important;
+
+    background:#231b08!important;
+
+    color:#f1d166!important;
+
+    font-size:6.5px!important;
+
+    font-weight:900!important;
+
+    box-shadow:
+        0 3px 8px rgba(212,175,55,.26)!important;
+}
+
+.report-title{
+    text-align:center!important;
+}
+
+.report-title h2{
+    margin:0!important;
+
+    color:${palette.text}!important;
+
+    font-size:18px!important;
+
+    font-weight:900!important;
+}
+
+.report-period{
+    margin-top:1px!important;
+
+    color:${palette.muted}!important;
+
+    font-size:8px!important;
+
+    font-weight:900!important;
+
+    text-align:center!important;
+}
+
+.kpi-grid{
+    display:grid!important;
+
+    grid-template-columns:
+        repeat(4,1fr)!important;
+
+    gap:4px!important;
+
+    margin:
+        4px 0!important;
+}
+
+.kpi-card{
+    min-height:44px!important;
+
+    padding:
+        4px 3px!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    border-radius:5px!important;
+
+    background:
+        linear-gradient(
+            145deg,
+            ${palette.card},
+            ${palette.head}
+        )!important;
+
+    color:${palette.text}!important;
+
+    text-align:center!important;
+
+    box-shadow:
+        0 3px 8px rgba(212,175,55,.20)!important;
+}
+
+.kpi-label{
+    font-size:6px!important;
+
+    font-weight:900!important;
+}
+
+.kpi-value{
+    display:block!important;
+
+    margin-top:2px!important;
+
+    font-size:14px!important;
+
+    line-height:1!important;
+
+    font-weight:900!important;
+}
+
+.kpi-sub{
+    display:block!important;
+
+    margin-top:2px!important;
+
+    color:${palette.muted}!important;
+
+    font-size:5.5px!important;
+
+    font-weight:800!important;
+}
+
+.positive{
+    color:#149451!important;
+}
+
+.negative{
+    color:#c43c3c!important;
+}
+
+.gold{
+    color:${dark?"#edcc61":"#9c7718"}!important;
+}
+
+.insights{
+    display:grid!important;
+
+    grid-template-columns:
+        1fr 1fr!important;
+
+    gap:4px!important;
+
+    margin:
+        4px 0!important;
+}
+
+.insight{
+    padding:
+        4px 5px!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    border-radius:5px!important;
+
+    background:
+        linear-gradient(
+            180deg,
+            ${palette.card},
+            ${palette.head}
+        )!important;
+
+    color:${palette.text}!important;
+
+    font-size:6.5px!important;
+
+    font-weight:900!important;
+
+    box-shadow:
+        0 3px 7px rgba(212,175,55,.18)!important;
+}
+
+.mini-charts{
+    display:grid!important;
+
+    grid-template-columns:
+        190px 1fr!important;
+
+    gap:4px!important;
+
+    margin:
+        4px 0!important;
+}
+
+.chart-card{
+    min-height:76px!important;
+
+    padding:4px!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    border-radius:5px!important;
+
+    background:
+        linear-gradient(
+            145deg,
+            ${palette.card},
+            ${palette.head}
+        )!important;
+
+    box-shadow:
+        0 3px 8px rgba(212,175,55,.18)!important;
+}
+
+.chart-title{
+    margin-bottom:2px!important;
+
+    color:${palette.text}!important;
+
+    text-align:center!important;
+
+    font-size:6.5px!important;
+
+    font-weight:900!important;
+}
+
+.donut-layout{
+    min-height:58px!important;
+
+    display:flex!important;
+
+    align-items:center!important;
+
+    justify-content:center!important;
+
+    gap:8px!important;
+}
+
+.donut{
+    position:relative!important;
+
+    width:53px!important;
+    height:53px!important;
+
+    border-radius:50%!important;
+}
+
+.donut::after{
+    content:""!important;
+
+    position:absolute!important;
+
+    inset:10px!important;
+
+    border-radius:50%!important;
+
+    background:${palette.card}!important;
+
+    border:
+        1px solid rgba(212,175,55,.4)!important;
+}
+
+.donut-center{
+    position:absolute!important;
+
+    z-index:2!important;
+
+    inset:0!important;
+
+    display:flex!important;
+
+    flex-direction:column!important;
+
+    align-items:center!important;
+    justify-content:center!important;
+
+    color:${palette.text}!important;
+
+    font-size:10px!important;
+
+    font-weight:900!important;
+}
+
+.donut-center small{
+    color:${palette.muted}!important;
+
+    font-size:4.5px!important;
+}
+
+.legend{
+    display:grid!important;
+
+    min-width:70px!important;
+
+    gap:2px!important;
+
+    color:${palette.text}!important;
+
+    font-size:5px!important;
+
+    font-weight:900!important;
+}
+
+.legend-row{
+    display:flex!important;
+
+    align-items:center!important;
+
+    gap:3px!important;
+}
+
+.legend-dot{
+    width:5px!important;
+    height:5px!important;
+
+    border-radius:2px!important;
+}
+
+.legend-count{
+    margin-right:auto!important;
+
+    color:${palette.muted}!important;
+}
+
+.performance-plot{
+    position:relative!important;
+
+    height:58px!important;
+
+    display:flex!important;
+
+    direction:ltr!important;
+
+    gap:3px!important;
+
+    padding:
+        3px 2px 10px!important;
+}
+
+.performance-plot::before{
+    content:""!important;
+
+    position:absolute!important;
+
+    left:0!important;
+    right:0!important;
+
+    top:50%!important;
+
+    height:1px!important;
+
+    background:
+        rgba(130,110,70,.4)!important;
+}
+
+.bar-item{
+    position:relative!important;
+
+    flex:1!important;
+
+    min-width:10px!important;
+}
+
+.bar-pos,
+.bar-neg{
+    position:absolute!important;
+
+    left:22%!important;
+    right:22%!important;
+
+    min-height:2px!important;
+}
+
+.bar-pos{
+    bottom:50%!important;
+
+    background:#279c58!important;
+}
+
+.bar-neg{
+    top:50%!important;
+
+    background:#b84141!important;
+}
+
+.bar-value{
+    display:none!important;
+}
+
+.bar-label{
+    position:absolute!important;
+
+    left:0!important;
+    right:0!important;
+    bottom:-8px!important;
+
+    color:${palette.muted}!important;
+
+    text-align:center!important;
+
+    font-size:4px!important;
+}
+
+.report-table{
+    width:100%!important;
+
+    overflow:visible!important;
+
+    padding:
+        2px 0 3px!important;
+}
+
+.report-table table{
+    width:100%!important;
+
+    min-width:0!important;
+
+    table-layout:fixed!important;
+
+    border-collapse:collapse!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    background:${palette.card}!important;
+
+    box-shadow:
+        0 3px 8px rgba(212,175,55,.17)!important;
+}
+
+.report-table th{
+    padding:
+        3px 1px!important;
+
+    border:
+        1px solid #aa8a30!important;
+
+    background:${palette.head}!important;
+
+    color:${palette.text}!important;
+
+    font-size:5.5px!important;
+
+    text-align:center!important;
+}
+
+.report-table td{
+    padding:
+        3px 1px!important;
+
+    border:
+        1px solid rgba(120,110,90,.28)!important;
+
+    background:${palette.card}!important;
+
+    color:${palette.text}!important;
+
+    font-size:5.5px!important;
+
+    text-align:center!important;
+}
+
+.report-table .win-row td{
+    background:${dark?"#102318":"#e5f5ea"}!important;
+
+    color:${dark?"#eafff0":"#173c27"}!important;
+}
+
+.report-table .stopped-row td{
+    background:${dark?"#10242a":"#e1f6fa"}!important;
+
+    color:${dark?"#eaffff":"#16404a"}!important;
+}
+
+.report-table .loss-row td{
+    background:${dark?"#301313":"#f7e3e3"}!important;
+
+    color:${dark?"#fff0f0":"#4b1c1c"}!important;
+}
+
+.report-note{
+    margin-top:3px!important;
+
+    padding:
+        4px 5px!important;
+
+    border:
+        1px solid #d4af37!important;
+
+    border-radius:5px!important;
+
+    background:
+        linear-gradient(
+            180deg,
+            ${palette.card},
+            ${palette.head}
+        )!important;
+
+    color:${palette.text}!important;
+
+    text-align:center!important;
+
+    font-size:5.5px!important;
+
+    line-height:1.3!important;
+
+    font-weight:900!important;
+
+    box-shadow:
+        0 3px 7px rgba(212,175,55,.16)!important;
+}
+
+.mini-disclaimer{
+    display:block!important;
+
+    margin-top:1px!important;
+
+    color:${palette.muted}!important;
+
+    font-size:5px!important;
+}
+
+</style>
+
+</head>
+
+<body>
+
+${reportHTML}
+
+<script>
+
+window.onload=function(){
+
+    setTimeout(
+        function(){
+            window.focus();
+            window.print();
+        },
+        550
+    );
+
+};
+
+window.onafterprint=function(){
+
+    setTimeout(
+        function(){
+            window.close();
+        },
+        200
+    );
+
+};
+
+<\/script>
+
+</body>
+</html>
+    `);
+
+    win.document.close();
+
+}
+
+/* =========================================================
+   Canvas Helpers
+========================================================= */
+
+function roundedRect(
+    ctx,
+    x,
+    y,
+    w,
+    h,
+    radius
+){
+
+    const r=
+        Math.min(
+            radius,
+            w/2,
+            h/2
+        );
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+r,
+        y
+    );
+
+    ctx.arcTo(
+        x+w,
+        y,
+        x+w,
+        y+h,
+        r
+    );
+
+    ctx.arcTo(
+        x+w,
+        y+h,
+        x,
+        y+h,
+        r
+    );
+
+    ctx.arcTo(
+        x,
+        y+h,
+        x,
+        y,
+        r
+    );
+
+    ctx.arcTo(
+        x,
+        y,
+        x+w,
+        y,
+        r
+    );
+
+    ctx.closePath();
+
+}
+
+function drawGoldBox(
+    ctx,
+    x,
+    y,
+    w,
+    h,
+    color1,
+    color2,
+    radius=14
+){
+
+    ctx.save();
+
+    ctx.shadowColor=
+        "rgba(212,175,55,.38)";
+
+    ctx.shadowBlur=
+        15;
+
+    ctx.shadowOffsetY=
+        5;
+
+    const gradient=
+        ctx.createLinearGradient(
+            x,
+            y,
+            x,
+            y+h
+        );
+
+    gradient.addColorStop(
+        0,
+        color1
+    );
+
+    gradient.addColorStop(
+        1,
+        color2
+    );
+
+    roundedRect(
+        ctx,
+        x,
+        y,
+        w,
+        h,
+        radius
+    );
+
+    ctx.fillStyle=
+        gradient;
+
+    ctx.fill();
+
+    ctx.strokeStyle=
+        "#d4af37";
+
+    ctx.lineWidth=
+        2;
+
+    ctx.stroke();
+
+    ctx.restore();
+
+}
+
+function drawCanvasDonut(
+    ctx,
+    cx,
+    cy,
+    radius,
+    metrics,
+    palette
+){
+
+    const total=
+        Math.max(
+            metrics.total,
+            1
+        );
+
+    const parts=[
+        [
+            metrics.winners,
+            "#22a85a"
+        ],
+        [
+            metrics.stopped,
+            "#00a7c8"
+        ],
+        [
+            metrics.losers,
+            "#c94b4b"
+        ]
+    ];
+
+    let angle=
+        -Math.PI/2;
+
+    parts.forEach(
+        ([count,color]) =>{
+
+            const sweep=
+                count/
+                total*
+                Math.PI*
+                2;
+
+            if(sweep<=0){
+                return;
+            }
+
+            ctx.beginPath();
+
+            ctx.strokeStyle=
+                color;
+
+            ctx.lineWidth=
+                22;
+
+            ctx.arc(
+                cx,
+                cy,
+                radius,
+                angle,
+                angle+sweep
+            );
+
+            ctx.stroke();
+
+            angle+=
+                sweep;
+
+        }
+    );
+
+    ctx.fillStyle=
+        palette.card;
+
+    ctx.beginPath();
+
+    ctx.arc(
+        cx,
+        cy,
+        radius-16,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle=
+        palette.text;
+
+    ctx.font=
+        "900 23px Arial";
+
+    ctx.textAlign=
+        "center";
+
+    ctx.fillText(
+        metrics.winRate.toFixed(0)
+        +
+        "%",
+        cx,
+        cy+5
+    );
+
+    ctx.fillStyle=
+        palette.muted;
+
+    ctx.font=
+        "900 10px Arial";
+
+    ctx.fillText(
+        "نجاح",
+        cx,
+        cy+22
+    );
+
+}
+
+function drawCanvasBars(
+    ctx,
+    x,
+    y,
+    width,
+    height,
+    list,
+    palette
+){
+
+    if(!list.length){
+
+        ctx.fillStyle=
+            palette.muted;
+
+        ctx.font=
+            "900 15px Arial";
+
+        ctx.fillText(
+            "لا توجد بيانات",
+            x+width/2,
+            y+height/2
+        );
+
+        return;
+    }
+
+    const shown=
+        list.slice(
+            0,
+            10
+        );
+
+    const maxAbs=
+        Math.max(
+            ...shown.map(
+                item =>
+                Math.abs(
+                    Number(
+                        item.percentage||0
+                    )
+                )
+            ),
+            1
+        );
+
+    const baseline=
+        y+
+        height/2;
+
+    ctx.strokeStyle=
+        "rgba(130,110,70,.35)";
+
+    ctx.lineWidth=1;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x,
+        baseline
+    );
+
+    ctx.lineTo(
+        x+width,
+        baseline
+    );
+
+    ctx.stroke();
+
+    const gap=10;
+
+    const barWidth=
+        (
+            width-
+            gap*
+            (
+                shown.length+1
+            )
+        )
+        /
+        shown.length;
+
+    shown.forEach(
+        (trade,index) =>{
+
+            const value=
+                Number(
+                    trade.percentage||0
+                );
+
+            const h=
+                Math.max(
+                    4,
+                    Math.abs(value)/
+                    maxAbs*
+                    height*
+                    .39
+                );
+
+            const bx=
+                x+
+                gap+
+                index*
+                (
+                    barWidth+
+                    gap
+                );
+
+            ctx.fillStyle=
+                value>=0
+                ?
+                "#239a55"
+                :
+                "#b94747";
+
+            ctx.fillRect(
+                bx,
+                value>=0
+                ?
+                baseline-h
+                :
+                baseline,
+                barWidth,
+                h
+            );
+
+            ctx.fillStyle=
+                palette.muted;
+
+            ctx.font=
+                "800 9px Arial";
+
+            ctx.fillText(
+                String(
+                    index+1
+                ),
+                bx+
+                barWidth/2,
+                y+
+                height+
+                12
+            );
+
+        }
+    );
+
+}
+
+/* =========================================================
+   صورة التقرير
+========================================================= */
+
+function saveReportImage(){
+
+    const report=
+        document.getElementById(
+            "report"
+        );
+
+    if(
+        !report.classList.contains(
+            "show"
+        )
+    ){
+
+        showReport();
+
+        if(
+            !report.classList.contains(
+                "show"
+            )
+        ){
+            return;
+        }
+
+    }
+
+    const palette=
+        getExportPalette();
+
+    const dark=
+        [
+            "black",
+            "midnight"
+        ]
+        .includes(
+            getExportThemeName()
+        );
+
+    const start=
+        document
+            .getElementById(
+                "reportStart"
+            )
+            .value;
+
+    const end=
+        document
+            .getElementById(
+                "reportEnd"
+            )
+            .value;
+
+    const filtered=
+        getFilteredTrades();
+
+    const sorted=
+        sortTradesForReport(
+            filtered
+        );
+
+    const metrics=
+        reportMetrics(
+            filtered
+        );
+
+    const width=1800;
+
+    const logoH=150;
+    const titleH=90;
+    const kpiH=120;
+    const insightH=65;
+    const chartsH=175;
+    const tableHeadH=56;
+    const rowH=62;
+    const noteH=82;
+
+    const rows=
+        Math.max(
+            sorted.length,
+            1
+        );
+
+    const height=
+        logoH+
+        titleH+
+        kpiH+
+        insightH+
+        chartsH+
+        tableHeadH+
+        rows*
+        rowH+
+        noteH+
+        55;
+
+    const canvas=
+        document.createElement(
+            "canvas"
+        );
+
+    canvas.width=
+        width;
+
+    canvas.height=
+        height;
+
+    const ctx=
+        canvas.getContext(
+            "2d"
+        );
+
+    if(!ctx){
+
+        alert(
+            "تعذر إنشاء صورة التقرير"
+        );
+
+        return;
+    }
+
+    const bg=
+        ctx.createLinearGradient(
+            0,
+            0,
+            0,
+            height
+        );
+
+    bg.addColorStop(
+        0,
+        palette.bg1
+    );
+
+    bg.addColorStop(
+        1,
+        palette.bg2
+    );
+
+    ctx.fillStyle=
+        bg;
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+    const logo=
+        new Image();
+
+    logo.onload=
+        function(){
+
+            /* تخفيف الأحمر بالصورة */
+
+            ctx.save();
+
+            if(selectedLogo===1){
+
+                ctx.filter=
+                    "saturate(72%) brightness(94%) contrast(94%)";
+
+            }
+
+            else{
+
+                ctx.filter=
+                    "saturate(90%) brightness(98%)";
+
+            }
+
+            const maxW=
+                width-
+                100;
+
+            const maxH=
+                logoH-
+                8;
+
+            const ratio=
+                Math.min(
+                    maxW/
+                    logo.naturalWidth,
+                    maxH/
+                    logo.naturalHeight
+                );
+
+            const logoW=
+                logo.naturalWidth*
+                ratio;
+
+            const logoHeight=
+                logo.naturalHeight*
+                ratio;
+
+            ctx.drawImage(
+                logo,
+                (
+                    width-logoW
+                )/2,
+                (
+                    logoH-logoHeight
+                )/2,
+                logoW,
+                logoHeight
+            );
+
+            ctx.restore();
+
+            /* Watermark */
+
+            ctx.save();
+
+            ctx.globalAlpha=
+                .018;
+
+            if(selectedLogo===1){
+
+                ctx.filter=
+                    "saturate(72%) brightness(94%)";
+
+            }
+
+            const wmRatio=
+                Math.min(
+                    600/
+                    logo.naturalWidth,
+                    400/
+                    logo.naturalHeight
+                );
+
+            const wmW=
+                logo.naturalWidth*
+                wmRatio;
+
+            const wmH=
+                logo.naturalHeight*
+                wmRatio;
+
+            ctx.drawImage(
+                logo,
+                (
+                    width-wmW
+                )/2,
+                logoH+
+                titleH+
+                160,
+                wmW,
+                wmH
+            );
+
+            ctx.restore();
+
+            drawImageReport();
+
+        };
+
+    logo.onerror=
+        drawImageReport;
+
+    logo.src=
+        LOGOS[selectedLogo];
+
+    function drawImageReport(){
+
+        ctx.textAlign=
+            "center";
+
+        let y=
+            logoH;
+
+        /* Title */
+
+        ctx.fillStyle=
+            palette.text;
+
+        ctx.font=
+            "900 42px Arial";
+
+        ctx.fillText(
+            "ملخص الأداء الأسبوعي",
+            width/2,
+            y+40
+        );
+
+        ctx.fillStyle=
+            palette.muted;
+
+        ctx.font=
+            "900 20px Arial";
+
+        ctx.fillText(
+            start&&end
+            ?
+            `من ${formatDate(start)} إلى ${formatDate(end)}`
+            :
+            "جميع الصفقات المحفوظة",
+            width/2,
+            y+72
+        );
+
+        y+=
+            titleH;
+
+        /* KPI */
+
+        const gap=18;
+
+        const boxW=
+            (
+                width-
+                gap*5
+            )
+            /
+            4;
+
+        const boxH=
+            96;
+
+        const contract=
+            Math.round(
+                metrics.totalProfit*
+                100
+            );
+
+        const kpis=[
+
+            {
+                label:"إجمالي الصفقات",
+                value:String(metrics.total),
+                color:"#bb8e20",
+                sub:""
+            },
+
+            {
+                label:"نسبة النجاح",
+                value:
+                    metrics.winRate
+                    .toFixed(0)
+                    +
+                    "%",
+                color:
+                    metrics.winRate>=50
+                    ?
+                    "#149451"
+                    :
+                    "#c43c3c",
+                sub:
+                    metrics.winners+
+                    " رابحة"
+            },
+
+            {
+                label:"صافي الربح",
+                value:
+                    (
+                        metrics.totalProfit>=0
+                        ?
+                        "+"
+                        :
+                        "-"
+                    )
+                    +
+                    "$"
+                    +
+                    Math.abs(
+                        metrics.totalProfit
+                    )
+                    .toFixed(2),
+                color:
+                    metrics.totalProfit>=0
+                    ?
+                    "#149451"
+                    :
+                    "#c43c3c",
+                sub:
+                    (
+                        contract>=0
+                        ?
+                        "+"
+                        :
+                        "-"
+                    )
+                    +
+                    "$"
+                    +
+                    Math.abs(contract)
+                    .toLocaleString(
+                        "en-US"
+                    )
+                    +
+                    " لعقد ×100"
+            },
+
+            {
+                label:"العائد الأسبوعي",
+                value:
+                    signed(
+                        metrics.weeklyReturn,
+                        1,
+                        "%"
+                    ),
+                color:
+                    metrics.weeklyReturn>=0
+                    ?
+                    "#149451"
+                    :
+                    "#c43c3c",
+                sub:"مجموع العوائد"
+            }
+
+        ];
+
+        kpis.forEach(
+            (item,index) =>{
+
+                const x=
+                    gap+
+                    index*
+                    (
+                        boxW+
+                        gap
+                    );
+
+                drawGoldBox(
+                    ctx,
+                    x,
+                    y,
+                    boxW,
+                    boxH,
+                    palette.card,
+                    palette.head,
+                    12
+                );
+
+                ctx.fillStyle=
+                    palette.text;
+
+                ctx.font=
+                    "900 18px Arial";
+
+                ctx.fillText(
+                    item.label,
+                    x+
+                    boxW/2,
+                    y+28
+                );
+
+                ctx.fillStyle=
+                    item.color;
+
+                ctx.font=
+                    "900 31px Arial";
+
+                ctx.fillText(
+                    item.value,
+                    x+
+                    boxW/2,
+                    y+62
+                );
+
+                if(item.sub){
+
+                    ctx.fillStyle=
+                        palette.muted;
+
+                    ctx.font=
+                        "800 12px Arial";
+
+                    ctx.fillText(
+                        item.sub,
+                        x+
+                        boxW/2,
+                        y+84
+                    );
+
+                }
+
+            }
+        );
+
+        y+=
+            kpiH;
+
+        /* Insights */
+
+        const insightW=
+            (
+                width-
+                gap*3
+            )
+            /
+            2;
+
+        drawGoldBox(
+            ctx,
+            gap,
+            y,
+            insightW,
+            48,
+            palette.card,
+            palette.head,
+            9
+        );
+
+        drawGoldBox(
+            ctx,
+            gap*2+
+            insightW,
+            y,
+            insightW,
+            48,
+            palette.card,
+            palette.head,
+            9
+        );
+
+        ctx.fillStyle=
+            palette.text;
+
+        ctx.font=
+            "900 17px Arial";
+
+        const bestText=
+            metrics.best
+            ?
+            metrics.best.stock+
+            " "+
+            metrics.best.option+
+            " "+
+            signed(
+                metrics.best.percentage,
+                1,
+                "%"
+            )
+            :
+            "—";
+
+        ctx.fillText(
+            "🏆 أفضل صفقة: "+
+            bestText,
+            gap+
+            insightW/2,
+            y+30
+        );
+
+        ctx.fillText(
+            "⭐ متوسط العائد لكل صفقة: "+
+            signed(
+                metrics.avgReturn,
+                1,
+                "%"
+            ),
+            gap*2+
+            insightW+
+            insightW/2,
+            y+30
+        );
+
+        y+=
+            insightH;
+
+        /* Charts */
+
+        const donutW=480;
+
+        const barW=
+            width-
+            gap*3-
+            donutW;
+
+        drawGoldBox(
+            ctx,
+            gap,
+            y,
+            donutW,
+            155,
+            palette.card,
+            palette.head,
+            11
+        );
+
+        drawGoldBox(
+            ctx,
+            gap*2+
+            donutW,
+            y,
+            barW,
+            155,
+            palette.card,
+            palette.head,
+            11
+        );
+
+        ctx.fillStyle=
+            palette.text;
+
+        ctx.font=
+            "900 17px Arial";
+
+        ctx.fillText(
+            "توزيع نتائج الصفقات",
+            gap+
+            donutW/2,
+            y+26
+        );
+
+        ctx.fillText(
+            "أداء الصفقات (%)",
+            gap*2+
+            donutW+
+            barW/2,
+            y+26
+        );
+
+        drawCanvasDonut(
+            ctx,
+            gap+130,
+            y+91,
+            50,
+            metrics,
+            palette
+        );
+
+        ctx.textAlign=
+            "right";
+
+        ctx.font=
+            "900 14px Arial";
+
+        ctx.fillStyle=
+            "#22a85a";
+
+        ctx.fillText(
+            "رابحة  "+
+            metrics.winners,
+            gap+
+            donutW-
+            35,
+            y+69
+        );
+
+        ctx.fillStyle=
+            "#00a7c8";
+
+        ctx.fillText(
+            "موقوفة  "+
+            metrics.stopped,
+            gap+
+            donutW-
+            35,
+            y+96
+        );
+
+        ctx.fillStyle=
+            "#c94b4b";
+
+        ctx.fillText(
+            "خاسرة  "+
+            metrics.losers,
+            gap+
+            donutW-
+            35,
+            y+123
+        );
+
+        ctx.textAlign=
+            "center";
+
+        drawCanvasBars(
+            ctx,
+            gap*2+
+            donutW+
+            25,
+            y+41,
+            barW-
+            50,
+            90,
+            filtered,
+            palette
+        );
+
+        y+=
+            chartsH;
+
+        /* Table */
+
+        const headers=[
+            "الشركة",
+            "الأوبشن",
+            "السترايك",
+            "الدخول",
+            "الخروج",
+            "الربح",
+            "%",
+            "الحالة",
+            "ملاحظات"
+        ];
+
+        const columnW=
+            width/
+            headers.length;
+
+        ctx.fillStyle=
+            palette.head;
+
+        ctx.fillRect(
+            0,
+            y,
+            width,
+            tableHeadH
+        );
+
+        ctx.strokeStyle=
+            "#d4af37";
+
+        ctx.lineWidth=2;
+
+        ctx.strokeRect(
+            0,
+            y,
+            width,
+            tableHeadH
+        );
+
+        ctx.fillStyle=
+            palette.text;
+
+        ctx.font=
+            "900 16px Arial";
+
+        headers.forEach(
+            (header,index) =>{
+
+                ctx.fillText(
+                    header,
+                    width-
+                    index*
+                    columnW-
+                    columnW/2,
+                    y+34
+                );
+
+            }
+        );
+
+        y+=
+            tableHeadH;
+
+        if(!sorted.length){
+
+            ctx.fillStyle=
+                palette.text;
+
+            ctx.font=
+                "900 19px Arial";
+
+            ctx.fillText(
+                "لا توجد صفقات في هذه الفترة",
+                width/2,
+                y+38
+            );
+
+            y+=
+                rowH;
+
+        }
+
+        sorted.forEach(
+            trade =>{
+
+                const status=
+                    getStatus(
+                        trade
+                    );
+
+                let bgColor;
+
+                if(
+                    status.name===
+                    "رابحة"
+                ){
+
+                    bgColor=
+                        dark
+                        ?
+                        "#102318"
+                        :
+                        "#e5f5ea";
+
+                }
+
+                else if(
+                    status.name===
+                    "موقوفة"
+                ){
+
+                    bgColor=
+                        dark
+                        ?
+                        "#10242a"
+                        :
+                        "#e1f6fa";
+
+                }
+
+                else{
+
+                    bgColor=
+                        dark
+                        ?
+                        "#301313"
+                        :
+                        "#f7e3e3";
+
+                }
+
+                ctx.fillStyle=
+                    bgColor;
+
+                ctx.fillRect(
+                    0,
+                    y,
+                    width,
+                    rowH
+                );
+
+                ctx.strokeStyle=
+                    "#bfa03b";
+
+                ctx.lineWidth=1;
+
+                ctx.strokeRect(
+                    0,
+                    y,
+                    width,
+                    rowH
+                );
+
+                ctx.fillStyle=
+                    dark
+                    ?
+                    "#ffffff"
+                    :
+                    "#172126";
+
+                ctx.font=
+                    "900 15px Arial";
+
+                const values=[
+
+                    trade.stock,
+
+                    trade.option,
+
+                    Number(
+                        trade.strike
+                    )
+                    .toFixed(2),
+
+                    Number(
+                        trade.buy
+                    )
+                    .toFixed(2),
+
+                    Number(
+                        trade.sell
+                    )
+                    .toFixed(2),
+
+                    (
+                        Number(
+                            trade.profit
+                        )
+                        >=0
+                        ?
+                        "+"
+                        :
+                        ""
+                    )
+                    +
+                    Number(
+                        trade.profit
+                    )
+                    .toFixed(2),
+
+                    (
+                        Number(
+                            trade.percentage
+                        )
+                        >=0
+                        ?
+                        "+"
+                        :
+                        ""
+                    )
+                    +
+                    Number(
+                        trade.percentage
+                    )
+                    .toFixed(1)
+                    +
+                    "%",
+
+                    status.name,
+
+                    trade.notes||""
+
+                ];
+
+                values.forEach(
+                    (value,index) =>{
+
+                        let text=
+                            String(value);
+
+                        const max=
+                            columnW-
+                            16;
+
+                        while(
+                            ctx.measureText(
+                                text
+                            )
+                            .width
+                            >
+                            max
+                            &&
+                            text.length>1
+                        ){
+
+                            text=
+                                text.slice(
+                                    0,
+                                    -1
+                                );
+
+                        }
+
+                        ctx.fillText(
+                            text,
+                            width-
+                            index*
+                            columnW-
+                            columnW/2,
+                            y+38
+                        );
+
+                    }
+                );
+
+                y+=
+                    rowH;
+
+            }
+        );
+
+        /* Note */
+
+        const noteY=
+            height-
+            noteH;
+
+        drawGoldBox(
+            ctx,
+            24,
+            noteY,
+            width-48,
+            62,
+            palette.card,
+            palette.head,
+            9
+        );
+
+        ctx.fillStyle=
+            palette.text;
+
+        ctx.font=
+            "900 14px Arial";
+
+        ctx.fillText(
+            "الأسعار الموضحة تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.",
+            width/2,
+            noteY+25
+        );
+
+        ctx.fillStyle=
+            palette.muted;
+
+        ctx.font=
+            "900 13px Arial";
+
+        ctx.fillText(
+            "لأغراض التوثيق والمشاركة وليس توصية استثمارية.",
+            width/2,
+            noteY+47
+        );
+
+        canvas.toBlob(
+            blob =>{
+
+                if(!blob){
+
+                    alert(
+                        "تعذر إنشاء صورة التقرير"
+                    );
+
+                    return;
+                }
+
+                saveImageBlob(
+                    blob,
+                    "تقرير-الصفقات.png"
+                );
+
+            },
+            "image/png"
+        );
+
+    }
+
+}
+
+/* =========================================================
+   مشاركة / تحميل الصورة
+========================================================= */
+
+function saveImageBlob(
+    blob,
+    filename
+){
+
+    try{
+
+        const file=
+            new File(
+                [blob],
+                filename,
+                {
+                    type:"image/png"
+                }
+            );
+
+        if(
+            navigator.share
+            &&
+            navigator.canShare
+            &&
+            navigator.canShare({
+                files:[file]
+            })
+        ){
+
+            navigator.share({
+
+                files:[file],
+
+                title:
+                    "تقرير الصفقات",
+
+                text:
+                    "ملخص الأداء الأسبوعي"
+
+            })
+            .catch(
+                error =>{
+
+                    if(
+                        error
+                        &&
+                        error.name!==
+                        "AbortError"
+                    ){
+
+                        fallbackSaveImage(
+                            blob,
+                            filename
+                        );
+
+                    }
+
+                }
+            );
+
+            return;
+
+        }
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    fallbackSaveImage(
+        blob,
+        filename
+    );
+
+}
+
+function fallbackSaveImage(
+    blob,
+    filename
+){
+
+    const url=
+        URL.createObjectURL(
+            blob
+        );
+
+    const a=
+        document.createElement(
+            "a"
+        );
+
+    a.href=
+        url;
+
+    a.download=
+        filename;
+
+    document.body.appendChild(
+        a
+    );
+
+    a.click();
+
+    a.remove();
+
+    setTimeout(
+        ()=>{
+            URL.revokeObjectURL(
+                url
+            );
+        },
+        3000
+    );
+
+}
+
+/* =========================================================
+   التشغيل عند فتح الصفحة
+========================================================= */
+
+(function init(){
+
+    /* ثيم الصفحة */
+
+    const savedTheme=
+        localStorage.getItem(
+            "optionTheme"
+        );
+
+    setTheme(
+        THEMES.includes(
+            savedTheme
+        )
+        ?
+        savedTheme
+        :
+        "white"
+    );
+
+    /* ثيم التقرير */
+
+    const savedReportTheme=
+        localStorage.getItem(
+            "reportTheme"
+        );
+
+    setReportTheme(
+        THEMES.includes(
+            savedReportTheme
+        )
+        ?
+        savedReportTheme
+        :
+        "white"
+    );
+
+    /* الشعار */
+
+    setLogo(
+        selectedLogo
+    );
+
+    /* الأسبوع */
+
+    updateCurrentWeek();
+
+    /* الجدول */
+
+    displayCurrentWeekTrades();
+
+})();
+
+</script>
+
+</body>
+</html>
