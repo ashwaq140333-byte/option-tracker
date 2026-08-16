@@ -8,185 +8,185 @@
 <style>
 
 :root{
-  --bg:#f5f7f8;
-  --card:#fff;
-  --text:#202427;
-  --secondary:#687278;
-  --border:#dfe4e7;
-  --header:#e5edef;
-  --button:#3a4650;
-  --button2:#151a1e;
-  --report-logo:url("AQ.PNG");
+    --bg:#f5f7f8;
+    --card:#fff;
+    --text:#202427;
+    --secondary:#687278;
+    --border:#dfe4e7;
+    --header:#e5edef;
+    --button:#48545d;
+    --button2:#20272c;
+    --report-logo:url("AQ.PNG");
 }
 
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  padding:18px;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Tahoma,sans-serif;
-  transition:.25s;
+    margin:0;
+    padding:18px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Tahoma,sans-serif;
+    transition:.25s;
 }
 
 /* =====================================================
-   الثيمات
+   ثيمات الصفحة
 ===================================================== */
 
 body.white{
-  --bg:#f5f7f8;
-  --card:#fff;
-  --text:#202427;
-  --secondary:#687278;
-  --border:#dfe4e7;
-  --header:#e5edef;
-  --button:#48545d;
-  --button2:#20272c;
+    --bg:#f5f7f8;
+    --card:#fff;
+    --text:#202427;
+    --secondary:#687278;
+    --border:#dfe4e7;
+    --header:#e5edef;
+    --button:#48545d;
+    --button2:#20272c;
 }
 
 body.black{
-  --bg:#000;
-  --card:#090909;
-  --text:#fff;
-  --secondary:#d5d5d5;
-  --border:#4f3d12;
-  --header:#171717;
-  --button:#282828;
-  --button2:#050505;
+    --bg:#000;
+    --card:#090909;
+    --text:#fff;
+    --secondary:#d5d5d5;
+    --border:#4f3d12;
+    --header:#171717;
+    --button:#282828;
+    --button2:#050505;
 }
 
 body.silver{
-  --bg:#e7e9eb;
-  --card:#fafbfc;
-  --text:#252a2e;
-  --secondary:#646c71;
-  --border:#bcc3c7;
-  --header:#d4d9dc;
-  --button:#727d84;
-  --button2:#3d464c;
+    --bg:#e7e9eb;
+    --card:#fafbfc;
+    --text:#252a2e;
+    --secondary:#646c71;
+    --border:#bcc3c7;
+    --header:#d4d9dc;
+    --button:#727d84;
+    --button2:#3d464c;
 }
 
 body.blue{
-  --bg:#eaf4fb;
-  --card:#fff;
-  --text:#183244;
-  --secondary:#607e91;
-  --border:#bfd9e8;
-  --header:#d5eaf5;
-  --button:#34789c;
-  --button2:#17465f;
+    --bg:#eaf4fb;
+    --card:#fff;
+    --text:#183244;
+    --secondary:#607e91;
+    --border:#bfd9e8;
+    --header:#d5eaf5;
+    --button:#34789c;
+    --button2:#17465f;
 }
 
 body.turquoise{
-  --bg:#e9f9f8;
-  --card:#fff;
-  --text:#183b3b;
-  --secondary:#608383;
-  --border:#bce0df;
-  --header:#d1efed;
-  --button:#25938f;
-  --button2:#105754;
+    --bg:#e9f9f8;
+    --card:#fff;
+    --text:#183b3b;
+    --secondary:#608383;
+    --border:#bce0df;
+    --header:#d1efed;
+    --button:#25938f;
+    --button2:#105754;
 }
 
 body.beige{
-  --bg:#f7f2e9;
-  --card:#fffdf8;
-  --text:#3e382f;
-  --secondary:#817566;
-  --border:#ddd0bd;
-  --header:#eee3d3;
-  --button:#8a7559;
-  --button2:#504331;
+    --bg:#f7f2e9;
+    --card:#fffdf8;
+    --text:#3e382f;
+    --secondary:#817566;
+    --border:#ddd0bd;
+    --header:#eee3d3;
+    --button:#8a7559;
+    --button2:#504331;
 }
 
 body.purple{
-  --bg:#f4effa;
-  --card:#fff;
-  --text:#362846;
-  --secondary:#78688a;
-  --border:#d9cae7;
-  --header:#e9dff3;
-  --button:#7d55a7;
-  --button2:#472b64;
+    --bg:#f4effa;
+    --card:#fff;
+    --text:#362846;
+    --secondary:#78688a;
+    --border:#d9cae7;
+    --header:#e9dff3;
+    --button:#7d55a7;
+    --button2:#472b64;
 }
 
 body.emerald{
-  --bg:#eaf6f0;
-  --card:#fff;
-  --text:#173b2e;
-  --secondary:#587d6d;
-  --border:#bddbcf;
-  --header:#d5ebdf;
-  --button:#328461;
-  --button2:#174b35;
+    --bg:#eaf6f0;
+    --card:#fff;
+    --text:#173b2e;
+    --secondary:#587d6d;
+    --border:#bddbcf;
+    --header:#d5ebdf;
+    --button:#328461;
+    --button2:#174b35;
 }
 
 body.burgundy{
-  --bg:#f8edef;
-  --card:#fffafa;
-  --text:#461f27;
-  --secondary:#8b636c;
-  --border:#e2c4ca;
-  --header:#efd7dc;
-  --button:#96364a;
-  --button2:#571926;
+    --bg:#f8edef;
+    --card:#fffafa;
+    --text:#461f27;
+    --secondary:#8b636c;
+    --border:#e2c4ca;
+    --header:#efd7dc;
+    --button:#96364a;
+    --button2:#571926;
 }
 
 body.copper{
-  --bg:#f8f0e9;
-  --card:#fffaf5;
-  --text:#472e22;
-  --secondary:#8e705f;
-  --border:#dec6b6;
-  --header:#edd8c8;
-  --button:#b36b3e;
-  --button2:#6c3820;
+    --bg:#f8f0e9;
+    --card:#fffaf5;
+    --text:#472e22;
+    --secondary:#8e705f;
+    --border:#dec6b6;
+    --header:#edd8c8;
+    --button:#b36b3e;
+    --button2:#6c3820;
 }
 
 body.midnight{
-  --bg:#08111d;
-  --card:#101c2a;
-  --text:#f1f7ff;
-  --secondary:#a7b9cc;
-  --border:#29425c;
-  --header:#14283c;
-  --button:#286d9d;
-  --button2:#0d3857;
+    --bg:#08111d;
+    --card:#101c2a;
+    --text:#f1f7ff;
+    --secondary:#a7b9cc;
+    --border:#29425c;
+    --header:#14283c;
+    --button:#286d9d;
+    --button2:#0d3857;
 }
 
 body.rose{
-  --bg:#fff0f4;
-  --card:#fff;
-  --text:#522c38;
-  --secondary:#946b77;
-  --border:#edccd5;
-  --header:#f7dce4;
-  --button:#b45c78;
-  --button2:#6c2e42;
+    --bg:#fff0f4;
+    --card:#fff;
+    --text:#522c38;
+    --secondary:#946b77;
+    --border:#edccd5;
+    --header:#f7dce4;
+    --button:#b45c78;
+    --button2:#6c2e42;
 }
 
 body.ice{
-  --bg:#edf9ff;
-  --card:#fff;
-  --text:#213e4e;
-  --secondary:#66899b;
-  --border:#c8e5f1;
-  --header:#d9f0f8;
-  --button:#5aa2be;
-  --button2:#2c6176;
+    --bg:#edf9ff;
+    --card:#fff;
+    --text:#213e4e;
+    --secondary:#66899b;
+    --border:#c8e5f1;
+    --header:#d9f0f8;
+    --button:#5aa2be;
+    --button2:#2c6176;
 }
 
 .container{
-  width:100%;
-  max-width:1250px;
-  margin:auto;
+    width:100%;
+    max-width:1250px;
+    margin:auto;
 }
 
 /* =====================================================
@@ -194,53 +194,55 @@ body.ice{
 ===================================================== */
 
 .main-banner{
-  width:100%;
-  min-height:235px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:8px;
-  padding:0;
+    width:100%;
+    min-height:205px;
 
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  overflow:visible;
+    margin-bottom:4px;
+
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+
+    overflow:visible;
 }
 
 .main-banner img{
-  display:block;
-  width:100%;
-  height:245px;
+    display:block;
 
-  object-fit:contain;
-  object-position:center;
+    width:100%;
+    height:220px;
 
-  background:transparent!important;
+    object-fit:contain;
+    object-position:center;
 
-  filter:
-    drop-shadow(
-      0 10px 14px
-      rgba(0,0,0,.24)
-    );
+    background:transparent!important;
+
+    filter:
+        drop-shadow(
+            0 10px 14px
+            rgba(0,0,0,.22)
+        );
 }
 
 body.black .main-banner img,
 body.midnight .main-banner img{
-  filter:
-    drop-shadow(
-      0 0 11px
-      rgba(212,175,55,.23)
-    )
-    drop-shadow(
-      0 10px 14px
-      rgba(135,0,0,.28)
-    );
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(212,175,55,.22)
+        )
+        drop-shadow(
+            0 10px 14px
+            rgba(135,0,0,.24)
+        );
 }
 
 /* =====================================================
-   Layout
+   Flex
 ===================================================== */
 
 .logo-buttons,
@@ -248,29 +250,29 @@ body.midnight .main-banner img{
 .filter-grid,
 .report-actions,
 .report-themes{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 .logo-buttons{
-  margin:4px 0 18px;
+    margin:0 0 15px;
 }
 
 .top-buttons{
-  margin-bottom:14px;
+    margin-bottom:13px;
+}
+
+button{
+    font-family:inherit;
 }
 
 /* =====================================================
-   جميع الأزرار:
-   ظل أحمر + ذهبي في كل الثيمات
+   ظل الأزرار الموحد
+   ذهبي + أحمر
 ===================================================== */
-
-button{
-  font-family:inherit;
-}
 
 .logo-button,
 .color-theme-button,
@@ -283,23 +285,22 @@ button{
 .delete-button,
 .report-theme-button{
 
-  cursor:pointer;
-  font-weight:900;
+    cursor:pointer;
+    font-weight:900;
 
-  transition:
-    transform .15s,
-    filter .15s,
-    box-shadow .15s;
+    transition:
+        transform .15s,
+        filter .15s,
+        box-shadow .15s;
 
-  border:
-    1px solid #d4af37;
+    border:1px solid #d4af37;
 
-  box-shadow:
-    0 5px 0 #7b1010,
-    0 0 0 1px rgba(212,175,55,.38),
-    0 0 14px rgba(212,175,55,.48),
-    0 10px 22px rgba(135,0,0,.30),
-    inset 0 1px 0 rgba(255,230,145,.22);
+    box-shadow:
+        0 5px 0 #7b1010,
+        0 0 0 1px rgba(212,175,55,.36),
+        0 0 13px rgba(212,175,55,.45),
+        0 10px 20px rgba(135,0,0,.28),
+        inset 0 1px 0 rgba(255,230,145,.22);
 }
 
 .logo-button:hover,
@@ -313,13 +314,13 @@ button{
 .delete-button:hover,
 .report-theme-button:hover{
 
-  filter:brightness(1.13);
+    filter:brightness(1.12);
 
-  box-shadow:
-    0 5px 0 #a31515,
-    0 0 18px rgba(239,198,66,.70),
-    0 12px 25px rgba(150,0,0,.38),
-    inset 0 1px 0 rgba(255,235,160,.28);
+    box-shadow:
+        0 5px 0 #a31515,
+        0 0 17px rgba(239,198,66,.68),
+        0 12px 24px rgba(150,0,0,.36),
+        inset 0 1px 0 rgba(255,235,160,.28);
 }
 
 .logo-button:active,
@@ -333,45 +334,46 @@ button{
 .delete-button:active,
 .report-theme-button:active{
 
-  transform:
-    translateY(4px);
+    transform:translateY(4px);
 
-  box-shadow:
-    0 1px 0 #7b1010,
-    0 0 9px rgba(212,175,55,.45),
-    0 5px 11px rgba(125,0,0,.26);
+    box-shadow:
+        0 1px 0 #7b1010,
+        0 0 8px rgba(212,175,55,.42),
+        0 5px 10px rgba(125,0,0,.24);
 }
 
 /* =====================================================
-   أزرار الستايلات
+   أزرار الستايل
 ===================================================== */
 
 .logo-button{
-  min-width:155px;
-  padding:13px 23px;
+    min-width:155px;
 
-  border-radius:11px;
+    padding:12px 22px;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--button),
-      var(--button2)
-    );
+    border-radius:11px;
 
-  color:#fff;
+    background:
+        linear-gradient(
+            180deg,
+            var(--button),
+            var(--button2)
+        );
 
-  font-size:17px;
+    color:#fff;
 
-  text-shadow:
-    0 2px 3px #000;
+    font-size:17px;
+
+    text-shadow:
+        0 2px 3px #000;
 }
 
 .logo-button.active{
-  outline:
-    2px solid rgba(255,218,88,.85);
+    outline:
+        2px solid
+        rgba(255,218,88,.85);
 
-  outline-offset:2px;
+    outline-offset:2px;
 }
 
 /* =====================================================
@@ -379,27 +381,27 @@ button{
 ===================================================== */
 
 .color-theme-button{
-  width:56px;
-  height:50px;
+    width:54px;
+    height:48px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  border-radius:14px;
+    border-radius:14px;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--button),
-      var(--button2)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--button),
+            var(--button2)
+        );
 
-  color:#fff;
+    color:#fff;
 
-  font-size:28px;
+    font-size:27px;
 
-  padding:0;
+    padding:0;
 }
 
 /* =====================================================
@@ -407,75 +409,73 @@ button{
 ===================================================== */
 
 .theme-menu{
-  display:none;
+    display:none;
 
-  max-width:920px;
+    max-width:920px;
 
-  margin:
-    0 auto 18px;
+    margin:
+        0 auto 17px;
 
-  padding:14px;
+    padding:13px;
 
-  background:
-    var(--card);
+    background:var(--card);
 
-  border:
-    1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-  border-radius:15px;
+    border-radius:15px;
 
-  box-shadow:
-    0 12px 25px
-    rgba(0,0,0,.12);
+    box-shadow:
+        0 12px 25px
+        rgba(0,0,0,.12);
 }
 
 .theme-menu.show{
-  display:grid;
+    display:grid;
 
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(115px,1fr)
-    );
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(115px,1fr)
+        );
 
-  gap:11px;
+    gap:10px;
 }
 
 .theme-choice{
-  min-height:44px;
+    min-height:42px;
 
-  padding:
-    9px 12px;
+    padding:8px 11px;
 
-  border-radius:10px;
+    border-radius:10px;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--card),
-      var(--header)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--card),
+            var(--header)
+        );
 
-  color:
-    var(--text);
+    color:var(--text);
 
-  font-size:14px;
+    font-size:14px;
 }
 
 .theme-dot{
-  width:17px;
-  height:17px;
+    width:16px;
+    height:16px;
 
-  border-radius:50%;
+    border-radius:50%;
 
-  display:inline-block;
+    display:inline-block;
 
-  margin-left:6px;
+    margin-left:6px;
 
-  border:
-    1px solid rgba(0,0,0,.2);
+    border:
+        1px solid
+        rgba(0,0,0,.2);
 
-  vertical-align:middle;
+    vertical-align:middle;
 }
 
 /* =====================================================
@@ -486,24 +486,22 @@ button{
 .table-box,
 .report-filter,
 .report{
+    background:var(--card);
 
-  background:
-    var(--card);
+    border:
+        1px solid var(--border);
 
-  border:
-    1px solid var(--border);
+    border-radius:15px;
 
-  border-radius:15px;
-
-  padding:17px;
+    padding:15px;
 }
 
 .form-box,
 .table-box,
 .report-filter{
-  box-shadow:
-    0 8px 20px
-    rgba(0,0,0,.08);
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.08);
 }
 
 /* =====================================================
@@ -511,312 +509,298 @@ button{
 ===================================================== */
 
 .week-info{
-  text-align:center;
+    text-align:center;
 
-  margin-bottom:13px;
+    margin-bottom:11px;
 
-  padding:13px;
+    padding:11px;
 
-  border-radius:10px;
+    border-radius:9px;
 
-  background:
-    var(--header);
+    background:var(--header);
 
-  font-weight:900;
+    font-weight:900;
 
-  font-size:17px;
+    font-size:16px;
 }
 
 /* =====================================================
-   النموذج
+   الفورم
 ===================================================== */
 
 .form{
-  display:grid;
+    display:grid;
 
-  grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
-  gap:11px;
+    gap:9px;
 }
 
 .field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
 }
 
 .field label{
-  font-size:15px;
+    font-size:14px;
 
-  font-weight:900;
+    font-weight:900;
 
-  color:
-    var(--secondary);
+    color:var(--secondary);
 }
 
 input,
 select,
 textarea{
-  width:100%;
+    width:100%;
 
-  padding:13px;
+    padding:11px;
 
-  border:
-    1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-  border-radius:9px;
+    border-radius:9px;
 
-  background:
-    var(--card);
+    background:var(--card);
 
-  color:
-    var(--text);
+    color:var(--text);
 
-  font-size:16px;
+    font-size:15px;
 
-  font-weight:700;
+    font-weight:700;
 
-  outline:none;
+    outline:none;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-  border-color:
-    #d4af37;
+    border-color:#d4af37;
 
-  box-shadow:
-    0 0 0 1px #7b1010,
-    0 0 10px rgba(212,175,55,.30);
+    box-shadow:
+        0 0 0 1px #7b1010,
+        0 0 10px rgba(212,175,55,.30);
 }
 
 .company-row{
-  grid-column:
-    span 2;
+    grid-column:span 2;
 }
 
 .strike-row{
-  grid-column:
-    span 1;
+    grid-column:span 1;
 }
 
 .price-row{
-  grid-column:
-    span 3;
+    grid-column:span 3;
 
-  display:grid;
+    display:grid;
 
-  grid-template-columns:
-    1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-  gap:10px;
+    gap:9px;
 }
 
 .notes-row{
-  display:flex;
+    display:flex;
 
-  align-items:end;
+    align-items:end;
 
-  gap:8px;
+    gap:8px;
 
-  grid-column:
-    span 3;
+    grid-column:span 3;
 }
 
 .notes-row .field{
-  flex:1;
+    flex:1;
 }
 
 /* =====================================================
-   الأزرار الرئيسية
+   أزرار الصفحة
 ===================================================== */
 
 .notes-button,
 .add-button,
 .report-button,
 .report-action{
+    background:
+        linear-gradient(
+            180deg,
+            var(--button),
+            var(--button2)
+        );
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--button),
-      var(--button2)
-    );
+    color:#fff;
 
-  color:#fff;
-
-  text-shadow:
-    0 1px 2px
-    rgba(0,0,0,.7);
+    text-shadow:
+        0 1px 2px
+        rgba(0,0,0,.7);
 }
 
 .notes-button{
-  width:auto;
+    width:auto;
 
-  padding:
-    13px 21px;
+    padding:
+        11px 19px;
 
-  white-space:nowrap;
+    white-space:nowrap;
 
-  border-radius:10px;
+    border-radius:10px;
 
-  font-size:16px;
+    font-size:15px;
 }
 
 .add-button{
-  width:100%;
+    width:100%;
 
-  margin-top:15px;
+    margin-top:12px;
 
-  padding:17px;
+    padding:14px;
 
-  border-radius:12px;
+    border-radius:11px;
 
-  font-size:20px;
+    font-size:18px;
 }
 
 .report-button{
-  display:block;
+    display:block;
 
-  margin:
-    16px auto 0;
+    margin:
+        13px auto 0;
 
-  padding:
-    14px 27px;
+    padding:
+        12px 24px;
 
-  border-radius:11px;
+    border-radius:10px;
 
-  font-size:18px;
+    font-size:17px;
 }
 
 .report-action{
-  min-width:190px;
+    min-width:185px;
 
-  padding:
-    16px 30px;
+    padding:
+        14px 27px;
 
-  border-radius:12px;
+    border-radius:11px;
 
-  font-size:19px;
+    font-size:18px;
 }
 
 /* =====================================================
-   جدول الصفقات
+   جدول الصفحة
 ===================================================== */
 
 .table-box{
-  margin-top:16px;
+    margin-top:14px;
 
-  overflow-x:auto;
+    overflow-x:auto;
 }
 
 .table-box h3,
 .report-filter h3{
-  text-align:center;
+    text-align:center;
 
-  font-size:21px;
+    font-size:19px;
 
-  font-weight:900;
+    font-weight:900;
 }
 
 .report-filter{
-  margin-top:16px;
+    margin-top:14px;
 }
 
 .report-filter h3{
-  margin-top:0;
+    margin:
+        0 0 11px;
 }
 
 table{
-  width:100%;
+    width:100%;
 
-  min-width:950px;
+    min-width:900px;
 
-  border-collapse:collapse;
+    border-collapse:collapse;
 }
 
 th{
-  background:
-    var(--header);
+    background:var(--header);
 
-  color:
-    var(--text);
+    color:var(--text);
 
-  padding:13px;
+    padding:10px;
 
-  font-size:15px;
+    font-size:14px;
 
-  font-weight:900;
+    font-weight:900;
 }
 
 td{
-  padding:12px;
+    padding:9px;
 
-  text-align:center;
+    text-align:center;
 
-  border-bottom:
-    1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 
-  font-size:15px;
+    font-size:14px;
 }
 
 .table-box table{
-  border:
-    1px solid #c9a536;
+    border:
+        1px solid #c9a536;
 
-  box-shadow:
-    0 4px 0 #7b1010,
-    0 0 12px rgba(212,175,55,.25);
+    box-shadow:
+        0 4px 0 #7b1010,
+        0 0 12px rgba(212,175,55,.25);
 }
 
 .green{
-  color:#16a864;
+    color:#16a864;
 
-  font-weight:900;
+    font-weight:900;
 }
 
 .orange{
-  color:#00a7c8;
+    color:#00a7c8;
 
-  font-weight:900;
+    font-weight:900;
 }
 
 .red{
-  color:#d83c3c;
+    color:#d83c3c;
 
-  font-weight:900;
+    font-weight:900;
 }
 
-/* =====================================================
-   حذف
-===================================================== */
-
 .delete-button{
-  background:
-    linear-gradient(
-      180deg,
-      #e84f4f,
-      #8d0f0f
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #e84f4f,
+            #8d0f0f
+        );
 
-  color:#fff;
+    color:#fff;
 
-  border-radius:8px;
+    border-radius:8px;
 
-  padding:
-    8px 13px;
+    padding:
+        7px 11px;
 
-  font-size:13px;
+    font-size:12px;
 }
 
 .empty{
-  text-align:center;
+    text-align:center;
 
-  color:
-    var(--secondary);
+    color:var(--secondary);
 
-  padding:26px;
+    padding:22px;
 }
 
 /* =====================================================
@@ -824,415 +808,696 @@ td{
 ===================================================== */
 
 .filter-button{
-  padding:
-    11px 15px;
+    padding:
+        9px 13px;
 
-  border-radius:9px;
+    border-radius:9px;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--header),
-      var(--card)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--header),
+            var(--card)
+        );
 
-  color:
-    var(--text);
+    color:var(--text);
 
-  font-size:14px;
+    font-size:13px;
 }
 
 .filter-button.active{
-  background:
-    linear-gradient(
-      180deg,
-      var(--button),
-      var(--button2)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--button),
+            var(--button2)
+        );
 
-  color:#fff;
+    color:#fff;
 }
 
 .date-grid{
-  margin-top:14px;
+    margin-top:11px;
 
-  display:grid;
+    display:grid;
 
-  grid-template-columns:
-    1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-  gap:10px;
+    gap:9px;
 }
 
 /* =====================================================
-   التقرير
+   التقرير الأسبوعي الملموم
 ===================================================== */
 
 .report{
-  display:none;
+    display:none;
 
-  margin-top:16px;
+    margin-top:14px;
 
-  position:relative;
+    position:relative;
 
-  overflow:hidden;
+    overflow:hidden;
 
-  --r-bg1:#f7fafb;
-  --r-bg2:#fff;
-  --r-text:#182326;
-  --r-muted:#4d5c60;
-  --r-head:#dce6e8;
-  --r-card:#fff;
-  --r-border:#c9a536;
+    --r-bg1:#f7fafb;
+    --r-bg2:#fff;
+    --r-text:#182326;
+    --r-muted:#4d5c60;
+    --r-head:#dce6e8;
+    --r-card:#fff;
+    --r-border:#c9a536;
 
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(212,175,55,.12),
-      transparent 36%
-    ),
-    linear-gradient(
-      180deg,
-      var(--r-bg1),
-      var(--r-bg2)
-    )!important;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,.12),
+            transparent 36%
+        ),
+        linear-gradient(
+            180deg,
+            var(--r-bg1),
+            var(--r-bg2)
+        )!important;
 
-  color:
-    var(--r-text)!important;
+    color:
+        var(--r-text)!important;
 
-  border:
-    2px solid
-    var(--r-border)!important;
+    border:
+        2px solid
+        var(--r-border)!important;
 
-  box-shadow:
-    0 6px 0 #7b1010,
-    0 0 20px rgba(212,175,55,.36),
-    0 18px 38px rgba(120,0,0,.24)!important;
+    box-shadow:
+        0 6px 0 #7b1010,
+        0 0 20px rgba(212,175,55,.36),
+        0 18px 38px rgba(120,0,0,.24)!important;
 }
 
 .report.show{
-  display:block;
+    display:block;
 }
 
-/* شعار التقرير شفاف */
+/* العلامة المائية */
 
-.report::before{
-  content:"";
+.report-watermark{
+    position:absolute!important;
 
-  position:absolute;
+    z-index:0!important;
 
-  left:50%;
-  top:250px;
+    left:50%;
+    top:240px;
 
-  width:650px;
-  height:650px;
+    width:620px;
+    height:620px;
 
-  transform:
-    translateX(-50%);
+    transform:
+        translateX(-50%);
 
-  background-image:
-    var(--report-logo);
+    background-image:
+        var(--report-logo);
 
-  background-size:contain;
+    background-size:contain;
 
-  background-position:center;
+    background-position:center;
 
-  background-repeat:no-repeat;
+    background-repeat:no-repeat;
 
-  opacity:.045;
+    opacity:.035;
 
-  pointer-events:none;
-
-  z-index:0;
+    pointer-events:none;
 }
 
-.report > *{
-  position:relative;
+.report > *:not(.report-watermark){
+    position:relative;
 
-  z-index:1;
+    z-index:1;
 }
 
-.report h2{
-  text-align:center;
+/* شعار التقرير */
 
-  color:
-    var(--r-text);
+.report-logo{
+    display:block;
 
-  margin:
-    18px 0 8px;
+    width:min(
+        420px,
+        68%
+    );
 
-  font-size:36px;
+    height:92px;
 
-  font-weight:900;
+    object-fit:contain;
 
-  text-shadow:
-    0 0 10px
-    rgba(212,175,55,.16);
+    margin:
+        0 auto 2px;
+
+    background:transparent!important;
+
+    filter:
+        drop-shadow(
+            0 5px 8px
+            rgba(0,0,0,.15)
+        );
+}
+
+/* =====================================================
+   عنوان التقرير
+===================================================== */
+
+.report-heading{
+    display:grid;
+
+    grid-template-columns:
+        120px 1fr 120px;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin:
+        0 0 9px;
+}
+
+.weekly-badge{
+    justify-self:start;
+
+    padding:
+        7px 12px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #40270b,
+            #140b02
+        );
+
+    color:#f5d26c;
+
+    border:
+        1px solid #d4af37;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    box-shadow:
+        0 3px 0 #7b1010,
+        0 0 10px rgba(212,175,55,.30);
+}
+
+.report-title{
+    text-align:center;
+}
+
+.report-title h2{
+    margin:0;
+
+    color:var(--r-text);
+
+    font-size:29px;
+
+    font-weight:900;
 }
 
 .report-period{
-  text-align:center;
+    text-align:center;
 
-  color:
-    var(--r-muted);
+    color:var(--r-muted);
 
-  font-size:20px;
+    font-size:15px;
 
-  font-weight:900;
+    font-weight:900;
+
+    margin-top:3px;
+}
+
+.report-heading-spacer{
+    width:120px;
 }
 
 /* =====================================================
    ألوان التقرير
 ===================================================== */
 
-.report.theme-report-white{
-  --r-bg1:#f7fafb;
-  --r-bg2:#fff;
-  --r-text:#182326;
-  --r-muted:#4d5c60;
-  --r-head:#dce6e8;
-  --r-card:#fff;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-black{
-  --r-bg1:#111;
-  --r-bg2:#020202;
-  --r-text:#fff;
-  --r-muted:#ddd;
-  --r-head:#241c08;
-  --r-card:#111;
-  --r-border:#d4af37;
-}
-
-.report.theme-report-silver{
-  --r-bg1:#e6eaec;
-  --r-bg2:#fbfcfd;
-  --r-text:#283036;
-  --r-muted:#667078;
-  --r-head:#d5dade;
-  --r-card:#f7f9fa;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-blue{
-  --r-bg1:#e4f2fa;
-  --r-bg2:#fff;
-  --r-text:#19374a;
-  --r-muted:#5c7889;
-  --r-head:#d2e8f4;
-  --r-card:#f8fcff;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-turquoise{
-  --r-bg1:#e2f7f6;
-  --r-bg2:#fff;
-  --r-text:#183b3b;
-  --r-muted:#5e8080;
-  --r-head:#d1efed;
-  --r-card:#f9ffff;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-beige{
-  --r-bg1:#f3eadc;
-  --r-bg2:#fff;
-  --r-text:#40372d;
-  --r-muted:#7e7264;
-  --r-head:#eadfce;
-  --r-card:#fffdf9;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-purple{
-  --r-bg1:#eee4f8;
-  --r-bg2:#fff;
-  --r-text:#3b2c4b;
-  --r-muted:#78688a;
-  --r-head:#e4d7f0;
-  --r-card:#fdfaff;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-emerald{
-  --r-bg1:#e1f1e8;
-  --r-bg2:#fff;
-  --r-text:#173b2e;
-  --r-muted:#587d6d;
-  --r-head:#d1e8dc;
-  --r-card:#fafffc;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-burgundy{
-  --r-bg1:#f1dfe3;
-  --r-bg2:#fff;
-  --r-text:#4a232b;
-  --r-muted:#8b636c;
-  --r-head:#ead2d8;
-  --r-card:#fffafb;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-copper{
-  --r-bg1:#f0dfd0;
-  --r-bg2:#fff;
-  --r-text:#4c3022;
-  --r-muted:#8e705f;
-  --r-head:#ead3c0;
-  --r-card:#fffaf6;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-midnight{
-  --r-bg1:#122235;
-  --r-bg2:#08111d;
-  --r-text:#f1f7ff;
-  --r-muted:#a7b9cc;
-  --r-head:#162b40;
-  --r-card:#101c2a;
-  --r-border:#d4af37;
-}
-
-.report.theme-report-rose{
-  --r-bg1:#f8e4eb;
-  --r-bg2:#fff;
-  --r-text:#522c38;
-  --r-muted:#946b77;
-  --r-head:#f1d8e1;
-  --r-card:#fffafd;
-  --r-border:#c9a536;
-}
-
-.report.theme-report-ice{
-  --r-bg1:#e1f4fb;
-  --r-bg2:#fff;
-  --r-text:#213e4e;
-  --r-muted:#66899b;
-  --r-head:#d4edf7;
-  --r-card:#fbfeff;
-  --r-border:#c9a536;
-}
-
-/* =====================================================
-   أزرار ثيم التقرير
-===================================================== */
-
 .report-themes{
-  margin:
-    11px 0 16px;
+    margin:
+        5px 0 10px;
 }
 
 .report-theme-button{
-  width:38px;
-  height:38px;
+    width:31px;
+    height:31px;
 
-  padding:0;
+    padding:0;
 
-  border-radius:50%;
+    border-radius:50%;
 
-  position:relative;
+    position:relative;
 }
 
 .report-theme-button.active{
-  outline:
-    3px solid
-    rgba(255,218,88,.85);
+    outline:
+        2px solid
+        rgba(255,218,88,.88);
 
-  outline-offset:3px;
+    outline-offset:2px;
 }
 
 /* =====================================================
-   الإحصائيات
+   KPI
 ===================================================== */
 
-.stats{
-  display:grid;
+.kpi-grid{
+    display:grid;
 
-  grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:
+        repeat(4,1fr);
 
-  gap:16px;
+    gap:9px;
 
-  margin:
-    22px 0;
+    margin:
+        9px 0;
 }
 
-.stat{
-  background:
-    linear-gradient(
-      145deg,
-      var(--r-card),
-      var(--r-head)
-    );
+.kpi-card{
+    min-height:86px;
 
-  color:
-    var(--r-text);
+    padding:
+        11px 9px;
 
-  padding:18px;
+    border-radius:12px;
 
-  border-radius:14px;
+    text-align:center;
 
-  text-align:center;
+    background:
+        linear-gradient(
+            145deg,
+            var(--r-card),
+            var(--r-head)
+        );
 
-  font-size:18px;
+    color:var(--r-text);
 
-  font-weight:900;
+    border:
+        1px solid #c9a536;
 
-  min-height:115px;
-
-  border:
-    1px solid #c9a536;
-
-  box-shadow:
-    0 4px 0 #7b1010,
-    0 0 12px rgba(212,175,55,.28),
-    0 12px 23px rgba(120,0,0,.18);
+    box-shadow:
+        0 4px 0 #7b1010,
+        0 0 11px rgba(212,175,55,.27),
+        0 9px 18px rgba(120,0,0,.15);
 }
 
-.stat strong{
-  display:block;
+.kpi-label{
+    font-size:13px;
 
-  font-size:34px;
+    font-weight:900;
 
-  font-weight:900;
-
-  margin-top:10px;
-
-  line-height:1;
+    opacity:.88;
 }
 
-.profit-main,
-.profit-times{
-  display:block;
+.kpi-value{
+    display:block;
 
-  font-size:34px!important;
+    font-size:27px;
 
-  font-weight:900!important;
+    line-height:1.05;
 
-  line-height:1!important;
+    font-weight:900;
+
+    margin-top:7px;
 }
 
-.profit-times{
-  margin-top:9px;
+.kpi-sub{
+    display:block;
+
+    font-size:11px;
+
+    margin-top:4px;
+
+    color:var(--r-muted);
+
+    font-weight:800;
 }
 
-#totalTrades{
-  color:
-    var(--r-text)!important;
+.positive{
+    color:#0b9b57!important;
 }
 
-#winningTrades{
-  color:#0c8d50!important;
+.negative{
+    color:#cf3434!important;
 }
 
-#stoppedTrades{
-  color:#0098b7!important;
+.gold{
+    color:#b88716!important;
 }
 
-#losingTrades{
-  color:#c92e2e!important;
+.theme-report-black .gold,
+.theme-report-midnight .gold{
+    color:#f1cf63!important;
+}
+
+/* =====================================================
+   أفضل صفقة ومتوسط العائد
+===================================================== */
+
+.insights{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:8px;
+
+    margin:
+        9px 0;
+}
+
+.insight{
+    padding:
+        9px 11px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--r-card),
+            var(--r-head)
+        );
+
+    border:
+        1px solid #c9a536;
+
+    color:var(--r-text);
+
+    font-size:13px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 3px 0 #7b1010,
+        0 0 8px rgba(212,175,55,.22);
+}
+
+.insight strong{
+    font-size:14px;
+}
+
+/* =====================================================
+   الرسوم المصغرة
+===================================================== */
+
+.mini-charts{
+    display:grid;
+
+    grid-template-columns:
+        260px 1fr;
+
+    gap:9px;
+
+    margin:
+        9px 0;
+}
+
+.chart-card{
+    min-height:140px;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--r-card),
+            var(--r-head)
+        );
+
+    border:
+        1px solid #c9a536;
+
+    box-shadow:
+        0 4px 0 #7b1010,
+        0 0 11px rgba(212,175,55,.25);
+}
+
+.chart-title{
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    color:var(--r-text);
+
+    margin-bottom:7px;
+}
+
+/* =====================================================
+   Donut
+===================================================== */
+
+.donut-layout{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    min-height:100px;
+}
+
+.donut{
+    width:92px;
+    height:92px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    flex:0 0 auto;
+
+    box-shadow:
+        0 0 10px
+        rgba(212,175,55,.22);
+}
+
+.donut::after{
+    content:"";
+
+    position:absolute;
+
+    inset:16px;
+
+    border-radius:50%;
+
+    background:var(--r-card);
+
+    border:
+        1px solid
+        rgba(212,175,55,.45);
+}
+
+.donut-center{
+    position:absolute;
+
+    z-index:2;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    font-weight:900;
+
+    color:var(--r-text);
+
+    font-size:20px;
+}
+
+.donut-center small{
+    font-size:9px;
+
+    color:var(--r-muted);
+
+    margin-top:1px;
+}
+
+.legend{
+    display:grid;
+
+    gap:5px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:var(--r-text);
+}
+
+.legend-row{
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+}
+
+.legend-dot{
+    width:9px;
+    height:9px;
+
+    border-radius:3px;
+}
+
+.legend-count{
+    margin-right:auto;
+
+    color:var(--r-muted);
+}
+
+/* =====================================================
+   Bar chart
+===================================================== */
+
+.performance-plot{
+    height:94px;
+
+    display:flex;
+
+    direction:ltr;
+
+    align-items:stretch;
+
+    gap:6px;
+
+    position:relative;
+
+    padding:
+        6px 3px 16px;
+}
+
+.performance-plot::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:50%;
+
+    height:1px;
+
+    background:
+        rgba(130,110,70,.45);
+}
+
+.bar-item{
+    flex:1;
+
+    position:relative;
+
+    min-width:20px;
+}
+
+.bar-pos,
+.bar-neg{
+    position:absolute;
+
+    left:20%;
+    right:20%;
+
+    border-radius:
+        4px 4px 2px 2px;
+
+    min-height:3px;
+
+    box-shadow:
+        0 0 6px
+        rgba(0,0,0,.15);
+}
+
+.bar-pos{
+    bottom:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #55c86f,
+            #168d48
+        );
+}
+
+.bar-neg{
+    top:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e04b4b,
+            #9f1616
+        );
+}
+
+.bar-value{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    color:var(--r-text);
+}
+
+.bar-value.pos{
+    bottom:
+        calc(
+            50% +
+            var(--h) +
+            2px
+        );
+}
+
+.bar-value.neg{
+    top:
+        calc(
+            50% +
+            var(--h) +
+            2px
+        );
+}
+
+.bar-label{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:-13px;
+
+    text-align:center;
+
+    font-size:9px;
+
+    color:var(--r-muted);
+
+    font-weight:800;
 }
 
 /* =====================================================
@@ -1240,89 +1505,85 @@ td{
 ===================================================== */
 
 .report-table{
-  overflow-x:auto;
+    overflow-x:auto;
 
-  padding:
-    8px 5px 14px;
+    padding:
+        4px 2px 8px;
 }
 
 .report-table table{
-  background:
-    var(--r-card);
+    background:var(--r-card);
 
-  min-width:900px;
+    min-width:860px;
 
-  border-collapse:separate;
+    border-collapse:separate;
 
-  border-spacing:0;
+    border-spacing:0;
 
-  border-radius:13px;
+    border-radius:11px;
 
-  overflow:hidden;
+    overflow:hidden;
 
-  border:
-    2px solid #c9a536;
+    border:
+        2px solid #c9a536;
 
-  box-shadow:
-    0 5px 0 #7b1010,
-    0 0 16px rgba(212,175,55,.34),
-    0 15px 28px rgba(120,0,0,.20);
+    box-shadow:
+        0 4px 0 #7b1010,
+        0 0 13px rgba(212,175,55,.29),
+        0 10px 20px rgba(120,0,0,.16);
 }
 
 .report-table th{
-  background:
-    linear-gradient(
-      180deg,
-      var(--r-head),
-      var(--r-card)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--r-head),
+            var(--r-card)
+        );
 
-  color:
-    var(--r-text);
+    color:var(--r-text);
 
-  border:
-    1px solid
-    rgba(160,125,32,.60);
+    border:
+        1px solid
+        rgba(160,125,32,.55);
 
-  font-size:20px;
+    font-size:12px;
 
-  padding:16px;
+    padding:8px;
 }
 
 .report-table td{
-  border:
-    1px solid
-    rgba(125,80,80,.32);
+    border:
+        1px solid
+        rgba(125,80,80,.30);
 
-  color:
-    var(--r-text)!important;
+    color:var(--r-text)!important;
 
-  font-size:19px;
+    font-size:12px;
 
-  font-weight:900;
+    font-weight:900;
 
-  padding:16px;
+    padding:8px;
 
-  background:
-    var(--r-card);
+    background:var(--r-card);
 }
 
 .report-table .win-row td{
-  background:#e5f5ea;
+    background:#e5f5ea;
 
-  color:#173c27!important;
+    color:#173c27!important;
 }
 
 .report-table .stopped-row td{
-  background:#e1f6fa;
+    background:#e1f6fa;
 
-  color:#16404a!important;
+    color:#16404a!important;
 }
 
 .report-table .loss-row td{
-  background:#f9e1e1;
+    background:#f9e1e1;
 
-  color:#4b1c1c!important;
+    color:#4b1c1c!important;
 }
 
 .theme-report-black
@@ -1332,9 +1593,9 @@ td{
 .theme-report-midnight
 .report-table
 .win-row td{
-  background:#102318;
+    background:#102318;
 
-  color:#eafff0!important;
+    color:#eafff0!important;
 }
 
 .theme-report-black
@@ -1344,9 +1605,9 @@ td{
 .theme-report-midnight
 .report-table
 .stopped-row td{
-  background:#10242a;
+    background:#10242a;
 
-  color:#eaffff!important;
+    color:#eaffff!important;
 }
 
 .theme-report-black
@@ -1356,24 +1617,9 @@ td{
 .theme-report-midnight
 .report-table
 .loss-row td{
-  background:#301010;
+    background:#301010;
 
-  color:#fff0f0!important;
-}
-
-/* =====================================================
-   أزرار التقرير
-===================================================== */
-
-.report-actions{
-  margin:
-    28px 0 8px;
-
-  padding-top:20px;
-
-  border-top:
-    2px solid
-    rgba(212,175,55,.42);
+    color:#fff0f0!important;
 }
 
 /* =====================================================
@@ -1381,37 +1627,191 @@ td{
 ===================================================== */
 
 .report-note{
-  margin-top:18px;
+    margin-top:8px;
 
-  padding:
-    17px 14px;
+    padding:
+        10px 12px;
 
-  text-align:center;
+    text-align:center;
 
-  font-size:17px;
+    font-size:12px;
 
-  line-height:2;
+    line-height:1.55;
 
-  font-weight:900;
+    font-weight:900;
 
-  color:
-    var(--r-text);
+    color:var(--r-text);
 
-  border:
-    1px solid #c9a536;
+    border:
+        1px solid #c9a536;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--r-card),
-      var(--r-head)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            var(--r-card),
+            var(--r-head)
+        );
 
-  border-radius:10px;
+    border-radius:9px;
 
-  box-shadow:
-    0 4px 0 #7b1010,
-    0 0 11px rgba(212,175,55,.25);
+    box-shadow:
+        0 3px 0 #7b1010,
+        0 0 8px rgba(212,175,55,.22);
+}
+
+.report-note .mini-disclaimer{
+    display:block;
+
+    margin-top:2px;
+
+    color:var(--r-muted);
+
+    font-size:11px;
+}
+
+.report-actions{
+    margin:
+        13px 0 2px;
+
+    padding-top:12px;
+
+    border-top:
+        1px solid
+        rgba(212,175,55,.40);
+}
+
+/* =====================================================
+   ثيمات التقرير
+===================================================== */
+
+.report.theme-report-white{
+    --r-bg1:#f7fafb;
+    --r-bg2:#fff;
+    --r-text:#182326;
+    --r-muted:#4d5c60;
+    --r-head:#dce6e8;
+    --r-card:#fff;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-black{
+    --r-bg1:#111;
+    --r-bg2:#020202;
+    --r-text:#fff;
+    --r-muted:#ddd;
+    --r-head:#241c08;
+    --r-card:#111;
+    --r-border:#d4af37;
+}
+
+.report.theme-report-silver{
+    --r-bg1:#e6eaec;
+    --r-bg2:#fbfcfd;
+    --r-text:#283036;
+    --r-muted:#667078;
+    --r-head:#d5dade;
+    --r-card:#f7f9fa;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-blue{
+    --r-bg1:#e4f2fa;
+    --r-bg2:#fff;
+    --r-text:#19374a;
+    --r-muted:#5c7889;
+    --r-head:#d2e8f4;
+    --r-card:#f8fcff;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-turquoise{
+    --r-bg1:#e2f7f6;
+    --r-bg2:#fff;
+    --r-text:#183b3b;
+    --r-muted:#5e8080;
+    --r-head:#d1efed;
+    --r-card:#f9ffff;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-beige{
+    --r-bg1:#f3eadc;
+    --r-bg2:#fff;
+    --r-text:#40372d;
+    --r-muted:#7e7264;
+    --r-head:#eadfce;
+    --r-card:#fffdf9;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-purple{
+    --r-bg1:#eee4f8;
+    --r-bg2:#fff;
+    --r-text:#3b2c4b;
+    --r-muted:#78688a;
+    --r-head:#e4d7f0;
+    --r-card:#fdfaff;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-emerald{
+    --r-bg1:#e1f1e8;
+    --r-bg2:#fff;
+    --r-text:#173b2e;
+    --r-muted:#587d6d;
+    --r-head:#d1e8dc;
+    --r-card:#fafffc;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-burgundy{
+    --r-bg1:#f1dfe3;
+    --r-bg2:#fff;
+    --r-text:#4a232b;
+    --r-muted:#8b636c;
+    --r-head:#ead2d8;
+    --r-card:#fffafb;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-copper{
+    --r-bg1:#f0dfd0;
+    --r-bg2:#fff;
+    --r-text:#4c3022;
+    --r-muted:#8e705f;
+    --r-head:#ead3c0;
+    --r-card:#fffaf6;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-midnight{
+    --r-bg1:#122235;
+    --r-bg2:#08111d;
+    --r-text:#f1f7ff;
+    --r-muted:#a7b9cc;
+    --r-head:#162b40;
+    --r-card:#101c2a;
+    --r-border:#d4af37;
+}
+
+.report.theme-report-rose{
+    --r-bg1:#f8e4eb;
+    --r-bg2:#fff;
+    --r-text:#522c38;
+    --r-muted:#946b77;
+    --r-head:#f1d8e1;
+    --r-card:#fffafd;
+    --r-border:#c9a536;
+}
+
+.report.theme-report-ice{
+    --r-bg1:#e1f4fb;
+    --r-bg2:#fff;
+    --r-text:#213e4e;
+    --r-muted:#66899b;
+    --r-head:#d4edf7;
+    --r-card:#fbfeff;
+    --r-border:#c9a536;
 }
 
 /* =====================================================
@@ -1419,45 +1819,50 @@ td{
 ===================================================== */
 
 @page{
-  size:A4 portrait;
-  margin:7mm;
+    size:A4 portrait;
+    margin:5mm;
 }
 
 @media print{
 
-  .main-banner,
-  .logo-buttons,
-  .top-buttons,
-  .theme-menu,
-  .form-box,
-  .table-box,
-  .report-filter,
-  .no-print{
-    display:none!important;
-  }
+    .main-banner,
+    .logo-buttons,
+    .top-buttons,
+    .theme-menu,
+    .form-box,
+    .table-box,
+    .report-filter,
+    .no-print{
+        display:none!important;
+    }
 
-  .container{
-    width:100%!important;
+    .container{
+        width:100%!important;
 
-    max-width:none!important;
+        max-width:none!important;
 
-    margin:0!important;
+        margin:0!important;
 
-    padding:0!important;
-  }
+        padding:0!important;
+    }
 
-  body{
-    padding:0!important;
+    body{
+        padding:0!important;
 
-    margin:0!important;
+        margin:0!important;
 
-    -webkit-print-color-adjust:
-      exact!important;
+        -webkit-print-color-adjust:
+            exact!important;
 
-    print-color-adjust:
-      exact!important;
-  }
+        print-color-adjust:
+            exact!important;
+    }
 
+    .report{
+        display:block!important;
+
+        margin:0!important;
+    }
 }
 
 /* =====================================================
@@ -1466,100 +1871,129 @@ td{
 
 @media(max-width:700px){
 
-  body{
-    padding:8px;
-  }
+    body{
+        padding:8px;
+    }
 
-  .main-banner{
-    min-height:185px;
-  }
+    .main-banner{
+        min-height:165px;
+    }
 
-  .main-banner img{
-    height:190px;
-  }
+    .main-banner img{
+        height:175px;
+    }
 
-  .logo-button{
-    font-size:14px;
+    .logo-button{
+        font-size:14px;
 
-    min-width:135px;
+        min-width:135px;
 
-    padding:
-      11px 15px;
-  }
+        padding:
+            10px 14px;
+    }
 
-  .form{
-    grid-template-columns:1fr;
-  }
+    .form{
+        grid-template-columns:1fr;
+    }
 
-  .company-row,
-  .strike-row,
-  .price-row,
-  .notes-row{
-    grid-column:span 1;
-  }
+    .company-row,
+    .strike-row,
+    .price-row,
+    .notes-row{
+        grid-column:span 1;
+    }
 
-  .price-row{
-    grid-template-columns:
-      1fr 1fr;
-  }
+    .price-row{
+        grid-template-columns:
+            1fr 1fr;
+    }
 
-  .stats{
-    grid-template-columns:
-      repeat(2,1fr);
+    .date-grid{
+        grid-template-columns:1fr;
+    }
 
-    gap:10px;
-  }
+    .theme-menu.show{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
-  .stat{
-    font-size:14px;
+    .report{
+        padding:9px;
+    }
 
-    min-height:100px;
-  }
+    .report-logo{
+        height:72px;
 
-  .stat strong,
-  .profit-main,
-  .profit-times{
-    font-size:27px!important;
-  }
+        width:78%;
+    }
 
-  .date-grid{
-    grid-template-columns:1fr;
-  }
+    .report-heading{
+        grid-template-columns:
+            84px 1fr 84px;
+    }
 
-  .report{
-    padding:12px;
-  }
+    .weekly-badge{
+        font-size:9px;
 
-  .report h2{
-    font-size:29px;
-  }
+        padding:
+            6px 8px;
+    }
 
-  .report-period{
-    font-size:17px;
-  }
+    .report-heading-spacer{
+        width:84px;
+    }
 
-  .report-table th,
-  .report-table td{
-    font-size:16px;
+    .report-title h2{
+        font-size:23px;
+    }
 
-    padding:12px;
-  }
+    .report-period{
+        font-size:12px;
+    }
 
-  .report-note{
-    font-size:15px;
-  }
+    .kpi-grid{
+        grid-template-columns:
+            repeat(2,1fr);
 
-  .report-action{
-    width:100%;
+        gap:7px;
+    }
 
-    min-width:0;
-  }
+    .kpi-card{
+        min-height:75px;
+    }
 
-  .theme-menu.show{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
+    .kpi-value{
+        font-size:23px;
+    }
 
+    .insights{
+        grid-template-columns:1fr;
+    }
+
+    .mini-charts{
+        grid-template-columns:1fr;
+    }
+
+    .chart-card{
+        min-height:130px;
+    }
+
+    .report-table th,
+    .report-table td{
+        font-size:11px;
+
+        padding:7px;
+    }
+
+    .report-action{
+        width:100%;
+
+        min-width:0;
+    }
+
+    .report-note{
+        font-size:11px;
+    }
 }
 
 </style>
@@ -1571,7 +2005,7 @@ td{
 <div class="container">
 
 <!-- =====================================================
-     الشعار الرئيسي
+     الشعار
 ===================================================== -->
 
 <div
@@ -1585,9 +2019,8 @@ td{
 
 </div>
 
-
 <!-- =====================================================
-     الستايلات
+     اختيار الستايل
 ===================================================== -->
 
 <div class="logo-buttons no-print">
@@ -1602,7 +2035,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     id="logo2Button"
@@ -1614,7 +2046,6 @@ td{
 </button>
 
 </div>
-
 
 <!-- =====================================================
      زر الألوان
@@ -1635,7 +2066,6 @@ td{
 
 </div>
 
-
 <!-- =====================================================
      قائمة الثيمات
 ===================================================== -->
@@ -1643,7 +2073,6 @@ td{
 <div
     id="themeMenu"
     class="theme-menu no-print">
-
 
 <button
     type="button"
@@ -1659,7 +2088,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1673,7 +2101,6 @@ td{
 أسود
 
 </button>
-
 
 <button
     type="button"
@@ -1689,7 +2116,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1703,7 +2129,6 @@ td{
 أزرق
 
 </button>
-
 
 <button
     type="button"
@@ -1719,7 +2144,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1733,7 +2157,6 @@ td{
 بيج
 
 </button>
-
 
 <button
     type="button"
@@ -1749,7 +2172,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1763,7 +2185,6 @@ td{
 زمردي
 
 </button>
-
 
 <button
     type="button"
@@ -1779,7 +2200,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1793,7 +2213,6 @@ td{
 نحاسي
 
 </button>
-
 
 <button
     type="button"
@@ -1809,7 +2228,6 @@ td{
 
 </button>
 
-
 <button
     type="button"
     class="theme-choice"
@@ -1823,7 +2241,6 @@ td{
 وردي
 
 </button>
-
 
 <button
     type="button"
@@ -1841,22 +2258,18 @@ td{
 
 </div>
 
-
 <!-- =====================================================
-     إضافة الصفقة
+     إضافة صفقة
 ===================================================== -->
 
 <div class="form-box no-print">
-
 
 <div
     id="currentWeekInfo"
     class="week-info">
 </div>
 
-
 <div class="form">
-
 
 <div class="field company-row">
 
@@ -1870,7 +2283,6 @@ td{
     placeholder="مثال: TSLA">
 
 </div>
-
 
 <div class="field">
 
@@ -1896,7 +2308,6 @@ Put
 
 </div>
 
-
 <div class="field strike-row">
 
 <label>
@@ -1911,9 +2322,7 @@ Put
 
 </div>
 
-
 <div class="price-row">
-
 
 <div class="field">
 
@@ -1928,7 +2337,6 @@ Put
     placeholder="سعر الدخول">
 
 </div>
-
 
 <div class="field">
 
@@ -1946,9 +2354,7 @@ Put
 
 </div>
 
-
 <div class="notes-row">
-
 
 <div class="field">
 
@@ -1964,7 +2370,6 @@ Put
 
 </div>
 
-
 <button
     type="button"
     class="notes-button"
@@ -1978,7 +2383,6 @@ Put
 
 </div>
 
-
 <button
     type="button"
     class="add-button"
@@ -1989,7 +2393,6 @@ Put
 </button>
 
 </div>
-
 
 <!-- =====================================================
      جدول الأسبوع
@@ -2032,7 +2435,6 @@ Put
 
 </div>
 
-
 <!-- =====================================================
      فلترة التقرير
 ===================================================== -->
@@ -2043,9 +2445,7 @@ Put
 التقارير الأسبوعية
 </h3>
 
-
 <div class="filter-grid">
-
 
 <button
     type="button"
@@ -2056,7 +2456,6 @@ Put
 
 </button>
 
-
 <button
     type="button"
     class="filter-button"
@@ -2065,7 +2464,6 @@ Put
 الأسبوع السابق
 
 </button>
-
 
 <button
     type="button"
@@ -2076,7 +2474,6 @@ Put
 
 </button>
 
-
 <button
     type="button"
     class="filter-button"
@@ -2085,7 +2482,6 @@ Put
 قبل 3 أسابيع
 
 </button>
-
 
 <button
     type="button"
@@ -2098,9 +2494,7 @@ Put
 
 </div>
 
-
 <div class="date-grid">
-
 
 <div class="field">
 
@@ -2113,7 +2507,6 @@ Put
     type="date">
 
 </div>
-
 
 <div class="field">
 
@@ -2129,7 +2522,6 @@ Put
 
 </div>
 
-
 <button
     type="button"
     class="report-button"
@@ -2141,7 +2533,6 @@ Put
 
 </div>
 
-
 <!-- =====================================================
      التقرير
 ===================================================== -->
@@ -2150,22 +2541,43 @@ Put
     id="report"
     class="report theme-report-white">
 
+<div class="report-watermark"></div>
+
+<img
+    id="reportLogo"
+    class="report-logo"
+    src="AQ.PNG"
+    alt="Q OPTIONS">
+
+<div class="report-heading">
+
+<div class="weekly-badge">
+WEEKLY RECAP
+</div>
+
+<div class="report-title">
 
 <h2>
-تقرير الصفقات
+ملخص الأداء الأسبوعي
 </h2>
-
 
 <div
     id="reportPeriod"
     class="report-period">
 </div>
 
+</div>
 
-<!-- ألوان التقرير -->
+<div class="report-heading-spacer">
+</div>
+
+</div>
+
+<!-- =====================================================
+     ثيم التقرير
+===================================================== -->
 
 <div class="report-themes no-print">
-
 
 <button
     type="button"
@@ -2176,7 +2588,6 @@ Put
     onclick="setReportTheme('white',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2185,7 +2596,6 @@ Put
     style="background:#050505"
     onclick="setReportTheme('black',this)">
 </button>
-
 
 <button
     type="button"
@@ -2196,7 +2606,6 @@ Put
     onclick="setReportTheme('silver',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2205,7 +2614,6 @@ Put
     style="background:#4c9aca"
     onclick="setReportTheme('blue',this)">
 </button>
-
 
 <button
     type="button"
@@ -2216,7 +2624,6 @@ Put
     onclick="setReportTheme('turquoise',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2225,7 +2632,6 @@ Put
     style="background:#c6ab82"
     onclick="setReportTheme('beige',this)">
 </button>
-
 
 <button
     type="button"
@@ -2236,7 +2642,6 @@ Put
     onclick="setReportTheme('purple',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2245,7 +2650,6 @@ Put
     style="background:#2f8e67"
     onclick="setReportTheme('emerald',this)">
 </button>
-
 
 <button
     type="button"
@@ -2256,7 +2660,6 @@ Put
     onclick="setReportTheme('burgundy',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2265,7 +2668,6 @@ Put
     style="background:#b96f42"
     onclick="setReportTheme('copper',this)">
 </button>
-
 
 <button
     type="button"
@@ -2276,7 +2678,6 @@ Put
     onclick="setReportTheme('midnight',this)">
 </button>
 
-
 <button
     type="button"
     class="report-theme-button"
@@ -2285,7 +2686,6 @@ Put
     style="background:#cf7892"
     onclick="setReportTheme('rose',this)">
 </button>
-
 
 <button
     type="button"
@@ -2298,98 +2698,262 @@ Put
 
 </div>
 
-
 <!-- =====================================================
-     الإحصائيات
+     البطاقات الرئيسية
 ===================================================== -->
 
-<div class="stats">
+<div class="kpi-grid">
 
+<div class="kpi-card">
 
-<div class="stat">
-
+<span class="kpi-label">
 إجمالي الصفقات
+</span>
 
-<strong id="totalTrades">
+<strong
+    id="totalTrades"
+    class="kpi-value gold">
+
 0
+
 </strong>
 
 </div>
 
+<div class="kpi-card">
 
-<div class="stat">
+<span class="kpi-label">
+نسبة النجاح
+</span>
 
-الرابحة
+<strong
+    id="winRate"
+    class="kpi-value">
 
-<strong id="winningTrades">
-0
+0%
+
 </strong>
+
+<small
+    id="winRateSub"
+    class="kpi-sub">
+
+0 رابحة
+
+</small>
 
 </div>
 
+<div class="kpi-card">
 
-<div class="stat">
-
-الموقوفة
-
-<strong id="stoppedTrades">
-0
-</strong>
-
-</div>
-
-
-<div class="stat">
-
-الخاسرة
-
-<strong id="losingTrades">
-0
-</strong>
-
-</div>
-
-
-<div class="stat">
-
-مجموع الأرباح
+<span class="kpi-label">
+صافي الربح
+</span>
 
 <strong
     id="totalProfit"
-    class="profit-main">
+    class="kpi-value">
 
 $0.00
 
 </strong>
 
-<strong
+<small
     id="totalProfitTimes"
-    class="profit-times">
+    class="kpi-sub">
 
-$0
+$0 لعقد ×100
 
+</small>
+
+</div>
+
+<div class="kpi-card">
+
+<span class="kpi-label">
+العائد الأسبوعي
+</span>
+
+<strong
+    id="weeklyReturn"
+    class="kpi-value">
+
+0%
+
+</strong>
+
+<small class="kpi-sub">
+مجموع عوائد الصفقات
+</small>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     أفضل صفقة ومتوسط العائد
+===================================================== -->
+
+<div class="insights">
+
+<div class="insight">
+
+🏆 أفضل صفقة:
+
+<strong id="bestTrade">
+—
+</strong>
+
+</div>
+
+<div class="insight">
+
+⭐ متوسط العائد لكل صفقة:
+
+<strong id="averageReturn">
+0%
 </strong>
 
 </div>
 
 </div>
 
+<!-- =====================================================
+     الرسوم
+===================================================== -->
+
+<div class="mini-charts">
+
+<div class="chart-card">
+
+<div class="chart-title">
+توزيع نتائج الصفقات
+</div>
+
+<div class="donut-layout">
+
+<div
+    id="resultDonut"
+    class="donut">
+
+<div class="donut-center">
+
+<span id="donutTotal">
+0
+</span>
+
+<small>
+إجمالي
+</small>
+
+</div>
+
+</div>
+
+<div class="legend">
+
+<div class="legend-row">
+
+<span
+    class="legend-dot"
+    style="background:#22a85a">
+</span>
+
+رابحة
+
+<span
+    id="legendWins"
+    class="legend-count">
+
+0
+
+</span>
+
+</div>
+
+<div class="legend-row">
+
+<span
+    class="legend-dot"
+    style="background:#00a7c8">
+</span>
+
+موقوفة
+
+<span
+    id="legendStopped"
+    class="legend-count">
+
+0
+
+</span>
+
+</div>
+
+<div class="legend-row">
+
+<span
+    class="legend-dot"
+    style="background:#d83c3c">
+</span>
+
+خاسرة
+
+<span
+    id="legendLosses"
+    class="legend-count">
+
+0
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="chart-card">
+
+<div class="chart-title">
+أداء الصفقات (%)
+</div>
+
+<div
+    id="performanceBars"
+    class="performance-plot">
+</div>
+
+</div>
+
+</div>
+
+<!-- جدول التقرير -->
 
 <div
     id="reportTable"
     class="report-table">
 </div>
 
+<!-- التنويه -->
 
 <div class="report-note">
 
-تنويه: الأسعار الموضحة في هذا التقرير تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
+الأسعار الموضحة تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
+
+<span class="mini-disclaimer">
+
+لأغراض التوثيق والمشاركة وليس توصية استثمارية.
+
+</span>
 
 </div>
 
+<!-- أزرار التقرير -->
 
 <div class="report-actions no-print">
-
 
 <button
     type="button"
@@ -2399,7 +2963,6 @@ $0
 PDF
 
 </button>
-
 
 <button
     type="button"
@@ -2415,7 +2978,6 @@ PDF
 </div>
 
 </div>
-
 
 <script>
 
@@ -2469,133 +3031,133 @@ const THEMES=[
 
 const REPORT_CLASSES=
     THEMES.map(
-        theme =>
-        "theme-report-"+theme
+        t=>
+        "theme-report-"+t
     );
 
 
 /* =====================================================
-   ألوان تصدير التقرير
+   ألوان التصدير
 ===================================================== */
 
 const EXPORT_PALETTES={
 
-white:{
-    bg1:"#f7fafb",
-    bg2:"#ffffff",
-    text:"#182326",
-    muted:"#4d5c60",
-    head:"#dce6e8",
-    card:"#ffffff"
-},
+    white:{
+        bg1:"#f7fafb",
+        bg2:"#ffffff",
+        text:"#182326",
+        muted:"#4d5c60",
+        head:"#dce6e8",
+        card:"#ffffff"
+    },
 
-black:{
-    bg1:"#111111",
-    bg2:"#020202",
-    text:"#ffffff",
-    muted:"#dddddd",
-    head:"#241c08",
-    card:"#111111"
-},
+    black:{
+        bg1:"#111111",
+        bg2:"#020202",
+        text:"#ffffff",
+        muted:"#dddddd",
+        head:"#241c08",
+        card:"#111111"
+    },
 
-silver:{
-    bg1:"#e6eaec",
-    bg2:"#fbfcfd",
-    text:"#283036",
-    muted:"#667078",
-    head:"#d5dade",
-    card:"#f7f9fa"
-},
+    silver:{
+        bg1:"#e6eaec",
+        bg2:"#fbfcfd",
+        text:"#283036",
+        muted:"#667078",
+        head:"#d5dade",
+        card:"#f7f9fa"
+    },
 
-blue:{
-    bg1:"#e4f2fa",
-    bg2:"#ffffff",
-    text:"#19374a",
-    muted:"#5c7889",
-    head:"#d2e8f4",
-    card:"#f8fcff"
-},
+    blue:{
+        bg1:"#e4f2fa",
+        bg2:"#ffffff",
+        text:"#19374a",
+        muted:"#5c7889",
+        head:"#d2e8f4",
+        card:"#f8fcff"
+    },
 
-turquoise:{
-    bg1:"#e2f7f6",
-    bg2:"#ffffff",
-    text:"#183b3b",
-    muted:"#5e8080",
-    head:"#d1efed",
-    card:"#f9ffff"
-},
+    turquoise:{
+        bg1:"#e2f7f6",
+        bg2:"#ffffff",
+        text:"#183b3b",
+        muted:"#5e8080",
+        head:"#d1efed",
+        card:"#f9ffff"
+    },
 
-beige:{
-    bg1:"#f3eadc",
-    bg2:"#ffffff",
-    text:"#40372d",
-    muted:"#7e7264",
-    head:"#eadfce",
-    card:"#fffdf9"
-},
+    beige:{
+        bg1:"#f3eadc",
+        bg2:"#ffffff",
+        text:"#40372d",
+        muted:"#7e7264",
+        head:"#eadfce",
+        card:"#fffdf9"
+    },
 
-purple:{
-    bg1:"#eee4f8",
-    bg2:"#ffffff",
-    text:"#3b2c4b",
-    muted:"#78688a",
-    head:"#e4d7f0",
-    card:"#fdfaff"
-},
+    purple:{
+        bg1:"#eee4f8",
+        bg2:"#ffffff",
+        text:"#3b2c4b",
+        muted:"#78688a",
+        head:"#e4d7f0",
+        card:"#fdfaff"
+    },
 
-emerald:{
-    bg1:"#e1f1e8",
-    bg2:"#ffffff",
-    text:"#173b2e",
-    muted:"#587d6d",
-    head:"#d1e8dc",
-    card:"#fafffc"
-},
+    emerald:{
+        bg1:"#e1f1e8",
+        bg2:"#ffffff",
+        text:"#173b2e",
+        muted:"#587d6d",
+        head:"#d1e8dc",
+        card:"#fafffc"
+    },
 
-burgundy:{
-    bg1:"#f1dfe3",
-    bg2:"#ffffff",
-    text:"#4a232b",
-    muted:"#8b636c",
-    head:"#ead2d8",
-    card:"#fffafb"
-},
+    burgundy:{
+        bg1:"#f1dfe3",
+        bg2:"#ffffff",
+        text:"#4a232b",
+        muted:"#8b636c",
+        head:"#ead2d8",
+        card:"#fffafb"
+    },
 
-copper:{
-    bg1:"#f0dfd0",
-    bg2:"#ffffff",
-    text:"#4c3022",
-    muted:"#8e705f",
-    head:"#ead3c0",
-    card:"#fffaf6"
-},
+    copper:{
+        bg1:"#f0dfd0",
+        bg2:"#ffffff",
+        text:"#4c3022",
+        muted:"#8e705f",
+        head:"#ead3c0",
+        card:"#fffaf6"
+    },
 
-midnight:{
-    bg1:"#122235",
-    bg2:"#08111d",
-    text:"#f1f7ff",
-    muted:"#a7b9cc",
-    head:"#162b40",
-    card:"#101c2a"
-},
+    midnight:{
+        bg1:"#122235",
+        bg2:"#08111d",
+        text:"#f1f7ff",
+        muted:"#a7b9cc",
+        head:"#162b40",
+        card:"#101c2a"
+    },
 
-rose:{
-    bg1:"#f8e4eb",
-    bg2:"#ffffff",
-    text:"#522c38",
-    muted:"#946b77",
-    head:"#f1d8e1",
-    card:"#fffafd"
-},
+    rose:{
+        bg1:"#f8e4eb",
+        bg2:"#ffffff",
+        text:"#522c38",
+        muted:"#946b77",
+        head:"#f1d8e1",
+        card:"#fffafd"
+    },
 
-ice:{
-    bg1:"#e1f4fb",
-    bg2:"#ffffff",
-    text:"#213e4e",
-    muted:"#66899b",
-    head:"#d4edf7",
-    card:"#fbfeff"
-}
+    ice:{
+        bg1:"#e1f4fb",
+        bg2:"#ffffff",
+        text:"#213e4e",
+        muted:"#66899b",
+        head:"#d4edf7",
+        card:"#fbfeff"
+    }
 
 };
 
@@ -2605,15 +3167,12 @@ ice:{
 ===================================================== */
 
 let selectedLogo=
-
     Number(
         localStorage.getItem(
             "selectedLogo"
         )
     )
-
     ||
-
     1;
 
 
@@ -2625,7 +3184,7 @@ if(!LOGOS[selectedLogo]){
 
 
 /* =====================================================
-   الصفقات
+   تحميل الصفقات
 ===================================================== */
 
 let trades=[];
@@ -2653,7 +3212,8 @@ try{
 
     }
 
-}catch(error){
+}
+catch(error){
 
     trades=[];
 
@@ -2661,7 +3221,7 @@ try{
 
 
 /* =====================================================
-   اختيار الشعار
+   تغيير الشعار
 ===================================================== */
 
 function setLogo(number){
@@ -2686,12 +3246,20 @@ function setLogo(number){
 
 
     document
+        .getElementById(
+            "reportLogo"
+        )
+        .src=
+        LOGOS[selectedLogo];
+
+
+    document
         .querySelectorAll(
             ".logo-button"
         )
         .forEach(
 
-            button =>
+            button=>
             button.classList.remove(
                 "active"
             )
@@ -2736,7 +3304,9 @@ function setLogo(number){
 
         "selectedLogo",
 
-        String(selectedLogo)
+        String(
+            selectedLogo
+        )
 
     );
 
@@ -2744,7 +3314,7 @@ function setLogo(number){
 
 
 /* =====================================================
-   قائمة الثيمات
+   ثيم الصفحة
 ===================================================== */
 
 function toggleThemes(){
@@ -2763,7 +3333,11 @@ function toggleThemes(){
 
 function setTheme(theme){
 
-    if(!THEMES.includes(theme)){
+    if(
+        !THEMES.includes(
+            theme
+        )
+    ){
 
         theme="white";
 
@@ -2804,7 +3378,11 @@ function setReportTheme(
     button
 ){
 
-    if(!THEMES.includes(theme)){
+    if(
+        !THEMES.includes(
+            theme
+        )
+    ){
 
         theme="white";
 
@@ -2823,7 +3401,8 @@ function setReportTheme(
 
 
     report.classList.add(
-        "theme-report-"+theme
+        "theme-report-"+
+        theme
     );
 
 
@@ -2842,7 +3421,7 @@ function setReportTheme(
         )
         .forEach(
 
-            button =>
+            button=>
             button.classList.remove(
                 "active"
             )
@@ -2888,16 +3467,19 @@ function getExportThemeName(){
         );
 
 
-    for(const theme of THEMES){
+    for(
+        const theme
+        of THEMES
+    ){
 
         if(
 
-            report.classList.contains(
-
-                "theme-report-"+
-                theme
-
-            )
+            report
+                .classList
+                .contains(
+                    "theme-report-"+
+                    theme
+                )
 
         ){
 
@@ -2908,19 +3490,25 @@ function getExportThemeName(){
     }
 
 
-    const bodyTheme=
+    return(
 
         THEMES.find(
 
-            theme =>
+            theme=>
+
             document.body
                 .classList
-                .contains(theme)
+                .contains(
+                    theme
+                )
 
-        );
+        )
 
+        ||
 
-    return bodyTheme || "white";
+        "white"
+
+    );
 
 }
 
@@ -2948,3478 +3536,4 @@ function getExportPalette(){
 
 function toInputDate(date){
 
-    const year=
-        date.getFullYear();
-
-
-    const month=
-        String(
-            date.getMonth()+1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const day=
-        String(
-            date.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    return(
-
-        year+
-        "-"+
-        month+
-        "-"+
-        day
-
-    );
-
-}
-
-
-function formatDate(date){
-
-    if(!date){
-
-        return "-";
-
-    }
-
-
-    const parts=
-        date.split("-");
-
-
-    return(
-
-        parts.length===3
-
-        ?
-
-        parts[2]+
-        "/"+
-        parts[1]+
-        "/"+
-        parts[0]
-
-        :
-
-        date
-
-    );
-
-}
-
-
-/* =====================================================
-   أسبوع التداول
-===================================================== */
-
-function getTradingWeek(offset=0){
-
-    const now=
-        new Date();
-
-
-    now.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    const day=
-        now.getDay();
-
-
-    const daysFromMonday=
-
-        day===0
-
-        ?
-
-        6
-
-        :
-
-        day-1;
-
-
-    const monday=
-        new Date(now);
-
-
-    monday.setDate(
-
-        now.getDate()
-        -
-        daysFromMonday
-        +
-        offset*7
-
-    );
-
-
-    const friday=
-        new Date(monday);
-
-
-    friday.setDate(
-
-        monday.getDate()+4
-
-    );
-
-
-    return{
-
-        start:
-            toInputDate(monday),
-
-        end:
-            toInputDate(friday),
-
-        key:
-            toInputDate(monday)
-
-    };
-
-}
-
-
-/* =====================================================
-   عرض الأسبوع
-===================================================== */
-
-function updateCurrentWeek(){
-
-    const week=
-        getTradingWeek(0);
-
-
-    document
-        .getElementById(
-            "currentWeekInfo"
-        )
-        .textContent=
-
-        "الأسبوع الحالي: "+
-        formatDate(week.start)+
-        " إلى "+
-        formatDate(week.end);
-
-}
-
-
-/* =====================================================
-   الحفظ
-===================================================== */
-
-function saveTrades(){
-
-    localStorage.setItem(
-
-        "qOptionTrades",
-
-        JSON.stringify(
-            trades
-        )
-
-    );
-
-}
-
-
-/* =====================================================
-   ملاحظات
-===================================================== */
-
-function focusNotes(){
-
-    document
-        .getElementById(
-            "notes"
-        )
-        .focus();
-
-}
-
-
-/* =====================================================
-   تنظيف الحقول
-===================================================== */
-
-function clearForm(){
-
-    [
-        "stock",
-        "strike",
-        "buy",
-        "sell",
-        "notes"
-    ]
-    .forEach(
-
-        id =>
-
-        document
-            .getElementById(id)
-            .value=""
-
-    );
-
-
-    document
-        .getElementById(
-            "option"
-        )
-        .value="";
-
-}
-
-
-/* =====================================================
-   إضافة صفقة
-===================================================== */
-
-function addTrade(){
-
-    const stock=
-        document
-            .getElementById(
-                "stock"
-            )
-            .value
-            .trim();
-
-
-    const option=
-        document
-            .getElementById(
-                "option"
-            )
-            .value;
-
-
-    const strike=
-        parseFloat(
-
-            document
-                .getElementById(
-                    "strike"
-                )
-                .value
-
-        );
-
-
-    const buy=
-        parseFloat(
-
-            document
-                .getElementById(
-                    "buy"
-                )
-                .value
-
-        );
-
-
-    const sell=
-        parseFloat(
-
-            document
-                .getElementById(
-                    "sell"
-                )
-                .value
-
-        );
-
-
-    const notes=
-        document
-            .getElementById(
-                "notes"
-            )
-            .value
-            .trim();
-
-
-    if(
-        !stock
-        ||
-        !option
-        ||
-        isNaN(strike)
-        ||
-        isNaN(buy)
-        ||
-        isNaN(sell)
-    ){
-
-        alert(
-            "فضلاً أدخل جميع بيانات الصفقة"
-        );
-
-        return;
-
-    }
-
-
-    if(buy<=0){
-
-        alert(
-            "سعر الدخول يجب أن يكون أكبر من صفر"
-        );
-
-        return;
-
-    }
-
-
-    const week=
-        getTradingWeek(0);
-
-
-    const profit=
-        sell-buy;
-
-
-    const percentage=
-        (profit/buy)*100;
-
-
-    trades.push({
-
-        id:
-            Date.now(),
-
-        stock:
-            stock.toUpperCase(),
-
-        option:
-            option,
-
-        strike:
-            strike,
-
-        buy:
-            buy,
-
-        sell:
-            sell,
-
-        profit:
-            profit,
-
-        percentage:
-            percentage,
-
-        notes:
-            notes,
-
-        weekStart:
-            week.start,
-
-        weekEnd:
-            week.end,
-
-        weekKey:
-            week.key
-
-    });
-
-
-    saveTrades();
-
-    displayCurrentWeekTrades();
-
-    clearForm();
-
-}
-
-
-/* =====================================================
-   الحالة
-===================================================== */
-
-function getStatus(trade){
-
-    const sell=
-        Number(
-            trade.sell
-        );
-
-
-    const buy=
-        Number(
-            trade.buy
-        );
-
-
-    if(sell===0){
-
-        return{
-
-            name:
-                "خاسرة",
-
-            rowClass:
-                "loss-row",
-
-            textClass:
-                "red"
-
-        };
-
-    }
-
-
-    if(
-        sell<buy
-        &&
-        sell>0
-    ){
-
-        return{
-
-            name:
-                "موقوفة",
-
-            rowClass:
-                "stopped-row",
-
-            textClass:
-                "orange"
-
-        };
-
-    }
-
-
-    return{
-
-        name:
-            "رابحة",
-
-        rowClass:
-            "win-row",
-
-        textClass:
-            "green"
-
-    };
-
-}
-
-
-/* =====================================================
-   حماية HTML
-===================================================== */
-
-function escapeHTML(value){
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =====================================================
-   صفقات الأسبوع الحالي
-===================================================== */
-
-function getCurrentWeekTrades(){
-
-    const week=
-        getTradingWeek(0);
-
-
-    return trades.filter(
-
-        trade =>
-        trade.weekKey===
-        week.key
-
-    );
-
-}
-
-
-/* =====================================================
-   عرض صفقات الأسبوع
-===================================================== */
-
-function displayCurrentWeekTrades(){
-
-    const body=
-        document.getElementById(
-            "tableBody"
-        );
-
-
-    body.innerHTML="";
-
-
-    const current=
-        getCurrentWeekTrades();
-
-
-    if(!current.length){
-
-        body.innerHTML=`
-
-        <tr>
-
-            <td
-                colspan="10"
-                class="empty">
-
-                لا توجد صفقات هذا الأسبوع حتى الآن
-
-            </td>
-
-        </tr>
-
-        `;
-
-
-        return;
-
-    }
-
-
-    current.forEach(
-
-        trade =>{
-
-            const status=
-                getStatus(trade);
-
-
-            body.innerHTML+=`
-
-            <tr>
-
-                <td>
-                    ${escapeHTML(trade.stock)}
-                </td>
-
-                <td>
-                    ${escapeHTML(trade.option)}
-                </td>
-
-                <td>
-                    ${Number(trade.strike).toFixed(2)}
-                </td>
-
-                <td>
-                    ${Number(trade.buy).toFixed(2)}
-                </td>
-
-                <td>
-                    ${Number(trade.sell).toFixed(2)}
-                </td>
-
-                <td class="${status.textClass}">
-
-                    ${trade.profit>=0?"+":""}
-                    ${Number(trade.profit).toFixed(2)}
-
-                </td>
-
-                <td class="${status.textClass}">
-
-                    ${trade.percentage>=0?"+":""}
-                    ${Number(trade.percentage).toFixed(2)}%
-
-                </td>
-
-                <td class="${status.textClass}">
-
-                    ${status.name}
-
-                </td>
-
-                <td>
-
-                    ${escapeHTML(trade.notes||"")}
-
-                </td>
-
-                <td class="no-print">
-
-                    <button
-                        type="button"
-                        class="delete-button"
-                        onclick="deleteTrade('${trade.id}')">
-
-                        حذف
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-            `;
-
-        }
-
-    );
-
-}
-
-
-/* =====================================================
-   حذف
-===================================================== */
-
-function deleteTrade(id){
-
-    if(
-        !confirm(
-            "هل تريد حذف هذه الصفقة؟"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    trades=
-        trades.filter(
-
-            trade =>
-            String(trade.id)!==
-            String(id)
-
-        );
-
-
-    saveTrades();
-
-    displayCurrentWeekTrades();
-
-}
-
-
-/* =====================================================
-   اختيار فترة التقرير
-===================================================== */
-
-function setReportPeriod(
-    type,
-    button
-){
-
-    document
-        .querySelectorAll(
-            ".filter-button"
-        )
-        .forEach(
-
-            item =>
-            item.classList.remove(
-                "active"
-            )
-
-        );
-
-
-    if(button){
-
-        button.classList.add(
-            "active"
-        );
-
-    }
-
-
-    let range;
-
-
-    if(type==="thisWeek"){
-
-        range=
-            getTradingWeek(0);
-
-    }
-
-
-    else if(type==="lastWeek"){
-
-        range=
-            getTradingWeek(-1);
-
-    }
-
-
-    else if(type==="twoWeeksAgo"){
-
-        range=
-            getTradingWeek(-2);
-
-    }
-
-
-    else if(
-        type==="threeWeeksAgo"
-    ){
-
-        range=
-            getTradingWeek(-3);
-
-    }
-
-
-    else if(type==="all"){
-
-        document
-            .getElementById(
-                "reportStart"
-            )
-            .value="";
-
-
-        document
-            .getElementById(
-                "reportEnd"
-            )
-            .value="";
-
-
-        return;
-
-    }
-
-
-    document
-        .getElementById(
-            "reportStart"
-        )
-        .value=
-        range.start;
-
-
-    document
-        .getElementById(
-            "reportEnd"
-        )
-        .value=
-        range.end;
-
-}
-
-
-/* =====================================================
-   فلترة
-===================================================== */
-
-function getFilteredTrades(){
-
-    const start=
-        document
-            .getElementById(
-                "reportStart"
-            )
-            .value;
-
-
-    const end=
-        document
-            .getElementById(
-                "reportEnd"
-            )
-            .value;
-
-
-    if(!start&&!end){
-
-        return trades;
-
-    }
-
-
-    return trades.filter(
-
-        trade =>
-        trade.weekStart>=start
-        &&
-        trade.weekStart<=end
-
-    );
-
-}
-
-
-/* =====================================================
-   إصدار التقرير
-===================================================== */
-
-function showReport(){
-
-    const start=
-        document
-            .getElementById(
-                "reportStart"
-            )
-            .value;
-
-
-    const end=
-        document
-            .getElementById(
-                "reportEnd"
-            )
-            .value;
-
-
-    if(!start&&!end){
-
-        buildReport(
-            trades,
-            "",
-            ""
-        );
-
-        return;
-
-    }
-
-
-    if(!start||!end){
-
-        alert(
-            "اختاري فترة التقرير أولاً"
-        );
-
-        return;
-
-    }
-
-
-    if(end<start){
-
-        alert(
-            "تاريخ نهاية التقرير غير صحيح"
-        );
-
-        return;
-
-    }
-
-
-    buildReport(
-
-        getFilteredTrades(),
-
-        start,
-
-        end
-
-    );
-
-}
-
-
-/* =====================================================
-   ترتيب التقرير
-===================================================== */
-
-function sortTradesForReport(list){
-
-    const order={
-
-        "رابحة":1,
-
-        "موقوفة":2,
-
-        "خاسرة":3
-
-    };
-
-
-    return [...list].sort(
-
-        (a,b) =>
-
-        order[
-            getStatus(a).name
-        ]
-
-        -
-
-        order[
-            getStatus(b).name
-        ]
-
-    );
-
-}
-
-
-/* =====================================================
-   بناء التقرير
-===================================================== */
-
-function buildReport(
-    filtered,
-    start,
-    end
-){
-
-    const report=
-        document.getElementById(
-            "report"
-        );
-
-
-    report.classList.add(
-        "show"
-    );
-
-
-    const total=
-        filtered.length;
-
-
-    const winners=
-        filtered.filter(
-
-            trade =>
-            Number(trade.sell)>
-            Number(trade.buy)
-
-        ).length;
-
-
-    const stopped=
-        filtered.filter(
-
-            trade =>
-
-            Number(trade.sell)<
-            Number(trade.buy)
-
-            &&
-
-            Number(trade.sell)>0
-
-        ).length;
-
-
-    const losers=
-        filtered.filter(
-
-            trade =>
-            Number(trade.sell)===0
-
-        ).length;
-
-
-    const totalProfit=
-        filtered.reduce(
-
-            (sum,trade) =>
-
-            sum+
-            Number(
-                trade.profit||0
-            ),
-
-            0
-
-        );
-
-
-    document
-        .getElementById(
-            "totalTrades"
-        )
-        .textContent=
-        total;
-
-
-    document
-        .getElementById(
-            "winningTrades"
-        )
-        .textContent=
-        winners;
-
-
-    document
-        .getElementById(
-            "stoppedTrades"
-        )
-        .textContent=
-        stopped;
-
-
-    document
-        .getElementById(
-            "losingTrades"
-        )
-        .textContent=
-        losers;
-
-
-    const profitElement=
-        document.getElementById(
-            "totalProfit"
-        );
-
-
-    const profitTimes=
-        document.getElementById(
-            "totalProfitTimes"
-        );
-
-
-    const profitColor=
-
-        totalProfit>=0
-
-        ?
-
-        "#0c8d50"
-
-        :
-
-        "#c92e2e";
-
-
-    profitElement.style.color=
-        profitColor;
-
-
-    profitTimes.style.color=
-        profitColor;
-
-
-    profitElement.textContent=
-
-        (
-            totalProfit>=0
-            ?
-            "+"
-            :
-            "-"
-        )
-
-        +
-
-        "$"
-
-        +
-
-        Math.abs(
-            totalProfit
-        ).toFixed(2);
-
-
-    const multiplied=
-        Math.round(
-            totalProfit*100
-        );
-
-
-    profitTimes.textContent=
-
-        (
-            multiplied>=0
-            ?
-            "+"
-            :
-            "-"
-        )
-
-        +
-
-        "$"
-
-        +
-
-        Math.abs(
-            multiplied
-        ).toLocaleString(
-            "en-US"
-        );
-
-
-    document
-        .getElementById(
-            "reportPeriod"
-        )
-        .textContent=
-
-        start&&end
-
-        ?
-
-        "من "+
-        formatDate(start)+
-        " إلى "+
-        formatDate(end)
-
-        :
-
-        "جميع الصفقات المحفوظة";
-
-
-    const sorted=
-        sortTradesForReport(
-            filtered
-        );
-
-
-    let html=`
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>الشركة</th>
-    <th>الأوبشن</th>
-    <th>السترايك</th>
-    <th>الدخول</th>
-    <th>الخروج</th>
-    <th>الربح</th>
-    <th>%</th>
-    <th>الحالة</th>
-    <th>ملاحظات</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    `;
-
-
-    if(!sorted.length){
-
-        html+=`
-
-        <tr>
-
-        <td
-            colspan="9"
-            style="
-                padding:30px;
-                text-align:center
-            ">
-
-        لا توجد صفقات في هذه الفترة
-
-        </td>
-
-        </tr>
-
-        `;
-
-    }
-
-
-    sorted.forEach(
-
-        trade =>{
-
-            const status=
-                getStatus(trade);
-
-
-            html+=`
-
-            <tr class="${status.rowClass}">
-
-            <td>
-            ${escapeHTML(trade.stock)}
-            </td>
-
-            <td>
-            ${escapeHTML(trade.option)}
-            </td>
-
-            <td>
-            ${Number(trade.strike).toFixed(2)}
-            </td>
-
-            <td>
-            ${Number(trade.buy).toFixed(2)}
-            </td>
-
-            <td>
-            ${Number(trade.sell).toFixed(2)}
-            </td>
-
-            <td>
-            ${trade.profit>=0?"+":""}
-            ${Number(trade.profit).toFixed(2)}
-            </td>
-
-            <td>
-            ${trade.percentage>=0?"+":""}
-            ${Number(trade.percentage).toFixed(2)}%
-            </td>
-
-            <td>
-            ${status.name}
-            </td>
-
-            <td>
-            ${escapeHTML(trade.notes||"")}
-            </td>
-
-            </tr>
-
-            `;
-
-        }
-
-    );
-
-
-    html+=`
-
-    </tbody>
-
-    </table>
-
-    `;
-
-
-    document
-        .getElementById(
-            "reportTable"
-        )
-        .innerHTML=
-        html;
-
-
-    report.scrollIntoView({
-
-        behavior:
-            "smooth",
-
-        block:
-            "start"
-
-    });
-
-}
-
-
-/* =====================================================
-   PDF
-===================================================== */
-
-function printReport(){
-
-    const report=
-        document.getElementById(
-            "report"
-        );
-
-
-    if(
-        !report.classList.contains(
-            "show"
-        )
-    ){
-
-        showReport();
-
-    }
-
-
-    setTimeout(
-
-        ()=>{
-
-
-            const reportHTML=
-                document
-                    .getElementById(
-                        "report"
-                    )
-                    .outerHTML;
-
-
-            const logo=
-
-                LOGOS[selectedLogo]
-
-                ||
-
-                LOGOS[1];
-
-
-            const palette=
-                getExportPalette();
-
-
-            const dark=
-
-                [
-                    "black",
-                    "midnight"
-                ]
-                .includes(
-                    getExportThemeName()
-                );
-
-
-            const printWindow=
-                window.open(
-
-                    "",
-
-                    "_blank",
-
-                    "width=900,height=1200"
-
-                );
-
-
-            if(!printWindow){
-
-                alert(
-                    "المتصفح منع فتح نافذة PDF. اسمحي بالنوافذ المنبثقة ثم اضغطي PDF مرة أخرى."
-                );
-
-                return;
-
-            }
-
-
-            printWindow.document.open();
-
-
-            printWindow.document.write(`
-
-<!DOCTYPE html>
-
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-تقرير الصفقات
-</title>
-
-<style>
-
-@page{
-    size:A4 portrait;
-    margin:7mm;
-}
-
-
-*{
-    box-sizing:border-box;
-}
-
-
-html,
-body{
-    margin:0;
-    padding:0;
-
-    font-family:
-        Arial,
-        Tahoma,
-        sans-serif;
-
-    -webkit-print-color-adjust:
-        exact!important;
-
-    print-color-adjust:
-        exact!important;
-
-    background:
-        ${palette.bg2};
-}
-
-
-.report{
-    display:block!important;
-
-    width:100%!important;
-
-    margin:0!important;
-
-    padding:8px!important;
-
-    position:relative!important;
-
-    overflow:visible!important;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(212,175,55,.12),
-            transparent 34%
-        ),
-        linear-gradient(
-            180deg,
-            ${palette.bg1},
-            ${palette.bg2}
-        )!important;
-
-    color:
-        ${palette.text}!important;
-
-    border:
-        2px solid
-        #c9a536!important;
-
-    border-radius:8px!important;
-
-    box-shadow:
-        0 4px 0 #7b1010,
-        0 0 9px rgba(212,175,55,.45)!important;
-}
-
-
-/* الشعار بدون خلفية سوداء */
-
-.report::before{
-    content:""!important;
-
-    display:block!important;
-
-    position:relative!important;
-
-    left:auto!important;
-    top:auto!important;
-
-    transform:none!important;
-
-    width:100%!important;
-
-    height:105px!important;
-
-    margin:
-        0 0 8px!important;
-
-    background:
-        transparent
-        url("${logo}")
-        center /
-        contain
-        no-repeat!important;
-
-    opacity:1!important;
-}
-
-
-.report > *{
-    position:relative!important;
-}
-
-
-.report h2{
-    text-align:center;
-
-    color:
-        ${palette.text}!important;
-
-    font-size:25px!important;
-
-    margin:
-        8px 0 4px!important;
-}
-
-
-.report-period{
-    text-align:center;
-
-    color:
-        ${palette.muted}!important;
-
-    font-size:13px!important;
-}
-
-
-.report-themes,
-.report-actions{
-    display:none!important;
-}
-
-
-.stats{
-    display:grid!important;
-
-    grid-template-columns:
-        repeat(3,1fr)!important;
-
-    gap:6px!important;
-
-    margin:
-        8px 0!important;
-}
-
-
-.stat{
-    min-height:58px!important;
-
-    padding:
-        6px 3px!important;
-
-    border-radius:6px!important;
-
-    font-size:10px!important;
-
-    text-align:center!important;
-
-    background:
-        linear-gradient(
-            145deg,
-            ${palette.card},
-            ${palette.head}
-        )!important;
-
-    color:
-        ${palette.text}!important;
-
-    border:
-        1px solid
-        #c9a536!important;
-
-    box-shadow:
-        0 3px 0 #7b1010,
-        0 0 6px rgba(212,175,55,.38)!important;
-}
-
-
-.stat strong,
-.profit-main,
-.profit-times{
-    display:block!important;
-
-    font-size:17px!important;
-
-    margin-top:4px!important;
-
-    line-height:1!important;
-}
-
-
-.report-table{
-    width:100%!important;
-
-    overflow:visible!important;
-
-    padding:
-        4px 0 6px!important;
-}
-
-
-.report-table table{
-    width:100%!important;
-
-    min-width:0!important;
-
-    table-layout:fixed!important;
-
-    border-collapse:collapse!important;
-
-    border:
-        2px solid
-        #c9a536!important;
-
-    box-shadow:
-        0 3px 0 #7b1010,
-        0 0 6px rgba(212,175,55,.34)!important;
-}
-
-
-.report-table th{
-    font-size:8.5px!important;
-
-    padding:
-        5px 2px!important;
-
-    border:
-        1px solid
-        #9b7b2b!important;
-
-    background:
-        ${palette.head}!important;
-
-    color:
-        ${palette.text}!important;
-
-    text-align:center;
-}
-
-
-.report-table td{
-    font-size:8.5px!important;
-
-    padding:
-        5px 2px!important;
-
-    border:
-        1px solid
-        rgba(120,80,80,.45)!important;
-
-    background:
-        ${palette.card}!important;
-
-    color:
-        ${palette.text}!important;
-
-    text-align:center;
-}
-
-
-.report-table
-.win-row td{
-    background:
-        ${dark ? "#102318" : "#e5f5ea"}!important;
-
-    color:
-        ${dark ? "#eafff0" : "#173c27"}!important;
-}
-
-
-.report-table
-.stopped-row td{
-    background:
-        ${dark ? "#10242a" : "#e1f6fa"}!important;
-
-    color:
-        ${dark ? "#eaffff" : "#16404a"}!important;
-}
-
-
-.report-table
-.loss-row td{
-    background:
-        ${dark ? "#301010" : "#f9e1e1"}!important;
-
-    color:
-        ${dark ? "#fff0f0" : "#4b1c1c"}!important;
-}
-
-
-.report-note{
-    margin-top:6px!important;
-
-    padding:
-        7px 8px!important;
-
-    font-size:9px!important;
-
-    line-height:1.45!important;
-
-    font-weight:900!important;
-
-    text-align:center!important;
-
-    background:
-        linear-gradient(
-            180deg,
-            ${palette.card},
-            ${palette.head}
-        )!important;
-
-    color:
-        ${palette.text}!important;
-
-    border:
-        1px solid
-        #c9a536!important;
-
-    box-shadow:
-        0 3px 0 #7b1010,
-        0 0 5px rgba(212,175,55,.28)!important;
-}
-
-</style>
-
-</head>
-
-<body>
-
-${reportHTML}
-
-<script>
-
-window.onload=function(){
-
-    setTimeout(
-
-        function(){
-
-            window.focus();
-
-            window.print();
-
-        },
-
-        700
-
-    );
-
-};
-
-
-window.onafterprint=function(){
-
-    setTimeout(
-
-        function(){
-
-            window.close();
-
-        },
-
-        300
-
-    );
-
-};
-
-<\/script>
-
-</body>
-
-</html>
-
-`);
-
-
-            printWindow.document.close();
-
-
-        },
-
-        250
-
-    );
-
-}
-
-
-/* =====================================================
-   صورة التقرير
-===================================================== */
-
-function saveReportImage(){
-
-    const palette=
-        getExportPalette();
-
-
-    const dark=
-
-        [
-            "black",
-            "midnight"
-        ]
-        .includes(
-            getExportThemeName()
-        );
-
-
-    const start=
-        document
-            .getElementById(
-                "reportStart"
-            )
-            .value;
-
-
-    const end=
-        document
-            .getElementById(
-                "reportEnd"
-            )
-            .value;
-
-
-    const filtered=
-
-        (!start&&!end)
-
-        ?
-
-        trades
-
-        :
-
-        getFilteredTrades();
-
-
-    const sorted=
-        sortTradesForReport(
-            filtered
-        );
-
-
-    const width=
-        2400;
-
-
-    const bannerHeight=
-        230;
-
-
-    const titleArea=
-        190;
-
-
-    const statsHeight=
-        330;
-
-
-    const tableHeader=
-        110;
-
-
-    const rowHeight=
-        125;
-
-
-    const noteHeight=
-        170;
-
-
-    const height=
-
-        bannerHeight
-        +
-        titleArea
-        +
-        statsHeight
-        +
-        tableHeader
-        +
-        Math.max(
-            sorted.length,
-            1
-        )
-        *
-        rowHeight
-        +
-        noteHeight
-        +
-        70;
-
-
-    const canvas=
-        document.createElement(
-            "canvas"
-        );
-
-
-    canvas.width=
-        width;
-
-
-    canvas.height=
-        height;
-
-
-    const ctx=
-        canvas.getContext(
-            "2d"
-        );
-
-
-    if(!ctx){
-
-        alert(
-            "المتصفح لا يدعم إنشاء الصورة"
-        );
-
-        return;
-
-    }
-
-
-    const pageGradient=
-        ctx.createLinearGradient(
-
-            0,
-            0,
-
-            0,
-            height
-
-        );
-
-
-    pageGradient.addColorStop(
-        0,
-        palette.bg1
-    );
-
-
-    pageGradient.addColorStop(
-        1,
-        palette.bg2
-    );
-
-
-    ctx.fillStyle=
-        pageGradient;
-
-
-    ctx.fillRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    const logo=
-        new Image();
-
-
-    const logoFile=
-
-        LOGOS[selectedLogo]
-
-        ||
-
-        LOGOS[1];
-
-
-    logo.onload=()=>{
-
-
-        const maxW=
-            width-30;
-
-
-        const maxH=
-            bannerHeight-15;
-
-
-        const ratio=
-            Math.min(
-
-                maxW/
-                logo.naturalWidth,
-
-                maxH/
-                logo.naturalHeight
-
-            );
-
-
-        const logoWidth=
-            logo.naturalWidth*
-            ratio;
-
-
-        const logoHeight=
-            logo.naturalHeight*
-            ratio;
-
-
-        /* الشعار شفاف مباشرة */
-
-        ctx.drawImage(
-
-            logo,
-
-            (width-logoWidth)/2,
-
-            (bannerHeight-logoHeight)/2,
-
-            logoWidth,
-
-            logoHeight
-
-        );
-
-
-        /* العلامة المائية */
-
-        ctx.save();
-
-
-        ctx.globalAlpha=
-            .035;
-
-
-        const wmRatio=
-            Math.min(
-
-                900/
-                logo.naturalWidth,
-
-                620/
-                logo.naturalHeight
-
-            );
-
-
-        const wmWidth=
-            logo.naturalWidth*
-            wmRatio;
-
-
-        const wmHeight=
-            logo.naturalHeight*
-            wmRatio;
-
-
-        ctx.drawImage(
-
-            logo,
-
-            (width-wmWidth)/2,
-
-            bannerHeight+
-            titleArea+
-            100,
-
-            wmWidth,
-
-            wmHeight
-
-        );
-
-
-        ctx.restore();
-
-
-        drawCanvas();
-
-    };
-
-
-    logo.onerror=
-        drawCanvas;
-
-
-    logo.src=
-        logoFile;
-
-
-    function drawCanvas(){
-
-
-        ctx.textAlign=
-            "center";
-
-
-        /* العنوان */
-
-        ctx.fillStyle=
-            palette.text;
-
-
-        ctx.font=
-            "900 64px Arial";
-
-
-        ctx.save();
-
-
-        ctx.shadowColor=
-            "rgba(212,175,55,.42)";
-
-
-        ctx.shadowBlur=
-            14;
-
-
-        ctx.fillText(
-
-            "تقرير الصفقات",
-
-            width/2,
-
-            bannerHeight+80
-
-        );
-
-
-        ctx.restore();
-
-
-        /* الفترة */
-
-        ctx.fillStyle=
-            palette.muted;
-
-
-        ctx.font=
-            "900 32px Arial";
-
-
-        ctx.fillText(
-
-            start&&end
-
-            ?
-
-            "من "+
-            formatDate(start)+
-            " إلى "+
-            formatDate(end)
-
-            :
-
-            "جميع الصفقات المحفوظة",
-
-            width/2,
-
-            bannerHeight+130
-
-        );
-
-
-        /* ذهبي */
-
-        ctx.fillStyle=
-            "#d4af37";
-
-
-        ctx.fillRect(
-
-            300,
-
-            bannerHeight+158,
-
-            width-600,
-
-            4
-
-        );
-
-
-        /* أحمر */
-
-        ctx.fillStyle=
-            "#8b1010";
-
-
-        ctx.fillRect(
-
-            300,
-
-            bannerHeight+164,
-
-            width-600,
-
-            3
-
-        );
-
-
-        /* الإحصائيات */
-
-        const winners=
-            filtered.filter(
-
-                trade =>
-
-                Number(trade.sell)>
-                Number(trade.buy)
-
-            ).length;
-
-
-        const stopped=
-            filtered.filter(
-
-                trade =>
-
-                Number(trade.sell)<
-                Number(trade.buy)
-
-                &&
-
-                Number(trade.sell)>0
-
-            ).length;
-
-
-        const losers=
-            filtered.filter(
-
-                trade =>
-
-                Number(trade.sell)===0
-
-            ).length;
-
-
-        const totalProfit=
-            filtered.reduce(
-
-                (sum,trade) =>
-
-                sum+
-                Number(
-                    trade.profit||0
-                ),
-
-                0
-
-            );
-
-
-        const multiplied=
-            Math.round(
-                totalProfit*100
-            );
-
-
-        const stats=[
-
-            [
-                "إجمالي الصفقات",
-
-                String(
-                    filtered.length
-                ),
-
-                palette.text
-            ],
-
-            [
-                "الرابحة",
-
-                String(
-                    winners
-                ),
-
-                "#16a864"
-            ],
-
-            [
-                "الموقوفة",
-
-                String(
-                    stopped
-                ),
-
-                "#00a7c8"
-            ],
-
-            [
-                "الخاسرة",
-
-                String(
-                    losers
-                ),
-
-                "#d83c3c"
-            ]
-
-        ];
-
-
-        const gap=
-            22;
-
-
-        const boxWidth=
-            (
-                width-
-                gap*4
-            )/3;
-
-
-        const boxHeight=
-            125;
-
-
-        const startY=
-            bannerHeight+
-            185;
-
-
-        stats.forEach(
-
-            (stat,index)=>{
-
-
-                const row=
-                    Math.floor(
-                        index/3
-                    );
-
-
-                const col=
-                    index%3;
-
-
-                const x=
-                    col*
-                    (
-                        boxWidth+
-                        gap
-                    )
-                    +
-                    gap;
-
-
-                const y=
-                    startY+
-                    row*
-                    (
-                        boxHeight+
-                        gap
-                    );
-
-
-                draw3DBox(
-
-                    ctx,
-
-                    x,
-                    y,
-
-                    boxWidth,
-                    boxHeight,
-
-                    palette.card,
-                    palette.head
-
-                );
-
-
-                ctx.fillStyle=
-                    palette.text;
-
-
-                ctx.font=
-                    "900 29px Arial";
-
-
-                ctx.fillText(
-
-                    stat[0],
-
-                    x+
-                    boxWidth/2,
-
-                    y+46
-
-                );
-
-
-                ctx.fillStyle=
-                    stat[2];
-
-
-                ctx.font=
-                    "900 50px Arial";
-
-
-                ctx.fillText(
-
-                    stat[1],
-
-                    x+
-                    boxWidth/2,
-
-                    y+101
-
-                );
-
-            }
-
-        );
-
-
-        /* الأرباح */
-
-        const profitY=
-            startY+
-            boxHeight+
-            gap;
-
-
-        const profitWidth=
-            boxWidth;
-
-
-        const profitX=
-            (
-                width-
-                profitWidth
-            )/2;
-
-
-        draw3DBox(
-
-            ctx,
-
-            profitX,
-
-            profitY,
-
-            profitWidth,
-
-            170,
-
-            palette.card,
-
-            palette.head
-
-        );
-
-
-        const profitColor=
-
-            totalProfit>=0
-
-            ?
-
-            "#16a864"
-
-            :
-
-            "#d83c3c";
-
-
-        ctx.fillStyle=
-            palette.text;
-
-
-        ctx.font=
-            "900 29px Arial";
-
-
-        ctx.fillText(
-
-            "مجموع الأرباح",
-
-            width/2,
-
-            profitY+45
-
-        );
-
-
-        ctx.fillStyle=
-            profitColor;
-
-
-        ctx.font=
-            "900 50px Arial";
-
-
-        ctx.fillText(
-
-            (
-                totalProfit>=0
-                ?
-                "+"
-                :
-                "-"
-            )
-
-            +
-
-            "$"
-
-            +
-
-            Math.abs(
-                totalProfit
-            ).toFixed(2),
-
-            width/2,
-
-            profitY+99
-
-        );
-
-
-        ctx.font=
-            "900 48px Arial";
-
-
-        ctx.fillText(
-
-            (
-                multiplied>=0
-                ?
-                "+"
-                :
-                "-"
-            )
-
-            +
-
-            "$"
-
-            +
-
-            Math.abs(
-                multiplied
-            ).toLocaleString(
-                "en-US"
-            ),
-
-            width/2,
-
-            profitY+151
-
-        );
-
-
-        /* الجدول */
-
-        let y=
-            profitY+
-            195;
-
-
-        const columns=[
-
-            "الشركة",
-
-            "الأوبشن",
-
-            "السترايك",
-
-            "الدخول",
-
-            "الخروج",
-
-            "الربح",
-
-            "%",
-
-            "الحالة",
-
-            "ملاحظات"
-
-        ];
-
-
-        const columnWidth=
-            width/
-            columns.length;
-
-
-        drawTable3D(
-
-            ctx,
-
-            0,
-            y,
-
-            width,
-            tableHeader,
-
-            palette.head,
-            palette.card
-
-        );
-
-
-        ctx.fillStyle=
-            palette.text;
-
-
-        ctx.font=
-            "900 28px Arial";
-
-
-        columns.forEach(
-
-            (column,index)=>{
-
-                ctx.fillText(
-
-                    column,
-
-                    width-
-                    index*
-                    columnWidth-
-                    columnWidth/2,
-
-                    y+68
-
-                );
-
-            }
-
-        );
-
-
-        y+=
-            tableHeader;
-
-
-        sorted.forEach(
-
-            trade =>{
-
-
-                const status=
-                    getStatus(trade);
-
-
-                let rowColor;
-
-
-                if(
-                    status.name===
-                    "رابحة"
-                ){
-
-                    rowColor=
-
-                        dark
-
-                        ?
-
-                        "#102318"
-
-                        :
-
-                        "#e5f5ea";
-
-                }
-
-
-                else if(
-                    status.name===
-                    "موقوفة"
-                ){
-
-                    rowColor=
-
-                        dark
-
-                        ?
-
-                        "#10242a"
-
-                        :
-
-                        "#e1f6fa";
-
-                }
-
-
-                else{
-
-                    rowColor=
-
-                        dark
-
-                        ?
-
-                        "#301010"
-
-                        :
-
-                        "#f9e1e1";
-
-                }
-
-
-                drawTable3D(
-
-                    ctx,
-
-                    0,
-                    y,
-
-                    width,
-                    rowHeight,
-
-                    rowColor,
-                    rowColor
-
-                );
-
-
-                const values=[
-
-                    trade.stock,
-
-                    trade.option,
-
-                    Number(
-                        trade.strike
-                    ).toFixed(2),
-
-                    Number(
-                        trade.buy
-                    ).toFixed(2),
-
-                    Number(
-                        trade.sell
-                    ).toFixed(2),
-
-                    (
-                        trade.profit>=0
-                        ?
-                        "+"
-                        :
-                        ""
-                    )
-                    +
-                    Number(
-                        trade.profit
-                    ).toFixed(2),
-
-                    (
-                        trade.percentage>=0
-                        ?
-                        "+"
-                        :
-                        ""
-                    )
-                    +
-                    Number(
-                        trade.percentage
-                    ).toFixed(2)
-                    +
-                    "%",
-
-                    status.name,
-
-                    trade.notes||""
-
-                ];
-
-
-                ctx.fillStyle=
-
-                    dark
-
-                    ?
-
-                    "#ffffff"
-
-                    :
-
-                    "#172126";
-
-
-                ctx.font=
-                    "900 28px Arial";
-
-
-                values.forEach(
-
-                    (value,index)=>{
-
-
-                        let text=
-                            String(value);
-
-
-                        const maxWidth=
-                            columnWidth-24;
-
-
-                        while(
-
-                            ctx.measureText(
-                                text
-                            ).width
-                            >
-                            maxWidth
-
-                            &&
-
-                            text.length>1
-
-                        ){
-
-                            text=
-                                text.slice(
-                                    0,
-                                    -1
-                                );
-
-                        }
-
-
-                        ctx.fillText(
-
-                            text,
-
-                            width-
-                            index*
-                            columnWidth-
-                            columnWidth/2,
-
-                            y+
-                            rowHeight/2+
-                            10
-
-                        );
-
-                    }
-
-                );
-
-
-                y+=
-                    rowHeight;
-
-            }
-
-        );
-
-
-        if(!sorted.length){
-
-            ctx.fillStyle=
-                palette.text;
-
-
-            ctx.font=
-                "900 30px Arial";
-
-
-            ctx.fillText(
-
-                "لا توجد صفقات في هذه الفترة",
-
-                width/2,
-
-                y+75
-
-            );
-
-        }
-
-
-        /* التنويه */
-
-        const noteY=
-            height-
-            noteHeight;
-
-
-        draw3DBox(
-
-            ctx,
-
-            30,
-
-            noteY,
-
-            width-60,
-
-            115,
-
-            palette.card,
-
-            palette.head
-
-        );
-
-
-        ctx.fillStyle=
-            palette.text;
-
-
-        ctx.font=
-            "900 25px Arial";
-
-
-        ctx.fillText(
-
-            "تنويه: الأسعار الموضحة تمثل سعر الدخول والتوجيه بالخروج للصفقة،",
-
-            width/2,
-
-            noteY+48
-
-        );
-
-
-        ctx.fillText(
-
-            "ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.",
-
-            width/2,
-
-            noteY+87
-
-        );
-
-
-        canvas.toBlob(
-
-            blob=>{
-
-                if(!blob){
-
-                    alert(
-                        "تعذر إنشاء صورة التقرير"
-                    );
-
-                    return;
-
-                }
-
-
-                saveImageBlob(
-
-                    blob,
-
-                    "تقرير-الصفقات.png"
-
-                );
-
-            },
-
-            "image/png"
-
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   صناديق صورة التقرير
-   دائمًا ظل أحمر + ذهبي
-===================================================== */
-
-function draw3DBox(
-    ctx,
-    x,
-    y,
-    width,
-    height,
-    color1,
-    color2
-){
-
-    /* الظل الأحمر */
-
-    ctx.fillStyle=
-        "rgba(125,8,8,.55)";
-
-
-    ctx.fillRect(
-
-        x+9,
-
-        y+11,
-
-        width,
-
-        height
-
-    );
-
-
-    /* التوهج الذهبي */
-
-    ctx.save();
-
-
-    ctx.shadowColor=
-        "rgba(212,175,55,.70)";
-
-
-    ctx.shadowBlur=
-        17;
-
-
-    ctx.strokeStyle=
-        "#d4af37";
-
-
-    ctx.lineWidth=
-        4;
-
-
-    ctx.strokeRect(
-
-        x,
-
-        y,
-
-        width,
-
-        height
-
-    );
-
-
-    ctx.restore();
-
-
-    const gradient=
-        ctx.createLinearGradient(
-
-            x,
-            y,
-
-            x,
-            y+height
-
-        );
-
-
-    gradient.addColorStop(
-        0,
-        color1
-    );
-
-
-    gradient.addColorStop(
-        1,
-        color2
-    );
-
-
-    ctx.fillStyle=
-        gradient;
-
-
-    ctx.fillRect(
-
-        x,
-        y,
-
-        width,
-        height
-
-    );
-
-
-    ctx.strokeStyle=
-        "#d4af37";
-
-
-    ctx.lineWidth=
-        3;
-
-
-    ctx.strokeRect(
-
-        x,
-        y,
-
-        width,
-        height
-
-    );
-
-
-    ctx.fillStyle=
-        "rgba(255,220,100,.22)";
-
-
-    ctx.fillRect(
-
-        x,
-        y,
-
-        width,
-        5
-
-    );
-
-}
-
-
-/* =====================================================
-   جدول الصورة
-===================================================== */
-
-function drawTable3D(
-    ctx,
-    x,
-    y,
-    width,
-    height,
-    color1,
-    color2
-){
-
-    ctx.fillStyle=
-        "rgba(125,8,8,.48)";
-
-
-    ctx.fillRect(
-
-        x+7,
-
-        y+9,
-
-        width,
-
-        height
-
-    );
-
-
-    ctx.save();
-
-
-    ctx.shadowColor=
-        "rgba(212,175,55,.55)";
-
-
-    ctx.shadowBlur=
-        11;
-
-
-    ctx.strokeStyle=
-        "#d4af37";
-
-
-    ctx.lineWidth=
-        3;
-
-
-    ctx.strokeRect(
-
-        x,
-        y,
-
-        width,
-        height
-
-    );
-
-
-    ctx.restore();
-
-
-    const gradient=
-        ctx.createLinearGradient(
-
-            x,
-            y,
-
-            x,
-            y+height
-
-        );
-
-
-    gradient.addColorStop(
-        0,
-        color1
-    );
-
-
-    gradient.addColorStop(
-        1,
-        color2
-    );
-
-
-    ctx.fillStyle=
-        gradient;
-
-
-    ctx.fillRect(
-
-        x,
-        y,
-
-        width,
-        height
-
-    );
-
-
-    ctx.strokeStyle=
-        "#b99425";
-
-
-    ctx.lineWidth=
-        2;
-
-
-    ctx.strokeRect(
-
-        x,
-        y,
-
-        width,
-        height
-
-    );
-
-}
-
-
-/* =====================================================
-   حفظ صورة
-===================================================== */
-
-function saveImageBlob(
-    blob,
-    filename
-){
-
-    try{
-
-        const file=
-            new File(
-
-                [blob],
-
-                filename,
-
-                {
-                    type:
-                        "image/png"
-                }
-
-            );
-
-
-        if(
-            navigator.share
-            &&
-            navigator.canShare
-            &&
-            navigator.canShare({
-                files:[file]
-            })
-        ){
-
-            navigator.share({
-
-                files:[file],
-
-                title:
-                    "تقرير الصفقات",
-
-                text:
-                    "تقرير الصفقات"
-
-            })
-
-            .catch(
-
-                error=>{
-
-                    if(
-                        error
-                        &&
-                        error.name!==
-                        "AbortError"
-                    ){
-
-                        fallbackSaveImage(
-                            blob
-                        );
-
-                    }
-
-                }
-
-            );
-
-
-            return;
-
-        }
-
-    }catch(error){}
-
-
-    fallbackSaveImage(
-        blob
-    );
-
-}
-
-
-/* =====================================================
-   حفظ احتياطي
-===================================================== */
-
-function fallbackSaveImage(blob){
-
-    try{
-
-        const url=
-            URL.createObjectURL(
-                blob
-            );
-
-
-        const link=
-            document.createElement(
-                "a"
-            );
-
-
-        link.href=
-            url;
-
-
-        link.download=
-            "تقرير-الصفقات.png";
-
-
-        link.target=
-            "_blank";
-
-
-        link.rel=
-            "noopener";
-
-
-        document.body.appendChild(
-            link
-        );
-
-
-        link.click();
-
-
-        setTimeout(
-
-            ()=>{
-
-                try{
-
-                    document.body.removeChild(
-                        link
-                    );
-
-                }catch(error){}
-
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            },
-
-            5000
-
-        );
-
-    }
-    catch(error){
-
-        alert(
-            "تعذر حفظ الصورة. حاولي مرة أخرى."
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   التشغيل
-===================================================== */
-
-const savedTheme=
-    localStorage.getItem(
-        "optionTheme"
-    );
-
-
-setTheme(
-
-    THEMES.includes(
-        savedTheme
-    )
-
-    ?
-
-    savedTheme
-
-    :
-
-    "white"
-
-);
-
-
-const savedReportTheme=
-    localStorage.getItem(
-        "reportTheme"
-    );
-
-
-setReportTheme(
-
-    THEMES.includes(
-        savedReportTheme
-    )
-
-    ?
-
-    savedReportTheme
-
-    :
-
-    "white"
-
-);
-
-
-setLogo(
-    selectedLogo
-);
-
-
-updateCurrentWeek();
-
-
-displayCurrentWeekTrades();
-
-</script>
-
-</body>
-</html>
+    const year
