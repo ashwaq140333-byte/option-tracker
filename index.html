@@ -61,17 +61,6 @@ body.turquoise{
     --header:#dceff1;
 }
 
-body.mint{
-    --bg:#f3f8f5;
-    --card:#fff;
-    --text:#26362e;
-    --secondary:#718078;
-    --border:#dce8e1;
-    --button:#4d7d66;
-    --buttonText:#fff;
-    --header:#e1eee7;
-}
-
 body.beige{
     --bg:#faf8f3;
     --card:#fff;
@@ -118,8 +107,6 @@ body.beige{
     object-fit:cover;
 }
 
-/* نفس حجم شعار 1 في كل الأماكن */
-
 .logo1,
 .report-logo1{
     width:100%!important;
@@ -159,9 +146,6 @@ body.beige{
 
 .logo-button:active{
     transform:translateY(3px);
-    box-shadow:
-        0 1px 0 rgba(0,0,0,.25),
-        0 3px 6px rgba(0,0,0,.15);
 }
 
 .logo-button.active{
@@ -505,10 +489,6 @@ td{
     background:#e8f3f4;
 }
 
-.report.theme-report-mint .stat{
-    background:#eaf1ed;
-}
-
 .report.theme-report-beige .stat{
     background:#f2eee7;
 }
@@ -567,8 +547,6 @@ td{
     line-height:1;
 }
 
-/* مجموع الأرباح */
-
 .profit-main{
     display:block;
     font-size:30px!important;
@@ -583,8 +561,6 @@ td{
     font-weight:900!important;
     line-height:1!important;
 }
-
-/* الألوان */
 
 #totalTrades{
     color:#222!important;
@@ -644,8 +620,6 @@ td{
     padding:16px;
     background:#fff;
 }
-
-/* ألوان خلفيات الصفوف فقط */
 
 .win-row td{
     background:#e3f4e9;
@@ -731,14 +705,9 @@ td{
         font-size:20px!important;
     }
 
-    .stats{
-        gap:12px!important;
-    }
-
     .stat{
         padding:16px!important;
         min-height:110px!important;
-
         box-shadow:
             0 5px 0 rgba(0,0,0,.18),
             0 10px 18px rgba(0,0,0,.15)!important;
@@ -865,10 +834,6 @@ td{
 
 <div class="container">
 
-<!-- =========================
-     الشعار
-========================= -->
-
 <div class="main-banner">
 
 <img
@@ -924,19 +889,11 @@ class="theme-menu no-print">
 تركوازي
 </button>
 
-<button onclick="setTheme('mint')">
-نعناعي
-</button>
-
 <button onclick="setTheme('beige')">
 بيج
 </button>
 
 </div>
-
-<!-- =========================
-     نموذج الصفقة
-========================= -->
 
 <div class="form-box no-print">
 
@@ -964,13 +921,9 @@ placeholder="مثال: TSLA">
 
 <option value="">اختر</option>
 
-<option value="Call">
-Call
-</option>
+<option value="Call">Call</option>
 
-<option value="Put">
-Put
-</option>
+<option value="Put">Put</option>
 
 </select>
 
@@ -1052,10 +1005,6 @@ onclick="addTrade()">
 
 </div>
 
-<!-- =========================
-     الجدول الرئيسي
-========================= -->
-
 <div class="table-box">
 
 <h3 style="text-align:center">
@@ -1086,10 +1035,6 @@ onclick="addTrade()">
 </table>
 
 </div>
-
-<!-- =========================
-     التقارير
-========================= -->
 
 <div class="report-filter no-print">
 
@@ -1165,10 +1110,6 @@ onclick="showReport()">
 
 </div>
 
-<!-- =========================
-     التقرير
-========================= -->
-
 <div id="report" class="report">
 
 <div class="report-banner">
@@ -1218,21 +1159,11 @@ onclick="setReportTheme('theme-report-turquoise')">
 
 <button
 class="report-theme-button"
-onclick="setReportTheme('theme-report-mint')">
-نعناعي
-</button>
-
-<button
-class="report-theme-button"
 onclick="setReportTheme('theme-report-beige')">
 بيج
 </button>
 
 </div>
-
-<!-- =========================
-     الإحصائيات
-========================= -->
 
 <div class="stats">
 
@@ -1334,21 +1265,26 @@ class="report-table">
 <script>
 
 /* =========================
-   الشعار الوحيد
+   الشعار
 ========================= */
 
 const LOGO="IMG_1.jpg";
 
 function setLogo(){
 
-    document.getElementById("mainLogo").src=LOGO;
-    document.getElementById("reportLogo").src=LOGO;
+    const mainLogo=
+        document.getElementById("mainLogo");
+
+    const reportLogo=
+        document.getElementById("reportLogo");
+
+    mainLogo.src=LOGO;
+    reportLogo.src=LOGO;
 
     localStorage.setItem(
         "selectedLogo",
         "1"
     );
-
 }
 
 /* =========================
@@ -1424,7 +1360,6 @@ function setReportTheme(theme){
         "theme-report-silver",
         "theme-report-blue",
         "theme-report-turquoise",
-        "theme-report-mint",
         "theme-report-beige"
     );
 
@@ -1734,7 +1669,7 @@ function getStatus(trade){
 }
 
 /* =========================
-   حماية
+   حماية HTML
 ========================= */
 
 function escapeHTML(value){
@@ -2083,11 +2018,6 @@ function buildReport(filtered,start,end){
         "$"+
         Math.abs(totalProfit).toFixed(2);
 
-    /*
-       القيمة × 100
-       رقم صحيح فقط + دولار
-    */
-
     const multiplied=
         Math.round(totalProfit*100);
 
@@ -2182,17 +2112,13 @@ function buildReport(filtered,start,end){
         <td>${Number(t.sell).toFixed(2)}</td>
 
         <td>
-
         ${t.profit>=0?"+":""}
         ${Number(t.profit).toFixed(2)}
-
         </td>
 
         <td>
-
         ${t.percentage>=0?"+":""}
         ${Number(t.percentage).toFixed(2)}%
-
         </td>
 
         <td>${status.name}</td>
@@ -2232,24 +2158,26 @@ function buildReport(filtered,start,end){
 
 function printReport(){
 
-    if(
-        !document
-        .getElementById("report")
-        .classList
-        .contains("show")
-    ){
+    const report=
+        document.getElementById("report");
+
+    if(!report.classList.contains("show")){
+
         showReport();
+
     }
 
     setTimeout(function(){
+
         window.print();
-    },300);
+
+    },400);
 
 }
 
-/* =========================
-   صورة التقرير
-========================= */
+/* =====================================================
+   حفظ صورة التقرير
+===================================================== */
 
 function saveReportImage(){
 
@@ -2267,22 +2195,13 @@ function saveReportImage(){
     const sorted=
         sortTradesForReport(filtered);
 
-    /*
-       حجم ضخم وواضح للصورة
-    */
-
     const width=2400;
 
     const bannerHeight=360;
-
     const titleArea=150;
-
     const statsHeight=330;
-
     const tableHeader=110;
-
     const rowHeight=125;
-
     const noteHeight=150;
 
     const height=
@@ -2319,17 +2238,8 @@ function saveReportImage(){
     );
 
     /* =========================
-       البنر
+       تحميل الشعار
     ========================= */
-
-    ctx.fillStyle="#000";
-
-    ctx.fillRect(
-        0,
-        0,
-        width,
-        bannerHeight
-    );
 
     const logo=new Image();
 
@@ -2362,6 +2272,8 @@ function saveReportImage(){
     function drawReportCanvas(){
 
         ctx.textAlign="center";
+
+        /* العنوان */
 
         ctx.fillStyle="#222";
 
@@ -2456,13 +2368,12 @@ function saveReportImage(){
 
         const startY=510;
 
-        /*
-           أول 4 مربعات
-        */
+        /* أول 4 مربعات */
 
         stats.forEach(function(s,i){
 
             const row=Math.floor(i/3);
+
             const col=i%3;
 
             const x=
@@ -2473,6 +2384,7 @@ function saveReportImage(){
                 row*(boxH+boxGap);
 
             draw3DBox(
+                ctx,
                 x,
                 y,
                 boxW,
@@ -2504,10 +2416,9 @@ function saveReportImage(){
 
         });
 
-        /*
+        /* =========================
            مجموع الأرباح
-           يكون في المنتصف تحتها
-        */
+        ========================= */
 
         const profitY=
             startY+
@@ -2521,6 +2432,7 @@ function saveReportImage(){
             (width-profitW)/2;
 
         draw3DBox(
+            ctx,
             profitX,
             profitY,
             profitW,
@@ -2530,8 +2442,10 @@ function saveReportImage(){
 
         const profitColor=
             totalProfit>=0
-            ?"#13894e"
-            :"#c72e2e";
+            ?
+            "#13894e"
+            :
+            "#c72e2e";
 
         ctx.fillStyle="#222";
 
@@ -2590,13 +2504,13 @@ function saveReportImage(){
 
         ];
 
-        const cw=width/columns.length;
+        const cw=
+            width/columns.length;
 
-        /*
-           رأس الجدول
-        */
+        /* رأس الجدول */
 
         drawTable3D(
+            ctx,
             0,
             y,
             width,
@@ -2629,23 +2543,31 @@ function saveReportImage(){
 
         sorted.forEach(function(t){
 
-            const status=getStatus(t);
+            const status=
+                getStatus(t);
 
             let rowColor="#fff";
 
             if(status.name==="رابحة"){
+
                 rowColor="#e3f4e9";
+
             }
 
             else if(status.name==="موقوفة"){
+
                 rowColor="#dff7fb";
+
             }
 
             else{
+
                 rowColor="#f8e2e2";
+
             }
 
             drawTable3D(
+                ctx,
                 0,
                 y,
                 width,
@@ -2680,10 +2602,6 @@ function saveReportImage(){
 
             ctx.fillStyle="#000";
 
-            /*
-               خط كبير جدًا وغامق
-            */
-
             ctx.font=
                 "900 27px Arial";
 
@@ -2693,11 +2611,6 @@ function saveReportImage(){
 
                 const maxWidth=
                     cw-24;
-
-                /*
-                   تقصير النص الطويل فقط
-                   حتى لا يخرج من الخلية
-                */
 
                 while(
                     ctx.measureText(text).width>
@@ -2737,6 +2650,7 @@ function saveReportImage(){
             height-noteHeight;
 
         draw3DBox(
+            ctx,
             30,
             noteY,
             width-60,
@@ -2762,54 +2676,81 @@ function saveReportImage(){
         );
 
         /* =========================
-           إخراج الصورة
+           إخراج PNG
         ========================= */
 
-        canvas.toBlob(function(blob){
+        canvas.toBlob(
+            function(blob){
 
-            if(!blob){
+                if(!blob){
 
-                alert("تعذر إنشاء صورة التقرير");
-                return;
+                    alert(
+                        "تعذر إنشاء صورة التقرير"
+                    );
 
-            }
+                    return;
 
-            const file=
-                new File(
-                    [blob],
-                    "تقرير-الصفقات.png",
-                    {
-                        type:"image/png"
-                    }
-                );
+                }
 
-            if(
-                navigator.share &&
-                navigator.canShare &&
-                navigator.canShare({
-                    files:[file]
-                })
-            ){
+                const file=
+                    new File(
+                        [blob],
+                        "تقرير-الصفقات.png",
+                        {
+                            type:"image/png"
+                        }
+                    );
 
-                navigator.share({
+                /*
+                   في الآيفون والآيباد:
+                   فتح المشاركة إذا كانت مدعومة
+                */
 
-                    files:[file],
+                if(
+                    navigator.share &&
+                    navigator.canShare &&
+                    navigator.canShare({
+                        files:[file]
+                    })
+                ){
 
-                    title:"تقرير الصفقات"
+                    navigator.share({
 
-                }).catch(function(){
+                        files:[file],
 
-                    downloadImage(blob);
+                        title:"تقرير الصفقات"
 
-                });
+                    }).catch(function(error){
 
-                return;
+                        /*
+                           إذا أغلق المستخدم نافذة المشاركة
+                           لا نعتبرها خطأ
+                        */
 
-            }
+                        if(
+                            error &&
+                            error.name!=="AbortError"
+                        ){
 
-            downloadImage(blob);
+                            downloadImage(blob);
 
-        },"image/png");
+                        }
+
+                    });
+
+                    return;
+
+                }
+
+                /*
+                   الأجهزة التي لا تدعم المشاركة
+                */
+
+                downloadImage(blob);
+
+            },
+            "image/png"
+        );
 
     }
 
@@ -2819,13 +2760,19 @@ function saveReportImage(){
    3D Box
 ========================= */
 
-function draw3DBox(x,y,w,h,background){
+function draw3DBox(
+    ctx,
+    x,
+    y,
+    w,
+    h,
+    background
+){
 
-    /*
-       الظل الخارجي
-    */
+    /* الظل */
 
-    ctx.fillStyle="rgba(0,0,0,.18)";
+    ctx.fillStyle=
+        "rgba(0,0,0,.18)";
 
     ctx.fillRect(
         x+7,
@@ -2834,9 +2781,7 @@ function draw3DBox(x,y,w,h,background){
         h
     );
 
-    /*
-       طبقة سفلية لإحساس 3D
-    */
+    /* الطبقة السفلية */
 
     ctx.fillStyle="#c7c7c7";
 
@@ -2847,9 +2792,7 @@ function draw3DBox(x,y,w,h,background){
         h
     );
 
-    /*
-       الوجه الأساسي
-    */
+    /* الوجه الأساسي */
 
     ctx.fillStyle=background;
 
@@ -2860,11 +2803,10 @@ function draw3DBox(x,y,w,h,background){
         h
     );
 
-    /*
-       لمعة علوية
-    */
+    /* اللمعة */
 
-    ctx.fillStyle="rgba(255,255,255,.55)";
+    ctx.fillStyle=
+        "rgba(255,255,255,.55)";
 
     ctx.fillRect(
         x,
@@ -2879,9 +2821,19 @@ function draw3DBox(x,y,w,h,background){
    جدول 3D
 ========================= */
 
-function drawTable3D(x,y,w,h,background){
+function drawTable3D(
+    ctx,
+    x,
+    y,
+    w,
+    h,
+    background
+){
 
-    ctx.fillStyle="rgba(0,0,0,.16)";
+    /* الظل */
+
+    ctx.fillStyle=
+        "rgba(0,0,0,.16)";
 
     ctx.fillRect(
         x+4,
@@ -2889,6 +2841,8 @@ function drawTable3D(x,y,w,h,background){
         w,
         h
     );
+
+    /* الخلفية */
 
     ctx.fillStyle=background;
 
@@ -2898,6 +2852,8 @@ function drawTable3D(x,y,w,h,background){
         w,
         h
     );
+
+    /* الحدود */
 
     ctx.strokeStyle="#b8c4c7";
 
@@ -2918,28 +2874,40 @@ function drawTable3D(x,y,w,h,background){
 
 function downloadImage(blob){
 
-    const url=
-        URL.createObjectURL(blob);
+    try{
 
-    const a=
-        document.createElement("a");
+        const url=
+            URL.createObjectURL(blob);
 
-    a.href=url;
+        const a=
+            document.createElement("a");
 
-    a.download=
-        "تقرير-الصفقات.png";
+        a.href=url;
 
-    document.body.appendChild(a);
+        a.download=
+            "تقرير-الصفقات.png";
 
-    a.click();
+        a.style.display="none";
 
-    a.remove();
+        document.body.appendChild(a);
 
-    setTimeout(function(){
+        a.click();
 
-        URL.revokeObjectURL(url);
+        document.body.removeChild(a);
 
-    },1000);
+        setTimeout(function(){
+
+            URL.revokeObjectURL(url);
+
+        },1500);
+
+    }catch(e){
+
+        alert(
+            "تعذر حفظ الصورة. حاولي مرة أخرى."
+        );
+
+    }
 
 }
 
