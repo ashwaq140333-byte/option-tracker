@@ -1,30 +1,123 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>متابعة الأوبشن</title>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
+
+/* =========================
+   الثيمات
+========================= */
+
 :root{
     --bg:#f5f6fa;
-    --card:#fff;
-    --text:#222;
-    --secondary:#777;
-    --border:#ddd;
-    --button:#222;
-    --buttonText:#fff;
-    --header:#eee;
+    --card:#ffffff;
+    --text:#222222;
+    --secondary:#777777;
+    --border:#dddddd;
+    --button:#222222;
+    --buttonText:#ffffff;
+    --header:#eeeeee;
 }
 
-body.midnight{--bg:#0b0d12;--card:#151922;--text:#f4f4f4;--secondary:#9da3af;--border:#292e38;--button:#d4af37;--buttonText:#111;--header:#202631}
-body.cyber{--bg:#06111f;--card:#0d1b2d;--text:#e8f4ff;--secondary:#8fa8c0;--border:#193653;--button:#168cff;--buttonText:#fff;--header:#132b45}
-body.titanium{--bg:#25272b;--card:#34373c;--text:#f1f1f1;--secondary:#b9bdc3;--border:#50545b;--button:#aeb4bd;--buttonText:#111;--header:#41454b}
-body.trading{--bg:#06140e;--card:#0d2118;--text:#e7fff1;--secondary:#91b5a0;--border:#1b4931;--button:#18a558;--buttonText:#fff;--header:#153523}
-body.purple{--bg:#100819;--card:#1c1029;--text:#f8ecff;--secondary:#bda8c8;--border:#3d2450;--button:#9b4dff;--buttonText:#fff;--header:#29163a}
-body.gold{--bg:#080808;--card:#151515;--text:#f5f1df;--secondary:#aaa38b;--border:#3b3521;--button:#c9a227;--buttonText:#111;--header:#242017}
-body.ocean{--bg:#04151d;--card:#09242e;--text:#e7fbff;--secondary:#8cb4be;--border:#164552;--button:#19a9c5;--buttonText:#fff;--header:#10343e}
-body.market{--bg:#100808;--card:#1d1010;--text:#fff0f0;--secondary:#bd9999;--border:#482020;--button:#c83232;--buttonText:#fff;--header:#321717}
+body.midnight{
+    --bg:#0b0d12;
+    --card:#151922;
+    --text:#f4f4f4;
+    --secondary:#9da3af;
+    --border:#292e38;
+    --button:#d4af37;
+    --buttonText:#111111;
+    --header:#202631;
+}
+
+body.cyber{
+    --bg:#06111f;
+    --card:#0d1b2d;
+    --text:#e8f4ff;
+    --secondary:#8fa8c0;
+    --border:#193653;
+    --button:#168cff;
+    --buttonText:#ffffff;
+    --header:#132b45;
+}
+
+body.titanium{
+    --bg:#25272b;
+    --card:#34373c;
+    --text:#f1f1f1;
+    --secondary:#b9bdc3;
+    --border:#50545b;
+    --button:#aeb4bd;
+    --buttonText:#111111;
+    --header:#41454b;
+}
+
+body.trading{
+    --bg:#06140e;
+    --card:#0d2118;
+    --text:#e7fff1;
+    --secondary:#91b5a0;
+    --border:#1b4931;
+    --button:#18a558;
+    --buttonText:#ffffff;
+    --header:#153523;
+}
+
+body.purple{
+    --bg:#100819;
+    --card:#1c1029;
+    --text:#f8ecff;
+    --secondary:#bda8c8;
+    --border:#3d2450;
+    --button:#9b4dff;
+    --buttonText:#ffffff;
+    --header:#29163a;
+}
+
+body.gold{
+    --bg:#080808;
+    --card:#151515;
+    --text:#f5f1df;
+    --secondary:#aaa38b;
+    --border:#3b3521;
+    --button:#c9a227;
+    --buttonText:#111111;
+    --header:#242017;
+}
+
+body.ocean{
+    --bg:#04151d;
+    --card:#09242e;
+    --text:#e7fbff;
+    --secondary:#8cb4be;
+    --border:#164552;
+    --button:#19a9c5;
+    --buttonText:#ffffff;
+    --header:#10343e;
+}
+
+body.market{
+    --bg:#100808;
+    --card:#1d1010;
+    --text:#fff0f0;
+    --secondary:#bd9999;
+    --border:#482020;
+    --button:#c83232;
+    --buttonText:#ffffff;
+    --header:#321717;
+}
+
+
+/* =========================
+   الصفحة
+========================= */
 
 body{
     font-family:Arial,sans-serif;
@@ -35,7 +128,10 @@ body{
     transition:.3s;
 }
 
-.container{max-width:1100px;margin:auto}
+.container{
+    max-width:1100px;
+    margin:auto;
+}
 
 .logo{
     width:70px;
@@ -45,7 +141,15 @@ body{
     margin:0 auto 8px;
 }
 
-h1{text-align:center;margin-bottom:20px}
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   الأزرار
+========================= */
 
 .theme-button,
 .report-button{
@@ -84,6 +188,11 @@ h1{text-align:center;margin-bottom:20px}
     cursor:pointer;
 }
 
+
+/* =========================
+   نموذج الصفقة
+========================= */
+
 .form-box{
     background:var(--card);
     padding:20px;
@@ -98,7 +207,8 @@ h1{text-align:center;margin-bottom:20px}
     gap:10px;
 }
 
-input,select{
+input,
+select{
     width:100%;
     padding:12px;
     border:1px solid var(--border);
@@ -120,6 +230,11 @@ input,select{
     font-size:16px;
     cursor:pointer;
 }
+
+
+/* =========================
+   جدول الصفقات
+========================= */
 
 .table-box{
     margin-top:20px;
@@ -148,12 +263,24 @@ td{
     border-bottom:1px solid var(--border);
 }
 
-.green{color:#20c979;font-weight:bold}
-.red{color:#ff5555;font-weight:bold}
+.green{
+    color:#168a52;
+    font-weight:bold;
+}
+
+.orange{
+    color:#008ca3;
+    font-weight:bold;
+}
+
+.red{
+    color:#d93030;
+    font-weight:bold;
+}
 
 .delete-button{
     background:#d93636;
-    color:#fff;
+    color:#ffffff;
     border:none;
     border-radius:7px;
     padding:7px 12px;
@@ -166,30 +293,55 @@ td{
     padding:25px;
 }
 
-/* نافذة التقرير */
+
+/* =========================
+   التقرير
+========================= */
+
 .report{
     display:none;
-    background:var(--card);
-    color:var(--text);
-    border:1px solid var(--border);
+
+    background:#ffffff !important;
+    color:#222222 !important;
+
+    border:1px solid #dddddd;
     border-radius:15px;
+
     padding:20px;
     margin-top:20px;
 }
 
-.report.show{display:block}
+.report.show{
+    display:block;
+}
 
-.report h2{text-align:center}
+.report h2{
+    text-align:center;
+    margin-top:0;
+    color:#222222 !important;
+}
+
+.report-date{
+    text-align:center;
+    color:#666666 !important;
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   إحصائيات التقرير
+========================= */
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
     gap:10px;
     margin:20px 0;
 }
 
 .stat{
-    background:var(--header);
+    background:#f4f4f4 !important;
+    color:#222222 !important;
     padding:15px;
     border-radius:10px;
     text-align:center;
@@ -201,86 +353,283 @@ td{
     margin-top:7px;
 }
 
-.print-button{
-    background:var(--button);
-    color:var(--buttonText);
-    border:none;
-    border-radius:9px;
-    padding:12px 20px;
-    cursor:pointer;
-    font-size:15px;
-    margin-bottom:15px;
+
+/* =========================
+   جدول التقرير النهائي
+========================= */
+
+.report-table{
+    background:#ffffff !important;
+    color:#222222 !important;
+    border-radius:10px;
+    overflow:hidden;
 }
 
-@media print{
-    body{background:#fff;color:#000}
-    .no-print{display:none!important}
-    .report{display:block;border:none}
+.report-table table{
+    width:100%;
+    min-width:850px;
+    border-collapse:collapse;
+    background:#ffffff !important;
 }
+
+.report-table th{
+    background:#eeeeee !important;
+    color:#222222 !important;
+    border:1px solid #d5d5d5;
+    padding:12px;
+}
+
+.report-table td{
+    color:#222222 !important;
+    border:1px solid #d5d5d5;
+    padding:11px;
+}
+
+
+/* رابحة */
+
+.report-table tr.win-row{
+    background:#dff5e7 !important;
+}
+
+.report-table tr.win-row td{
+    background:#dff5e7 !important;
+    color:#126b3d !important;
+}
+
+
+/* موقوفة */
+
+.report-table tr.stopped-row{
+    background:#dff7fb !important;
+}
+
+.report-table tr.stopped-row td{
+    background:#dff7fb !important;
+    color:#00788c !important;
+}
+
+
+/* خاسرة */
+
+.report-table tr.loss-row{
+    background:#ffe1e1 !important;
+}
+
+.report-table tr.loss-row td{
+    background:#ffe1e1 !important;
+    color:#b52222 !important;
+}
+
+
+/* =========================
+   أزرار التقرير
+========================= */
+
+.report-actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.report-action{
+    background:#222222;
+    color:#ffffff;
+    border:none;
+    border-radius:9px;
+    padding:12px 18px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+
+/* =========================
+   الطباعة
+========================= */
+
+@media print{
+
+    body{
+        background:#ffffff !important;
+        color:#222222 !important;
+    }
+
+    .no-print{
+        display:none !important;
+    }
+
+    .report{
+        display:block !important;
+        border:none !important;
+        box-shadow:none !important;
+        background:#ffffff !important;
+    }
+
+    .report-table{
+        background:#ffffff !important;
+    }
+
+    .report-table tr.win-row td{
+        background:#dff5e7 !important;
+    }
+
+    .report-table tr.stopped-row td{
+        background:#dff7fb !important;
+    }
+
+    .report-table tr.loss-row td{
+        background:#ffe1e1 !important;
+    }
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
-<img src="./IMG_6426.jpeg" class="logo">
+
+<img
+src="./IMG_6426.jpeg"
+class="logo"
+alt="شعار البرنامج"
+>
+
 
 <h1>متابعة الأوبشن</h1>
 
+
+<!-- الثيمات -->
+
 <div class="no-print">
 
-<button class="theme-button" onclick="toggleThemes()">
+<button
+class="theme-button"
+onclick="toggleThemes()">
+
 🎨 الثيمات
+
 </button>
 
-<div id="themeMenu" class="theme-menu">
 
-<button onclick="setTheme('midnight')">🖤 Midnight</button>
-<button onclick="setTheme('cyber')">💙 Cyber Blue</button>
-<button onclick="setTheme('titanium')">🩶 Titanium</button>
-<button onclick="setTheme('trading')">🟢 Trading Green</button>
-<button onclick="setTheme('purple')">🟣 Neon Purple</button>
-<button onclick="setTheme('gold')">🟡 Black Gold</button>
-<button onclick="setTheme('ocean')">🌊 Deep Ocean</button>
-<button onclick="setTheme('market')">🔴 Market Red</button>
+<div
+id="themeMenu"
+class="theme-menu">
+
+<button onclick="setTheme('midnight')">
+🖤 Midnight
+</button>
+
+<button onclick="setTheme('cyber')">
+💙 Cyber Blue
+</button>
+
+<button onclick="setTheme('titanium')">
+🩶 Titanium
+</button>
+
+<button onclick="setTheme('trading')">
+🟢 Trading Green
+</button>
+
+<button onclick="setTheme('purple')">
+🟣 Neon Purple
+</button>
+
+<button onclick="setTheme('gold')">
+🟡 Black Gold
+</button>
+
+<button onclick="setTheme('ocean')">
+🌊 Deep Ocean
+</button>
+
+<button onclick="setTheme('market')">
+🔴 Market Red
+</button>
 
 </div>
 
 </div>
+
+
+<!-- إضافة الصفقة -->
 
 <div class="form-box no-print">
 
 <div class="form">
 
-<input id="stock" type="text" placeholder="السهم">
+<input
+id="stock"
+type="text"
+placeholder="السهم"
+>
 
 <select id="option">
-<option value="">اختر الأوبشن</option>
-<option value="Call">Call 📈</option>
-<option value="Put">Put 📉</option>
+
+<option value="">
+اختر الأوبشن
+</option>
+
+<option value="Call">
+Call 📈
+</option>
+
+<option value="Put">
+Put 📉
+</option>
+
 </select>
 
-<input id="strike" type="number" step="0.01" placeholder="السترايك">
+<input
+id="strike"
+type="number"
+step="0.01"
+placeholder="السترايك"
+>
 
-<input id="buy" type="number" step="0.01" placeholder="سعر الشراء">
+<input
+id="buy"
+type="number"
+step="0.01"
+placeholder="سعر الشراء"
+>
 
-<input id="sell" type="number" step="0.01" placeholder="سعر البيع">
+<input
+id="sell"
+type="number"
+step="0.01"
+placeholder="سعر البيع"
+>
 
 </div>
 
-<button class="add-button" onclick="addTrade()">
+
+<button
+class="add-button"
+onclick="addTrade()">
+
 ➕ إضافة الصفقة
+
 </button>
 
 </div>
+
+
+<!-- جدول الصفقات -->
 
 <div class="table-box">
 
 <table>
 
 <thead>
+
 <tr>
+
 <th>السهم</th>
 <th>الأوبشن</th>
 <th>السترايك</th>
@@ -289,77 +638,199 @@ td{
 <th>الربح</th>
 <th>الأرباح %</th>
 <th class="no-print">حذف</th>
+
 </tr>
+
 </thead>
 
+
 <tbody id="tableBody">
+
 <tr>
-<td colspan="8" class="empty">
+
+<td
+colspan="8"
+class="empty">
+
 لا توجد صفقات حتى الآن
+
 </td>
+
 </tr>
+
 </tbody>
 
 </table>
 
 </div>
 
+
+<!-- زر التقرير -->
+
 <div class="no-print">
 
-<button class="report-button" onclick="showReport()">
+<button
+class="report-button"
+onclick="showReport()">
+
 📄 إصدار تقرير
+
 </button>
 
 </div>
 
-<div id="report" class="report">
 
-<h2>📊 تقرير صفقات الأوبشن</h2>
+<!-- التقرير -->
+
+<div
+id="report"
+class="report">
+
+
+<h2>
+📊 تقرير صفقات الأوبشن
+</h2>
+
+
+<div
+id="reportDate"
+class="report-date">
+</div>
+
 
 <div class="stats">
 
-<div class="stat">
-عدد الصفقات
-<strong id="totalTrades">0</strong>
-</div>
 
 <div class="stat">
-الصفقات الرابحة
-<strong id="winningTrades" class="green">0</strong>
+
+إجمالي الصفقات
+
+<strong
+id="totalTrades">
+0
+</strong>
+
 </div>
 
-<div class="stat">
-الصفقات الخاسرة
-<strong id="losingTrades" class="red">0</strong>
-</div>
 
 <div class="stat">
-صافي الربح
-<strong id="netProfit">0.00</strong>
+
+🟢 الرابحة
+
+<strong
+id="winningTrades"
+class="green">
+0
+</strong>
+
 </div>
 
+
 <div class="stat">
+
+🩵 الموقوفة
+
+<strong
+id="stoppedTrades"
+class="orange">
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+🔴 الخاسرة
+
+<strong
+id="losingTrades"
+class="red">
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+صافي الربح / الخسارة
+
+<strong id="netProfit">
+0.00
+</strong>
+
+</div>
+
+
+<div class="stat">
+
 متوسط الربح %
-<strong id="averagePercent">0.00%</strong>
-</div>
+
+<strong id="averagePercent">
+0.00%
+</strong>
 
 </div>
 
-<button class="print-button no-print" onclick="window.print()">
-🖨️ طباعة / حفظ PDF
+
+</div>
+
+
+<!-- أزرار التصدير -->
+
+<div class="report-actions no-print">
+
+<button
+class="report-action"
+onclick="printReport()">
+
+📄 PDF
+
 </button>
 
-<div id="reportTable"></div>
+
+<button
+class="report-action"
+onclick="saveReportImage()">
+
+🖼️ حفظ كصورة
+
+</button>
 
 </div>
 
+
+<!-- جدول التقرير -->
+
+<div
+id="reportTable"
+class="report-table">
 </div>
+
+
+</div>
+
+
+</div>
+
 
 <script>
 
-let trades=[];
 
-/* الثيمات */
+/* =========================
+   الصفقات المحفوظة
+========================= */
+
+let trades =
+JSON.parse(
+localStorage.getItem("optionTrades") || "[]"
+);
+
+
+/* =========================
+   الثيمات
+========================= */
 
 function toggleThemes(){
 
@@ -369,11 +840,15 @@ function toggleThemes(){
 
 }
 
+
 function setTheme(theme){
 
     document.body.className=theme;
 
-    localStorage.setItem("optionTheme",theme);
+    localStorage.setItem(
+        "optionTheme",
+        theme
+    );
 
     document
     .getElementById("themeMenu")
@@ -381,52 +856,100 @@ function setTheme(theme){
 
 }
 
-const savedTheme=localStorage.getItem("optionTheme");
+
+const savedTheme =
+localStorage.getItem("optionTheme");
+
 
 if(savedTheme){
-    document.body.className=savedTheme;
+
+    document.body.className =
+    savedTheme;
+
 }
 
 
-/* إضافة صفقة */
+/* =========================
+   إضافة صفقة
+========================= */
 
 function addTrade(){
 
-    const stock=document.getElementById("stock").value.trim();
+    const stock =
+    document
+    .getElementById("stock")
+    .value
+    .trim();
 
-    const option=document.getElementById("option").value;
 
-    const strike=parseFloat(document.getElementById("strike").value);
+    const option =
+    document
+    .getElementById("option")
+    .value;
 
-    const buy=parseFloat(document.getElementById("buy").value);
 
-    const sell=parseFloat(document.getElementById("sell").value);
+    const strike =
+    parseFloat(
+        document
+        .getElementById("strike")
+        .value
+    );
+
+
+    const buy =
+    parseFloat(
+        document
+        .getElementById("buy")
+        .value
+    );
+
+
+    const sell =
+    parseFloat(
+        document
+        .getElementById("sell")
+        .value
+    );
+
 
     if(
-        stock==="" ||
-        option==="" ||
+        stock === "" ||
+        option === "" ||
         isNaN(strike) ||
         isNaN(buy) ||
         isNaN(sell)
     ){
 
-        alert("⚠️ فضلاً أدخل جميع البيانات");
+        alert(
+            "⚠️ فضلاً أدخل جميع البيانات"
+        );
+
         return;
 
     }
 
-    if(buy<=0){
 
-        alert("⚠️ سعر الشراء يجب أن يكون أكبر من صفر");
+    if(buy <= 0){
+
+        alert(
+            "⚠️ سعر الشراء يجب أن يكون أكبر من صفر"
+        );
+
         return;
 
     }
 
-    const profit=sell-buy;
 
-    const percentage=(profit/buy)*100;
+    const profit =
+    sell - buy;
+
+
+    const percentage =
+    (profit / buy) * 100;
+
 
     trades.push({
+
         stock,
         option,
         strike,
@@ -434,9 +957,14 @@ function addTrade(){
         sell,
         profit,
         percentage
+
     });
 
+
+    saveTrades();
+
     displayTrades();
+
 
     document.getElementById("stock").value="";
     document.getElementById("option").value="";
@@ -447,33 +975,112 @@ function addTrade(){
 }
 
 
-/* عرض الصفقات */
+/* =========================
+   الحفظ
+========================= */
+
+function saveTrades(){
+
+    localStorage.setItem(
+        "optionTrades",
+        JSON.stringify(trades)
+    );
+
+}
+
+
+/* =========================
+   حالة الصفقة
+========================= */
+
+function getStatus(trade){
+
+    if(trade.sell === 0){
+
+        return {
+            name:"خاسرة",
+            rowClass:"loss-row",
+            textClass:"red"
+        };
+
+    }
+
+
+    if(
+        trade.sell < trade.buy &&
+        trade.sell > 0
+    ){
+
+        return {
+            name:"موقوفة",
+            rowClass:"stopped-row",
+            textClass:"orange"
+        };
+
+    }
+
+
+    return {
+        name:"رابحة",
+        rowClass:"win-row",
+        textClass:"green"
+    };
+
+}
+
+
+/* =========================
+   عرض الصفقات
+========================= */
 
 function displayTrades(){
 
-    const tableBody=document.getElementById("tableBody");
+    const tableBody =
+    document
+    .getElementById("tableBody");
+
 
     tableBody.innerHTML="";
+
 
     if(trades.length===0){
 
         tableBody.innerHTML=`
+
         <tr>
-        <td colspan="8" class="empty">
+
+        <td
+        colspan="8"
+        class="empty">
+
         لا توجد صفقات حتى الآن
+
         </td>
-        </tr>`;
+
+        </tr>
+
+        `;
 
         return;
+
     }
 
-    trades.forEach(function(trade,index){
 
-        const cls=trade.profit>=0?"green":"red";
+    trades.forEach(
+    function(trade,index){
 
-        const sign=trade.profit>=0?"+":"";
+        const status =
+        getStatus(trade);
+
+
+        const sign =
+        trade.profit >= 0
+        ? "+"
+        : "";
+
 
         const row=`
+
         <tr>
 
         <td>${trade.stock}</td>
@@ -486,83 +1093,173 @@ function displayTrades(){
 
         <td>${trade.sell.toFixed(2)}</td>
 
-        <td class="${cls}">
+        <td class="${status.textClass}">
+
         ${sign}${trade.profit.toFixed(2)}
+
         </td>
 
-        <td class="${cls}">
-        ${sign}${trade.percentage.toFixed(2)}%
+        <td class="${status.textClass}">
+
+        ${trade.percentage >= 0 ? "+" : ""}
+        ${trade.percentage.toFixed(2)}%
+
         </td>
 
         <td class="no-print">
+
         <button
         class="delete-button"
         onclick="deleteTrade(${index})">
+
         حذف
+
         </button>
+
         </td>
 
-        </tr>`;
+        </tr>
 
-        tableBody.innerHTML+=row;
+        `;
+
+
+        tableBody.innerHTML += row;
 
     });
 
 }
 
 
-/* حذف */
+/* =========================
+   حذف
+========================= */
 
 function deleteTrade(index){
 
     trades.splice(index,1);
+
+    saveTrades();
 
     displayTrades();
 
 }
 
 
-/* التقرير */
+/* =========================
+   التقرير
+========================= */
 
 function showReport(){
 
-    const report=document.getElementById("report");
+    const report =
+    document.getElementById("report");
+
 
     report.classList.add("show");
 
-    const total=trades.length;
 
-    const winners=trades.filter(t=>t.profit>0).length;
+    const total =
+    trades.length;
 
-    const losers=trades.filter(t=>t.profit<0).length;
 
-    const net=trades.reduce(
-        (sum,t)=>sum+t.profit,0
+    const winners =
+    trades.filter(
+        t => t.sell > t.buy
+    ).length;
+
+
+    const stopped =
+    trades.filter(
+        t =>
+        t.sell < t.buy &&
+        t.sell > 0
+    ).length;
+
+
+    const losers =
+    trades.filter(
+        t => t.sell === 0
+    ).length;
+
+
+    const net =
+    trades.reduce(
+        (sum,t) =>
+        sum + t.profit,
+        0
     );
 
-    const average=total
-        ? trades.reduce(
-            (sum,t)=>sum+t.percentage,0
-        )/total
-        : 0;
 
-    document.getElementById("totalTrades").textContent=total;
+    const average =
+    total
+    ?
+    trades.reduce(
+        (sum,t) =>
+        sum + t.percentage,
+        0
+    ) / total
+    :
+    0;
 
-    document.getElementById("winningTrades").textContent=winners;
 
-    document.getElementById("losingTrades").textContent=losers;
+    document
+    .getElementById("totalTrades")
+    .textContent=total;
 
-    const netElement=document.getElementById("netProfit");
 
-    netElement.textContent=
-        (net>=0?"+":"")+net.toFixed(2);
+    document
+    .getElementById("winningTrades")
+    .textContent=winners;
 
-    netElement.className=
-        net>=0?"green":"red";
 
-    document.getElementById("averagePercent").textContent=
-        (average>=0?"+":"")+average.toFixed(2)+"%";
+    document
+    .getElementById("stoppedTrades")
+    .textContent=stopped;
 
+
+    document
+    .getElementById("losingTrades")
+    .textContent=losers;
+
+
+    const netElement =
+    document
+    .getElementById("netProfit");
+
+
+    netElement.textContent =
+    (net >= 0 ? "+" : "") +
+    net.toFixed(2);
+
+
+    netElement.className =
+    net >= 0
+    ? "green"
+    : "red";
+
+
+    document
+    .getElementById("averagePercent")
+    .textContent =
+    (average >= 0 ? "+" : "") +
+    average.toFixed(2) +
+    "%";
+
+
+    /* تاريخ التقرير */
+
+    const now =
+    new Date();
+
+
+    document
+    .getElementById("reportDate")
+    .textContent =
+    "تاريخ التقرير: " +
+    now.toLocaleDateString("ar-SA");
+
+
+    /* جدول التقرير */
 
     let html=`
 
@@ -571,6 +1268,7 @@ function showReport(){
     <thead>
 
     <tr>
+
     <th>السهم</th>
     <th>الأوبشن</th>
     <th>السترايك</th>
@@ -578,21 +1276,26 @@ function showReport(){
     <th>البيع</th>
     <th>الربح</th>
     <th>%</th>
+    <th>الحالة</th>
+
     </tr>
 
     </thead>
 
     <tbody>
+
     `;
 
 
     trades.forEach(t=>{
 
-        const cls=t.profit>=0?"green":"red";
+        const status =
+        getStatus(t);
 
-        html+=`
 
-        <tr>
+        html += `
+
+        <tr class="${status.rowClass}">
 
         <td>${t.stock}</td>
 
@@ -604,32 +1307,170 @@ function showReport(){
 
         <td>${t.sell.toFixed(2)}</td>
 
-        <td class="${cls}">
-        ${t.profit>=0?"+":""}${t.profit.toFixed(2)}
+        <td>
+
+        ${t.profit >= 0 ? "+" : ""}
+        ${t.profit.toFixed(2)}
+
         </td>
 
-        <td class="${cls}">
-        ${t.percentage>=0?"+":""}${t.percentage.toFixed(2)}%
+        <td>
+
+        ${t.percentage >= 0 ? "+" : ""}
+        ${t.percentage.toFixed(2)}%
+
+        </td>
+
+        <td>
+
+        ${status.name}
+
         </td>
 
         </tr>
+
         `;
 
     });
 
 
-    html+=`
+    html += `
+
     </tbody>
+
     </table>
+
     `;
 
-    document.getElementById("reportTable").innerHTML=html;
+
+    document
+    .getElementById("reportTable")
+    .innerHTML=html;
+
 
     report.scrollIntoView({
         behavior:"smooth"
     });
 
 }
+
+
+/* =========================
+   PDF
+========================= */
+
+function printReport(){
+
+    if(trades.length===0){
+
+        alert(
+            "⚠️ لا توجد صفقات لإصدار التقرير"
+        );
+
+        return;
+
+    }
+
+
+    showReport();
+
+
+    setTimeout(
+        function(){
+
+            window.print();
+
+        },
+        400
+    );
+
+}
+
+
+/* =========================
+   حفظ التقرير كصورة
+========================= */
+
+function saveReportImage(){
+
+    if(trades.length===0){
+
+        alert(
+            "⚠️ لا توجد صفقات لإصدار التقرير"
+        );
+
+        return;
+
+    }
+
+
+    showReport();
+
+
+    const report =
+    document.getElementById("report");
+
+
+    setTimeout(
+    function(){
+
+        html2canvas(
+            report,
+            {
+                scale:2,
+                backgroundColor:"#ffffff",
+                useCORS:true
+            }
+        )
+        .then(
+        function(canvas){
+
+            const link =
+            document.createElement("a");
+
+
+            const date =
+            new Date()
+            .toISOString()
+            .slice(0,10);
+
+
+            link.download =
+            "تقرير-الأوبشن-" +
+            date +
+            ".png";
+
+
+            link.href =
+            canvas.toDataURL(
+                "image/png"
+            );
+
+
+            link.click();
+
+        })
+        .catch(
+        function(){
+
+            alert(
+                "حدث خطأ أثناء إنشاء الصورة"
+            );
+
+        });
+
+    },
+    400
+    );
+
+}
+
+
+/* =========================
+   تشغيل أولي
+========================= */
+
+displayTrades();
 
 </script>
 
