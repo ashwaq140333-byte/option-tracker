@@ -505,9 +505,40 @@ td{
     z-index:1;
 }
 
+/* =========================
+   شعار التقرير
+========================= */
+
 .report-banner{
     display:none;
+
+    width:100%;
+    height:180px;
+
+    background:#000;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:14px;
 }
+
+.report-banner img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+}
+
+/* =========================
+   عنوان التقرير
+========================= */
 
 .report h2{
     text-align:center;
@@ -929,30 +960,17 @@ td{
 }
 
 /* =====================================================
-   PDF ONLY
+   الطباعة / PDF
+   التعديل خاص بالـ PDF فقط
 ===================================================== */
-
-@page{
-    size:A4 portrait;
-    margin:7mm;
-}
 
 @media print{
 
-    html,
     body{
-        width:100%;
-        background:#fff!important;
-        padding:0!important;
-        margin:0!important;
+        background:#fff;
+        padding:0;
+        margin:0;
     }
-
-    body{
-        -webkit-print-color-adjust:exact!important;
-        print-color-adjust:exact!important;
-    }
-
-    /* إخفاء كل شيء خارج التقرير */
 
     .main-banner,
     .logo-buttons,
@@ -966,164 +984,118 @@ td{
     }
 
     .container{
-        width:100%!important;
-        max-width:none!important;
-        margin:0!important;
-        padding:0!important;
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:0;
     }
-
-    /* =========================
-       التقرير في PDF
-    ========================= */
 
     .report{
         display:block!important;
 
         width:100%!important;
 
-        max-width:none!important;
-
         margin:0!important;
-
-        padding:0!important;
 
         border:0!important;
 
-        border-radius:0!important;
+        padding:10px!important;
 
         box-shadow:none!important;
 
-        overflow:visible!important;
-
         background:#fff!important;
 
-        color:#000!important;
+        overflow:visible!important;
     }
 
-    /* =========================
-       الشعار أعلى PDF
-       مستطيل أسود
-    ========================= */
+    /* =================================================
+       إزالة العلامة المائية من PDF نهائياً
+    ================================================= */
 
     .report::before{
-        content:"";
-
-        display:block;
-
-        position:relative;
-
-        left:auto;
-        top:auto;
-
-        transform:none;
-
-        width:100%;
-
-        height:105px;
-
-        margin:0 0 8px 0;
-
-        background-color:#000!important;
-
-        background-image:url("IMG_1.jpg")!important;
-
-        background-repeat:no-repeat!important;
-
-        background-position:center!important;
-
-        background-size:cover!important;
-
-        opacity:1!important;
-
-        border-radius:0!important;
-
-        z-index:5;
-
-        pointer-events:none;
+        display:none!important;
+        content:none!important;
+        background-image:none!important;
     }
 
-    .report > *{
-        position:relative;
-        z-index:1;
+    /* =================================================
+       شعار PDF
+       نفس فكرة البنر الأسود الموجود في الصفحة
+    ================================================= */
+
+    .report-banner{
+        display:flex!important;
+
+        width:100%!important;
+        height:170px!important;
+
+        background:#000!important;
+
+        border-radius:14px!important;
+
+        overflow:hidden!important;
+
+        margin:0 0 14px!important;
+
+        padding:0!important;
+
+        align-items:center!important;
+        justify-content:center!important;
+
+        box-shadow:none!important;
+    }
+
+    .report-banner img{
+        display:block!important;
+
+        width:100%!important;
+        height:100%!important;
+
+        object-fit:cover!important;
+
+        background:#000!important;
     }
 
     .report h2{
-        font-size:25px!important;
+        font-size:34px!important;
+        font-weight:900!important;
 
-        line-height:1.1!important;
-
-        margin:8px 0 4px!important;
-
-        color:#111!important;
+        margin:12px 0 6px!important;
     }
 
     .report-period{
-        font-size:13px!important;
-
-        line-height:1.2!important;
-
-        margin-bottom:5px!important;
-
-        color:#333!important;
+        font-size:18px!important;
+        font-weight:900!important;
     }
 
-    /* =========================
-       الإحصائيات PDF
-    ========================= */
-
     .stats{
-        display:grid!important;
-
-        grid-template-columns:repeat(3,1fr)!important;
-
-        gap:6px!important;
-
-        margin:8px 0!important;
+        gap:12px!important;
+        margin:18px 0!important;
     }
 
     .stat{
-        min-height:58px!important;
+        padding:15px!important;
 
-        height:auto!important;
-
-        padding:6px 3px!important;
-
-        border-radius:6px!important;
-
-        font-size:10px!important;
+        min-height:105px!important;
 
         box-shadow:
-            0 2px 0 rgba(0,0,0,.15)!important;
-
-        border:1px solid #c5ced0!important;
+            0 4px 0 rgba(0,0,0,.2),
+            0 8px 15px rgba(0,0,0,.13)!important;
     }
 
     .stat strong,
     .profit-main,
     .profit-times{
-        font-size:17px!important;
-
-        margin-top:4px!important;
-
-        line-height:1!important;
+        font-size:30px!important;
+        font-weight:900!important;
     }
-
-    .profit-times{
-        margin-top:3px!important;
-    }
-
-    /* =========================
-       جدول PDF
-    ========================= */
 
     .report-table{
-        width:100%!important;
-
         overflow:visible!important;
 
-        padding:4px 0 6px!important;
+        width:100%!important;
 
-        margin:0!important;
+        padding:5px 0 10px!important;
     }
 
     .report-table table{
@@ -1131,172 +1103,45 @@ td{
 
         min-width:0!important;
 
-        max-width:100%!important;
-
         table-layout:fixed!important;
 
-        border-collapse:collapse!important;
+        border-radius:10px!important;
 
-        border-spacing:0!important;
-
-        border-radius:4px!important;
-
-        overflow:visible!important;
-
-        box-shadow:none!important;
-
-        border:1px solid #8f9da0!important;
-
-        page-break-inside:auto!important;
-    }
-
-    .report-table thead{
-        display:table-header-group;
-    }
-
-    .report-table tr{
-        page-break-inside:avoid!important;
-
-        page-break-after:auto!important;
+        box-shadow:
+            0 3px 0 rgba(0,0,0,.16),
+            0 7px 14px rgba(0,0,0,.12)!important;
     }
 
     .report-table th{
-        font-size:8.5px!important;
-
-        line-height:1.05!important;
-
+        font-size:14px!important;
         font-weight:900!important;
 
-        padding:5px 2px!important;
-
-        height:27px!important;
+        padding:10px 5px!important;
 
         white-space:normal!important;
-
         word-break:break-word!important;
-
-        overflow-wrap:anywhere!important;
-
-        border:1px solid #9daaad!important;
-
-        background:#dbe5e7!important;
-
-        color:#111!important;
     }
 
     .report-table td{
-        font-size:8.5px!important;
-
-        line-height:1.05!important;
-
+        font-size:14px!important;
         font-weight:900!important;
 
-        padding:5px 2px!important;
-
-        height:27px!important;
-
-        white-space:normal!important;
-
-        word-break:break-word!important;
-
-        overflow-wrap:anywhere!important;
-
-        border:1px solid #aebabc!important;
+        padding:10px 5px!important;
 
         color:#000!important;
 
-        background:#fff!important;
+        white-space:normal!important;
+        word-break:break-word!important;
     }
-
-    .report-table .win-row td{
-        background:#e1f3e7!important;
-    }
-
-    .report-table .stopped-row td{
-        background:#def5f8!important;
-    }
-
-    .report-table .loss-row td{
-        background:#f8dfdf!important;
-    }
-
-    /* توزيع أعمدة الجدول حتى لا يخرج */
-
-    .report-table th:nth-child(1),
-    .report-table td:nth-child(1){
-        width:13%;
-    }
-
-    .report-table th:nth-child(2),
-    .report-table td:nth-child(2){
-        width:9%;
-    }
-
-    .report-table th:nth-child(3),
-    .report-table td:nth-child(3){
-        width:10%;
-    }
-
-    .report-table th:nth-child(4),
-    .report-table td:nth-child(4){
-        width:10%;
-    }
-
-    .report-table th:nth-child(5),
-    .report-table td:nth-child(5){
-        width:10%;
-    }
-
-    .report-table th:nth-child(6),
-    .report-table td:nth-child(6){
-        width:11%;
-    }
-
-    .report-table th:nth-child(7),
-    .report-table td:nth-child(7){
-        width:9%;
-    }
-
-    .report-table th:nth-child(8),
-    .report-table td:nth-child(8){
-        width:12%;
-    }
-
-    .report-table th:nth-child(9),
-    .report-table td:nth-child(9){
-        width:16%;
-    }
-
-    /* =========================
-       التنويه PDF
-    ========================= */
 
     .report-note{
-        margin-top:6px!important;
+        font-size:14px!important;
 
-        padding:7px 8px!important;
+        line-height:1.8!important;
 
-        font-size:9px!important;
+        margin-top:12px!important;
 
-        line-height:1.45!important;
-
-        font-weight:900!important;
-
-        border:1px solid #c7d1d3!important;
-
-        border-radius:5px!important;
-
-        box-shadow:none!important;
-
-        background:#f1f5f5!important;
-
-        color:#222!important;
-    }
-
-    /* إخفاء أزرار التقرير */
-
-    .report-actions{
-        display:none!important;
+        padding:12px!important;
     }
 
 }
@@ -1429,6 +1274,10 @@ td{
 
 <div class="container">
 
+<!-- =========================
+     البنر الرئيسي
+========================= -->
+
 <div class="main-banner">
 
 <img
@@ -1489,6 +1338,10 @@ class="theme-menu no-print">
 </button>
 
 </div>
+
+<!-- =========================
+     النموذج
+========================= -->
 
 <div class="form-box no-print">
 
@@ -1600,6 +1453,10 @@ onclick="addTrade()">
 
 </div>
 
+<!-- =========================
+     الجدول الرئيسي
+========================= -->
+
 <div class="table-box">
 
 <h3 style="text-align:center">
@@ -1630,6 +1487,10 @@ onclick="addTrade()">
 </table>
 
 </div>
+
+<!-- =========================
+     فلترة التقرير
+========================= -->
 
 <div class="report-filter no-print">
 
@@ -1705,7 +1566,23 @@ onclick="showReport()">
 
 </div>
 
+<!-- =====================================================
+     التقرير
+===================================================== -->
+
 <div id="report" class="report">
+
+<!-- شعار التقرير:
+     يظهر فقط عند الطباعة / PDF
+-->
+
+<div class="report-banner">
+
+<img
+src="IMG_1.jpg"
+alt="الشعار">
+
+</div>
 
 <h2>
 تقرير الصفقات
@@ -1749,6 +1626,10 @@ onclick="setReportTheme('theme-report-beige')">
 </button>
 
 </div>
+
+<!-- =========================
+     الإحصائيات
+========================= -->
 
 <div class="stats">
 
@@ -1812,16 +1693,28 @@ $0
 
 </div>
 
+<!-- =========================
+     جدول التقرير
+========================= -->
+
 <div
 id="reportTable"
 class="report-table">
 </div>
+
+<!-- =========================
+     التنويه
+========================= -->
 
 <div class="report-note">
 
 تنويه: الأسعار الموضحة في هذا التقرير تمثل سعر الدخول والتوجيه بالخروج للصفقة، ولا تمثل أعلى سعر تم تحقيقه أثناء التداول.
 
 </div>
+
+<!-- =========================
+     أزرار التقرير
+========================= -->
 
 <div class="report-actions no-print">
 
