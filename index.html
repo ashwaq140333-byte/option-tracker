@@ -1,578 +1,482 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>تقرير الصفقات</title>
 
 <style>
 
-/* =====================================================
-   المتغيرات
-===================================================== */
-
 :root{
-    --bg:#f5f7f8;
-    --card:#ffffff;
-    --text:#202427;
-    --secondary:#687278;
-    --border:#dfe4e7;
-    --button:#263238;
-    --buttonText:#ffffff;
-    --header:#e5edef;
-
-    --report-logo:url("IMG_1.jpg");
+  --bg:#f5f7f8;
+  --card:#fff;
+  --text:#202427;
+  --secondary:#687278;
+  --border:#dfe4e7;
+  --header:#e5edef;
+  --button:#3a4650;
+  --button2:#151a1e;
+  --report-logo:url("AQ.PNG");
 }
 
-
-/* =====================================================
-   أساسي
-===================================================== */
-
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    padding:18px;
-
-    background:var(--bg);
-    color:var(--text);
-
-    font-family:
-        Arial,
-        Tahoma,
-        sans-serif;
+  margin:0;
+  padding:18px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Tahoma,sans-serif;
+  transition:.25s;
 }
 
-
 /* =====================================================
-   الثيم الأسود
+   الثيمات
 ===================================================== */
+
+body.white{
+  --bg:#f5f7f8;
+  --card:#fff;
+  --text:#202427;
+  --secondary:#687278;
+  --border:#dfe4e7;
+  --header:#e5edef;
+  --button:#48545d;
+  --button2:#20272c;
+}
 
 body.black{
-    --bg:#000000;
-    --card:#090909;
-    --text:#ffffff;
-    --secondary:#d5d5d5;
-    --border:#3b2e0b;
-    --button:#111111;
-    --buttonText:#ffffff;
-    --header:#161616;
+  --bg:#000;
+  --card:#090909;
+  --text:#fff;
+  --secondary:#d5d5d5;
+  --border:#4f3d12;
+  --header:#171717;
+  --button:#282828;
+  --button2:#050505;
 }
-
-
-/* =====================================================
-   فضي
-===================================================== */
 
 body.silver{
-    --bg:#f3f5f6;
-    --card:#ffffff;
-    --text:#252a2e;
-    --secondary:#707980;
-    --border:#dce1e4;
-    --button:#5f6970;
-    --buttonText:#ffffff;
-    --header:#e3e7e9;
+  --bg:#e7e9eb;
+  --card:#fafbfc;
+  --text:#252a2e;
+  --secondary:#646c71;
+  --border:#bcc3c7;
+  --header:#d4d9dc;
+  --button:#727d84;
+  --button2:#3d464c;
 }
-
-
-/* =====================================================
-   أزرق
-===================================================== */
 
 body.blue{
-    --bg:#f2f7fb;
-    --card:#ffffff;
-    --text:#23333f;
-    --secondary:#6d7f8b;
-    --border:#d7e3ea;
-    --button:#3d657e;
-    --buttonText:#ffffff;
-    --header:#dceaf2;
+  --bg:#eaf4fb;
+  --card:#fff;
+  --text:#183244;
+  --secondary:#607e91;
+  --border:#bfd9e8;
+  --header:#d5eaf5;
+  --button:#34789c;
+  --button2:#17465f;
 }
-
-
-/* =====================================================
-   تركوازي
-===================================================== */
 
 body.turquoise{
-    --bg:#f2fafb;
-    --card:#ffffff;
-    --text:#20363a;
-    --secondary:#70858a;
-    --border:#d7e9eb;
-    --button:#377f88;
-    --buttonText:#ffffff;
-    --header:#dceff1;
+  --bg:#e9f9f8;
+  --card:#fff;
+  --text:#183b3b;
+  --secondary:#608383;
+  --border:#bce0df;
+  --header:#d1efed;
+  --button:#25938f;
+  --button2:#105754;
 }
-
-
-/* =====================================================
-   بيج
-===================================================== */
 
 body.beige{
-    --bg:#faf8f3;
-    --card:#ffffff;
-    --text:#34312a;
-    --secondary:#80796d;
-    --border:#e8e1d6;
-    --button:#716956;
-    --buttonText:#ffffff;
-    --header:#eee8dc;
+  --bg:#f7f2e9;
+  --card:#fffdf8;
+  --text:#3e382f;
+  --secondary:#817566;
+  --border:#ddd0bd;
+  --header:#eee3d3;
+  --button:#8a7559;
+  --button2:#504331;
 }
 
+body.purple{
+  --bg:#f4effa;
+  --card:#fff;
+  --text:#362846;
+  --secondary:#78688a;
+  --border:#d9cae7;
+  --header:#e9dff3;
+  --button:#7d55a7;
+  --button2:#472b64;
+}
 
-/* =====================================================
-   الحاوية
-===================================================== */
+body.emerald{
+  --bg:#eaf6f0;
+  --card:#fff;
+  --text:#173b2e;
+  --secondary:#587d6d;
+  --border:#bddbcf;
+  --header:#d5ebdf;
+  --button:#328461;
+  --button2:#174b35;
+}
+
+body.burgundy{
+  --bg:#f8edef;
+  --card:#fffafa;
+  --text:#461f27;
+  --secondary:#8b636c;
+  --border:#e2c4ca;
+  --header:#efd7dc;
+  --button:#96364a;
+  --button2:#571926;
+}
+
+body.copper{
+  --bg:#f8f0e9;
+  --card:#fffaf5;
+  --text:#472e22;
+  --secondary:#8e705f;
+  --border:#dec6b6;
+  --header:#edd8c8;
+  --button:#b36b3e;
+  --button2:#6c3820;
+}
+
+body.midnight{
+  --bg:#08111d;
+  --card:#101c2a;
+  --text:#f1f7ff;
+  --secondary:#a7b9cc;
+  --border:#29425c;
+  --header:#14283c;
+  --button:#286d9d;
+  --button2:#0d3857;
+}
+
+body.rose{
+  --bg:#fff0f4;
+  --card:#fff;
+  --text:#522c38;
+  --secondary:#946b77;
+  --border:#edccd5;
+  --header:#f7dce4;
+  --button:#b45c78;
+  --button2:#6c2e42;
+}
+
+body.ice{
+  --bg:#edf9ff;
+  --card:#fff;
+  --text:#213e4e;
+  --secondary:#66899b;
+  --border:#c8e5f1;
+  --header:#d9f0f8;
+  --button:#5aa2be;
+  --button2:#2c6176;
+}
 
 .container{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
+  width:100%;
+  max-width:1250px;
+  margin:auto;
 }
 
-
 /* =====================================================
-   البنر
+   الشعار الشفاف
 ===================================================== */
 
 .main-banner{
-    width:100%;
-    height:260px;
+  width:100%;
+  min-height:235px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:8px;
+  padding:0;
 
-    background:#000000;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
 
-    border-radius:16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    margin-bottom:15px;
-
-    border:1px solid #222;
-
-    box-shadow:
-        0 8px 22px rgba(0,0,0,.35);
-
-    transition:
-        background .25s,
-        box-shadow .25s,
-        border .25s;
+  overflow:visible;
 }
-
 
 .main-banner img{
-    display:block;
+  display:block;
+  width:100%;
+  height:245px;
 
-    width:100%;
-    height:100%;
+  object-fit:contain;
+  object-position:center;
 
-    object-fit:contain;
-    object-position:center;
+  background:transparent!important;
+
+  filter:
+    drop-shadow(
+      0 10px 14px
+      rgba(0,0,0,.24)
+    );
 }
 
-
-.logo1{
-    width:100%!important;
-    height:100%!important;
-
-    object-fit:contain!important;
-    object-position:center!important;
-
-    background:#000!important;
+body.black .main-banner img,
+body.midnight .main-banner img{
+  filter:
+    drop-shadow(
+      0 0 11px
+      rgba(212,175,55,.23)
+    )
+    drop-shadow(
+      0 10px 14px
+      rgba(135,0,0,.28)
+    );
 }
-
 
 /* =====================================================
-   ستايل ذهبي QA.PNG
-   إزالة الامتداد الأسود
+   Layout
 ===================================================== */
 
-.main-banner.gold-style{
-    background:transparent!important;
-
-    border-color:transparent!important;
-
-    box-shadow:none!important;
-
-    overflow:visible;
+.logo-buttons,
+.top-buttons,
+.filter-grid,
+.report-actions,
+.report-themes{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
-
-
-.main-banner.gold-style img,
-.main-banner.gold-style .logo1{
-    background:transparent!important;
-}
-
-
-/* حتى مع الثيم الأسود */
-
-body.black .main-banner.gold-style{
-    background:transparent!important;
-
-    border-color:transparent!important;
-
-    box-shadow:none!important;
-}
-
-
-/* =====================================================
-   البنر العادي في الثيم الأسود
-===================================================== */
-
-body.black .main-banner:not(.gold-style){
-    border:1px solid #d4af37;
-
-    box-shadow:
-        0 5px 0 #760b0b,
-        0 0 18px rgba(212,175,55,.50),
-        0 14px 30px rgba(120,0,0,.35);
-}
-
-
-/* =====================================================
-   أزرار الشعارات
-===================================================== */
 
 .logo-buttons{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:10px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:12px;
+  margin:4px 0 18px;
 }
-
-
-.logo-button{
-    padding:12px 22px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #3a3a3a 0%,
-            #1c1c1c 48%,
-            #050505 100%
-        );
-
-    color:#fff;
-
-    border:1px solid #555;
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:16px;
-    font-weight:900;
-
-    text-shadow:
-        0 2px 3px #000;
-
-    box-shadow:
-        0 5px 0 #030303,
-        0 9px 16px rgba(0,0,0,.38),
-        inset 0 1px 0 rgba(255,255,255,.22);
-
-    transition:.15s;
-}
-
-
-.logo-button:hover{
-    filter:brightness(1.16);
-}
-
-
-.logo-button:active{
-    transform:translateY(4px);
-}
-
-
-.logo-button.active{
-    outline:2px solid #d4af37;
-
-    box-shadow:
-        0 5px 0 #740d0d,
-        0 0 15px rgba(212,175,55,.50),
-        0 9px 18px rgba(120,0,0,.30);
-}
-
-
-/* =====================================================
-   الأزرار
-===================================================== */
 
 .top-buttons{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:10px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:14px;
+  margin-bottom:14px;
 }
-
-
-.small-button,
-.notes-button,
-.add-button,
-.report-button,
-.report-action{
-    background:
-        linear-gradient(
-            180deg,
-            #3c3c3c 0%,
-            #1b1b1b 47%,
-            #040404 100%
-        );
-
-    color:#ffffff;
-
-    border:1px solid #5c5c5c;
-
-    cursor:pointer;
-
-    font-weight:900;
-
-    text-shadow:
-        0 2px 3px rgba(0,0,0,.95);
-
-    box-shadow:
-        0 5px 0 #020202,
-        0 9px 17px rgba(0,0,0,.42),
-        inset 0 1px 0 rgba(255,255,255,.26);
-
-    transition:.15s;
-}
-
-
-.small-button:hover,
-.notes-button:hover,
-.add-button:hover,
-.report-button:hover,
-.report-action:hover{
-    filter:brightness(1.20);
-}
-
-
-.small-button:active,
-.notes-button:active,
-.add-button:active,
-.report-button:active,
-.report-action:active{
-    transform:translateY(4px);
-
-    box-shadow:
-        0 1px 0 #020202,
-        0 4px 8px rgba(0,0,0,.40);
-}
-
-
-.small-button{
-    padding:12px 20px;
-
-    border-radius:10px;
-
-    font-size:16px;
-}
-
-
-.notes-button{
-    width:auto;
-
-    padding:12px 20px;
-
-    white-space:nowrap;
-
-    border-radius:10px;
-
-    font-size:16px;
-}
-
-
-.add-button{
-    width:100%;
-
-    margin-top:15px;
-
-    padding:16px;
-
-    border-radius:11px;
-
-    font-size:19px;
-}
-
-
-.report-button{
-    display:block;
-
-    margin:15px auto 0;
-
-    padding:14px 25px;
-
-    border-radius:10px;
-
-    font-size:17px;
-}
-
-
-.report-action{
-    border-radius:12px;
-
-    padding:16px 30px;
-
-    font-size:19px;
-
-    min-width:190px;
-
-    font-weight:900;
-}
-
 
 /* =====================================================
-   أزرار الثيم الأسود
-   ذهبي + أحمر
+   جميع الأزرار:
+   ظل أحمر + ذهبي في كل الثيمات
 ===================================================== */
 
-body.black .logo-button,
-body.black .small-button,
-body.black .notes-button,
-body.black .add-button,
-body.black .report-button,
-body.black .report-action{
-    background:
-        linear-gradient(
-            180deg,
-            #282828 0%,
-            #101010 50%,
-            #010101 100%
-        );
-
-    color:#fff;
-
-    border:1px solid #d4af37;
-
-    box-shadow:
-        0 6px 0 #790d0d,
-        0 0 0 1px rgba(212,175,55,.35),
-        0 0 16px rgba(212,175,55,.55),
-        0 12px 25px rgba(150,0,0,.45),
-        inset 0 1px 0 rgba(255,225,120,.30);
+button{
+  font-family:inherit;
 }
 
+.logo-button,
+.color-theme-button,
+.theme-choice,
+.notes-button,
+.add-button,
+.filter-button,
+.report-button,
+.report-action,
+.delete-button,
+.report-theme-button{
 
-body.black .logo-button:hover,
-body.black .small-button:hover,
-body.black .notes-button:hover,
-body.black .add-button:hover,
-body.black .report-button:hover,
-body.black .report-action:hover{
-    filter:brightness(1.18);
+  cursor:pointer;
+  font-weight:900;
 
-    box-shadow:
-        0 6px 0 #a31313,
-        0 0 20px rgba(255,205,55,.85),
-        0 14px 28px rgba(175,0,0,.55),
-        inset 0 1px 0 rgba(255,230,135,.40);
+  transition:
+    transform .15s,
+    filter .15s,
+    box-shadow .15s;
+
+  border:
+    1px solid #d4af37;
+
+  box-shadow:
+    0 5px 0 #7b1010,
+    0 0 0 1px rgba(212,175,55,.38),
+    0 0 14px rgba(212,175,55,.48),
+    0 10px 22px rgba(135,0,0,.30),
+    inset 0 1px 0 rgba(255,230,145,.22);
 }
 
+.logo-button:hover,
+.color-theme-button:hover,
+.theme-choice:hover,
+.notes-button:hover,
+.add-button:hover,
+.filter-button:hover,
+.report-button:hover,
+.report-action:hover,
+.delete-button:hover,
+.report-theme-button:hover{
+
+  filter:brightness(1.13);
+
+  box-shadow:
+    0 5px 0 #a31515,
+    0 0 18px rgba(239,198,66,.70),
+    0 12px 25px rgba(150,0,0,.38),
+    inset 0 1px 0 rgba(255,235,160,.28);
+}
+
+.logo-button:active,
+.color-theme-button:active,
+.theme-choice:active,
+.notes-button:active,
+.add-button:active,
+.filter-button:active,
+.report-button:active,
+.report-action:active,
+.delete-button:active,
+.report-theme-button:active{
+
+  transform:
+    translateY(4px);
+
+  box-shadow:
+    0 1px 0 #7b1010,
+    0 0 9px rgba(212,175,55,.45),
+    0 5px 11px rgba(125,0,0,.26);
+}
 
 /* =====================================================
-   قائمة الثيم
+   أزرار الستايلات
+===================================================== */
+
+.logo-button{
+  min-width:155px;
+  padding:13px 23px;
+
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--button),
+      var(--button2)
+    );
+
+  color:#fff;
+
+  font-size:17px;
+
+  text-shadow:
+    0 2px 3px #000;
+}
+
+.logo-button.active{
+  outline:
+    2px solid rgba(255,218,88,.85);
+
+  outline-offset:2px;
+}
+
+/* =====================================================
+   زر الألوان
+===================================================== */
+
+.color-theme-button{
+  width:56px;
+  height:50px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--button),
+      var(--button2)
+    );
+
+  color:#fff;
+
+  font-size:28px;
+
+  padding:0;
+}
+
+/* =====================================================
+   قائمة الثيمات
 ===================================================== */
 
 .theme-menu{
-    display:none;
+  display:none;
 
-    background:var(--card);
+  max-width:920px;
 
-    border:1px solid var(--border);
+  margin:
+    0 auto 18px;
 
-    border-radius:12px;
+  padding:14px;
 
-    padding:12px;
+  background:
+    var(--card);
 
-    margin-bottom:15px;
+  border:
+    1px solid var(--border);
 
-    gap:9px;
+  border-radius:15px;
+
+  box-shadow:
+    0 12px 25px
+    rgba(0,0,0,.12);
 }
-
 
 .theme-menu.show{
-    display:flex;
+  display:grid;
 
-    flex-wrap:wrap;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(115px,1fr)
+    );
 
-    justify-content:center;
+  gap:11px;
 }
 
+.theme-choice{
+  min-height:44px;
 
-.theme-menu button{
-    padding:11px 17px;
+  padding:
+    9px 12px;
 
-    border:1px solid var(--border);
+  border-radius:10px;
 
-    border-radius:9px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--card),
+      var(--header)
+    );
 
-    background:
-        linear-gradient(
-            180deg,
-            #3b3b3b,
-            #161616
-        );
+  color:
+    var(--text);
 
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:14px;
-    font-weight:900;
-
-    box-shadow:
-        0 4px 0 #050505,
-        0 7px 12px rgba(0,0,0,.30);
+  font-size:14px;
 }
 
+.theme-dot{
+  width:17px;
+  height:17px;
 
-body.black .theme-menu{
-    border-color:#d4af37;
+  border-radius:50%;
 
-    box-shadow:
-        0 4px 0 #750d0d,
-        0 0 14px rgba(212,175,55,.35);
+  display:inline-block;
+
+  margin-left:6px;
+
+  border:
+    1px solid rgba(0,0,0,.2);
+
+  vertical-align:middle;
 }
-
-
-body.black .theme-menu button{
-    border-color:#b38d27;
-
-    box-shadow:
-        0 4px 0 #741010,
-        0 0 10px rgba(212,175,55,.32);
-}
-
 
 /* =====================================================
    الصناديق
@@ -582,1341 +486,1079 @@ body.black .theme-menu button{
 .table-box,
 .report-filter,
 .report{
-    background:var(--card);
 
-    border:1px solid var(--border);
+  background:
+    var(--card);
 
-    border-radius:14px;
+  border:
+    1px solid var(--border);
 
-    padding:16px;
+  border-radius:15px;
+
+  padding:17px;
 }
 
-
-body.black .form-box,
-body.black .table-box,
-body.black .report-filter{
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #050505
-        );
-
-    border:1px solid #c29b2c;
-
-    box-shadow:
-        0 5px 0 #6d0c0c,
-        0 0 16px rgba(212,175,55,.30),
-        0 12px 25px rgba(120,0,0,.24);
+.form-box,
+.table-box,
+.report-filter{
+  box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.08);
 }
-
 
 /* =====================================================
    الأسبوع
 ===================================================== */
 
 .week-info{
-    text-align:center;
+  text-align:center;
 
-    margin-bottom:12px;
+  margin-bottom:13px;
 
-    padding:12px;
+  padding:13px;
 
-    border-radius:9px;
+  border-radius:10px;
 
-    background:var(--header);
+  background:
+    var(--header);
 
-    font-weight:900;
+  font-weight:900;
 
-    font-size:16px;
+  font-size:17px;
 }
-
-
-body.black .week-info{
-    background:
-        linear-gradient(
-            180deg,
-            #241b07,
-            #090909
-        );
-
-    color:#f4d36a;
-
-    border:1px solid #b99228;
-
-    box-shadow:
-        0 3px 0 #6f0c0c,
-        0 0 10px rgba(212,175,55,.35);
-}
-
 
 /* =====================================================
    النموذج
 ===================================================== */
 
 .form{
-    display:grid;
+  display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
-    gap:10px;
+  gap:11px;
 }
-
 
 .field{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:6px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
 }
-
 
 .field label{
-    font-size:14px;
+  font-size:15px;
 
-    font-weight:900;
+  font-weight:900;
 
-    color:var(--secondary);
+  color:
+    var(--secondary);
 }
-
 
 input,
 select,
 textarea{
-    width:100%;
+  width:100%;
 
-    padding:12px;
+  padding:13px;
 
-    border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
-    border-radius:8px;
+  border-radius:9px;
 
-    background:var(--card);
+  background:
+    var(--card);
 
-    color:var(--text);
+  color:
+    var(--text);
 
-    font-size:15px;
+  font-size:16px;
 
-    font-weight:700;
+  font-weight:700;
 
-    outline:none;
+  outline:none;
 }
-
 
 input:focus,
 select:focus,
 textarea:focus{
-    border-color:#777;
+  border-color:
+    #d4af37;
 
-    box-shadow:
-        0 0 0 2px rgba(150,150,150,.15);
+  box-shadow:
+    0 0 0 1px #7b1010,
+    0 0 10px rgba(212,175,55,.30);
 }
-
-
-body.black input,
-body.black select,
-body.black textarea{
-    background:#080808;
-
-    color:#fff;
-
-    border:1px solid #705a1b;
-}
-
-
-body.black input:focus,
-body.black select:focus,
-body.black textarea:focus{
-    border-color:#d4af37;
-
-    box-shadow:
-        0 0 0 1px #7d0d0d,
-        0 0 13px rgba(212,175,55,.48);
-}
-
-
-body.black input::placeholder{
-    color:#9e9e9e;
-}
-
 
 .company-row{
-    grid-column:span 2;
+  grid-column:
+    span 2;
 }
-
 
 .strike-row{
-    grid-column:span 1;
+  grid-column:
+    span 1;
 }
-
 
 .price-row{
-    grid-column:span 3;
+  grid-column:
+    span 3;
 
-    display:grid;
+  display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
-    gap:10px;
+  gap:10px;
 }
-
 
 .notes-row{
-    display:flex;
+  display:flex;
 
-    align-items:end;
+  align-items:end;
 
-    gap:8px;
+  gap:8px;
 
-    grid-column:span 3;
+  grid-column:
+    span 3;
 }
-
 
 .notes-row .field{
-    flex:1;
+  flex:1;
 }
 
+/* =====================================================
+   الأزرار الرئيسية
+===================================================== */
+
+.notes-button,
+.add-button,
+.report-button,
+.report-action{
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--button),
+      var(--button2)
+    );
+
+  color:#fff;
+
+  text-shadow:
+    0 1px 2px
+    rgba(0,0,0,.7);
+}
+
+.notes-button{
+  width:auto;
+
+  padding:
+    13px 21px;
+
+  white-space:nowrap;
+
+  border-radius:10px;
+
+  font-size:16px;
+}
+
+.add-button{
+  width:100%;
+
+  margin-top:15px;
+
+  padding:17px;
+
+  border-radius:12px;
+
+  font-size:20px;
+}
+
+.report-button{
+  display:block;
+
+  margin:
+    16px auto 0;
+
+  padding:
+    14px 27px;
+
+  border-radius:11px;
+
+  font-size:18px;
+}
+
+.report-action{
+  min-width:190px;
+
+  padding:
+    16px 30px;
+
+  border-radius:12px;
+
+  font-size:19px;
+}
 
 /* =====================================================
-   جدول الصفحة
+   جدول الصفقات
 ===================================================== */
 
 .table-box{
-    margin-top:15px;
+  margin-top:16px;
 
-    overflow-x:auto;
+  overflow-x:auto;
 }
 
+.table-box h3,
+.report-filter h3{
+  text-align:center;
 
-.table-box h3{
-    text-align:center;
+  font-size:21px;
 
-    font-size:20px;
-
-    font-weight:900;
+  font-weight:900;
 }
 
+.report-filter{
+  margin-top:16px;
+}
+
+.report-filter h3{
+  margin-top:0;
+}
 
 table{
-    width:100%;
+  width:100%;
 
-    min-width:950px;
+  min-width:950px;
 
-    border-collapse:collapse;
+  border-collapse:collapse;
 }
-
 
 th{
-    background:var(--header);
+  background:
+    var(--header);
 
-    padding:12px;
+  color:
+    var(--text);
 
-    font-size:14px;
+  padding:13px;
 
-    font-weight:900;
+  font-size:15px;
+
+  font-weight:900;
 }
-
 
 td{
-    padding:11px;
+  padding:12px;
 
-    text-align:center;
+  text-align:center;
 
-    border-bottom:
-        1px solid var(--border);
+  border-bottom:
+    1px solid var(--border);
 
-    font-size:14px;
+  font-size:15px;
 }
 
+.table-box table{
+  border:
+    1px solid #c9a536;
 
-body.black .table-box table{
-    border:1px solid #c7a331;
-
-    box-shadow:
-        0 5px 0 #700d0d,
-        0 0 16px rgba(212,175,55,.38),
-        0 12px 26px rgba(115,0,0,.27);
+  box-shadow:
+    0 4px 0 #7b1010,
+    0 0 12px rgba(212,175,55,.25);
 }
-
-
-body.black .table-box th{
-    background:
-        linear-gradient(
-            180deg,
-            #332607,
-            #111111
-        );
-
-    color:#f5d66c;
-
-    border:1px solid #8b6b18;
-}
-
-
-body.black .table-box td{
-    background:#0a0a0a;
-
-    color:#fff;
-
-    border-bottom:
-        1px solid #572020;
-}
-
 
 .green{
-    color:#16a864;
+  color:#16a864;
 
-    font-weight:900;
+  font-weight:900;
 }
-
 
 .orange{
-    color:#00b8dc;
+  color:#00a7c8;
 
-    font-weight:900;
+  font-weight:900;
 }
-
 
 .red{
-    color:#e33b3b;
+  color:#d83c3c;
 
-    font-weight:900;
+  font-weight:900;
 }
-
 
 /* =====================================================
    حذف
 ===================================================== */
 
 .delete-button{
-    background:
-        linear-gradient(
-            180deg,
-            #f34d4d,
-            #a70e0e
-        );
+  background:
+    linear-gradient(
+      180deg,
+      #e84f4f,
+      #8d0f0f
+    );
 
-    color:#fff;
+  color:#fff;
 
-    border:1px solid #ff7777;
+  border-radius:8px;
 
-    border-radius:7px;
+  padding:
+    8px 13px;
 
-    padding:8px 12px;
-
-    cursor:pointer;
-
-    font-size:13px;
-
-    font-weight:900;
-
-    box-shadow:
-        0 3px 0 #680707,
-        0 6px 10px rgba(0,0,0,.30);
+  font-size:13px;
 }
-
-
-body.black .delete-button{
-    border:1px solid #d4af37;
-
-    box-shadow:
-        0 4px 0 #590505,
-        0 0 10px rgba(212,175,55,.30),
-        0 7px 12px rgba(140,0,0,.35);
-}
-
-
-.delete-button:active{
-    transform:translateY(3px);
-}
-
 
 .empty{
-    text-align:center;
+  text-align:center;
 
-    color:var(--secondary);
+  color:
+    var(--secondary);
 
-    padding:25px;
+  padding:26px;
 }
-
 
 /* =====================================================
-   التقارير
+   فلترة التقرير
 ===================================================== */
 
-.report-filter{
-    margin-top:15px;
-}
-
-
-.report-filter h3{
-    text-align:center;
-
-    margin-top:0;
-
-    font-size:20px;
-
-    font-weight:900;
-}
-
-
-.filter-grid{
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:9px;
-}
-
-
 .filter-button{
-    padding:11px 15px;
+  padding:
+    11px 15px;
 
-    border:1px solid var(--border);
+  border-radius:9px;
 
-    border-radius:9px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--header),
+      var(--card)
+    );
 
-    background:
-        linear-gradient(
-            180deg,
-            var(--header),
-            var(--card)
-        );
+  color:
+    var(--text);
 
-    color:var(--text);
-
-    cursor:pointer;
-
-    font-size:14px;
-
-    font-weight:900;
-
-    box-shadow:
-        0 3px 0 rgba(0,0,0,.20),
-        0 6px 10px rgba(0,0,0,.15);
+  font-size:14px;
 }
-
 
 .filter-button.active{
-    background:
-        linear-gradient(
-            180deg,
-            #353535,
-            #080808
-        );
+  background:
+    linear-gradient(
+      180deg,
+      var(--button),
+      var(--button2)
+    );
 
-    color:#fff;
+  color:#fff;
 }
-
-
-body.black .filter-button{
-    background:
-        linear-gradient(
-            180deg,
-            #292929,
-            #080808
-        );
-
-    color:#fff;
-
-    border:1px solid #92731e;
-
-    box-shadow:
-        0 4px 0 #681010,
-        0 0 8px rgba(212,175,55,.26);
-}
-
-
-body.black .filter-button.active{
-    color:#ffe795;
-
-    border-color:#e0b83a;
-
-    box-shadow:
-        0 5px 0 #8b1010,
-        0 0 16px rgba(230,190,55,.62),
-        0 9px 18px rgba(140,0,0,.40);
-}
-
 
 .date-grid{
-    margin-top:14px;
+  margin-top:14px;
 
-    display:grid;
+  display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
-    gap:10px;
+  gap:10px;
 }
-
 
 /* =====================================================
    التقرير
 ===================================================== */
 
 .report{
-    display:none;
+  display:none;
 
-    margin-top:15px;
+  margin-top:16px;
 
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(220,239,241,.55),
-            transparent 38%
-        ),
-        linear-gradient(
-            180deg,
-            #f4f8f8 0%,
-            #ffffff 45%,
-            #f3f7f7 100%
-        )!important;
+  position:relative;
 
-    color:#182326!important;
+  overflow:hidden;
 
-    border:
-        1px solid #cfdadc!important;
+  --r-bg1:#f7fafb;
+  --r-bg2:#fff;
+  --r-text:#182326;
+  --r-muted:#4d5c60;
+  --r-head:#dce6e8;
+  --r-card:#fff;
+  --r-border:#c9a536;
 
-    position:relative;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212,175,55,.12),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      var(--r-bg1),
+      var(--r-bg2)
+    )!important;
 
-    overflow:hidden;
+  color:
+    var(--r-text)!important;
 
-    box-shadow:
-        0 8px 0 rgba(0,0,0,.08),
-        0 18px 35px rgba(0,0,0,.12);
+  border:
+    2px solid
+    var(--r-border)!important;
+
+  box-shadow:
+    0 6px 0 #7b1010,
+    0 0 20px rgba(212,175,55,.36),
+    0 18px 38px rgba(120,0,0,.24)!important;
 }
-
 
 .report.show{
-    display:block;
+  display:block;
 }
 
-
-/* =====================================================
-   العلامة المائية
-   تستخدم الشعار المحدد
-===================================================== */
+/* شعار التقرير شفاف */
 
 .report::before{
-    content:"";
+  content:"";
 
-    position:absolute;
+  position:absolute;
 
-    left:50%;
-    top:250px;
+  left:50%;
+  top:250px;
 
-    width:620px;
-    height:620px;
+  width:650px;
+  height:650px;
 
-    transform:
-        translateX(-50%);
+  transform:
+    translateX(-50%);
 
-    background-image:
-        var(
-            --report-logo,
-            url("IMG_1.jpg")
-        );
+  background-image:
+    var(--report-logo);
 
-    background-size:contain;
+  background-size:contain;
 
-    background-position:center;
+  background-position:center;
 
-    background-repeat:no-repeat;
+  background-repeat:no-repeat;
 
-    opacity:.075;
+  opacity:.045;
 
-    pointer-events:none;
+  pointer-events:none;
 
-    z-index:0;
+  z-index:0;
 }
-
 
 .report > *{
-    position:relative;
+  position:relative;
 
-    z-index:1;
+  z-index:1;
 }
-
 
 .report h2{
-    text-align:center;
+  text-align:center;
 
-    color:#182326;
+  color:
+    var(--r-text);
 
-    margin:18px 0 8px;
+  margin:
+    18px 0 8px;
 
-    font-size:36px;
+  font-size:36px;
 
-    font-weight:900;
+  font-weight:900;
+
+  text-shadow:
+    0 0 10px
+    rgba(212,175,55,.16);
 }
-
 
 .report-period{
-    text-align:center;
+  text-align:center;
 
-    color:#4d5c60;
+  color:
+    var(--r-muted);
 
-    font-size:20px;
+  font-size:20px;
 
-    font-weight:900;
+  font-weight:900;
 }
 
-
 /* =====================================================
-   ثيمات التقرير
+   ألوان التقرير
 ===================================================== */
+
+.report.theme-report-white{
+  --r-bg1:#f7fafb;
+  --r-bg2:#fff;
+  --r-text:#182326;
+  --r-muted:#4d5c60;
+  --r-head:#dce6e8;
+  --r-card:#fff;
+  --r-border:#c9a536;
+}
+
+.report.theme-report-black{
+  --r-bg1:#111;
+  --r-bg2:#020202;
+  --r-text:#fff;
+  --r-muted:#ddd;
+  --r-head:#241c08;
+  --r-card:#111;
+  --r-border:#d4af37;
+}
 
 .report.theme-report-silver{
-    background:
-        linear-gradient(
-            180deg,
-            #f0f2f3,
-            #fff,
-            #f1f3f4
-        )!important;
+  --r-bg1:#e6eaec;
+  --r-bg2:#fbfcfd;
+  --r-text:#283036;
+  --r-muted:#667078;
+  --r-head:#d5dade;
+  --r-card:#f7f9fa;
+  --r-border:#c9a536;
 }
-
 
 .report.theme-report-blue{
-    background:
-        linear-gradient(
-            180deg,
-            #eef6fa,
-            #fff,
-            #eef5f8
-        )!important;
+  --r-bg1:#e4f2fa;
+  --r-bg2:#fff;
+  --r-text:#19374a;
+  --r-muted:#5c7889;
+  --r-head:#d2e8f4;
+  --r-card:#f8fcff;
+  --r-border:#c9a536;
 }
-
 
 .report.theme-report-turquoise{
-    background:
-        linear-gradient(
-            180deg,
-            #edf9fa,
-            #fff,
-            #edf7f8
-        )!important;
+  --r-bg1:#e2f7f6;
+  --r-bg2:#fff;
+  --r-text:#183b3b;
+  --r-muted:#5e8080;
+  --r-head:#d1efed;
+  --r-card:#f9ffff;
+  --r-border:#c9a536;
 }
-
 
 .report.theme-report-beige{
-    background:
-        linear-gradient(
-            180deg,
-            #faf7f0,
-            #fff,
-            #f7f3eb
-        )!important;
+  --r-bg1:#f3eadc;
+  --r-bg2:#fff;
+  --r-text:#40372d;
+  --r-muted:#7e7264;
+  --r-head:#eadfce;
+  --r-card:#fffdf9;
+  --r-border:#c9a536;
 }
 
-
-/* =====================================================
-   التقرير الأسود
-===================================================== */
-
-body.black .report,
-.report.theme-report-black{
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(155,115,15,.20),
-            transparent 38%
-        ),
-        linear-gradient(
-            180deg,
-            #0d0d0d 0%,
-            #050505 48%,
-            #000 100%
-        )!important;
-
-    color:#fff!important;
-
-    border:
-        2px solid #caa532!important;
-
-    box-shadow:
-        0 6px 0 #731010,
-        0 0 22px rgba(212,175,55,.45),
-        0 18px 40px rgba(120,0,0,.36)!important;
+.report.theme-report-purple{
+  --r-bg1:#eee4f8;
+  --r-bg2:#fff;
+  --r-text:#3b2c4b;
+  --r-muted:#78688a;
+  --r-head:#e4d7f0;
+  --r-card:#fdfaff;
+  --r-border:#c9a536;
 }
 
-
-body.black .report::before,
-.report.theme-report-black::before{
-    opacity:.055;
+.report.theme-report-emerald{
+  --r-bg1:#e1f1e8;
+  --r-bg2:#fff;
+  --r-text:#173b2e;
+  --r-muted:#587d6d;
+  --r-head:#d1e8dc;
+  --r-card:#fafffc;
+  --r-border:#c9a536;
 }
 
-
-body.black .report h2,
-.report.theme-report-black h2{
-    color:#f4d66d!important;
-
-    text-shadow:
-        0 2px 3px #000,
-        0 0 12px rgba(212,175,55,.38);
+.report.theme-report-burgundy{
+  --r-bg1:#f1dfe3;
+  --r-bg2:#fff;
+  --r-text:#4a232b;
+  --r-muted:#8b636c;
+  --r-head:#ead2d8;
+  --r-card:#fffafb;
+  --r-border:#c9a536;
 }
 
-
-body.black .report-period,
-.report.theme-report-black .report-period{
-    color:#fff!important;
+.report.theme-report-copper{
+  --r-bg1:#f0dfd0;
+  --r-bg2:#fff;
+  --r-text:#4c3022;
+  --r-muted:#8e705f;
+  --r-head:#ead3c0;
+  --r-card:#fffaf6;
+  --r-border:#c9a536;
 }
 
+.report.theme-report-midnight{
+  --r-bg1:#122235;
+  --r-bg2:#08111d;
+  --r-text:#f1f7ff;
+  --r-muted:#a7b9cc;
+  --r-head:#162b40;
+  --r-card:#101c2a;
+  --r-border:#d4af37;
+}
+
+.report.theme-report-rose{
+  --r-bg1:#f8e4eb;
+  --r-bg2:#fff;
+  --r-text:#522c38;
+  --r-muted:#946b77;
+  --r-head:#f1d8e1;
+  --r-card:#fffafd;
+  --r-border:#c9a536;
+}
+
+.report.theme-report-ice{
+  --r-bg1:#e1f4fb;
+  --r-bg2:#fff;
+  --r-text:#213e4e;
+  --r-muted:#66899b;
+  --r-head:#d4edf7;
+  --r-card:#fbfeff;
+  --r-border:#c9a536;
+}
 
 /* =====================================================
    أزرار ثيم التقرير
 ===================================================== */
 
 .report-themes{
-    display:flex;
-
-    justify-content:center;
-
-    gap:8px;
-
-    flex-wrap:wrap;
-
-    margin:10px 0 15px;
+  margin:
+    11px 0 16px;
 }
-
 
 .report-theme-button{
-    padding:9px 14px;
+  width:38px;
+  height:38px;
 
-    border:1px solid #444;
+  padding:0;
 
-    background:
-        linear-gradient(
-            180deg,
-            #3c3c3c,
-            #151515
-        );
+  border-radius:50%;
 
-    color:#fff;
-
-    border-radius:8px;
-
-    font-size:13px;
-
-    cursor:pointer;
-
-    font-weight:900;
-
-    box-shadow:
-        0 3px 0 #050505,
-        0 6px 10px rgba(0,0,0,.30);
+  position:relative;
 }
 
+.report-theme-button.active{
+  outline:
+    3px solid
+    rgba(255,218,88,.85);
 
-body.black .report-theme-button,
-.report.theme-report-black .report-theme-button{
-    border:1px solid #d4af37;
-
-    box-shadow:
-        0 4px 0 #741010,
-        0 0 11px rgba(212,175,55,.38);
+  outline-offset:3px;
 }
-
 
 /* =====================================================
    الإحصائيات
 ===================================================== */
 
 .stats{
-    display:grid;
+  display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
-    gap:16px;
+  gap:16px;
 
-    margin:22px 0;
-
-    position:relative;
-
-    z-index:2;
+  margin:
+    22px 0;
 }
-
 
 .stat{
-    background:
-        linear-gradient(
-            145deg,
-            #fff 0%,
-            #eef2f3 100%
-        );
+  background:
+    linear-gradient(
+      145deg,
+      var(--r-card),
+      var(--r-head)
+    );
 
-    color:#171d1f;
+  color:
+    var(--r-text);
 
-    padding:18px;
+  padding:18px;
 
-    border-radius:14px;
+  border-radius:14px;
 
-    text-align:center;
+  text-align:center;
 
-    font-size:18px;
+  font-size:18px;
 
-    font-weight:900;
+  font-weight:900;
 
-    min-height:115px;
+  min-height:115px;
 
-    box-shadow:
-        0 4px 0 #c3cbcd,
-        0 8px 0 rgba(0,0,0,.08),
-        0 15px 25px rgba(0,0,0,.14);
+  border:
+    1px solid #c9a536;
 
-    border:
-        1px solid #c9d1d3;
+  box-shadow:
+    0 4px 0 #7b1010,
+    0 0 12px rgba(212,175,55,.28),
+    0 12px 23px rgba(120,0,0,.18);
 }
-
-
-body.black .report .stat,
-.report.theme-report-black .stat{
-    background:
-        linear-gradient(
-            145deg,
-            #252525,
-            #070707
-        );
-
-    color:#fff;
-
-    border:
-        1px solid #bd972a;
-
-    box-shadow:
-        0 5px 0 #6d0c0c,
-        0 0 14px rgba(212,175,55,.38),
-        0 11px 22px rgba(125,0,0,.32);
-}
-
 
 .stat strong{
-    display:block;
+  display:block;
 
-    font-size:34px;
+  font-size:34px;
 
-    font-weight:900;
+  font-weight:900;
 
-    margin-top:10px;
+  margin-top:10px;
 
-    line-height:1;
+  line-height:1;
 }
 
+.profit-main,
+.profit-times{
+  display:block;
 
-.profit-main{
-    display:block;
+  font-size:34px!important;
 
-    font-size:34px!important;
+  font-weight:900!important;
 
-    font-weight:900!important;
-
-    line-height:1!important;
+  line-height:1!important;
 }
-
 
 .profit-times{
-    display:block;
-
-    margin-top:9px;
-
-    font-size:34px!important;
-
-    font-weight:900!important;
-
-    line-height:1!important;
+  margin-top:9px;
 }
-
 
 #totalTrades{
-    color:#161b1d!important;
+  color:
+    var(--r-text)!important;
 }
-
-
-body.black #totalTrades,
-.report.theme-report-black #totalTrades{
-    color:#f4d66d!important;
-}
-
 
 #winningTrades{
-    color:#087a42!important;
+  color:#0c8d50!important;
 }
-
 
 #stoppedTrades{
-    color:#008fae!important;
+  color:#0098b7!important;
 }
-
 
 #losingTrades{
-    color:#c62727!important;
+  color:#c92e2e!important;
 }
-
-
-#totalProfit{
-    color:#087a42!important;
-}
-
 
 /* =====================================================
    جدول التقرير
 ===================================================== */
 
 .report-table{
-    overflow-x:auto;
+  overflow-x:auto;
 
-    position:relative;
-
-    z-index:2;
-
-    padding:8px 5px 14px;
+  padding:
+    8px 5px 14px;
 }
-
 
 .report-table table{
-    background:#fff;
+  background:
+    var(--r-card);
 
-    min-width:900px;
+  min-width:900px;
 
-    border-collapse:separate;
+  border-collapse:separate;
 
-    border-spacing:0;
+  border-spacing:0;
 
-    border-radius:13px;
+  border-radius:13px;
 
-    overflow:hidden;
+  overflow:hidden;
 
-    border:
-        2px solid #aebbbe;
+  border:
+    2px solid #c9a536;
 
-    box-shadow:
-        0 4px 0 #b6c1c4,
-        0 8px 0 rgba(0,0,0,.09),
-        0 18px 30px rgba(0,0,0,.18);
+  box-shadow:
+    0 5px 0 #7b1010,
+    0 0 16px rgba(212,175,55,.34),
+    0 15px 28px rgba(120,0,0,.20);
 }
-
 
 .report-table th{
-    background:
-        linear-gradient(
-            180deg,
-            #edf4f5,
-            #d5e1e3
-        );
+  background:
+    linear-gradient(
+      180deg,
+      var(--r-head),
+      var(--r-card)
+    );
 
-    color:#172528;
+  color:
+    var(--r-text);
 
-    border:
-        1px solid #aebdc0;
+  border:
+    1px solid
+    rgba(160,125,32,.60);
 
-    font-size:21px;
+  font-size:20px;
 
-    font-weight:900;
-
-    padding:17px;
+  padding:16px;
 }
-
 
 .report-table td{
-    border:
-        1px solid #c4ced0;
+  border:
+    1px solid
+    rgba(125,80,80,.32);
 
-    color:#080d0f!important;
+  color:
+    var(--r-text)!important;
 
-    font-size:20px;
+  font-size:19px;
 
-    font-weight:900;
+  font-weight:900;
 
-    padding:17px;
+  padding:16px;
 
-    background:#fff;
+  background:
+    var(--r-card);
 }
 
+.report-table .win-row td{
+  background:#e5f5ea;
 
+  color:#173c27!important;
+}
+
+.report-table .stopped-row td{
+  background:#e1f6fa;
+
+  color:#16404a!important;
+}
+
+.report-table .loss-row td{
+  background:#f9e1e1;
+
+  color:#4b1c1c!important;
+}
+
+.theme-report-black
+.report-table
+.win-row td,
+
+.theme-report-midnight
+.report-table
 .win-row td{
-    background:
-        linear-gradient(
-            180deg,
-            #effbf3,
-            #dff2e6
-        );
+  background:#102318;
+
+  color:#eafff0!important;
 }
 
+.theme-report-black
+.report-table
+.stopped-row td,
 
+.theme-report-midnight
+.report-table
 .stopped-row td{
-    background:
-        linear-gradient(
-            180deg,
-            #eefcff,
-            #d9f2f6
-        );
+  background:#10242a;
+
+  color:#eaffff!important;
 }
 
+.theme-report-black
+.report-table
+.loss-row td,
 
+.theme-report-midnight
+.report-table
 .loss-row td{
-    background:
-        linear-gradient(
-            180deg,
-            #fff0f0,
-            #f6dddd
-        );
+  background:#301010;
+
+  color:#fff0f0!important;
 }
-
-
-/* =====================================================
-   جدول التقرير الأسود
-===================================================== */
-
-body.black .report-table table,
-.report.theme-report-black .report-table table{
-    background:#070707;
-
-    border:
-        2px solid #d0aa32;
-
-    box-shadow:
-        0 5px 0 #761010,
-        0 0 19px rgba(212,175,55,.50),
-        0 16px 30px rgba(120,0,0,.35);
-}
-
-
-body.black .report-table th,
-.report.theme-report-black .report-table th{
-    background:
-        linear-gradient(
-            180deg,
-            #362806,
-            #111
-        );
-
-    color:#f5d66b;
-
-    border:
-        1px solid #98751c;
-}
-
-
-body.black .report-table td,
-.report.theme-report-black .report-table td{
-    color:#fff!important;
-
-    background:#0c0c0c;
-
-    border:
-        1px solid #572222;
-}
-
-
-body.black .report-table .win-row td,
-.report.theme-report-black .report-table .win-row td{
-    background:#10251a;
-}
-
-
-body.black .report-table .stopped-row td,
-.report.theme-report-black .report-table .stopped-row td{
-    background:#10242a;
-}
-
-
-body.black .report-table .loss-row td,
-.report.theme-report-black .report-table .loss-row td{
-    background:#321010;
-}
-
 
 /* =====================================================
    أزرار التقرير
 ===================================================== */
 
 .report-actions{
-    display:flex;
+  margin:
+    28px 0 8px;
 
-    justify-content:center;
+  padding-top:20px;
 
-    align-items:center;
-
-    gap:14px;
-
-    flex-wrap:wrap;
-
-    margin:28px 0 8px;
-
-    padding-top:20px;
-
-    border-top:
-        2px solid rgba(120,140,145,.25);
-
-    position:relative;
-
-    z-index:3;
+  border-top:
+    2px solid
+    rgba(212,175,55,.42);
 }
-
-
-body.black .report-actions,
-.report.theme-report-black .report-actions{
-    border-top-color:
-        rgba(212,175,55,.45);
-}
-
 
 /* =====================================================
    التنويه
 ===================================================== */
 
 .report-note{
-    margin-top:18px;
+  margin-top:18px;
 
-    padding:17px 14px;
+  padding:
+    17px 14px;
 
-    text-align:center;
+  text-align:center;
 
-    font-size:17px;
+  font-size:17px;
 
-    line-height:2;
+  line-height:2;
 
-    font-weight:900;
+  font-weight:900;
 
-    color:#202b2e;
+  color:
+    var(--r-text);
 
-    border:
-        2px solid #cdd8da;
+  border:
+    1px solid #c9a536;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f9fbfb,
-            #eef3f4
-        );
+  background:
+    linear-gradient(
+      180deg,
+      var(--r-card),
+      var(--r-head)
+    );
 
-    border-radius:10px;
+  border-radius:10px;
 
-    box-shadow:
-        0 3px 0 #c3ccce,
-        0 8px 16px rgba(0,0,0,.08);
+  box-shadow:
+    0 4px 0 #7b1010,
+    0 0 11px rgba(212,175,55,.25);
 }
-
-
-body.black .report-note,
-.report.theme-report-black .report-note{
-    background:
-        linear-gradient(
-            180deg,
-            #211807,
-            #080808
-        );
-
-    color:#fff;
-
-    border:
-        1px solid #bd9729;
-
-    box-shadow:
-        0 4px 0 #6d0c0c,
-        0 0 13px rgba(212,175,55,.30);
-}
-
 
 /* =====================================================
-   طباعة
+   الطباعة
 ===================================================== */
 
 @page{
-    size:A4 portrait;
-    margin:7mm;
+  size:A4 portrait;
+  margin:7mm;
 }
-
 
 @media print{
 
-    html,
-    body{
-        width:100%;
+  .main-banner,
+  .logo-buttons,
+  .top-buttons,
+  .theme-menu,
+  .form-box,
+  .table-box,
+  .report-filter,
+  .no-print{
+    display:none!important;
+  }
 
-        padding:0!important;
-        margin:0!important;
-    }
+  .container{
+    width:100%!important;
 
+    max-width:none!important;
 
-    body{
-        -webkit-print-color-adjust:
-            exact!important;
+    margin:0!important;
 
-        print-color-adjust:
-            exact!important;
-    }
+    padding:0!important;
+  }
 
+  body{
+    padding:0!important;
 
-    .main-banner,
-    .logo-buttons,
-    .top-buttons,
-    .theme-menu,
-    .form-box,
-    .table-box,
-    .report-filter,
-    .no-print{
-        display:none!important;
-    }
+    margin:0!important;
 
+    -webkit-print-color-adjust:
+      exact!important;
 
-    .container{
-        width:100%!important;
-
-        max-width:none!important;
-
-        margin:0!important;
-
-        padding:0!important;
-    }
+    print-color-adjust:
+      exact!important;
+  }
 
 }
 
-
 /* =====================================================
-   جوال
+   الجوال
 ===================================================== */
 
 @media(max-width:700px){
 
-    body{
-        padding:8px;
-    }
+  body{
+    padding:8px;
+  }
 
+  .main-banner{
+    min-height:185px;
+  }
 
-    .main-banner{
-        height:190px;
+  .main-banner img{
+    height:190px;
+  }
 
-        border-radius:12px;
-    }
+  .logo-button{
+    font-size:14px;
 
+    min-width:135px;
 
-    .main-banner.gold-style{
-        height:200px;
-    }
+    padding:
+      11px 15px;
+  }
 
+  .form{
+    grid-template-columns:1fr;
+  }
 
-    .logo-button{
-        font-size:14px;
+  .company-row,
+  .strike-row,
+  .price-row,
+  .notes-row{
+    grid-column:span 1;
+  }
 
-        padding:11px 15px;
-    }
+  .price-row{
+    grid-template-columns:
+      1fr 1fr;
+  }
 
+  .stats{
+    grid-template-columns:
+      repeat(2,1fr);
 
-    .report{
-        padding:12px;
-    }
+    gap:10px;
+  }
 
+  .stat{
+    font-size:14px;
 
-    .report::before{
-        top:230px;
+    min-height:100px;
+  }
 
-        width:370px;
-        height:370px;
+  .stat strong,
+  .profit-main,
+  .profit-times{
+    font-size:27px!important;
+  }
 
-        opacity:.055;
-    }
+  .date-grid{
+    grid-template-columns:1fr;
+  }
 
+  .report{
+    padding:12px;
+  }
 
-    .report h2{
-        font-size:29px;
+  .report h2{
+    font-size:29px;
+  }
 
-        margin-top:15px;
-    }
+  .report-period{
+    font-size:17px;
+  }
 
+  .report-table th,
+  .report-table td{
+    font-size:16px;
 
-    .report-period{
-        font-size:17px;
-    }
+    padding:12px;
+  }
 
+  .report-note{
+    font-size:15px;
+  }
 
-    .form{
-        grid-template-columns:1fr;
-    }
+  .report-action{
+    width:100%;
 
+    min-width:0;
+  }
 
-    .company-row,
-    .strike-row,
-    .price-row,
-    .notes-row{
-        grid-column:span 1;
-    }
-
-
-    .price-row{
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-
-    .stats{
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:10px;
-    }
-
-
-    .stat{
-        padding:13px 7px;
-
-        font-size:14px;
-
-        min-height:100px;
-
-        border-radius:12px;
-    }
-
-
-    .stat strong,
-    .profit-main,
-    .profit-times{
-        font-size:27px!important;
-    }
-
-
-    .report-table th{
-        font-size:17px;
-
-        padding:13px;
-    }
-
-
-    .report-table td{
-        font-size:17px;
-
-        padding:13px;
-    }
-
-
-    .date-grid{
-        grid-template-columns:1fr;
-    }
-
-
-    .report-note{
-        font-size:15px;
-
-        line-height:1.9;
-    }
-
-
-    .report-action{
-        width:100%;
-
-        min-width:0;
-
-        padding:16px 20px;
-
-        font-size:19px;
-    }
+  .theme-menu.show{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
 
 }
 
@@ -1924,14 +1566,12 @@ body.black .report-note,
 
 </head>
 
-
-<body>
+<body class="white">
 
 <div class="container">
 
-
 <!-- =====================================================
-     الشعار
+     الشعار الرئيسي
 ===================================================== -->
 
 <div
@@ -1940,103 +1580,270 @@ body.black .report-note,
 
 <img
     id="mainLogo"
-    class="logo1"
-    src="IMG_1.jpg"
+    src="AQ.PNG"
     alt="الشعار">
 
 </div>
 
 
 <!-- =====================================================
-     أزرار الشعارات
+     الستايلات
 ===================================================== -->
 
 <div class="logo-buttons no-print">
 
-
 <button
+    type="button"
     id="logo1Button"
     class="logo-button active"
     onclick="setLogo(1)">
 
-    شعار 1
+ستايل أحمر
 
 </button>
 
 
 <button
+    type="button"
     id="logo2Button"
     class="logo-button"
     onclick="setLogo(2)">
 
-    شعار 2
+ستايل ذهبي
 
 </button>
-
-
-<button
-    id="logo3Button"
-    class="logo-button"
-    onclick="setLogo(3)">
-
-    ستايل ذهبي
-
-</button>
-
 
 </div>
 
 
 <!-- =====================================================
-     الثيم
+     زر الألوان
 ===================================================== -->
 
 <div class="top-buttons no-print">
 
 <button
-    class="small-button"
-    onclick="toggleThemes()">
+    type="button"
+    class="color-theme-button"
+    onclick="toggleThemes()"
+    aria-label="الألوان"
+    title="الألوان">
 
-    ثيم الصفحة
+🎨
 
-</button>
-
-</div>
-
-
-<div
-    id="themeMenu"
-    class="theme-menu no-print">
-
-<button onclick="setTheme('')">
-    أبيض
-</button>
-
-<button onclick="setTheme('black')">
-    أسود
-</button>
-
-<button onclick="setTheme('silver')">
-    فضي
-</button>
-
-<button onclick="setTheme('blue')">
-    أزرق
-</button>
-
-<button onclick="setTheme('turquoise')">
-    تركوازي
-</button>
-
-<button onclick="setTheme('beige')">
-    بيج
 </button>
 
 </div>
 
 
 <!-- =====================================================
-     إضافة صفقة
+     قائمة الثيمات
+===================================================== -->
+
+<div
+    id="themeMenu"
+    class="theme-menu no-print">
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('white')">
+
+<span
+    class="theme-dot"
+    style="background:#f5f7f8">
+</span>
+
+أبيض
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('black')">
+
+<span
+    class="theme-dot"
+    style="background:#050505">
+</span>
+
+أسود
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('silver')">
+
+<span
+    class="theme-dot"
+    style="background:#bfc5c9">
+</span>
+
+فضي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('blue')">
+
+<span
+    class="theme-dot"
+    style="background:#4c9aca">
+</span>
+
+أزرق
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('turquoise')">
+
+<span
+    class="theme-dot"
+    style="background:#38aaa5">
+</span>
+
+تركوازي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('beige')">
+
+<span
+    class="theme-dot"
+    style="background:#c6ab82">
+</span>
+
+بيج
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('purple')">
+
+<span
+    class="theme-dot"
+    style="background:#8b5db5">
+</span>
+
+بنفسجي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('emerald')">
+
+<span
+    class="theme-dot"
+    style="background:#2f8e67">
+</span>
+
+زمردي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('burgundy')">
+
+<span
+    class="theme-dot"
+    style="background:#8e3044">
+</span>
+
+عنابي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('copper')">
+
+<span
+    class="theme-dot"
+    style="background:#b96f42">
+</span>
+
+نحاسي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('midnight')">
+
+<span
+    class="theme-dot"
+    style="background:#11253a">
+</span>
+
+ليلي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('rose')">
+
+<span
+    class="theme-dot"
+    style="background:#cf7892">
+</span>
+
+وردي
+
+</button>
+
+
+<button
+    type="button"
+    class="theme-choice"
+    onclick="setTheme('ice')">
+
+<span
+    class="theme-dot"
+    style="background:#82c7df">
+</span>
+
+ثلجي
+
+</button>
+
+</div>
+
+
+<!-- =====================================================
+     إضافة الصفقة
 ===================================================== -->
 
 <div class="form-box no-print">
@@ -2137,7 +1944,6 @@ Put
 
 </div>
 
-
 </div>
 
 
@@ -2160,28 +1966,27 @@ Put
 
 
 <button
+    type="button"
     class="notes-button"
     onclick="focusNotes()">
 
-    ملاحظات
+ملاحظات
 
 </button>
 
-
 </div>
-
 
 </div>
 
 
 <button
+    type="button"
     class="add-button"
     onclick="addTrade()">
 
-    إضافة الصفقة
+إضافة الصفقة
 
 </button>
-
 
 </div>
 
@@ -2220,7 +2025,8 @@ Put
 
 </thead>
 
-<tbody id="tableBody"></tbody>
+<tbody id="tableBody">
+</tbody>
 
 </table>
 
@@ -2240,47 +2046,53 @@ Put
 
 <div class="filter-grid">
 
+
 <button
+    type="button"
     class="filter-button"
     onclick="setReportPeriod('thisWeek',this)">
 
-    هذا الأسبوع
+هذا الأسبوع
 
 </button>
 
 
 <button
+    type="button"
     class="filter-button"
     onclick="setReportPeriod('lastWeek',this)">
 
-    الأسبوع السابق
+الأسبوع السابق
 
 </button>
 
 
 <button
+    type="button"
     class="filter-button"
     onclick="setReportPeriod('twoWeeksAgo',this)">
 
-    قبل أسبوعين
+قبل أسبوعين
 
 </button>
 
 
 <button
+    type="button"
     class="filter-button"
     onclick="setReportPeriod('threeWeeksAgo',this)">
 
-    قبل 3 أسابيع
+قبل 3 أسابيع
 
 </button>
 
 
 <button
+    type="button"
     class="filter-button"
     onclick="setReportPeriod('all',this)">
 
-    كل الصفقات
+كل الصفقات
 
 </button>
 
@@ -2315,15 +2127,15 @@ Put
 
 </div>
 
-
 </div>
 
 
 <button
+    type="button"
     class="report-button"
     onclick="showReport()">
 
-    إصدار التقرير
+إصدار التقرير
 
 </button>
 
@@ -2336,7 +2148,7 @@ Put
 
 <div
     id="report"
-    class="report">
+    class="report theme-report-white">
 
 
 <h2>
@@ -2350,68 +2162,145 @@ Put
 </div>
 
 
+<!-- ألوان التقرير -->
+
 <div class="report-themes no-print">
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('')">
-
-    أبيض
-
+    data-report-theme="white"
+    title="أبيض"
+    style="background:#f5f7f8"
+    onclick="setReportTheme('white',this)">
 </button>
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('theme-report-black')">
-
-    أسود
-
+    data-report-theme="black"
+    title="أسود"
+    style="background:#050505"
+    onclick="setReportTheme('black',this)">
 </button>
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('theme-report-silver')">
-
-    فضي
-
+    data-report-theme="silver"
+    title="فضي"
+    style="background:#bfc5c9"
+    onclick="setReportTheme('silver',this)">
 </button>
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('theme-report-blue')">
-
-    أزرق
-
+    data-report-theme="blue"
+    title="أزرق"
+    style="background:#4c9aca"
+    onclick="setReportTheme('blue',this)">
 </button>
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('theme-report-turquoise')">
-
-    تركوازي
-
+    data-report-theme="turquoise"
+    title="تركوازي"
+    style="background:#38aaa5"
+    onclick="setReportTheme('turquoise',this)">
 </button>
 
 
 <button
+    type="button"
     class="report-theme-button"
-    onclick="setReportTheme('theme-report-beige')">
-
-    بيج
-
+    data-report-theme="beige"
+    title="بيج"
+    style="background:#c6ab82"
+    onclick="setReportTheme('beige',this)">
 </button>
 
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="purple"
+    title="بنفسجي"
+    style="background:#8b5db5"
+    onclick="setReportTheme('purple',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="emerald"
+    title="زمردي"
+    style="background:#2f8e67"
+    onclick="setReportTheme('emerald',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="burgundy"
+    title="عنابي"
+    style="background:#8e3044"
+    onclick="setReportTheme('burgundy',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="copper"
+    title="نحاسي"
+    style="background:#b96f42"
+    onclick="setReportTheme('copper',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="midnight"
+    title="ليلي"
+    style="background:#11253a"
+    onclick="setReportTheme('midnight',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="rose"
+    title="وردي"
+    style="background:#cf7892"
+    onclick="setReportTheme('rose',this)">
+</button>
+
+
+<button
+    type="button"
+    class="report-theme-button"
+    data-report-theme="ice"
+    title="ثلجي"
+    style="background:#82c7df"
+    onclick="setReportTheme('ice',this)">
+</button>
 
 </div>
 
 
 <!-- =====================================================
-     إحصائيات
+     الإحصائيات
 ===================================================== -->
 
 <div class="stats">
@@ -2483,7 +2372,6 @@ $0
 
 </div>
 
-
 </div>
 
 
@@ -2504,6 +2392,7 @@ $0
 
 
 <button
+    type="button"
     class="report-action"
     onclick="printReport()">
 
@@ -2513,6 +2402,7 @@ PDF
 
 
 <button
+    type="button"
     class="report-action"
     onclick="saveReportImage()">
 
@@ -2520,9 +2410,7 @@ PDF
 
 </button>
 
-
 </div>
-
 
 </div>
 
@@ -2537,11 +2425,177 @@ PDF
 
 const LOGOS={
 
-    1:"IMG_1.jpg",
+    1:"AQ.PNG",
 
-    2:"IMG_22.JPG",
+    2:"QA.PNG"
 
-    3:"QA.PNG"
+};
+
+
+/* =====================================================
+   الثيمات
+===================================================== */
+
+const THEMES=[
+
+    "white",
+
+    "black",
+
+    "silver",
+
+    "blue",
+
+    "turquoise",
+
+    "beige",
+
+    "purple",
+
+    "emerald",
+
+    "burgundy",
+
+    "copper",
+
+    "midnight",
+
+    "rose",
+
+    "ice"
+
+];
+
+
+const REPORT_CLASSES=
+    THEMES.map(
+        theme =>
+        "theme-report-"+theme
+    );
+
+
+/* =====================================================
+   ألوان تصدير التقرير
+===================================================== */
+
+const EXPORT_PALETTES={
+
+white:{
+    bg1:"#f7fafb",
+    bg2:"#ffffff",
+    text:"#182326",
+    muted:"#4d5c60",
+    head:"#dce6e8",
+    card:"#ffffff"
+},
+
+black:{
+    bg1:"#111111",
+    bg2:"#020202",
+    text:"#ffffff",
+    muted:"#dddddd",
+    head:"#241c08",
+    card:"#111111"
+},
+
+silver:{
+    bg1:"#e6eaec",
+    bg2:"#fbfcfd",
+    text:"#283036",
+    muted:"#667078",
+    head:"#d5dade",
+    card:"#f7f9fa"
+},
+
+blue:{
+    bg1:"#e4f2fa",
+    bg2:"#ffffff",
+    text:"#19374a",
+    muted:"#5c7889",
+    head:"#d2e8f4",
+    card:"#f8fcff"
+},
+
+turquoise:{
+    bg1:"#e2f7f6",
+    bg2:"#ffffff",
+    text:"#183b3b",
+    muted:"#5e8080",
+    head:"#d1efed",
+    card:"#f9ffff"
+},
+
+beige:{
+    bg1:"#f3eadc",
+    bg2:"#ffffff",
+    text:"#40372d",
+    muted:"#7e7264",
+    head:"#eadfce",
+    card:"#fffdf9"
+},
+
+purple:{
+    bg1:"#eee4f8",
+    bg2:"#ffffff",
+    text:"#3b2c4b",
+    muted:"#78688a",
+    head:"#e4d7f0",
+    card:"#fdfaff"
+},
+
+emerald:{
+    bg1:"#e1f1e8",
+    bg2:"#ffffff",
+    text:"#173b2e",
+    muted:"#587d6d",
+    head:"#d1e8dc",
+    card:"#fafffc"
+},
+
+burgundy:{
+    bg1:"#f1dfe3",
+    bg2:"#ffffff",
+    text:"#4a232b",
+    muted:"#8b636c",
+    head:"#ead2d8",
+    card:"#fffafb"
+},
+
+copper:{
+    bg1:"#f0dfd0",
+    bg2:"#ffffff",
+    text:"#4c3022",
+    muted:"#8e705f",
+    head:"#ead3c0",
+    card:"#fffaf6"
+},
+
+midnight:{
+    bg1:"#122235",
+    bg2:"#08111d",
+    text:"#f1f7ff",
+    muted:"#a7b9cc",
+    head:"#162b40",
+    card:"#101c2a"
+},
+
+rose:{
+    bg1:"#f8e4eb",
+    bg2:"#ffffff",
+    text:"#522c38",
+    muted:"#946b77",
+    head:"#f1d8e1",
+    card:"#fffafd"
+},
+
+ice:{
+    bg1:"#e1f4fb",
+    bg2:"#ffffff",
+    text:"#213e4e",
+    muted:"#66899b",
+    head:"#d4edf7",
+    card:"#fbfeff"
+}
 
 };
 
@@ -2556,138 +2610,16 @@ let selectedLogo=
         localStorage.getItem(
             "selectedLogo"
         )
-    ) || 1;
+    )
+
+    ||
+
+    1;
 
 
 if(!LOGOS[selectedLogo]){
 
     selectedLogo=1;
-
-}
-
-
-/* =====================================================
-   اختيار الشعار
-===================================================== */
-
-function setLogo(number){
-
-    if(!LOGOS[number]){
-
-        number=1;
-
-    }
-
-
-    selectedLogo=
-        Number(number);
-
-
-    const mainLogo=
-        document.getElementById(
-            "mainLogo"
-        );
-
-
-    const mainBanner=
-        document.getElementById(
-            "mainBanner"
-        );
-
-
-    /* تغيير الصورة */
-
-    if(mainLogo){
-
-        mainLogo.src=
-            LOGOS[selectedLogo];
-
-    }
-
-
-    /* =================================================
-       QA.PNG شفاف
-       لا نضع خلفه المستطيل الأسود
-    ================================================= */
-
-    if(mainBanner){
-
-        mainBanner.classList.toggle(
-
-            "gold-style",
-
-            selectedLogo===3
-
-        );
-
-    }
-
-
-    /* =================================================
-       الأزرار
-    ================================================= */
-
-    document
-        .querySelectorAll(
-            ".logo-button"
-        )
-        .forEach(
-            function(button){
-
-                button.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-
-    const activeButton=
-        document.getElementById(
-
-            "logo"+
-            selectedLogo+
-            "Button"
-
-        );
-
-
-    if(activeButton){
-
-        activeButton.classList.add(
-            "active"
-        );
-
-    }
-
-
-    /* =================================================
-       العلامة المائية بالتقرير
-    ================================================= */
-
-    document
-        .documentElement
-        .style
-        .setProperty(
-
-            "--report-logo",
-
-            'url("' +
-            LOGOS[selectedLogo] +
-            '")'
-
-        );
-
-
-    /* حفظ الاختيار */
-
-    localStorage.setItem(
-
-        "selectedLogo",
-
-        String(selectedLogo)
-
-    );
 
 }
 
@@ -2729,7 +2661,90 @@ try{
 
 
 /* =====================================================
-   الثيم
+   اختيار الشعار
+===================================================== */
+
+function setLogo(number){
+
+    if(!LOGOS[number]){
+
+        number=1;
+
+    }
+
+
+    selectedLogo=
+        Number(number);
+
+
+    document
+        .getElementById(
+            "mainLogo"
+        )
+        .src=
+        LOGOS[selectedLogo];
+
+
+    document
+        .querySelectorAll(
+            ".logo-button"
+        )
+        .forEach(
+
+            button =>
+            button.classList.remove(
+                "active"
+            )
+
+        );
+
+
+    const active=
+        document.getElementById(
+
+            "logo"+
+            selectedLogo+
+            "Button"
+
+        );
+
+
+    if(active){
+
+        active.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document
+        .documentElement
+        .style
+        .setProperty(
+
+            "--report-logo",
+
+            'url("' +
+            LOGOS[selectedLogo] +
+            '")'
+
+        );
+
+
+    localStorage.setItem(
+
+        "selectedLogo",
+
+        String(selectedLogo)
+
+    );
+
+}
+
+
+/* =====================================================
+   قائمة الثيمات
 ===================================================== */
 
 function toggleThemes(){
@@ -2747,6 +2762,13 @@ function toggleThemes(){
 
 
 function setTheme(theme){
+
+    if(!THEMES.includes(theme)){
+
+        theme="white";
+
+    }
+
 
     document.body.className=
         theme;
@@ -2773,25 +2795,21 @@ function setTheme(theme){
 }
 
 
-const savedTheme=
-    localStorage.getItem(
-        "optionTheme"
-    );
-
-
-if(savedTheme!==null){
-
-    document.body.className=
-        savedTheme;
-
-}
-
-
 /* =====================================================
    ثيم التقرير
 ===================================================== */
 
-function setReportTheme(theme){
+function setReportTheme(
+    theme,
+    button
+){
+
+    if(!THEMES.includes(theme)){
+
+        theme="white";
+
+    }
+
 
     const report=
         document.getElementById(
@@ -2800,27 +2818,13 @@ function setReportTheme(theme){
 
 
     report.classList.remove(
-
-        "theme-report-black",
-
-        "theme-report-silver",
-
-        "theme-report-blue",
-
-        "theme-report-turquoise",
-
-        "theme-report-beige"
-
+        ...REPORT_CLASSES
     );
 
 
-    if(theme){
-
-        report.classList.add(
-            theme
-        );
-
-    }
+    report.classList.add(
+        "theme-report-"+theme
+    );
 
 
     localStorage.setItem(
@@ -2831,34 +2835,52 @@ function setReportTheme(theme){
 
     );
 
-}
-
-
-const savedReportTheme=
-    localStorage.getItem(
-        "reportTheme"
-    );
-
-
-if(savedReportTheme){
 
     document
-        .getElementById(
-            "report"
+        .querySelectorAll(
+            ".report-theme-button"
         )
-        .classList
-        .add(
-            savedReportTheme
+        .forEach(
+
+            button =>
+            button.classList.remove(
+                "active"
+            )
+
         );
+
+
+    const target=
+
+        button
+
+        ||
+
+        document.querySelector(
+
+            '[data-report-theme="' +
+            theme +
+            '"]'
+
+        );
+
+
+    if(target){
+
+        target.classList.add(
+            "active"
+        );
+
+    }
 
 }
 
 
 /* =====================================================
-   معرفة نوع التصدير
+   ثيم التصدير
 ===================================================== */
 
-function isBlackExportTheme(){
+function getExportThemeName(){
 
     const report=
         document.getElementById(
@@ -2866,38 +2888,56 @@ function isBlackExportTheme(){
         );
 
 
-    return(
+    for(const theme of THEMES){
 
-        document.body
-            .classList
-            .contains(
-                "black"
+        if(
+
+            report.classList.contains(
+
+                "theme-report-"+
+                theme
+
             )
 
-        ||
+        ){
 
-        (
-            report
-            &&
-            report
+            return theme;
+
+        }
+
+    }
+
+
+    const bodyTheme=
+
+        THEMES.find(
+
+            theme =>
+            document.body
                 .classList
-                .contains(
-                    "theme-report-black"
-                )
-        )
+                .contains(theme)
 
-    );
+        );
+
+
+    return bodyTheme || "white";
 
 }
 
 
-/* =====================================================
-   هل الشعار هو QA.PNG؟
-===================================================== */
+function getExportPalette(){
 
-function isGoldLogo(){
+    return(
 
-    return selectedLogo===3;
+        EXPORT_PALETTES[
+            getExportThemeName()
+        ]
+
+        ||
+
+        EXPORT_PALETTES.white
+
+    );
 
 }
 
@@ -2956,20 +2996,21 @@ function formatDate(date){
         date.split("-");
 
 
-    if(parts.length!==3){
-
-        return date;
-
-    }
-
-
     return(
+
+        parts.length===3
+
+        ?
 
         parts[2]+
         "/"+
         parts[1]+
         "/"+
         parts[0]
+
+        :
+
+        date
 
     );
 
@@ -2998,19 +3039,17 @@ function getTradingWeek(offset=0){
         now.getDay();
 
 
-    let daysFromMonday;
+    const daysFromMonday=
 
+        day===0
 
-    if(day===0){
+        ?
 
-        daysFromMonday=6;
+        6
 
-    }else{
+        :
 
-        daysFromMonday=
-            day-1;
-
-    }
+        day-1;
 
 
     const monday=
@@ -3056,7 +3095,7 @@ function getTradingWeek(offset=0){
 
 
 /* =====================================================
-   الأسبوع الحالي
+   عرض الأسبوع
 ===================================================== */
 
 function updateCurrentWeek(){
@@ -3065,35 +3104,22 @@ function updateCurrentWeek(){
         getTradingWeek(0);
 
 
-    const element=
-        document.getElementById(
+    document
+        .getElementById(
             "currentWeekInfo"
-        );
-
-
-    if(!element){
-
-        return;
-
-    }
-
-
-    element.textContent=
+        )
+        .textContent=
 
         "الأسبوع الحالي: "+
-        formatDate(
-            week.start
-        )+
+        formatDate(week.start)+
         " إلى "+
-        formatDate(
-            week.end
-        );
+        formatDate(week.end);
 
 }
 
 
 /* =====================================================
-   حفظ الصفقات
+   الحفظ
 ===================================================== */
 
 function saveTrades(){
@@ -3112,7 +3138,7 @@ function saveTrades(){
 
 
 /* =====================================================
-   الملاحظات
+   ملاحظات
 ===================================================== */
 
 function focusNotes(){
@@ -3122,6 +3148,39 @@ function focusNotes(){
             "notes"
         )
         .focus();
+
+}
+
+
+/* =====================================================
+   تنظيف الحقول
+===================================================== */
+
+function clearForm(){
+
+    [
+        "stock",
+        "strike",
+        "buy",
+        "sell",
+        "notes"
+    ]
+    .forEach(
+
+        id =>
+
+        document
+            .getElementById(id)
+            .value=""
+
+    );
+
+
+    document
+        .getElementById(
+            "option"
+        )
+        .value="";
 
 }
 
@@ -3151,31 +3210,37 @@ function addTrade(){
 
     const strike=
         parseFloat(
+
             document
                 .getElementById(
                     "strike"
                 )
                 .value
+
         );
 
 
     const buy=
         parseFloat(
+
             document
                 .getElementById(
                     "buy"
                 )
                 .value
+
         );
 
 
     const sell=
         parseFloat(
+
             document
                 .getElementById(
                     "sell"
                 )
                 .value
+
         );
 
 
@@ -3283,44 +3348,6 @@ function addTrade(){
 
 
 /* =====================================================
-   تنظيف
-===================================================== */
-
-function clearForm(){
-
-    document.getElementById(
-        "stock"
-    ).value="";
-
-
-    document.getElementById(
-        "option"
-    ).value="";
-
-
-    document.getElementById(
-        "strike"
-    ).value="";
-
-
-    document.getElementById(
-        "buy"
-    ).value="";
-
-
-    document.getElementById(
-        "sell"
-    ).value="";
-
-
-    document.getElementById(
-        "notes"
-    ).value="";
-
-}
-
-
-/* =====================================================
    الحالة
 ===================================================== */
 
@@ -3342,7 +3369,8 @@ function getStatus(trade){
 
         return{
 
-            name:"خاسرة",
+            name:
+                "خاسرة",
 
             rowClass:
                 "loss-row",
@@ -3363,7 +3391,8 @@ function getStatus(trade){
 
         return{
 
-            name:"موقوفة",
+            name:
+                "موقوفة",
 
             rowClass:
                 "stopped-row",
@@ -3378,7 +3407,8 @@ function getStatus(trade){
 
     return{
 
-        name:"رابحة",
+        name:
+            "رابحة",
 
         rowClass:
             "win-row",
@@ -3428,7 +3458,7 @@ function escapeHTML(value){
 
 
 /* =====================================================
-   صفقات الأسبوع
+   صفقات الأسبوع الحالي
 ===================================================== */
 
 function getCurrentWeekTrades(){
@@ -3439,16 +3469,9 @@ function getCurrentWeekTrades(){
 
     return trades.filter(
 
-        function(trade){
-
-            return(
-
-                trade.weekKey===
-                week.key
-
-            );
-
-        }
+        trade =>
+        trade.weekKey===
+        week.key
 
     );
 
@@ -3456,7 +3479,7 @@ function getCurrentWeekTrades(){
 
 
 /* =====================================================
-   عرض الصفقات
+   عرض صفقات الأسبوع
 ===================================================== */
 
 function displayCurrentWeekTrades(){
@@ -3467,13 +3490,6 @@ function displayCurrentWeekTrades(){
         );
 
 
-    if(!body){
-
-        return;
-
-    }
-
-
     body.innerHTML="";
 
 
@@ -3481,7 +3497,7 @@ function displayCurrentWeekTrades(){
         getCurrentWeekTrades();
 
 
-    if(current.length===0){
+    if(!current.length){
 
         body.innerHTML=`
 
@@ -3499,6 +3515,7 @@ function displayCurrentWeekTrades(){
 
         `;
 
+
         return;
 
     }
@@ -3506,10 +3523,10 @@ function displayCurrentWeekTrades(){
 
     current.forEach(
 
-        function(t){
+        trade =>{
 
             const status=
-                getStatus(t);
+                getStatus(trade);
 
 
             body.innerHTML+=`
@@ -3517,34 +3534,36 @@ function displayCurrentWeekTrades(){
             <tr>
 
                 <td>
-                    ${escapeHTML(t.stock)}
+                    ${escapeHTML(trade.stock)}
                 </td>
 
                 <td>
-                    ${escapeHTML(t.option)}
+                    ${escapeHTML(trade.option)}
                 </td>
 
                 <td>
-                    ${Number(t.strike).toFixed(2)}
+                    ${Number(trade.strike).toFixed(2)}
                 </td>
 
                 <td>
-                    ${Number(t.buy).toFixed(2)}
+                    ${Number(trade.buy).toFixed(2)}
                 </td>
 
                 <td>
-                    ${Number(t.sell).toFixed(2)}
+                    ${Number(trade.sell).toFixed(2)}
                 </td>
 
                 <td class="${status.textClass}">
 
-                    ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
+                    ${trade.profit>=0?"+":""}
+                    ${Number(trade.profit).toFixed(2)}
 
                 </td>
 
                 <td class="${status.textClass}">
 
-                    ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
+                    ${trade.percentage>=0?"+":""}
+                    ${Number(trade.percentage).toFixed(2)}%
 
                 </td>
 
@@ -3556,15 +3575,16 @@ function displayCurrentWeekTrades(){
 
                 <td>
 
-                    ${escapeHTML(t.notes||"")}
+                    ${escapeHTML(trade.notes||"")}
 
                 </td>
 
                 <td class="no-print">
 
                     <button
+                        type="button"
                         class="delete-button"
-                        onclick="deleteTrade('${t.id}')">
+                        onclick="deleteTrade('${trade.id}')">
 
                         حذف
 
@@ -3603,16 +3623,9 @@ function deleteTrade(id){
     trades=
         trades.filter(
 
-            function(t){
-
-                return(
-
-                    String(t.id)!==
-                    String(id)
-
-                );
-
-            }
+            trade =>
+            String(trade.id)!==
+            String(id)
 
         );
 
@@ -3625,7 +3638,7 @@ function deleteTrade(id){
 
 
 /* =====================================================
-   فترة التقرير
+   اختيار فترة التقرير
 ===================================================== */
 
 function setReportPeriod(
@@ -3639,13 +3652,10 @@ function setReportPeriod(
         )
         .forEach(
 
-            function(b){
-
-                b.classList.remove(
-                    "active"
-                );
-
-            }
+            item =>
+            item.classList.remove(
+                "active"
+            )
 
         );
 
@@ -3686,7 +3696,9 @@ function setReportPeriod(
     }
 
 
-    else if(type==="threeWeeksAgo"){
+    else if(
+        type==="threeWeeksAgo"
+    ){
 
         range=
             getTradingWeek(-3);
@@ -3734,7 +3746,7 @@ function setReportPeriod(
 
 
 /* =====================================================
-   الفلترة
+   فلترة
 ===================================================== */
 
 function getFilteredTrades(){
@@ -3764,17 +3776,10 @@ function getFilteredTrades(){
 
     return trades.filter(
 
-        function(t){
-
-            return(
-
-                t.weekStart>=start
-                &&
-                t.weekStart<=end
-
-            );
-
-        }
+        trade =>
+        trade.weekStart>=start
+        &&
+        trade.weekStart<=end
 
     );
 
@@ -3870,23 +3875,17 @@ function sortTradesForReport(list){
 
     return [...list].sort(
 
-        function(a,b){
+        (a,b) =>
 
-            return(
+        order[
+            getStatus(a).name
+        ]
 
-                order[
-                    getStatus(a).name
-                ]
+        -
 
-                -
-
-                order[
-                    getStatus(b).name
-                ]
-
-            );
-
-        }
+        order[
+            getStatus(b).name
+        ]
 
     );
 
@@ -3921,16 +3920,9 @@ function buildReport(
     const winners=
         filtered.filter(
 
-            function(t){
-
-                return(
-
-                    Number(t.sell)>
-                    Number(t.buy)
-
-                );
-
-            }
+            trade =>
+            Number(trade.sell)>
+            Number(trade.buy)
 
         ).length;
 
@@ -3938,20 +3930,14 @@ function buildReport(
     const stopped=
         filtered.filter(
 
-            function(t){
+            trade =>
 
-                return(
+            Number(trade.sell)<
+            Number(trade.buy)
 
-                    Number(t.sell)<
-                    Number(t.buy)
+            &&
 
-                    &&
-
-                    Number(t.sell)>0
-
-                );
-
-            }
+            Number(trade.sell)>0
 
         ).length;
 
@@ -3959,15 +3945,8 @@ function buildReport(
     const losers=
         filtered.filter(
 
-            function(t){
-
-                return(
-
-                    Number(t.sell)===0
-
-                );
-
-            }
+            trade =>
+            Number(trade.sell)===0
 
         ).length;
 
@@ -3975,45 +3954,47 @@ function buildReport(
     const totalProfit=
         filtered.reduce(
 
-            function(sum,t){
+            (sum,trade) =>
 
-                return(
-
-                    sum+
-                    Number(
-                        t.profit||0
-                    )
-
-                );
-
-            },
+            sum+
+            Number(
+                trade.profit||0
+            ),
 
             0
 
         );
 
 
-    document.getElementById(
-        "totalTrades"
-    ).textContent=
+    document
+        .getElementById(
+            "totalTrades"
+        )
+        .textContent=
         total;
 
 
-    document.getElementById(
-        "winningTrades"
-    ).textContent=
+    document
+        .getElementById(
+            "winningTrades"
+        )
+        .textContent=
         winners;
 
 
-    document.getElementById(
-        "stoppedTrades"
-    ).textContent=
+    document
+        .getElementById(
+            "stoppedTrades"
+        )
+        .textContent=
         stopped;
 
 
-    document.getElementById(
-        "losingTrades"
-    ).textContent=
+    document
+        .getElementById(
+            "losingTrades"
+        )
+        .textContent=
         losers;
 
 
@@ -4023,7 +4004,7 @@ function buildReport(
         );
 
 
-    const profitTimesElement=
+    const profitTimes=
         document.getElementById(
             "totalProfitTimes"
         );
@@ -4035,18 +4016,18 @@ function buildReport(
 
         ?
 
-        "#087a42"
+        "#0c8d50"
 
         :
 
-        "#c62727";
+        "#c92e2e";
 
 
     profitElement.style.color=
         profitColor;
 
 
-    profitTimesElement.style.color=
+    profitTimes.style.color=
         profitColor;
 
 
@@ -4077,7 +4058,7 @@ function buildReport(
         );
 
 
-    profitTimesElement.textContent=
+    profitTimes.textContent=
 
         (
             multiplied>=0
@@ -4100,9 +4081,11 @@ function buildReport(
         );
 
 
-    document.getElementById(
-        "reportPeriod"
-    ).textContent=
+    document
+        .getElementById(
+            "reportPeriod"
+        )
+        .textContent=
 
         start&&end
 
@@ -4128,45 +4111,45 @@ function buildReport(
 
     <table>
 
-        <thead>
+    <thead>
 
-            <tr>
+    <tr>
 
-                <th>الشركة</th>
-                <th>الأوبشن</th>
-                <th>السترايك</th>
-                <th>الدخول</th>
-                <th>الخروج</th>
-                <th>الربح</th>
-                <th>%</th>
-                <th>الحالة</th>
-                <th>ملاحظات</th>
+    <th>الشركة</th>
+    <th>الأوبشن</th>
+    <th>السترايك</th>
+    <th>الدخول</th>
+    <th>الخروج</th>
+    <th>الربح</th>
+    <th>%</th>
+    <th>الحالة</th>
+    <th>ملاحظات</th>
 
-            </tr>
+    </tr>
 
-        </thead>
+    </thead>
 
-        <tbody>
+    <tbody>
 
     `;
 
 
-    if(sorted.length===0){
+    if(!sorted.length){
 
         html+=`
 
         <tr>
 
-            <td
-                colspan="9"
-                style="
-                    padding:30px;
-                    text-align:center;
-                ">
+        <td
+            colspan="9"
+            style="
+                padding:30px;
+                text-align:center
+            ">
 
-                لا توجد صفقات في هذه الفترة
+        لا توجد صفقات في هذه الفترة
 
-            </td>
+        </td>
 
         </tr>
 
@@ -4177,51 +4160,53 @@ function buildReport(
 
     sorted.forEach(
 
-        function(t){
+        trade =>{
 
             const status=
-                getStatus(t);
+                getStatus(trade);
 
 
             html+=`
 
             <tr class="${status.rowClass}">
 
-                <td>
-                    ${escapeHTML(t.stock)}
-                </td>
+            <td>
+            ${escapeHTML(trade.stock)}
+            </td>
 
-                <td>
-                    ${escapeHTML(t.option)}
-                </td>
+            <td>
+            ${escapeHTML(trade.option)}
+            </td>
 
-                <td>
-                    ${Number(t.strike).toFixed(2)}
-                </td>
+            <td>
+            ${Number(trade.strike).toFixed(2)}
+            </td>
 
-                <td>
-                    ${Number(t.buy).toFixed(2)}
-                </td>
+            <td>
+            ${Number(trade.buy).toFixed(2)}
+            </td>
 
-                <td>
-                    ${Number(t.sell).toFixed(2)}
-                </td>
+            <td>
+            ${Number(trade.sell).toFixed(2)}
+            </td>
 
-                <td>
-                    ${t.profit>=0?"+":""}${Number(t.profit).toFixed(2)}
-                </td>
+            <td>
+            ${trade.profit>=0?"+":""}
+            ${Number(trade.profit).toFixed(2)}
+            </td>
 
-                <td>
-                    ${t.percentage>=0?"+":""}${Number(t.percentage).toFixed(2)}%
-                </td>
+            <td>
+            ${trade.percentage>=0?"+":""}
+            ${Number(trade.percentage).toFixed(2)}%
+            </td>
 
-                <td>
-                    ${status.name}
-                </td>
+            <td>
+            ${status.name}
+            </td>
 
-                <td>
-                    ${escapeHTML(t.notes||"")}
-                </td>
+            <td>
+            ${escapeHTML(trade.notes||"")}
+            </td>
 
             </tr>
 
@@ -4234,24 +4219,28 @@ function buildReport(
 
     html+=`
 
-        </tbody>
+    </tbody>
 
     </table>
 
     `;
 
 
-    document.getElementById(
-        "reportTable"
-    ).innerHTML=
+    document
+        .getElementById(
+            "reportTable"
+        )
+        .innerHTML=
         html;
 
 
     report.scrollIntoView({
 
-        behavior:"smooth",
+        behavior:
+            "smooth",
 
-        block:"start"
+        block:
+            "start"
 
     });
 
@@ -4271,11 +4260,9 @@ function printReport(){
 
 
     if(
-        !report
-            .classList
-            .contains(
-                "show"
-            )
+        !report.classList.contains(
+            "show"
+        )
     ){
 
         showReport();
@@ -4285,7 +4272,7 @@ function printReport(){
 
     setTimeout(
 
-        function(){
+        ()=>{
 
 
             const reportHTML=
@@ -4296,7 +4283,7 @@ function printReport(){
                     .outerHTML;
 
 
-            const selectedLogoFile=
+            const logo=
 
                 LOGOS[selectedLogo]
 
@@ -4305,25 +4292,19 @@ function printReport(){
                 LOGOS[1];
 
 
-            const goldLogo=
-                isGoldLogo();
+            const palette=
+                getExportPalette();
 
 
-            const blackExport=
-                isBlackExportTheme();
+            const dark=
 
-
-            const exportClass=
-
-                blackExport
-
-                ?
-
-                "black-export"
-
-                :
-
-                "";
+                [
+                    "black",
+                    "midnight"
+                ]
+                .includes(
+                    getExportThemeName()
+                );
 
 
             const printWindow=
@@ -4373,9 +4354,11 @@ function printReport(){
     margin:7mm;
 }
 
+
 *{
     box-sizing:border-box;
 }
+
 
 html,
 body{
@@ -4392,11 +4375,9 @@ body{
 
     print-color-adjust:
         exact!important;
-}
 
-
-body{
-    background:#ffffff;
+    background:
+        ${palette.bg2};
 }
 
 
@@ -4407,86 +4388,96 @@ body{
 
     margin:0!important;
 
-    padding:0!important;
+    padding:8px!important;
 
-    border:0!important;
-
-    border-radius:0!important;
-
-    box-shadow:none!important;
+    position:relative!important;
 
     overflow:visible!important;
 
-    background:#ffffff!important;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,.12),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            ${palette.bg1},
+            ${palette.bg2}
+        )!important;
 
-    color:#000!important;
+    color:
+        ${palette.text}!important;
+
+    border:
+        2px solid
+        #c9a536!important;
+
+    border-radius:8px!important;
+
+    box-shadow:
+        0 4px 0 #7b1010,
+        0 0 9px rgba(212,175,55,.45)!important;
 }
 
 
-/* =====================================================
-   شعار PDF
-===================================================== */
+/* الشعار بدون خلفية سوداء */
 
 .report::before{
-    content:"";
+    content:""!important;
 
-    display:block;
+    display:block!important;
 
-    position:relative;
+    position:relative!important;
 
-    width:100%;
+    left:auto!important;
+    top:auto!important;
 
-    height:115px;
+    transform:none!important;
 
-    margin:0 0 8px 0;
+    width:100%!important;
 
-    background-color:
-        ${goldLogo ? "transparent" : "#000000"}!important;
+    height:105px!important;
 
-    background-image:
-        url("${selectedLogoFile}")!important;
+    margin:
+        0 0 8px!important;
 
-    background-position:
-        center!important;
-
-    background-size:
-        contain!important;
-
-    background-repeat:
+    background:
+        transparent
+        url("${logo}")
+        center /
+        contain
         no-repeat!important;
 
     opacity:1!important;
 }
 
 
-/* الشعار الذهبي الشفاف */
-
-body.gold-logo .report::before{
-    background-color:
-        transparent!important;
+.report > *{
+    position:relative!important;
 }
 
 
 .report h2{
+    text-align:center;
+
+    color:
+        ${palette.text}!important;
+
     font-size:25px!important;
 
     margin:
         8px 0 4px!important;
-
-    color:#111!important;
-
-    text-align:center;
 }
 
 
 .report-period{
     text-align:center;
 
+    color:
+        ${palette.muted}!important;
+
     font-size:13px!important;
-
-    margin-bottom:5px!important;
-
-    color:#333!important;
 }
 
 
@@ -4504,27 +4495,40 @@ body.gold-logo .report::before{
 
     gap:6px!important;
 
-    margin:8px 0!important;
+    margin:
+        8px 0!important;
 }
 
 
 .stat{
     min-height:58px!important;
 
-    padding:6px 3px!important;
+    padding:
+        6px 3px!important;
 
     border-radius:6px!important;
 
     font-size:10px!important;
 
+    text-align:center!important;
+
+    background:
+        linear-gradient(
+            145deg,
+            ${palette.card},
+            ${palette.head}
+        )!important;
+
+    color:
+        ${palette.text}!important;
+
     border:
-        1px solid #c5ced0!important;
+        1px solid
+        #c9a536!important;
 
-    background:#fff!important;
-
-    color:#111!important;
-
-    text-align:center;
+    box-shadow:
+        0 3px 0 #7b1010,
+        0 0 6px rgba(212,175,55,.38)!important;
 }
 
 
@@ -4561,21 +4565,30 @@ body.gold-logo .report::before{
     border-collapse:collapse!important;
 
     border:
-        1px solid #8f9da0!important;
+        2px solid
+        #c9a536!important;
+
+    box-shadow:
+        0 3px 0 #7b1010,
+        0 0 6px rgba(212,175,55,.34)!important;
 }
 
 
 .report-table th{
     font-size:8.5px!important;
 
-    padding:5px 2px!important;
+    padding:
+        5px 2px!important;
 
     border:
-        1px solid #9daaad!important;
+        1px solid
+        #9b7b2b!important;
 
-    background:#dbe5e7!important;
+    background:
+        ${palette.head}!important;
 
-    color:#111!important;
+    color:
+        ${palette.text}!important;
 
     text-align:center;
 }
@@ -4584,38 +4597,58 @@ body.gold-logo .report::before{
 .report-table td{
     font-size:8.5px!important;
 
-    padding:5px 2px!important;
+    padding:
+        5px 2px!important;
 
     border:
-        1px solid #aebabc!important;
+        1px solid
+        rgba(120,80,80,.45)!important;
 
-    color:#000!important;
+    background:
+        ${palette.card}!important;
 
-    background:#fff!important;
+    color:
+        ${palette.text}!important;
 
     text-align:center;
 }
 
 
-.report-table .win-row td{
-    background:#e1f3e7!important;
+.report-table
+.win-row td{
+    background:
+        ${dark ? "#102318" : "#e5f5ea"}!important;
+
+    color:
+        ${dark ? "#eafff0" : "#173c27"}!important;
 }
 
 
-.report-table .stopped-row td{
-    background:#def5f8!important;
+.report-table
+.stopped-row td{
+    background:
+        ${dark ? "#10242a" : "#e1f6fa"}!important;
+
+    color:
+        ${dark ? "#eaffff" : "#16404a"}!important;
 }
 
 
-.report-table .loss-row td{
-    background:#f8dfdf!important;
+.report-table
+.loss-row td{
+    background:
+        ${dark ? "#301010" : "#f9e1e1"}!important;
+
+    color:
+        ${dark ? "#fff0f0" : "#4b1c1c"}!important;
 }
 
 
 .report-note{
     margin-top:6px!important;
 
-    padding:7px 8px!important;
+    padding:
+        7px 8px!important;
 
     font-size:9px!important;
 
@@ -4623,161 +4656,34 @@ body.gold-logo .report::before{
 
     font-weight:900!important;
 
-    border:
-        1px solid #c7d1d3!important;
+    text-align:center!important;
 
-    background:#f1f5f5!important;
-
-    color:#222!important;
-
-    text-align:center;
-}
-
-
-/* =====================================================
-   PDF الأسود
-===================================================== */
-
-body.black-export{
-    background:#020202!important;
-}
-
-
-body.black-export .report{
     background:
         linear-gradient(
             180deg,
-            #0c0c0c,
-            #020202
+            ${palette.card},
+            ${palette.head}
         )!important;
 
-    color:#fff!important;
+    color:
+        ${palette.text}!important;
 
     border:
-        2px solid #c9a536!important;
-}
-
-
-body.black-export .report h2{
-    color:#f4d76c!important;
-}
-
-
-body.black-export .report-period{
-    color:#fff!important;
-}
-
-
-body.black-export .stat{
-    background:
-        linear-gradient(
-            180deg,
-            #232323,
-            #080808
-        )!important;
-
-    color:#fff!important;
-
-    border:
-        1px solid #c39d2e!important;
+        1px solid
+        #c9a536!important;
 
     box-shadow:
-        0 3px 0 #741010,
-        0 0 6px rgba(212,175,55,.35)!important;
-}
-
-
-body.black-export #totalTrades{
-    color:#f4d76c!important;
-}
-
-
-body.black-export .report-table table{
-    border:
-        2px solid #c9a536!important;
-}
-
-
-body.black-export .report-table th{
-    background:
-        linear-gradient(
-            180deg,
-            #302407,
-            #111
-        )!important;
-
-    color:#f4d76c!important;
-
-    border-color:#9c791b!important;
-}
-
-
-body.black-export .report-table td{
-    background:#0c0c0c!important;
-
-    color:#fff!important;
-
-    border-color:#5c2525!important;
-}
-
-
-body.black-export .report-table .win-row td{
-    background:#102318!important;
-}
-
-
-body.black-export .report-table .stopped-row td{
-    background:#10242a!important;
-}
-
-
-body.black-export .report-table .loss-row td{
-    background:#301010!important;
-}
-
-
-body.black-export .report-note{
-    background:
-        linear-gradient(
-            180deg,
-            #201807,
-            #080808
-        )!important;
-
-    color:#fff!important;
-
-    border:
-        1px solid #c29b2c!important;
-}
-
-
-/* =====================================================
-   أهم جزء:
-   إذا QA.PNG لا نصنع شريط أسود خاص بالشعار
-===================================================== */
-
-body.black-export.gold-logo .report::before{
-    background-color:
-        transparent!important;
+        0 3px 0 #7b1010,
+        0 0 5px rgba(212,175,55,.28)!important;
 }
 
 </style>
 
 </head>
 
+<body>
 
-<body
-    class="${exportClass} ${goldLogo ? "gold-logo" : ""}">
-
-`);
-
-
-            printWindow.document.write(
-                reportHTML
-            );
-
-
-            printWindow.document.write(`
+${reportHTML}
 
 <script>
 
@@ -4830,7 +4736,7 @@ window.onafterprint=function(){
 
         },
 
-        300
+        250
 
     );
 
@@ -4843,12 +4749,19 @@ window.onafterprint=function(){
 
 function saveReportImage(){
 
-    const blackExport=
-        isBlackExportTheme();
+    const palette=
+        getExportPalette();
 
 
-    const goldLogo=
-        isGoldLogo();
+    const dark=
+
+        [
+            "black",
+            "midnight"
+        ]
+        .includes(
+            getExportThemeName()
+        );
 
 
     const start=
@@ -4967,10 +4880,6 @@ function saveReportImage(){
     }
 
 
-    /* =================================================
-       خلفية التقرير كاملة
-    ================================================= */
-
     const pageGradient=
         ctx.createLinearGradient(
 
@@ -4983,45 +4892,16 @@ function saveReportImage(){
         );
 
 
-    if(blackExport){
-
-        pageGradient.addColorStop(
-            0,
-            "#0b0b0b"
-        );
+    pageGradient.addColorStop(
+        0,
+        palette.bg1
+    );
 
 
-        pageGradient.addColorStop(
-            .40,
-            "#030303"
-        );
-
-
-        pageGradient.addColorStop(
-            1,
-            "#000000"
-        );
-
-    }else{
-
-        pageGradient.addColorStop(
-            0,
-            "#eef7f8"
-        );
-
-
-        pageGradient.addColorStop(
-            .35,
-            "#ffffff"
-        );
-
-
-        pageGradient.addColorStop(
-            1,
-            "#f1f6f6"
-        );
-
-    }
+    pageGradient.addColorStop(
+        1,
+        palette.bg2
+    );
 
 
     ctx.fillStyle=
@@ -5036,7 +4916,11 @@ function saveReportImage(){
     );
 
 
-    const selectedLogoFile=
+    const logo=
+        new Image();
+
+
+    const logoFile=
 
         LOGOS[selectedLogo]
 
@@ -5045,60 +4929,15 @@ function saveReportImage(){
         LOGOS[1];
 
 
-    const logo=
-        new Image();
-
-
-    logo.onload=function(){
-
-
-        /* =================================================
-           خلفية شعار 1 و 2 فقط
-
-           QA.PNG لا نرسم خلفه أي مستطيل
-        ================================================= */
-
-        if(!goldLogo){
-
-            ctx.fillStyle=
-                "#000000";
-
-
-            ctx.fillRect(
-
-                0,
-
-                0,
-
-                width,
-
-                bannerHeight
-
-            );
-
-        }
-
-
-        /* =================================================
-           رسم الشعار
-        ================================================= */
-
-        const padding=
-            goldLogo
-            ?
-            10
-            :
-            35;
+    logo.onload=()=>{
 
 
         const maxW=
-            width-
-            padding*2;
+            width-30;
 
 
         const maxH=
-            bannerHeight-
-            padding*2;
+            bannerHeight-15;
 
 
         const ratio=
@@ -5113,111 +4952,49 @@ function saveReportImage(){
             );
 
 
-        const logoW=
+        const logoWidth=
             logo.naturalWidth*
             ratio;
 
 
-        const logoH=
+        const logoHeight=
             logo.naturalHeight*
             ratio;
 
+
+        /* الشعار شفاف مباشرة */
 
         ctx.drawImage(
 
             logo,
 
-            (width-logoW)/2,
+            (width-logoWidth)/2,
 
-            (bannerHeight-logoH)/2,
+            (bannerHeight-logoHeight)/2,
 
-            logoW,
+            logoWidth,
 
-            logoH
+            logoHeight
 
         );
 
 
-        /* =================================================
-           الخط الذهبي والأحمر
-
-           لا نضعه مباشرة أسفل QA.PNG
-           حتى يبقى مدموجًا بدون مستطيل
-        ================================================= */
-
-        if(
-            blackExport
-            &&
-            !goldLogo
-        ){
-
-            ctx.fillStyle=
-                "#d4af37";
-
-
-            ctx.fillRect(
-
-                0,
-
-                bannerHeight-10,
-
-                width,
-
-                5
-
-            );
-
-
-            ctx.fillStyle=
-                "#8b1010";
-
-
-            ctx.fillRect(
-
-                0,
-
-                bannerHeight-5,
-
-                width,
-
-                5
-
-            );
-
-        }
-
-
-        /* =================================================
-           العلامة المائية
-        ================================================= */
+        /* العلامة المائية */
 
         ctx.save();
 
 
         ctx.globalAlpha=
-
-            blackExport
-
-            ?
-
-            .035
-
-            :
-
-            .045;
-
-
-        const wmMaxWidth=
-            900;
+            .035;
 
 
         const wmRatio=
             Math.min(
 
-                wmMaxWidth/
+                900/
                 logo.naturalWidth,
 
-                700/
+                620/
                 logo.naturalHeight
 
             );
@@ -5253,51 +5030,20 @@ function saveReportImage(){
         ctx.restore();
 
 
-        drawReportCanvas();
+        drawCanvas();
 
     };
 
 
-    logo.onerror=function(){
-
-
-        /* إذا QA.PNG لا يوجد مستطيل أسود */
-
-        if(!goldLogo){
-
-            ctx.fillStyle=
-                "#000000";
-
-
-            ctx.fillRect(
-
-                0,
-
-                0,
-
-                width,
-
-                bannerHeight
-
-            );
-
-        }
-
-
-        drawReportCanvas();
-
-    };
+    logo.onerror=
+        drawCanvas;
 
 
     logo.src=
-        selectedLogoFile;
+        logoFile;
 
 
-    /* =================================================
-       رسم محتوى التقرير
-    ================================================= */
-
-    function drawReportCanvas(){
+    function drawCanvas(){
 
 
         ctx.textAlign=
@@ -5307,20 +5053,22 @@ function saveReportImage(){
         /* العنوان */
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#f4d76c"
-
-            :
-
-            "#182326";
+            palette.text;
 
 
         ctx.font=
             "900 64px Arial";
+
+
+        ctx.save();
+
+
+        ctx.shadowColor=
+            "rgba(212,175,55,.42)";
+
+
+        ctx.shadowBlur=
+            14;
 
 
         ctx.fillText(
@@ -5334,19 +5082,13 @@ function saveReportImage(){
         );
 
 
+        ctx.restore();
+
+
         /* الفترة */
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#ffffff"
-
-            :
-
-            "#435357";
+            palette.muted;
 
 
         ctx.font=
@@ -5375,19 +5117,10 @@ function saveReportImage(){
         );
 
 
-        /* الخط الفاصل */
+        /* ذهبي */
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#d4af37"
-
-            :
-
-            "#b9cacc";
+            "#d4af37";
 
 
         ctx.fillRect(
@@ -5403,44 +5136,34 @@ function saveReportImage(){
         );
 
 
-        if(blackExport){
+        /* أحمر */
 
-            ctx.fillStyle=
-                "#8b1010";
-
-
-            ctx.fillRect(
-
-                300,
-
-                bannerHeight+164,
-
-                width-600,
-
-                3
-
-            );
-
-        }
+        ctx.fillStyle=
+            "#8b1010";
 
 
-        /* =================================================
-           الإحصائيات
-        ================================================= */
+        ctx.fillRect(
+
+            300,
+
+            bannerHeight+164,
+
+            width-600,
+
+            3
+
+        );
+
+
+        /* الإحصائيات */
 
         const winners=
             filtered.filter(
 
-                function(t){
+                trade =>
 
-                    return(
-
-                        Number(t.sell)>
-                        Number(t.buy)
-
-                    );
-
-                }
+                Number(trade.sell)>
+                Number(trade.buy)
 
             ).length;
 
@@ -5448,20 +5171,14 @@ function saveReportImage(){
         const stopped=
             filtered.filter(
 
-                function(t){
+                trade =>
 
-                    return(
+                Number(trade.sell)<
+                Number(trade.buy)
 
-                        Number(t.sell)<
-                        Number(t.buy)
+                &&
 
-                        &&
-
-                        Number(t.sell)>0
-
-                    );
-
-                }
+                Number(trade.sell)>0
 
             ).length;
 
@@ -5469,15 +5186,9 @@ function saveReportImage(){
         const losers=
             filtered.filter(
 
-                function(t){
+                trade =>
 
-                    return(
-
-                        Number(t.sell)===0
-
-                    );
-
-                }
+                Number(trade.sell)===0
 
             ).length;
 
@@ -5485,18 +5196,12 @@ function saveReportImage(){
         const totalProfit=
             filtered.reduce(
 
-                function(sum,t){
+                (sum,trade) =>
 
-                    return(
-
-                        sum+
-                        Number(
-                            t.profit||0
-                        )
-
-                    );
-
-                },
+                sum+
+                Number(
+                    trade.profit||0
+                ),
 
                 0
 
@@ -5518,11 +5223,7 @@ function saveReportImage(){
                     filtered.length
                 ),
 
-                blackExport
-                ?
-                "#f4d76c"
-                :
-                "#171d1f"
+                palette.text
             ],
 
             [
@@ -5532,7 +5233,7 @@ function saveReportImage(){
                     winners
                 ),
 
-                "#18a25f"
+                "#16a864"
             ],
 
             [
@@ -5542,7 +5243,7 @@ function saveReportImage(){
                     stopped
                 ),
 
-                "#00a9cb"
+                "#00a7c8"
             ],
 
             [
@@ -5552,24 +5253,24 @@ function saveReportImage(){
                     losers
                 ),
 
-                "#d13b3b"
+                "#d83c3c"
             ]
 
         ];
 
 
-        const boxGap=
+        const gap=
             22;
 
 
-        const boxW=
+        const boxWidth=
             (
                 width-
-                boxGap*4
+                gap*4
             )/3;
 
 
-        const boxH=
+        const boxHeight=
             125;
 
 
@@ -5580,35 +5281,35 @@ function saveReportImage(){
 
         stats.forEach(
 
-            function(s,i){
+            (stat,index)=>{
 
 
                 const row=
                     Math.floor(
-                        i/3
+                        index/3
                     );
 
 
                 const col=
-                    i%3;
+                    index%3;
 
 
                 const x=
                     col*
                     (
-                        boxW+
-                        boxGap
+                        boxWidth+
+                        gap
                     )
                     +
-                    boxGap;
+                    gap;
 
 
                 const y=
                     startY+
                     row*
                     (
-                        boxH+
-                        boxGap
+                        boxHeight+
+                        gap
                     );
 
 
@@ -5619,29 +5320,17 @@ function saveReportImage(){
                     x,
                     y,
 
-                    boxW,
-                    boxH,
+                    boxWidth,
+                    boxHeight,
 
-                    blackExport
-                    ?
-                    "#090909"
-                    :
-                    "#f1f4f4"
+                    palette.card,
+                    palette.head
 
                 );
 
 
                 ctx.fillStyle=
-
-                    blackExport
-
-                    ?
-
-                    "#ffffff"
-
-                    :
-
-                    "#182326";
+                    palette.text;
 
 
                 ctx.font=
@@ -5650,10 +5339,10 @@ function saveReportImage(){
 
                 ctx.fillText(
 
-                    s[0],
+                    stat[0],
 
                     x+
-                    boxW/2,
+                    boxWidth/2,
 
                     y+46
 
@@ -5661,7 +5350,7 @@ function saveReportImage(){
 
 
                 ctx.fillStyle=
-                    s[2];
+                    stat[2];
 
 
                 ctx.font=
@@ -5670,10 +5359,10 @@ function saveReportImage(){
 
                 ctx.fillText(
 
-                    s[1],
+                    stat[1],
 
                     x+
-                    boxW/2,
+                    boxWidth/2,
 
                     y+101
 
@@ -5684,24 +5373,22 @@ function saveReportImage(){
         );
 
 
-        /* =================================================
-           مجموع الأرباح
-        ================================================= */
+        /* الأرباح */
 
         const profitY=
             startY+
-            boxH+
-            boxGap;
+            boxHeight+
+            gap;
 
 
-        const profitW=
-            boxW;
+        const profitWidth=
+            boxWidth;
 
 
         const profitX=
             (
                 width-
-                profitW
+                profitWidth
             )/2;
 
 
@@ -5713,15 +5400,13 @@ function saveReportImage(){
 
             profitY,
 
-            profitW,
+            profitWidth,
 
             170,
 
-            blackExport
-            ?
-            "#090909"
-            :
-            "#f1f4f4"
+            palette.card,
+
+            palette.head
 
         );
 
@@ -5732,24 +5417,15 @@ function saveReportImage(){
 
             ?
 
-            "#18a25f"
+            "#16a864"
 
             :
 
-            "#d13b3b";
+            "#d83c3c";
 
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#f4d76c"
-
-            :
-
-            "#182326";
+            palette.text;
 
 
         ctx.font=
@@ -5835,9 +5511,7 @@ function saveReportImage(){
         );
 
 
-        /* =================================================
-           الجدول
-        ================================================= */
+        /* الجدول */
 
         let y=
             profitY+
@@ -5867,7 +5541,7 @@ function saveReportImage(){
         ];
 
 
-        const cw=
+        const columnWidth=
             width/
             columns.length;
 
@@ -5877,33 +5551,19 @@ function saveReportImage(){
             ctx,
 
             0,
-
             y,
 
             width,
-
             tableHeader,
 
-            blackExport
-            ?
-            "#111111"
-            :
-            "#d7e5e7"
+            palette.head,
+            palette.card
 
         );
 
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#f4d76c"
-
-            :
-
-            "#111b1e";
+            palette.text;
 
 
         ctx.font=
@@ -5912,15 +5572,16 @@ function saveReportImage(){
 
         columns.forEach(
 
-            function(column,i){
+            (column,index)=>{
 
                 ctx.fillText(
 
                     column,
 
                     width-
-                    i*cw-
-                    cw/2,
+                    index*
+                    columnWidth-
+                    columnWidth/2,
 
                     y+68
 
@@ -5937,73 +5598,69 @@ function saveReportImage(){
 
         sorted.forEach(
 
-            function(t){
+            trade =>{
 
 
                 const status=
-                    getStatus(t);
+                    getStatus(trade);
 
 
                 let rowColor;
 
 
-                if(blackExport){
+                if(
+                    status.name===
+                    "رابحة"
+                ){
 
-                    if(
-                        status.name===
-                        "رابحة"
-                    ){
+                    rowColor=
 
-                        rowColor=
-                            "#08170e";
+                        dark
 
-                    }
+                        ?
 
-                    else if(
-                        status.name===
-                        "موقوفة"
-                    ){
+                        "#102318"
 
-                        rowColor=
-                            "#07171c";
+                        :
 
-                    }
+                        "#e5f5ea";
 
-                    else{
+                }
 
-                        rowColor=
-                            "#210909";
 
-                    }
+                else if(
+                    status.name===
+                    "موقوفة"
+                ){
 
-                }else{
+                    rowColor=
 
-                    if(
-                        status.name===
-                        "رابحة"
-                    ){
+                        dark
 
-                        rowColor=
-                            "#e1f3e7";
+                        ?
 
-                    }
+                        "#10242a"
 
-                    else if(
-                        status.name===
-                        "موقوفة"
-                    ){
+                        :
 
-                        rowColor=
-                            "#def5f8";
+                        "#e1f6fa";
 
-                    }
+                }
 
-                    else{
 
-                        rowColor=
-                            "#f8dfdf";
+                else{
 
-                    }
+                    rowColor=
+
+                        dark
+
+                        ?
+
+                        "#301010"
+
+                        :
+
+                        "#f9e1e1";
 
                 }
 
@@ -6013,13 +5670,12 @@ function saveReportImage(){
                     ctx,
 
                     0,
-
                     y,
 
                     width,
-
                     rowHeight,
 
+                    rowColor,
                     rowColor
 
                 );
@@ -6027,24 +5683,24 @@ function saveReportImage(){
 
                 const values=[
 
-                    t.stock,
+                    trade.stock,
 
-                    t.option,
+                    trade.option,
 
                     Number(
-                        t.strike
+                        trade.strike
                     ).toFixed(2),
 
                     Number(
-                        t.buy
+                        trade.buy
                     ).toFixed(2),
 
                     Number(
-                        t.sell
+                        trade.sell
                     ).toFixed(2),
 
                     (
-                        t.profit>=0
+                        trade.profit>=0
                         ?
                         "+"
                         :
@@ -6052,11 +5708,11 @@ function saveReportImage(){
                     )
                     +
                     Number(
-                        t.profit
+                        trade.profit
                     ).toFixed(2),
 
                     (
-                        t.percentage>=0
+                        trade.percentage>=0
                         ?
                         "+"
                         :
@@ -6064,21 +5720,21 @@ function saveReportImage(){
                     )
                     +
                     Number(
-                        t.percentage
+                        trade.percentage
                     ).toFixed(2)
                     +
                     "%",
 
                     status.name,
 
-                    t.notes||""
+                    trade.notes||""
 
                 ];
 
 
                 ctx.fillStyle=
 
-                    blackExport
+                    dark
 
                     ?
 
@@ -6086,7 +5742,7 @@ function saveReportImage(){
 
                     :
 
-                    "#080d0f";
+                    "#172126";
 
 
                 ctx.font=
@@ -6095,7 +5751,7 @@ function saveReportImage(){
 
                 values.forEach(
 
-                    function(value,i){
+                    (value,index)=>{
 
 
                         let text=
@@ -6103,7 +5759,7 @@ function saveReportImage(){
 
 
                         const maxWidth=
-                            cw-24;
+                            columnWidth-24;
 
 
                         while(
@@ -6121,9 +5777,9 @@ function saveReportImage(){
                         ){
 
                             text=
-                                text.substring(
+                                text.slice(
                                     0,
-                                    text.length-1
+                                    -1
                                 );
 
                         }
@@ -6134,8 +5790,9 @@ function saveReportImage(){
                             text,
 
                             width-
-                            i*cw-
-                            cw/2,
+                            index*
+                            columnWidth-
+                            columnWidth/2,
 
                             y+
                             rowHeight/2+
@@ -6156,19 +5813,10 @@ function saveReportImage(){
         );
 
 
-        if(sorted.length===0){
+        if(!sorted.length){
 
             ctx.fillStyle=
-
-                blackExport
-
-                ?
-
-                "#ffffff"
-
-                :
-
-                "#222222";
+                palette.text;
 
 
             ctx.font=
@@ -6188,9 +5836,7 @@ function saveReportImage(){
         }
 
 
-        /* =================================================
-           التنويه
-        ================================================= */
+        /* التنويه */
 
         const noteY=
             height-
@@ -6209,26 +5855,15 @@ function saveReportImage(){
 
             115,
 
-            blackExport
-            ?
-            "#080808"
-            :
-            "#f2f6f6"
+            palette.card,
+
+            palette.head
 
         );
 
 
         ctx.fillStyle=
-
-            blackExport
-
-            ?
-
-            "#ffffff"
-
-            :
-
-            "#283438";
+            palette.text;
 
 
         ctx.font=
@@ -6259,7 +5894,7 @@ function saveReportImage(){
 
         canvas.toBlob(
 
-            function(blob){
+            blob=>{
 
                 if(!blob){
 
@@ -6292,7 +5927,277 @@ function saveReportImage(){
 
 
 /* =====================================================
-   حفظ الصورة
+   صناديق صورة التقرير
+   دائمًا ظل أحمر + ذهبي
+===================================================== */
+
+function draw3DBox(
+    ctx,
+    x,
+    y,
+    width,
+    height,
+    color1,
+    color2
+){
+
+    /* الظل الأحمر */
+
+    ctx.fillStyle=
+        "rgba(125,8,8,.55)";
+
+
+    ctx.fillRect(
+
+        x+9,
+
+        y+11,
+
+        width,
+
+        height
+
+    );
+
+
+    /* التوهج الذهبي */
+
+    ctx.save();
+
+
+    ctx.shadowColor=
+        "rgba(212,175,55,.70)";
+
+
+    ctx.shadowBlur=
+        17;
+
+
+    ctx.strokeStyle=
+        "#d4af37";
+
+
+    ctx.lineWidth=
+        4;
+
+
+    ctx.strokeRect(
+
+        x,
+
+        y,
+
+        width,
+
+        height
+
+    );
+
+
+    ctx.restore();
+
+
+    const gradient=
+        ctx.createLinearGradient(
+
+            x,
+            y,
+
+            x,
+            y+height
+
+        );
+
+
+    gradient.addColorStop(
+        0,
+        color1
+    );
+
+
+    gradient.addColorStop(
+        1,
+        color2
+    );
+
+
+    ctx.fillStyle=
+        gradient;
+
+
+    ctx.fillRect(
+
+        x,
+        y,
+
+        width,
+        height
+
+    );
+
+
+    ctx.strokeStyle=
+        "#d4af37";
+
+
+    ctx.lineWidth=
+        3;
+
+
+    ctx.strokeRect(
+
+        x,
+        y,
+
+        width,
+        height
+
+    );
+
+
+    ctx.fillStyle=
+        "rgba(255,220,100,.22)";
+
+
+    ctx.fillRect(
+
+        x,
+        y,
+
+        width,
+        5
+
+    );
+
+}
+
+
+/* =====================================================
+   جدول الصورة
+===================================================== */
+
+function drawTable3D(
+    ctx,
+    x,
+    y,
+    width,
+    height,
+    color1,
+    color2
+){
+
+    ctx.fillStyle=
+        "rgba(125,8,8,.48)";
+
+
+    ctx.fillRect(
+
+        x+7,
+
+        y+9,
+
+        width,
+
+        height
+
+    );
+
+
+    ctx.save();
+
+
+    ctx.shadowColor=
+        "rgba(212,175,55,.55)";
+
+
+    ctx.shadowBlur=
+        11;
+
+
+    ctx.strokeStyle=
+        "#d4af37";
+
+
+    ctx.lineWidth=
+        3;
+
+
+    ctx.strokeRect(
+
+        x,
+        y,
+
+        width,
+        height
+
+    );
+
+
+    ctx.restore();
+
+
+    const gradient=
+        ctx.createLinearGradient(
+
+            x,
+            y,
+
+            x,
+            y+height
+
+        );
+
+
+    gradient.addColorStop(
+        0,
+        color1
+    );
+
+
+    gradient.addColorStop(
+        1,
+        color2
+    );
+
+
+    ctx.fillStyle=
+        gradient;
+
+
+    ctx.fillRect(
+
+        x,
+        y,
+
+        width,
+        height
+
+    );
+
+
+    ctx.strokeStyle=
+        "#b99425";
+
+
+    ctx.lineWidth=
+        2;
+
+
+    ctx.strokeRect(
+
+        x,
+        y,
+
+        width,
+        height
+
+    );
+
+}
+
+
+/* =====================================================
+   حفظ صورة
 ===================================================== */
 
 function saveImageBlob(
@@ -6300,22 +6205,22 @@ function saveImageBlob(
     filename
 ){
 
-    const file=
-        new File(
-
-            [blob],
-
-            filename,
-
-            {
-                type:
-                    "image/png"
-            }
-
-        );
-
-
     try{
+
+        const file=
+            new File(
+
+                [blob],
+
+                filename,
+
+                {
+                    type:
+                        "image/png"
+                }
+
+            );
+
 
         if(
             navigator.share
@@ -6341,23 +6246,20 @@ function saveImageBlob(
 
             .catch(
 
-                function(error){
+                error=>{
 
                     if(
                         error
                         &&
-                        error.name===
+                        error.name!==
                         "AbortError"
                     ){
 
-                        return;
+                        fallbackSaveImage(
+                            blob
+                        );
 
                     }
-
-
-                    fallbackSaveImage(
-                        blob
-                    );
 
                 }
 
@@ -6424,7 +6326,7 @@ function fallbackSaveImage(blob){
 
         setTimeout(
 
-            function(){
+            ()=>{
 
                 try{
 
@@ -6445,8 +6347,8 @@ function fallbackSaveImage(blob){
 
         );
 
-
-    }catch(error){
+    }
+    catch(error){
 
         alert(
             "تعذر حفظ الصورة. حاولي مرة أخرى."
@@ -6458,454 +6360,54 @@ function fallbackSaveImage(blob){
 
 
 /* =====================================================
-   صندوق 3D
-===================================================== */
-
-function draw3DBox(
-    ctx,
-    x,
-    y,
-    w,
-    h,
-    background
-){
-
-    const blackMode=
-        isBlackExportTheme();
-
-
-    if(blackMode){
-
-        ctx.fillStyle=
-            "rgba(135,10,10,.75)";
-
-
-        ctx.fillRect(
-
-            x+10,
-
-            y+12,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.save();
-
-
-        ctx.shadowColor=
-            "rgba(212,175,55,.75)";
-
-
-        ctx.shadowBlur=
-            18;
-
-
-        ctx.strokeStyle=
-            "#d4af37";
-
-
-        ctx.lineWidth=
-            4;
-
-
-        ctx.strokeRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.restore();
-
-
-        const gradient=
-            ctx.createLinearGradient(
-
-                x,
-
-                y,
-
-                x,
-
-                y+h
-
-            );
-
-
-        gradient.addColorStop(
-            0,
-            "#292929"
-        );
-
-
-        gradient.addColorStop(
-            1,
-            background
-        );
-
-
-        ctx.fillStyle=
-            gradient;
-
-
-        ctx.fillRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.strokeStyle=
-            "#d4af37";
-
-
-        ctx.lineWidth=
-            3;
-
-
-        ctx.strokeRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.fillStyle=
-            "rgba(255,220,100,.30)";
-
-
-        ctx.fillRect(
-
-            x,
-
-            y,
-
-            w,
-
-            5
-
-        );
-
-
-        return;
-
-    }
-
-
-    ctx.fillStyle=
-        "rgba(0,0,0,.18)";
-
-
-    ctx.fillRect(
-
-        x+8,
-
-        y+10,
-
-        w,
-
-        h
-
-    );
-
-
-    const gradient=
-        ctx.createLinearGradient(
-
-            x,
-
-            y,
-
-            x,
-
-            y+h
-
-        );
-
-
-    gradient.addColorStop(
-        0,
-        "#ffffff"
-    );
-
-
-    gradient.addColorStop(
-        1,
-        background
-    );
-
-
-    ctx.fillStyle=
-        gradient;
-
-
-    ctx.fillRect(
-
-        x,
-
-        y,
-
-        w,
-
-        h
-
-    );
-
-
-    ctx.strokeStyle=
-        "#aebbbe";
-
-
-    ctx.lineWidth=
-        2;
-
-
-    ctx.strokeRect(
-
-        x,
-
-        y,
-
-        w,
-
-        h
-
-    );
-
-}
-
-
-/* =====================================================
-   جدول 3D
-===================================================== */
-
-function drawTable3D(
-    ctx,
-    x,
-    y,
-    w,
-    h,
-    background
-){
-
-    const blackMode=
-        isBlackExportTheme();
-
-
-    if(blackMode){
-
-        ctx.fillStyle=
-            "rgba(125,8,8,.70)";
-
-
-        ctx.fillRect(
-
-            x+7,
-
-            y+9,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.save();
-
-
-        ctx.shadowColor=
-            "rgba(212,175,55,.58)";
-
-
-        ctx.shadowBlur=
-            12;
-
-
-        ctx.strokeStyle=
-            "#d4af37";
-
-
-        ctx.lineWidth=
-            3;
-
-
-        ctx.strokeRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.restore();
-
-
-        const gradient=
-            ctx.createLinearGradient(
-
-                x,
-
-                y,
-
-                x,
-
-                y+h
-
-            );
-
-
-        gradient.addColorStop(
-            0,
-            "#242424"
-        );
-
-
-        gradient.addColorStop(
-            1,
-            background
-        );
-
-
-        ctx.fillStyle=
-            gradient;
-
-
-        ctx.fillRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        ctx.strokeStyle=
-            "#b99425";
-
-
-        ctx.lineWidth=
-            2;
-
-
-        ctx.strokeRect(
-
-            x,
-
-            y,
-
-            w,
-
-            h
-
-        );
-
-
-        return;
-
-    }
-
-
-    const gradient=
-        ctx.createLinearGradient(
-
-            x,
-
-            y,
-
-            x,
-
-            y+h
-
-        );
-
-
-    gradient.addColorStop(
-        0,
-        "#ffffff"
-    );
-
-
-    gradient.addColorStop(
-        1,
-        background
-    );
-
-
-    ctx.fillStyle=
-        gradient;
-
-
-    ctx.fillRect(
-
-        x,
-
-        y,
-
-        w,
-
-        h
-
-    );
-
-
-    ctx.strokeStyle=
-        "#aebbbe";
-
-
-    ctx.lineWidth=
-        2;
-
-
-    ctx.strokeRect(
-
-        x,
-
-        y,
-
-        w,
-
-        h
-
-    );
-
-}
-
-
-/* =====================================================
    التشغيل
 ===================================================== */
+
+const savedTheme=
+    localStorage.getItem(
+        "optionTheme"
+    );
+
+
+setTheme(
+
+    THEMES.includes(
+        savedTheme
+    )
+
+    ?
+
+    savedTheme
+
+    :
+
+    "white"
+
+);
+
+
+const savedReportTheme=
+    localStorage.getItem(
+        "reportTheme"
+    );
+
+
+setReportTheme(
+
+    THEMES.includes(
+        savedReportTheme
+    )
+
+    ?
+
+    savedReportTheme
+
+    :
+
+    "white"
+
+);
+
 
 setLogo(
     selectedLogo
@@ -6917,9 +6419,7 @@ updateCurrentWeek();
 
 displayCurrentWeekTrades();
 
-
 </script>
 
 </body>
-
 </html>
