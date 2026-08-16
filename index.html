@@ -5,20 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<img src="./IMG_6426.jpeg" alt="شعار البرنامج" class="logo">
-<h1>متابعة الأوبشن</h1>
+<title>متابعة الأوبشن</title>
 
 <style>
-
-.logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 8px;
-}
-
-/* باقي التنسيقات هنا */
 
 body {
     font-family: Arial, sans-serif;
@@ -30,6 +19,14 @@ body {
 .container {
     max-width: 1100px;
     margin: auto;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 8px;
 }
 
 h1 {
@@ -71,10 +68,6 @@ select {
     border-radius: 9px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.add-button:active {
-    transform: scale(0.98);
 }
 
 .table-box {
@@ -137,63 +130,39 @@ td {
 
 <div class="container">
 
-<h1>📊 متابعة الأوبشن</h1>
+<img src="./IMG_6426.jpeg" class="logo">
 
+<h1>متابعة الأوبشن</h1>
 
 <div class="form-box">
 
 <div class="form">
 
-<input
-id="stock"
-type="text"
-placeholder="السهم">
+<input id="stock" type="text" placeholder="السهم">
 
 <select id="option">
 
 <option value="">اختاري الأوبشن</option>
 
-<option value="Call">
-Call 📈
-</option>
+<option value="Call">Call 📈</option>
 
-<option value="Put">
-Put 📉
-</option>
+<option value="Put">Put 📉</option>
 
 </select>
 
-<input
-id="strike"
-type="number"
-step="0.01"
-placeholder="السترايك">
+<input id="strike" type="number" step="0.01" placeholder="السترايك">
 
-<input
-id="buy"
-type="number"
-step="0.01"
-placeholder="سعر الشراء">
+<input id="buy" type="number" step="0.01" placeholder="سعر الشراء">
 
-<input
-id="sell"
-type="number"
-step="0.01"
-placeholder="سعر البيع">
+<input id="sell" type="number" step="0.01" placeholder="سعر البيع">
 
 </div>
 
-
-<button
-class="add-button"
-onclick="addTrade()">
-
+<button class="add-button" onclick="addTrade()">
 ➕ إضافة الصفقة
-
 </button>
 
 </div>
-
 
 <div class="table-box">
 
@@ -204,34 +173,24 @@ onclick="addTrade()">
 <tr>
 
 <th>السهم</th>
-
 <th>الأوبشن</th>
-
 <th>السترايك</th>
-
 <th>سعر الشراء</th>
-
 <th>سعر البيع</th>
-
 <th>الربح</th>
-
 <th>الأرباح %</th>
-
 <th>حذف</th>
 
 </tr>
 
 </thead>
 
-
 <tbody id="tableBody">
 
 <tr>
-
 <td colspan="8" class="empty">
 لا توجد صفقات حتى الآن
 </td>
-
 </tr>
 
 </tbody>
@@ -242,11 +201,9 @@ onclick="addTrade()">
 
 </div>
 
-
 <script>
 
 let trades = [];
-
 
 function addTrade() {
 
@@ -257,20 +214,13 @@ function addTrade() {
         document.getElementById("option").value;
 
     const strike =
-        parseFloat(
-            document.getElementById("strike").value
-        );
+        parseFloat(document.getElementById("strike").value);
 
     const buy =
-        parseFloat(
-            document.getElementById("buy").value
-        );
+        parseFloat(document.getElementById("buy").value);
 
     const sell =
-        parseFloat(
-            document.getElementById("sell").value
-        );
-
+        parseFloat(document.getElementById("sell").value);
 
     if (
         stock === "" ||
@@ -281,132 +231,81 @@ function addTrade() {
     ) {
 
         alert("⚠️ فضلاً أدخلي جميع البيانات");
-
         return;
     }
-
 
     if (buy <= 0) {
 
         alert("⚠️ سعر الشراء يجب أن يكون أكبر من صفر");
-
         return;
     }
 
-
     const profit = sell - buy;
 
-    const percentage =
-        (profit / buy) * 100;
-
+    const percentage = (profit / buy) * 100;
 
     trades.push({
-
-        stock: stock,
-
-        option: option,
-
-        strike: strike,
-
-        buy: buy,
-
-        sell: sell,
-
-        profit: profit,
-
-        percentage: percentage
-
+        stock,
+        option,
+        strike,
+        buy,
+        sell,
+        profit,
+        percentage
     });
-
 
     displayTrades();
 
-
     document.getElementById("stock").value = "";
-
     document.getElementById("option").value = "";
-
     document.getElementById("strike").value = "";
-
     document.getElementById("buy").value = "";
-
     document.getElementById("sell").value = "";
-
 }
-
-
 
 function displayTrades() {
 
     const tableBody =
         document.getElementById("tableBody");
 
-
     tableBody.innerHTML = "";
-
 
     if (trades.length === 0) {
 
         tableBody.innerHTML = `
-        
         <tr>
-        
         <td colspan="8" class="empty">
         لا توجد صفقات حتى الآن
         </td>
-        
         </tr>
-        
         `;
 
         return;
     }
 
-
     trades.forEach(function(trade, index) {
 
-
         const profitClass =
-            trade.profit >= 0
-            ? "green"
-            : "red";
-
+            trade.profit >= 0 ? "green" : "red";
 
         const sign =
-            trade.profit >= 0
-            ? "+"
-            : "";
-
+            trade.profit >= 0 ? "+" : "";
 
         const percentSign =
-            trade.percentage >= 0
-            ? "+"
-            : "";
-
+            trade.percentage >= 0 ? "+" : "";
 
         const row = `
-
         <tr>
 
-        <td>
-        ${trade.stock}
-        </td>
+        <td>${trade.stock}</td>
 
-        <td>
-        ${trade.option}
-        </td>
+        <td>${trade.option}</td>
 
-        <td>
-        ${trade.strike.toFixed(2)}
-        </td>
+        <td>${trade.strike.toFixed(2)}</td>
 
-        <td>
-        ${trade.buy.toFixed(2)}
-        </td>
+        <td>${trade.buy.toFixed(2)}</td>
 
-        <td>
-        ${trade.sell.toFixed(2)}
-        </td>
+        <td>${trade.sell.toFixed(2)}</td>
 
         <td class="profit ${profitClass}">
         ${sign}${trade.profit.toFixed(2)}
@@ -429,17 +328,12 @@ function displayTrades() {
         </td>
 
         </tr>
-
         `;
-
 
         tableBody.innerHTML += row;
 
     });
-
 }
-
-
 
 function deleteTrade(index) {
 
